@@ -1,0 +1,73 @@
+# ============================================================
+# PHASE 1: Generate post + send confirmation (8:11 PM IST)
+# ============================================================
+# Runs daily at 8:11 PM IST (2:41 PM UTC)
+# Generates the LinkedIn post and creates a GitHub Issue for review.
+# User gets an email notification (via GitHub) and has 3 hours to respond.
+# ============================================================
+
+name: Generate Post & Send Confirmation
+
+on:
+  schedule:
+    # 8:11 PM IST = 2:41 PM UTC
+    - cron: '41 14 * * *'
+  workflow_dispatch:
+    inputs:
+      date:
+        description: 'Date override (YYYY-MM-DD)'
+        required: false
+        default: ''
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  generate-and-notify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Determine date
+        id: date
+        run: |
+          if [ -n "${{ github.event.inputs.date }}" ]; then
+            echo "date=${{ github.event.inputs.date }}" >> $GITHUB_OUTPUT
+          else
+            echo "date=$(TZ='Asia/Kolkata' date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Generate LinkedIn post
+        id: generate
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        working-directory: scripts
+        run: python generate_post.py --date ${{ steps.date.outputs.date }}
+
+      - name: Create confirmation issue
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        working-directory: scripts
+        run: |
+          python notify.py \
+            --action notify \
+            --date ${{ steps.date.outputs.date }}
+
+      - name: Commit generated post
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add posts/
+          git diff --staged --quiet || git commit -m "Generate LinkedIn post for ${{ steps.date.outputs.date }}"
+          git push

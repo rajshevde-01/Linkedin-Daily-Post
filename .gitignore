@@ -1,0 +1,8 @@
+# Env
+.env
+__pycache__/
+*.pyc
+.venv/
+venv/
+linkedin_credentials.json
+scripts/get_linkedin_id.py

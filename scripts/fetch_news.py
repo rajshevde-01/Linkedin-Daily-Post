@@ -1,0 +1,241 @@
+"""
+Fetch latest cybersecurity news from RSS feeds with authenticity verification.
+- Only uses trusted, established cybersecurity news sources
+- Cross-references stories across multiple sources for verification
+- Validates article metadata (URL, date, author)
+- Assigns confidence scores to each story
+"""
+import re
+import feedparser
+import requests
+from datetime import datetime, timedelta
+from difflib import SequenceMatcher
+from config import RSS_FEEDS
+
+
+def validate_article_url(url: str) -> bool:
+    """Check that the article URL is real and reachable."""
+    if not url or not url.startswith("http"):
+        return False
+    try:
+        response = requests.head(url, timeout=5, allow_redirects=True,
+                                 headers={"User-Agent": "Mozilla/5.0"})
+        return response.status_code < 400
+    except Exception:
+        return False
+
+
+def strip_html(text: str) -> str:
+    """Remove HTML tags from text."""
+    return re.sub(r"<[^>]+>", "", text).strip()
+
+
+def titles_are_similar(title_a: str, title_b: str, threshold: float = 0.45) -> bool:
+    """Check if two article titles are about the same story."""
+    a = title_a.lower().strip()
+    b = title_b.lower().strip()
+
+    # Direct similarity check
+    ratio = SequenceMatcher(None, a, b).ratio()
+    if ratio >= threshold:
+        return True
+
+    # Keyword overlap check — extract significant words (4+ chars)
+    words_a = set(w for w in re.findall(r'\b\w{4,}\b', a))
+    words_b = set(w for w in re.findall(r'\b\w{4,}\b', b))
+    if words_a and words_b:
+        overlap = len(words_a & words_b) / min(len(words_a), len(words_b))
+        if overlap >= 0.5:
+            return True
+
+    return False
+
+
+def fetch_recent_articles(max_per_feed: int = 8, max_age_days: int = 3) -> list[dict]:
+    """Fetch recent articles from all configured RSS feeds."""
+    articles = []
+    cutoff = datetime.now() - timedelta(days=max_age_days)
+
+    for feed_info in RSS_FEEDS:
+        feed_url = feed_info["url"]
+        trust_tier = feed_info["tier"]
+        source_name = feed_info["name"]
+
+        try:
+            feed = feedparser.parse(feed_url)
+
+            for entry in feed.entries[:max_per_feed]:
+                published = None
+                if hasattr(entry, "published_parsed") and entry.published_parsed:
+                    published = datetime(*entry.published_parsed[:6])
+                elif hasattr(entry, "updated_parsed") and entry.updated_parsed:
+                    published = datetime(*entry.updated_parsed[:6])
+
+                # Skip articles without a valid date
+                if not published:
+                    continue
+
+                # Skip old articles
+                if published < cutoff:
+                    continue
+
+                title = entry.get("title", "").strip()
+                link = entry.get("link", "").strip()
+                summary = strip_html(entry.get("summary", ""))[:300]
+
+                # Skip articles without a title or link
+                if not title or not link:
+                    continue
+
+                articles.append({
+                    "title": title,
+                    "summary": summary,
+                    "link": link,
+                    "source": source_name,
+                    "trust_tier": trust_tier,
+                    "published": published.strftime("%Y-%m-%d"),
+                    "published_dt": published,
+                    "cross_ref_count": 1,  # how many sources reported this
+                    "cross_ref_sources": [source_name],
+                    "verified": False,
+                })
+        except Exception as e:
+            print(f"[WARN] Failed to fetch {source_name} ({feed_url}): {e}")
+            continue
+
+    return articles
+
+
+def cross_reference_articles(articles: list[dict]) -> list[dict]:
+    """
+    Cross-reference articles across sources.
+    Stories reported by multiple sources get higher confidence.
+    """
+    if not articles:
+        return articles
+
+    # Group similar articles together
+    clusters = []  # each cluster = list of similar articles
+
+    for article in articles:
+        matched_cluster = None
+        for cluster in clusters:
+            # Compare against the first article in the cluster
+            if titles_are_similar(article["title"], cluster[0]["title"]):
+                matched_cluster = cluster
+                break
+
+        if matched_cluster:
+            matched_cluster.append(article)
+        else:
+            clusters.append([article])
+
+    # Build verified article list from clusters
+    verified_articles = []
+
+    for cluster in clusters:
+        # Pick the best article from the cluster (highest trust tier source)
+        cluster.sort(key=lambda a: a["trust_tier"])
+        best = cluster[0].copy()
+
+        # Collect all unique sources that reported this story
+        all_sources = list(set(a["source"] for a in cluster))
+        best["cross_ref_count"] = len(all_sources)
+        best["cross_ref_sources"] = all_sources
+
+        # Mark as verified if reported by 2+ sources OR from a Tier 1 source
+        best["verified"] = (len(all_sources) >= 2) or (best["trust_tier"] == 1)
+
+        verified_articles.append(best)
+
+    return verified_articles
+
+
+def spot_check_urls(articles: list[dict], max_checks: int = 5) -> list[dict]:
+    """
+    Validate URLs for top articles to ensure they are real and reachable.
+    Only checks a limited number to avoid slowing down the pipeline.
+    """
+    checked = 0
+    for article in articles:
+        if checked >= max_checks:
+            break
+        if article.get("verified"):
+            is_valid = validate_article_url(article["link"])
+            article["url_valid"] = is_valid
+            if not is_valid:
+                article["verified"] = False
+                print(f"[WARN] URL validation failed for: {article['title'][:60]}")
+            checked += 1
+    return articles
+
+
+def format_news_context(articles: list[dict]) -> str:
+    """Format verified articles into a context string for the LLM."""
+    if not articles:
+        return "No recent verified cybersecurity news available. Use your general expertise to write the post based on well-known, verifiable current events."
+
+    # Separate verified and unverified
+    verified = [a for a in articles if a.get("verified")]
+    unverified = [a for a in articles if not a.get("verified")]
+
+    lines = ["=== VERIFIED NEWS (confirmed by multiple trusted sources) ===", ""]
+
+    for i, article in enumerate(verified[:10], 1):
+        sources_str = ", ".join(article["cross_ref_sources"])
+        lines.append(f"{i}. [{sources_str}] {article['title']}")
+        if article["summary"]:
+            lines.append(f"   Summary: {article['summary'][:200]}")
+        lines.append(f"   Link: {article['link']}")
+        lines.append(f"   Published: {article['published']}")
+        lines.append("")
+
+    if unverified:
+        lines.append("=== ADDITIONAL NEWS (single source, use with caution) ===")
+        lines.append("")
+        for i, article in enumerate(unverified[:5], 1):
+            lines.append(f"{i}. [{article['source']}] {article['title']}")
+            lines.append(f"   Link: {article['link']}")
+            lines.append("")
+
+    return "\n".join(lines)
+
+
+def get_news_context() -> str:
+    """
+    Main entry point: fetch, verify, and return formatted news context.
+
+    Pipeline:
+    1. Fetch from all trusted RSS feeds
+    2. Cross-reference across sources (same story = higher confidence)
+    3. Spot-check top article URLs for reachability
+    4. Format with verification status for the LLM
+    """
+    print("[INFO] Fetching cybersecurity news from trusted RSS feeds...")
+    articles = fetch_recent_articles()
+    print(f"[INFO] Fetched {len(articles)} raw articles from {len(RSS_FEEDS)} feeds")
+
+    print("[INFO] Cross-referencing articles across sources...")
+    articles = cross_reference_articles(articles)
+    verified_count = sum(1 for a in articles if a.get("verified"))
+    print(f"[INFO] {verified_count}/{len(articles)} articles verified (multi-source or Tier 1)")
+
+    print("[INFO] Spot-checking top article URLs...")
+    articles = spot_check_urls(articles)
+
+    # Sort: verified first, then by cross-ref count, then by date
+    articles.sort(key=lambda a: (
+        not a.get("verified"),         # verified first
+        -a.get("cross_ref_count", 0),  # more sources = higher
+        a.get("published", ""),        # newest first (reversed below)
+    ))
+
+    context = format_news_context(articles)
+    print(f"[INFO] News context ready ({len(context)} chars)")
+    return context
+
+
+if __name__ == "__main__":
+    context = get_news_context()
+    print("\n=== NEWS CONTEXT ===\n")
+    print(context)

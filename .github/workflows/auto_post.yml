@@ -1,0 +1,103 @@
+# ============================================================
+# PHASE 2: Auto-post to LinkedIn (11:11 PM IST)
+# ============================================================
+# Runs daily at 11:11 PM IST (5:41 PM UTC)
+# Checks if user approved/rejected the post.
+# If approved or no response (timeout) -> posts to LinkedIn.
+# If rejected -> skips posting.
+# ============================================================
+
+name: Auto-Post to LinkedIn
+
+on:
+  schedule:
+    # 11:11 PM IST = 5:41 PM UTC
+    - cron: '41 17 * * *'
+  workflow_dispatch:
+    inputs:
+      date:
+        description: 'Date override (YYYY-MM-DD)'
+        required: false
+        default: ''
+      force:
+        description: 'Force post regardless of status'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  check-and-post:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Determine date
+        id: date
+        run: |
+          if [ -n "${{ github.event.inputs.date }}" ]; then
+            echo "date=${{ github.event.inputs.date }}" >> $GITHUB_OUTPUT
+          else
+            echo "date=$(TZ='Asia/Kolkata' date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Check user response
+        id: check
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        working-directory: scripts
+        run: python notify.py --action check --date ${{ steps.date.outputs.date }}
+
+      - name: Decide whether to post
+        id: decide
+        run: |
+          CONFIRMATION="${{ steps.check.outputs.confirmation }}"
+          FORCE="${{ github.event.inputs.force }}"
+          echo "Confirmation status: $CONFIRMATION"
+
+          if [ "$CONFIRMATION" = "rejected" ]; then
+            echo "should_post=false" >> $GITHUB_OUTPUT
+            echo "reason=User rejected the post" >> $GITHUB_OUTPUT
+          elif [ "$CONFIRMATION" = "approved" ] || [ "$CONFIRMATION" = "no_response" ] || [ "$FORCE" = "true" ]; then
+            echo "should_post=true" >> $GITHUB_OUTPUT
+            echo "reason=Auto-posting (status: $CONFIRMATION)" >> $GITHUB_OUTPUT
+          else
+            echo "should_post=true" >> $GITHUB_OUTPUT
+            echo "reason=Defaulting to auto-post" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Post to LinkedIn
+        if: steps.decide.outputs.should_post == 'true'
+        env:
+          LINKEDIN_ACCESS_TOKEN: ${{ secrets.LINKEDIN_ACCESS_TOKEN }}
+          LINKEDIN_PERSON_URN: ${{ secrets.LINKEDIN_PERSON_URN }}
+        working-directory: scripts
+        run: |
+          echo "${{ steps.decide.outputs.reason }}"
+          python post_to_linkedin.py --date ${{ steps.date.outputs.date }} --force
+
+      - name: Skip notification
+        if: steps.decide.outputs.should_post == 'false'
+        run: echo "Skipping post — ${{ steps.decide.outputs.reason }}"
+
+      - name: Commit status update
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git pull --rebase
+          git add posts/
+          git diff --staged --quiet || git commit -m "Update post status for ${{ steps.date.outputs.date }}"
+          git push

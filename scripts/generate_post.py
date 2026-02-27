@@ -30,12 +30,28 @@ def generate_post(news_context: str) -> str:
 
     system_prompt = get_system_prompt(news_context)
 
-    response = client.models.generate_content(
-        model="gemini-2.0-flash",
-        contents=system_prompt,
-    )
-
-    post_text = response.text.strip()
+    # Added robust retry logic for 429 Rate Limits
+    import time
+    from google.genai import errors
+    
+    max_retries = 3
+    for attempt in range(max_retries):
+        try:
+            response = client.models.generate_content(
+                model="gemini-2.0-flash",
+                contents=system_prompt,
+            )
+            post_text = response.text.strip()
+            break
+        except Exception as e:
+            err_msg = str(e)
+            if "429" in err_msg or "Too Many Requests" in err_msg or "quota" in err_msg.lower():
+                if attempt < max_retries - 1:
+                    print(f"[WARN] Gemini API rate limit hit. Waiting 60s before retry {attempt+1}/{max_retries}...")
+                    time.sleep(60)
+                    continue
+            print(f"[ERROR] Gemini API failed: {e}")
+            sys.exit(1)
 
     # Validate word count
     word_count = len(post_text.split())

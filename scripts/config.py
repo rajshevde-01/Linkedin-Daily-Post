@@ -52,7 +52,7 @@ DAY_NAMES = {
 
 # --- Post Settings ---
 POST_MIN_WORDS = 150
-POST_MAX_WORDS = 220
+POST_MAX_WORDS = 280  # Increased to allow for polls and links
 
 # --- Hashtags (added automatically after generation) ---
 HASHTAGS = [
@@ -89,10 +89,11 @@ STRICT RULES:
 - Start with a powerful hook (shocking stat, bold question, or surprising fact)
 - Length: {POST_MIN_WORDS}-{POST_MAX_WORDS} words only
 - Tone: professional but human — like a real practitioner and leader, not a corporate bot
+- FORMATTING: Use bullet points (•) and short paragraphs to make the post highly readable and scannable.
 - Include ONE actionable tip or insight professionals can use TODAY
-- End with an engaging question to spark comments
-- NO hashtags (they are added automatically later)
-- NO emojis in the body
+- POLL QUESTION: Instead of a normal question, end the main text with an engaging "Poll-style" question. Provide 2 to 3 numbered or emoji options for people to vote on in the comments. (e.g., "Do you agree? Reply with 1️⃣ for Yes or 2️⃣ for No.")
+- NO hashtags in the body (they are added automatically later)
+- Use emojis tastefully (e.g., 💡, 🚀, 🛡️) but don't overdo it.
 - NO phrases like "In today's digital landscape" or "In conclusion"
 - DO NOT mention AI or that this was generated
 - Write in first person ("I", "we", "our team")
@@ -103,6 +104,11 @@ FACTUAL ACCURACY RULES (CRITICAL):
 - If you cite a number or percentage, it must come directly from the provided news context
 - If the news context is insufficient or irrelevant to today's theme, write the post based on general well-known tech principles, open-source knowledge, and your practitioner experience — do NOT fabricate specific events
 - When in doubt, be general and insightful rather than specific and fabricated.
+
+SOURCE LINK REQUIREMENT:
+- You MUST include a source link at the absolute bottom of the post.
+- Extract the single most relevant URL from the "Latest technology and industry news context" provided above.
+- Format it exactly like this at the end of your response: "🔗 Source: [URL]"
 
 Output ONLY the post text. Nothing else. No labels, no preamble."""
 

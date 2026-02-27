@@ -1,7 +1,7 @@
 # ============================================================
-# PHASE 2: Auto-post to LinkedIn (8:00 PM IST)
+# PHASE 2: Auto-post to LinkedIn (11:11 PM IST)
 # ============================================================
-# Runs daily at 8:00 PM IST (2:30 PM UTC)
+# Runs daily at 11:11 PM IST (5:41 PM UTC)
 # Checks if user approved/rejected the post.
 # If approved or no response (timeout) -> posts to LinkedIn.
 # If rejected -> skips posting.
@@ -11,8 +11,8 @@ name: Auto-Post to LinkedIn
 
 on:
   schedule:
-    # 8:00 PM IST = 2:30 PM UTC
-    - cron: '30 14 * * *'
+    # 11:11 PM IST = 5:41 PM UTC
+    - cron: '41 17 * * *'
   workflow_dispatch:
     inputs:
       date:

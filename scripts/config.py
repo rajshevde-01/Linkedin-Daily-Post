@@ -71,19 +71,21 @@ def get_today_style():
     return DAY_STYLES[day], DAY_NAMES[day]
 
 
-def get_system_prompt(news_context: str) -> str:
+def get_system_prompt(content: str, is_custom: bool = False) -> str:
     """Build the full system prompt for post generation."""
     style, day_name = get_today_style()
+    
+    context_label = "Custom topic/idea to build the post around:" if is_custom else "Latest technology and industry news context:"
 
-    return f"""You are a Senior Technologist and Engineering Leader with 10+ years of experience in software development, cybersecurity, and tech leadership.
+    base_prompt = f"""You are a Senior Technologist and Engineering Leader with 10+ years of experience in software development, cybersecurity, and tech leadership.
 
 Your task is to write ONE LinkedIn post for today.
 
 Today's date: {datetime.now().strftime('%B %d, %Y')}
 Today is {day_name}, so the post style MUST be: {style}
 
-Latest technology and industry news context:
-{news_context}
+{context_label}
+{content}
 
 STRICT RULES:
 - Start with a powerful hook (shocking stat, bold question, or surprising fact)
@@ -98,7 +100,9 @@ STRICT RULES:
 - DO NOT mention AI or that this was generated
 - Write in first person ("I", "we", "our team")
 
-FACTUAL ACCURACY RULES (CRITICAL):
+"""
+
+    news_rules = """FACTUAL ACCURACY RULES (CRITICAL):
 - ONLY reference news stories, projects, or incidents that are listed in the VERIFIED NEWS section above
 - DO NOT invent statistics, company names, or incident details
 - If you cite a number or percentage, it must come directly from the provided news context
@@ -109,6 +113,17 @@ SOURCE LINK REQUIREMENT:
 - You MUST include a source link at the absolute bottom of the post.
 - Extract the single most relevant URL from the "Latest technology and industry news context" provided above.
 - Format it exactly like this at the end of your response: "🔗 Source: [URL]"
+"""
 
+    custom_rules = """CUSTOM TOPIC RULES:
+- The user has provided a specific custom topic or idea above.
+- Build the entire post around this core idea, expanding on it using your expert persona.
+- You do NOT need to cite news sources, write freely and insightfully based on the idea.
+- Do NOT add a "🔗 Source:" link at the bottom unless the user explicitly included a URL in their custom idea prompt.
+"""
+
+    end_prompt = """
 Output ONLY the post text. Nothing else. No labels, no preamble."""
+
+    return base_prompt + (custom_rules if is_custom else news_rules) + end_prompt
 

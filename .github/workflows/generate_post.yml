@@ -18,6 +18,10 @@ on:
         description: 'Date override (YYYY-MM-DD)'
         required: false
         default: ''
+      custom_topic:
+        description: "Provide a complete topic or idea to override today's news"
+        required: false
+        default: ''
 
 permissions:
   contents: write
@@ -53,7 +57,12 @@ jobs:
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         working-directory: scripts
-        run: python generate_post.py --date ${{ steps.date.outputs.date }}
+        run: |
+          if [ -n "${{ github.event.inputs.custom_topic }}" ]; then
+            python generate_post.py --date ${{ steps.date.outputs.date }} --topic "${{ github.event.inputs.custom_topic }}"
+          else
+            python generate_post.py --date ${{ steps.date.outputs.date }}
+          fi
 
       - name: Create confirmation issue
         env:
@@ -69,5 +78,6 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add posts/
+          git add custom_idea.txt || true
           git diff --staged --quiet || git commit -m "Generate LinkedIn post for ${{ steps.date.outputs.date }}"
           git push

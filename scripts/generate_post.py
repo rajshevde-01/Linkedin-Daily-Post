@@ -14,7 +14,7 @@ from config import GEMINI_API_KEY, get_system_prompt, HASHTAGS, POST_MIN_WORDS, 
 from fetch_news import get_news_context
 
 
-def generate_post(news_context: str) -> str:
+def generate_post(content: str, is_custom: bool = False) -> str:
     """Generate a LinkedIn post using Google Gemini API."""
     try:
         from google import genai
@@ -28,7 +28,7 @@ def generate_post(news_context: str) -> str:
 
     client = genai.Client(api_key=GEMINI_API_KEY)
 
-    system_prompt = get_system_prompt(news_context)
+    system_prompt = get_system_prompt(content, is_custom=is_custom)
 
     # Added robust retry logic for 429 Rate Limits
     import time
@@ -105,14 +105,38 @@ def main():
                         help="Date for the post (YYYY-MM-DD)")
     parser.add_argument("--dry-run", action="store_true",
                         help="Print post without saving")
+    parser.add_argument("--topic", default="",
+                        help="Custom topic to write about (bypasses news fetching)")
     args = parser.parse_args()
 
-    # Step 1: Fetch news
-    news_context = get_news_context()
+    # Step 1: Determine topic vs news
+    is_custom = False
+    content_to_use = ""
+    used_custom_file = False
+    
+    custom_idea_file = Path(__file__).parent.parent / "custom_idea.txt"
+
+    if args.topic:
+        is_custom = True
+        content_to_use = args.topic
+        print(f"[INFO] Using custom topic from command line: {args.topic}")
+    elif custom_idea_file.exists():
+        file_content = custom_idea_file.read_text(encoding="utf-8").strip()
+        if file_content:
+            is_custom = True
+            content_to_use = file_content
+            used_custom_file = True
+            print(f"[INFO] Using custom topic from custom_idea.txt")
+        else:
+            print("[INFO] custom_idea.txt is empty. Falling back to news.")
+            content_to_use = get_news_context()
+    else:
+        print("[INFO] Fetching daily news...")
+        content_to_use = get_news_context()
 
     # Step 2: Generate post
     print(f"\n[INFO] Generating {get_style_for_display()} post...")
-    post_text = generate_post(news_context)
+    post_text = generate_post(content_to_use, is_custom=is_custom)
 
     if args.dry_run:
         print("\n=== GENERATED POST ===\n")
@@ -120,6 +144,14 @@ def main():
         print(f"\n=== WITH HASHTAGS ===\n")
         print(add_hashtags(post_text))
         return
+
+    # Clean up the custom idea file if we successfully used it (so it doesn't repeat tomorrow)
+    if used_custom_file and not args.dry_run:
+        try:
+            custom_idea_file.unlink()
+            print("[INFO] Deleted custom_idea.txt after successful generation.")
+        except Exception as e:
+            print(f"[WARN] Could not delete custom_idea.txt: {e}")
 
     # Step 3: Save post
     filepath = save_post(post_text, args.date)

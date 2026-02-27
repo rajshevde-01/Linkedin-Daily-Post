@@ -71,13 +71,21 @@ def get_today_style():
     return DAY_STYLES[day], DAY_NAMES[day]
 
 
-def get_system_prompt(content: str, is_custom: bool = False) -> str:
+def get_system_prompt(content: str, is_custom: bool = False, is_cve: bool = False) -> str:
     """Build the full system prompt for post generation."""
     style, day_name = get_today_style()
     
-    context_label = "Custom topic/idea to build the post around:" if is_custom else "Latest technology and industry news context:"
+    if is_cve:
+        context_label = "Live Zero-Day / CVE Threat Intelligence:"
+        persona = "You are a hardcore Incident Responder and Threat Hunter."
+    elif is_custom:
+        context_label = "Custom topic/idea to build the post around:"
+        persona = "You are a Senior Technologist and Engineering Leader with 10+ years of experience in software development, cybersecurity, and tech leadership."
+    else:
+        context_label = "Latest technology and industry news context:"
+        persona = "You are a Senior Technologist and Engineering Leader with 10+ years of experience in software development, cybersecurity, and tech leadership."
 
-    base_prompt = f"""You are a Senior Technologist and Engineering Leader with 10+ years of experience in software development, cybersecurity, and tech leadership.
+    base_prompt = f"""{persona}
 
 Your task is to write ONE LinkedIn post for today.
 
@@ -122,8 +130,23 @@ SOURCE LINK REQUIREMENT:
 - Do NOT add a "🔗 Source:" link at the bottom unless the user explicitly included a URL in their custom idea prompt.
 """
 
+    cve_rules = """LIVE THREAT INTEL RULES (CRITICAL):
+- You MUST write a highly technical, urgent breakdown of ONE of the vulnerabilities in the context above.
+- Choose the most severe or interesting CVE from the list provided.
+- Explain WHAT the vulnerability is, HOW it might be exploited in the wild, and EXACT mitigation steps for security teams.
+- DO NOT invent CVE details. Stick exactly to the provided description, product, and required action.
+- End the post by explicitly providing the "🔗 Source: [Source Link]" exactly as it appears in the context for the chosen CVE.
+"""
+
     end_prompt = """
 Output ONLY the post text. Nothing else. No labels, no preamble."""
 
-    return base_prompt + (custom_rules if is_custom else news_rules) + end_prompt
+    if is_cve:
+        selected_rules = cve_rules
+    elif is_custom:
+        selected_rules = custom_rules
+    else:
+        selected_rules = news_rules
+
+    return base_prompt + selected_rules + end_prompt
 

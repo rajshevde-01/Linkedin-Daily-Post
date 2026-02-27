@@ -22,6 +22,10 @@ on:
         description: "Provide a complete topic or idea to override today's news"
         required: false
         default: ''
+      use_cve_tracker:
+        description: "Run Live Incident Response Tracker (Fetch CISA Zero-Days instead of News)"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -58,7 +62,9 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         working-directory: scripts
         run: |
-          if [ -n "${{ github.event.inputs.custom_topic }}" ]; then
+          if [ "${{ github.event.inputs.use_cve_tracker }}" == "true" ]; then
+            python generate_post.py --date ${{ steps.date.outputs.date }} --cve
+          elif [ -n "${{ github.event.inputs.custom_topic }}" ]; then
             python generate_post.py --date ${{ steps.date.outputs.date }} --topic "${{ github.event.inputs.custom_topic }}"
           else
             python generate_post.py --date ${{ steps.date.outputs.date }}

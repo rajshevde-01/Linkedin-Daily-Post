@@ -12,9 +12,9 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from config import GEMINI_API_KEY, get_system_prompt, HASHTAGS, POST_MIN_WORDS, POST_MAX_WORDS
 from fetch_news import get_news_context
+from fetch_cve import get_cve_context
 
-
-def generate_post(content: str, is_custom: bool = False) -> str:
+def generate_post(content: str, is_custom: bool = False, is_cve: bool = False) -> str:
     """Generate a LinkedIn post using Google Gemini API."""
     try:
         from google import genai
@@ -28,7 +28,7 @@ def generate_post(content: str, is_custom: bool = False) -> str:
 
     client = genai.Client(api_key=GEMINI_API_KEY)
 
-    system_prompt = get_system_prompt(content, is_custom=is_custom)
+    system_prompt = get_system_prompt(content, is_custom=is_custom, is_cve=is_cve)
 
     # Added robust retry logic for 429 Rate Limits
     import time
@@ -107,6 +107,8 @@ def main():
                         help="Print post without saving")
     parser.add_argument("--topic", default="",
                         help="Custom topic to write about (bypasses news fetching)")
+    parser.add_argument("--cve", action="store_true",
+                        help="Generate a threat intel post from live CVE data (bypasses news fetching)")
     args = parser.parse_args()
 
     # Step 1: Determine topic vs news
@@ -120,6 +122,10 @@ def main():
         is_custom = True
         content_to_use = args.topic
         print(f"[INFO] Using custom topic from command line: {args.topic}")
+    elif args.cve:
+        is_cve = True
+        print("[INFO] Using Live Incident Response Tracker (--cve flag)")
+        content_to_use = get_cve_context()
     elif custom_idea_file.exists():
         file_content = custom_idea_file.read_text(encoding="utf-8").strip()
         if file_content:
@@ -136,7 +142,7 @@ def main():
 
     # Step 2: Generate post
     print(f"\n[INFO] Generating {get_style_for_display()} post...")
-    post_text = generate_post(content_to_use, is_custom=is_custom)
+    post_text = generate_post(content_to_use, is_custom=is_custom, is_cve=is_cve)
 
     if args.dry_run:
         print("\n=== GENERATED POST ===\n")

@@ -38,7 +38,7 @@ def generate_post(news_context: str) -> str:
     for attempt in range(max_retries):
         try:
             response = client.models.generate_content(
-                model="gemini-2.0-flash",
+                model="gemini-2.5-pro",
                 contents=system_prompt,
             )
             post_text = response.text.strip()

@@ -113,6 +113,7 @@ def main():
 
     # Step 1: Determine topic vs news
     is_custom = False
+    is_cve = False
     content_to_use = ""
     used_custom_file = False
     

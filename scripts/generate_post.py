@@ -51,8 +51,8 @@ def generate_post(content: str, is_custom: bool = False, is_cve: bool = False) -
                 if attempt < max_retries - 1:
                     # If Pro quota is exhausted, fallback to Flash immediately
                     if current_model == "gemini-2.5-pro":
-                        print(f"[WARN] Quota exhausted for {current_model}. Falling back to gemini-1.5-flash...")
-                        current_model = "gemini-1.5-flash"
+                        print(f"[WARN] Quota exhausted for {current_model}. Falling back to gemini-2.0-flash...")
+                        current_model = "gemini-2.0-flash"
                         continue
                         
                     print(f"[WARN] Gemini API rate limit hit. Waiting 60s before retry {attempt+1}/{max_retries}...")

@@ -97,7 +97,10 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git pull --rebase
           git add posts/
-          git diff --staged --quiet || git commit -m "Update post status for ${{ steps.date.outputs.date }}"
-          git push
+          if [ -n "$(git status --porcelain)" ]; then
+            git commit -m "Update post status for ${{ steps.date.outputs.date }}"
+            git push origin HEAD:${{ github.ref }}
+          else
+            echo "No status changes to commit."
+          fi

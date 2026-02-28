@@ -30,15 +30,17 @@ def generate_post(content: str, is_custom: bool = False, is_cve: bool = False) -
 
     system_prompt = get_system_prompt(content, is_custom=is_custom, is_cve=is_cve)
 
-    # Added robust retry logic for 429 Rate Limits
+    # Added robust retry and fallback logic for Rate Limits / Quotas
     import time
-    from google.genai import errors
     
     max_retries = 3
+    current_model = "gemini-2.5-pro"
+    
     for attempt in range(max_retries):
         try:
+            print(f"[INFO] Attempting generation with {current_model}...")
             response = client.models.generate_content(
-                model="gemini-2.5-pro",
+                model=current_model,
                 contents=system_prompt,
             )
             post_text = response.text.strip()
@@ -47,6 +49,12 @@ def generate_post(content: str, is_custom: bool = False, is_cve: bool = False) -
             err_msg = str(e)
             if "429" in err_msg or "Too Many Requests" in err_msg or "quota" in err_msg.lower():
                 if attempt < max_retries - 1:
+                    # If Pro quota is exhausted, fallback to Flash immediately
+                    if current_model == "gemini-2.5-pro":
+                        print(f"[WARN] Quota exhausted for {current_model}. Falling back to gemini-1.5-flash...")
+                        current_model = "gemini-1.5-flash"
+                        continue
+                        
                     print(f"[WARN] Gemini API rate limit hit. Waiting 60s before retry {attempt+1}/{max_retries}...")
                     time.sleep(60)
                     continue

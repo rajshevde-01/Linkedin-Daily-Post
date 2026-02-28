@@ -10,18 +10,19 @@ name: Generate Post & Send Confirmation
 
 on:
   schedule:
+    # 9:00 AM IST = 3:30 AM UTC
     # 5:00 PM IST = 11:30 AM UTC
-    - cron: '30 11 * * *'
+    - cron: "30 3,11 * * *"
   workflow_dispatch:
     inputs:
       date:
-        description: 'Date override (YYYY-MM-DD)'
+        description: "Date override (YYYY-MM-DD)"
         required: false
-        default: ''
+        default: ""
       custom_topic:
         description: "Provide a complete topic or idea to override today's news"
         required: false
-        default: ''
+        default: ""
       use_cve_tracker:
         description: "Run Live Incident Response Tracker (Fetch CISA Zero-Days instead of News)"
         type: boolean
@@ -42,7 +43,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: "3.12"
 
       - name: Install dependencies
         run: pip install -r requirements.txt
@@ -63,11 +64,11 @@ jobs:
         working-directory: scripts
         run: |
           if [ "${{ github.event.inputs.use_cve_tracker }}" == "true" ]; then
-            python generate_post.py --date ${{ steps.date.outputs.date }} --cve
+            python generate_post.py --date ${{ steps.date.outputs.date }} --cve --limit 2
           elif [ -n "${{ github.event.inputs.custom_topic }}" ]; then
-            python generate_post.py --date ${{ steps.date.outputs.date }} --topic "${{ github.event.inputs.custom_topic }}"
+            python generate_post.py --date ${{ steps.date.outputs.date }} --topic "${{ github.event.inputs.custom_topic }}" --limit 2
           else
-            python generate_post.py --date ${{ steps.date.outputs.date }}
+            python generate_post.py --date ${{ steps.date.outputs.date }} --limit 2
           fi
 
       - name: Create confirmation issue

@@ -5,13 +5,13 @@ Fully automated daily LinkedIn posts on cybersecurity topics. Runs in the cloud 
 ## How It Works
 
 ```
-8:11 PM IST  →  Fetch cybersecurity news (RSS) → Generate post (Gemini) → Create GitHub Issue for review
+9:00 AM & 5:00 PM IST  →  Fetch news (RSS) → Generate post (Gemini) → Create GitHub Issue for review
                                                                             ↓
                                                                    You get an email notification
                                                                             ↓
-                                                              Approve / Reject / Ignore (3 hrs)
+                                                              Approve / Reject / Ignore (hours)
                                                                             ↓
-11:11 PM IST →  Check response → Auto-post to LinkedIn (if approved or no response)
+3:00 PM & 11:11 PM IST →  Check response → Auto-post to LinkedIn (if approved or no response)
 ```
 
 **Post style rotates daily:**
@@ -66,12 +66,12 @@ git push -u origin main
 
 Go to repo → Actions tab → Enable workflows if prompted.
 
-## Daily Flow
+## Daily Flow (Two Posts)
 
-1. **8:11 PM IST** — GitHub Actions runs, generates a post, creates a GitHub Issue
+1. **9:00 AM & 5:00 PM IST** — GitHub Actions runs, generates a post, creates a GitHub Issue
 2. **You get an email** from GitHub with the post content
 3. **You can respond** by commenting `approve` or `reject` on the issue
-4. **11:11 PM IST** — If you approved or didn't respond, the post goes live on LinkedIn. If you rejected, it's skipped.
+4. **3:00 PM & 11:11 PM IST** — If you approved or didn't respond, the post goes live on LinkedIn. If you rejected, it's skipped.
 
 ## Manual Trigger
 
@@ -92,7 +92,13 @@ export GEMINI_API_KEY="your-key"
 python scripts/generate_post.py --dry-run
 
 # Generate and save
-python scripts/generate_post.py --date 2026-02-27
+python scripts/generate_post.py --date 2026-02-28
+
+# Generate using a custom topic
+python scripts/generate_post.py --topic "Zero Trust Architecture"
+
+# Generate using latest CVEs
+python scripts/generate_post.py --cve
 ```
 
 ## Project Structure
@@ -100,7 +106,7 @@ python scripts/generate_post.py --date 2026-02-27
 ```
 Daily-Linkedin-Post/
 ├── .github/workflows/
-│   ├── generate_post.yml    # Phase 1: Generate + notify (8:11 PM IST)
+│   ├── generate_post.yml    # Phase 1: Generate + notify (5:00 PM IST)
 │   └── auto_post.yml        # Phase 2: Auto-post (11:11 PM IST)
 ├── scripts/
 │   ├── config.py            # Configuration, prompts, RSS feeds

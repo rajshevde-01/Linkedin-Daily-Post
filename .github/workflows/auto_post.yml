@@ -11,16 +11,18 @@ name: Auto-Post to LinkedIn
 
 on:
   schedule:
+    # 3:00 PM IST = 9:30 AM UTC
+    - cron: "30 9 * * *"
     # 11:11 PM IST = 5:41 PM UTC
-    - cron: '41 17 * * *'
+    - cron: "41 17 * * *"
   workflow_dispatch:
     inputs:
       date:
-        description: 'Date override (YYYY-MM-DD)'
+        description: "Date override (YYYY-MM-DD)"
         required: false
-        default: ''
+        default: ""
       force:
-        description: 'Force post regardless of status'
+        description: "Force post regardless of status"
         type: boolean
         default: false
 
@@ -39,7 +41,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: "3.12"
 
       - name: Install dependencies
         run: pip install -r requirements.txt

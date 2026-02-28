@@ -51,8 +51,8 @@ def generate_post(content: str, is_custom: bool = False, is_cve: bool = False) -
                 if attempt < max_retries - 1:
                     # If Pro quota is exhausted, fallback to Flash immediately
                     if current_model == "gemini-2.5-pro":
-                        print(f"[WARN] Quota exhausted for {current_model}. Falling back to gemini-2.5-flash...")
-                        current_model = "gemini-2.5-flash"
+                        print(f"[WARN] Quota exhausted for {current_model}. Falling back to gemini-2.0-flash...")
+                        current_model = "gemini-2.0-flash"
                         continue
                         
                     print(f"[WARN] Gemini API rate limit hit. Waiting 60s before retry {attempt+1}/{max_retries}...")
@@ -81,7 +81,12 @@ def save_post(post_text: str, date_str: str, with_hashtags: bool = True) -> str:
     posts_dir = Path(__file__).parent.parent / "posts"
     posts_dir.mkdir(exist_ok=True)
 
-    filepath = posts_dir / f"{date_str}.md"
+    # To support multiple posts per day, append an index if necessary
+    index = 1
+    filepath = posts_dir / f"{date_str}-{index}.md"
+    while filepath.exists():
+        index += 1
+        filepath = posts_dir / f"{date_str}-{index}.md"
 
     full_post = add_hashtags(post_text) if with_hashtags else post_text
 
@@ -117,7 +122,19 @@ def main():
                         help="Custom topic to write about (bypasses news fetching)")
     parser.add_argument("--cve", action="store_true",
                         help="Generate a threat intel post from live CVE data (bypasses news fetching)")
+    parser.add_argument("--limit", type=int, default=0,
+                        help="Maximum number of posts to generate per day (0 for no limit)")
     args = parser.parse_args()
+
+    # Step 0: Check daily limit
+    if args.limit > 0:
+        posts_dir = Path(__file__).parent.parent / "posts"
+        today_prefix = args.date
+        existing_posts = list(posts_dir.glob(f"{today_prefix}*.md"))
+        if len(existing_posts) >= args.limit:
+            print(f"[WARN] Daily post limit reached ({args.limit}). Existing posts today: {len(existing_posts)}.")
+            print("[WARN] Aborting generation.")
+            sys.exit(0)
 
     # Step 1: Determine topic vs news
     is_custom = False

@@ -147,30 +147,42 @@ def main():
                 f.write(f"status={status}\n")
         return
 
-    # Check status before posting
-    status = check_confirmation_status(args.date)
+    # Find all posts for the given date
+    posts_dir = Path(__file__).parent.parent / "posts"
+    post_files = sorted(list(posts_dir.glob(f"{args.date}-*.md")))
+    if not post_files:
+        post_files = [posts_dir / f"{args.date}.md"] if (posts_dir / f"{args.date}.md").exists() else []
 
-    if status == "posted":
-        print("[INFO] Post already published. Skipping.")
+    if not post_files:
+        print(f"[INFO] No post files found for {args.date}.")
         return
 
-    if status == "rejected":
-        print("[INFO] Post was rejected by user. Skipping.")
-        return
+    for filepath in post_files:
+        filename = filepath.stem
+        # check_confirmation_status string-matches the date_str
+        status = check_confirmation_status(filename)
 
-    if status == "pending" and not args.force:
-        print("[INFO] Post is pending confirmation. Use --force to post anyway.")
-        return
+        if status == "posted":
+            print(f"[INFO] Post {filename} already published. Skipping.")
+            continue
 
-    # Read the post
-    post_text, metadata = read_post_file(args.date)
+        if status == "rejected":
+            print(f"[INFO] Post {filename} was rejected by user. Skipping.")
+            continue
 
-    # Post to LinkedIn
-    print(f"[INFO] Publishing post for {args.date} to LinkedIn...")
-    result = post_to_linkedin(post_text)
+        if status == "pending" and not args.force:
+            print(f"[INFO] Post {filename} is pending confirmation. Use --force to post anyway.")
+            continue
 
-    # Update status
-    update_post_status(args.date, "posted")
+        # Read the post
+        post_text, metadata = read_post_file(filename)
+
+        # Post to LinkedIn
+        print(f"[INFO] Publishing post {filename} to LinkedIn...")
+        result = post_to_linkedin(post_text)
+
+        # Update status
+        update_post_status(filename, "posted")
 
     print("[SUCCESS] Done!")
 

@@ -1,0 +1,305 @@
+generate-and-notify	Set up job	﻿2026-03-01T07:45:58.5734228Z Current runner version: '2.331.0'
+generate-and-notify	Set up job	2026-03-01T07:45:58.5757332Z ##[group]Runner Image Provisioner
+generate-and-notify	Set up job	2026-03-01T07:45:58.5758123Z Hosted Compute Agent
+generate-and-notify	Set up job	2026-03-01T07:45:58.5758613Z Version: 20260213.493
+generate-and-notify	Set up job	2026-03-01T07:45:58.5759190Z Commit: 5c115507f6dd24b8de37d8bbe0bb4509d0cc0fa3
+generate-and-notify	Set up job	2026-03-01T07:45:58.5759898Z Build Date: 2026-02-13T00:28:41Z
+generate-and-notify	Set up job	2026-03-01T07:45:58.5760487Z Worker ID: {2f625df2-7279-479f-b604-3fcc66a2ec50}
+generate-and-notify	Set up job	2026-03-01T07:45:58.5761161Z Azure Region: westcentralus
+generate-and-notify	Set up job	2026-03-01T07:45:58.5761956Z ##[endgroup]
+generate-and-notify	Set up job	2026-03-01T07:45:58.5763274Z ##[group]Operating System
+generate-and-notify	Set up job	2026-03-01T07:45:58.5763874Z Ubuntu
+generate-and-notify	Set up job	2026-03-01T07:45:58.5764346Z 24.04.3
+generate-and-notify	Set up job	2026-03-01T07:45:58.5764729Z LTS
+generate-and-notify	Set up job	2026-03-01T07:45:58.5765159Z ##[endgroup]
+generate-and-notify	Set up job	2026-03-01T07:45:58.5765596Z ##[group]Runner Image
+generate-and-notify	Set up job	2026-03-01T07:45:58.5766092Z Image: ubuntu-24.04
+generate-and-notify	Set up job	2026-03-01T07:45:58.5766558Z Version: 20260224.36.1
+generate-and-notify	Set up job	2026-03-01T07:45:58.5767419Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260224.36/images/ubuntu/Ubuntu2404-Readme.md
+generate-and-notify	Set up job	2026-03-01T07:45:58.5768910Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260224.36
+generate-and-notify	Set up job	2026-03-01T07:45:58.5769680Z ##[endgroup]
+generate-and-notify	Set up job	2026-03-01T07:45:58.5770624Z ##[group]GITHUB_TOKEN Permissions
+generate-and-notify	Set up job	2026-03-01T07:45:58.5772793Z Contents: write
+generate-and-notify	Set up job	2026-03-01T07:45:58.5773291Z Issues: write
+generate-and-notify	Set up job	2026-03-01T07:45:58.5773689Z Metadata: read
+generate-and-notify	Set up job	2026-03-01T07:45:58.5774207Z ##[endgroup]
+generate-and-notify	Set up job	2026-03-01T07:45:58.5776278Z Secret source: Actions
+generate-and-notify	Set up job	2026-03-01T07:45:58.5776920Z Prepare workflow directory
+generate-and-notify	Set up job	2026-03-01T07:45:58.6086517Z Prepare all required actions
+generate-and-notify	Set up job	2026-03-01T07:45:58.6124826Z Getting action download info
+generate-and-notify	Set up job	2026-03-01T07:45:58.9989899Z Download action repository 'actions/checkout@v4' (SHA:34e114876b0b11c390a56381ad16ebd13914f8d5)
+generate-and-notify	Set up job	2026-03-01T07:45:59.1290883Z Download action repository 'actions/setup-python@v5' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+generate-and-notify	Set up job	2026-03-01T07:45:59.3181640Z Complete job name: generate-and-notify
+generate-and-notify	Checkout repository	﻿2026-03-01T07:45:59.3781343Z ##[group]Run actions/checkout@v4
+generate-and-notify	Checkout repository	2026-03-01T07:45:59.3782507Z with:
+generate-and-notify	Checkout repository	2026-03-01T07:45:59.3783025Z   repository: rajshevde-01/Linkedin-Daily-Post
+generate-and-notify	Checkout repository	2026-03-01T07:45:59.3783770Z   token: ***
+generate-and-notify	Checkout repository	2026-03-01T07:45:59.3784172Z   ssh-strict: true
+generate-and-notify	Checkout repository	2026-03-01T07:45:59.3784618Z   ssh-user: git
+generate-and-notify	Checkout repository	2026-03-01T07:45:59.3785056Z   persist-credentials: true
+generate-and-notify	Checkout repository	2026-03-01T07:45:59.3785554Z   clean: true
+generate-and-notify	Checkout repository	2026-03-01T07:45:59.3785995Z   sparse-checkout-cone-mode: true
+generate-and-notify	Checkout repository	2026-03-01T07:45:59.3786466Z   fetch-depth: 1
+generate-and-notify	Checkout repository	2026-03-01T07:45:59.3786894Z   fetch-tags: false
+generate-and-notify	Checkout repository	2026-03-01T07:45:59.3787336Z   show-progress: true
+generate-and-notify	Checkout repository	2026-03-01T07:45:59.3787765Z   lfs: false
+generate-and-notify	Checkout repository	2026-03-01T07:45:59.3788171Z   submodules: false
+generate-and-notify	Checkout repository	2026-03-01T07:45:59.3788621Z   set-safe-directory: true
+generate-and-notify	Checkout repository	2026-03-01T07:45:59.3789443Z ##[endgroup]
+generate-and-notify	Checkout repository	2026-03-01T07:45:59.4777908Z Syncing repository: rajshevde-01/Linkedin-Daily-Post
+generate-and-notify	Checkout repository	2026-03-01T07:45:59.4779824Z ##[group]Getting Git version info
+generate-and-notify	Checkout repository	2026-03-01T07:45:59.4780603Z Working directory is '/home/runner/work/Linkedin-Daily-Post/Linkedin-Daily-Post'
+generate-and-notify	Checkout repository	2026-03-01T07:45:59.4782051Z [command]/usr/bin/git version
+generate-and-notify	Checkout repository	2026-03-01T07:45:59.4828964Z git version 2.53.0
+generate-and-notify	Checkout repository	2026-03-01T07:45:59.4850775Z ##[endgroup]
+generate-and-notify	Checkout repository	2026-03-01T07:45:59.4863259Z Temporarily overriding HOME='/home/runner/work/_temp/fa0c4b0d-1fee-4422-862e-1ec09834d66c' before making global git config changes
+generate-and-notify	Checkout repository	2026-03-01T07:45:59.4864591Z Adding repository directory to the temporary git global config as a safe directory
+generate-and-notify	Checkout repository	2026-03-01T07:45:59.4875546Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Linkedin-Daily-Post/Linkedin-Daily-Post
+generate-and-notify	Checkout repository	2026-03-01T07:45:59.4906276Z Deleting the contents of '/home/runner/work/Linkedin-Daily-Post/Linkedin-Daily-Post'
+generate-and-notify	Checkout repository	2026-03-01T07:45:59.4908993Z ##[group]Initializing the repository
+generate-and-notify	Checkout repository	2026-03-01T07:45:59.4913021Z [command]/usr/bin/git init /home/runner/work/Linkedin-Daily-Post/Linkedin-Daily-Post
+generate-and-notify	Checkout repository	2026-03-01T07:45:59.4988837Z hint: Using 'master' as the name for the initial branch. This default branch name
+generate-and-notify	Checkout repository	2026-03-01T07:45:59.4990376Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+generate-and-notify	Checkout repository	2026-03-01T07:45:59.4992327Z hint: to use in all of your new repositories, which will suppress this warning,
+generate-and-notify	Checkout repository	2026-03-01T07:45:59.4993503Z hint: call:
+generate-and-notify	Checkout repository	2026-03-01T07:45:59.4993904Z hint:
+generate-and-notify	Checkout repository	2026-03-01T07:45:59.4994569Z hint: 	git config --global init.defaultBranch <name>
+generate-and-notify	Checkout repository	2026-03-01T07:45:59.4995198Z hint:
+generate-and-notify	Checkout repository	2026-03-01T07:45:59.4995742Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+generate-and-notify	Checkout repository	2026-03-01T07:45:59.4996893Z hint: 'development'. The just-created branch can be renamed via this command:
+generate-and-notify	Checkout repository	2026-03-01T07:45:59.4997717Z hint:
+generate-and-notify	Checkout repository	2026-03-01T07:45:59.4998112Z hint: 	git branch -m <name>
+generate-and-notify	Checkout repository	2026-03-01T07:45:59.4998588Z hint:
+generate-and-notify	Checkout repository	2026-03-01T07:45:59.4999237Z hint: Disable this message with "git config set advice.defaultBranchName false"
+generate-and-notify	Checkout repository	2026-03-01T07:45:59.5000289Z Initialized empty Git repository in /home/runner/work/Linkedin-Daily-Post/Linkedin-Daily-Post/.git/
+generate-and-notify	Checkout repository	2026-03-01T07:45:59.5002537Z [command]/usr/bin/git remote add origin https://github.com/rajshevde-01/Linkedin-Daily-Post
+generate-and-notify	Checkout repository	2026-03-01T07:45:59.5027522Z ##[endgroup]
+generate-and-notify	Checkout repository	2026-03-01T07:45:59.5028374Z ##[group]Disabling automatic garbage collection
+generate-and-notify	Checkout repository	2026-03-01T07:45:59.5030785Z [command]/usr/bin/git config --local gc.auto 0
+generate-and-notify	Checkout repository	2026-03-01T07:45:59.5052931Z ##[endgroup]
+generate-and-notify	Checkout repository	2026-03-01T07:45:59.5053673Z ##[group]Setting up auth
+generate-and-notify	Checkout repository	2026-03-01T07:45:59.5058714Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+generate-and-notify	Checkout repository	2026-03-01T07:45:59.5082707Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+generate-and-notify	Checkout repository	2026-03-01T07:45:59.5346421Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+generate-and-notify	Checkout repository	2026-03-01T07:45:59.5373772Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+generate-and-notify	Checkout repository	2026-03-01T07:45:59.5556860Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+generate-and-notify	Checkout repository	2026-03-01T07:45:59.5583240Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+generate-and-notify	Checkout repository	2026-03-01T07:45:59.5762834Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+generate-and-notify	Checkout repository	2026-03-01T07:45:59.5790335Z ##[endgroup]
+generate-and-notify	Checkout repository	2026-03-01T07:45:59.5791987Z ##[group]Fetching the repository
+generate-and-notify	Checkout repository	2026-03-01T07:45:59.5799624Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +1830505b91cf080f427991aa03c42d959e2e02db:refs/remotes/origin/main
+generate-and-notify	Checkout repository	2026-03-01T07:45:59.9999964Z From https://github.com/rajshevde-01/Linkedin-Daily-Post
+generate-and-notify	Checkout repository	2026-03-01T07:46:00.0001369Z  * [new ref]         1830505b91cf080f427991aa03c42d959e2e02db -> origin/main
+generate-and-notify	Checkout repository	2026-03-01T07:46:00.0024510Z ##[endgroup]
+generate-and-notify	Checkout repository	2026-03-01T07:46:00.0025531Z ##[group]Determining the checkout info
+generate-and-notify	Checkout repository	2026-03-01T07:46:00.0026764Z ##[endgroup]
+generate-and-notify	Checkout repository	2026-03-01T07:46:00.0030864Z [command]/usr/bin/git sparse-checkout disable
+generate-and-notify	Checkout repository	2026-03-01T07:46:00.0125924Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+generate-and-notify	Checkout repository	2026-03-01T07:46:00.0127574Z ##[group]Checking out the ref
+generate-and-notify	Checkout repository	2026-03-01T07:46:00.0128379Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+generate-and-notify	Checkout repository	2026-03-01T07:46:00.0163192Z Switched to a new branch 'main'
+generate-and-notify	Checkout repository	2026-03-01T07:46:00.0164928Z branch 'main' set up to track 'origin/main'.
+generate-and-notify	Checkout repository	2026-03-01T07:46:00.0172899Z ##[endgroup]
+generate-and-notify	Checkout repository	2026-03-01T07:46:00.0201686Z [command]/usr/bin/git log -1 --format=%H
+generate-and-notify	Checkout repository	2026-03-01T07:46:00.0218853Z 1830505b91cf080f427991aa03c42d959e2e02db
+generate-and-notify	Set up Python	﻿2026-03-01T07:46:00.0475292Z ##[group]Run actions/setup-python@v5
+generate-and-notify	Set up Python	2026-03-01T07:46:00.0476148Z with:
+generate-and-notify	Set up Python	2026-03-01T07:46:00.0476760Z   python-version: 3.12
+generate-and-notify	Set up Python	2026-03-01T07:46:00.0477443Z   check-latest: false
+generate-and-notify	Set up Python	2026-03-01T07:46:00.0478325Z   token: ***
+generate-and-notify	Set up Python	2026-03-01T07:46:00.0478966Z   update-environment: true
+generate-and-notify	Set up Python	2026-03-01T07:46:00.0479694Z   allow-prereleases: false
+generate-and-notify	Set up Python	2026-03-01T07:46:00.0480600Z   freethreaded: false
+generate-and-notify	Set up Python	2026-03-01T07:46:00.0481255Z ##[endgroup]
+generate-and-notify	Set up Python	2026-03-01T07:46:00.2031177Z ##[group]Installed versions
+generate-and-notify	Set up Python	2026-03-01T07:46:00.2109335Z Successfully set up CPython (3.12.12)
+generate-and-notify	Set up Python	2026-03-01T07:46:00.2111091Z ##[endgroup]
+generate-and-notify	Install dependencies	﻿2026-03-01T07:46:00.2228097Z ##[group]Run pip install -r requirements.txt
+generate-and-notify	Install dependencies	2026-03-01T07:46:00.2229171Z [36;1mpip install -r requirements.txt[0m
+generate-and-notify	Install dependencies	2026-03-01T07:46:00.2403397Z shell: /usr/bin/bash -e {0}
+generate-and-notify	Install dependencies	2026-03-01T07:46:00.2404167Z env:
+generate-and-notify	Install dependencies	2026-03-01T07:46:00.2404885Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.12/x64
+generate-and-notify	Install dependencies	2026-03-01T07:46:00.2406052Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.12/x64/lib/pkgconfig
+generate-and-notify	Install dependencies	2026-03-01T07:46:00.2407224Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.12/x64
+generate-and-notify	Install dependencies	2026-03-01T07:46:00.2408286Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.12/x64
+generate-and-notify	Install dependencies	2026-03-01T07:46:00.2409337Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.12/x64
+generate-and-notify	Install dependencies	2026-03-01T07:46:00.2410429Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.12/x64/lib
+generate-and-notify	Install dependencies	2026-03-01T07:46:00.2411387Z ##[endgroup]
+generate-and-notify	Install dependencies	2026-03-01T07:46:03.3623536Z Collecting feedparser>=6.0 (from -r requirements.txt (line 1))
+generate-and-notify	Install dependencies	2026-03-01T07:46:03.4653594Z   Downloading feedparser-6.0.12-py3-none-any.whl.metadata (2.7 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:46:03.5107492Z Collecting google-genai>=1.0.0 (from -r requirements.txt (line 2))
+generate-and-notify	Install dependencies	2026-03-01T07:46:03.5296502Z   Downloading google_genai-1.65.0-py3-none-any.whl.metadata (51 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:46:03.5960139Z Collecting requests>=2.31 (from -r requirements.txt (line 3))
+generate-and-notify	Install dependencies	2026-03-01T07:46:03.6151002Z   Downloading requests-2.32.5-py3-none-any.whl.metadata (4.9 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:46:03.6803104Z Collecting pyyaml>=6.0 (from -r requirements.txt (line 4))
+generate-and-notify	Install dependencies	2026-03-01T07:46:03.6996268Z   Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:46:03.7247083Z Collecting sgmllib3k (from feedparser>=6.0->-r requirements.txt (line 1))
+generate-and-notify	Install dependencies	2026-03-01T07:46:03.7435548Z   Downloading sgmllib3k-1.0.0.tar.gz (5.8 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:46:03.7489260Z   Installing build dependencies: started
+generate-and-notify	Install dependencies	2026-03-01T07:46:05.0645287Z   Installing build dependencies: finished with status 'done'
+generate-and-notify	Install dependencies	2026-03-01T07:46:05.0648768Z   Getting requirements to build wheel: started
+generate-and-notify	Install dependencies	2026-03-01T07:46:05.5205567Z   Getting requirements to build wheel: finished with status 'done'
+generate-and-notify	Install dependencies	2026-03-01T07:46:05.5213813Z   Preparing metadata (pyproject.toml): started
+generate-and-notify	Install dependencies	2026-03-01T07:46:05.6964431Z   Preparing metadata (pyproject.toml): finished with status 'done'
+generate-and-notify	Install dependencies	2026-03-01T07:46:05.7266736Z Collecting anyio<5.0.0,>=4.8.0 (from google-genai>=1.0.0->-r requirements.txt (line 2))
+generate-and-notify	Install dependencies	2026-03-01T07:46:05.7460084Z   Downloading anyio-4.12.1-py3-none-any.whl.metadata (4.3 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:46:05.7876900Z Collecting google-auth<3.0.0,>=2.47.0 (from google-auth[requests]<3.0.0,>=2.47.0->google-genai>=1.0.0->-r requirements.txt (line 2))
+generate-and-notify	Install dependencies	2026-03-01T07:46:05.8068805Z   Downloading google_auth-2.48.0-py3-none-any.whl.metadata (6.2 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:46:05.8414401Z Collecting httpx<1.0.0,>=0.28.1 (from google-genai>=1.0.0->-r requirements.txt (line 2))
+generate-and-notify	Install dependencies	2026-03-01T07:46:05.8603149Z   Downloading httpx-0.28.1-py3-none-any.whl.metadata (7.1 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:46:06.0021901Z Collecting pydantic<3.0.0,>=2.9.0 (from google-genai>=1.0.0->-r requirements.txt (line 2))
+generate-and-notify	Install dependencies	2026-03-01T07:46:06.0214131Z   Downloading pydantic-2.12.5-py3-none-any.whl.metadata (90 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:46:06.0730848Z Collecting tenacity<9.2.0,>=8.2.3 (from google-genai>=1.0.0->-r requirements.txt (line 2))
+generate-and-notify	Install dependencies	2026-03-01T07:46:06.0919341Z   Downloading tenacity-9.1.4-py3-none-any.whl.metadata (1.2 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:46:06.1799979Z Collecting websockets<17.0,>=13.0.0 (from google-genai>=1.0.0->-r requirements.txt (line 2))
+generate-and-notify	Install dependencies	2026-03-01T07:46:06.1993571Z   Downloading websockets-16.0-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (6.8 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:46:06.2286120Z Collecting typing-extensions<5.0.0,>=4.11.0 (from google-genai>=1.0.0->-r requirements.txt (line 2))
+generate-and-notify	Install dependencies	2026-03-01T07:46:06.2481129Z   Downloading typing_extensions-4.15.0-py3-none-any.whl.metadata (3.3 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:46:06.2740734Z Collecting distro<2,>=1.7.0 (from google-genai>=1.0.0->-r requirements.txt (line 2))
+generate-and-notify	Install dependencies	2026-03-01T07:46:06.2935234Z   Downloading distro-1.9.0-py3-none-any.whl.metadata (6.8 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:46:06.3182976Z Collecting sniffio (from google-genai>=1.0.0->-r requirements.txt (line 2))
+generate-and-notify	Install dependencies	2026-03-01T07:46:06.3368589Z   Downloading sniffio-1.3.1-py3-none-any.whl.metadata (3.9 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:46:06.4177854Z Collecting charset_normalizer<4,>=2 (from requests>=2.31->-r requirements.txt (line 3))
+generate-and-notify	Install dependencies	2026-03-01T07:46:06.4368693Z   Downloading charset_normalizer-3.4.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (37 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:46:06.4756595Z Collecting idna<4,>=2.5 (from requests>=2.31->-r requirements.txt (line 3))
+generate-and-notify	Install dependencies	2026-03-01T07:46:06.4956169Z   Downloading idna-3.11-py3-none-any.whl.metadata (8.4 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:46:06.5324223Z Collecting urllib3<3,>=1.21.1 (from requests>=2.31->-r requirements.txt (line 3))
+generate-and-notify	Install dependencies	2026-03-01T07:46:06.5511998Z   Downloading urllib3-2.6.3-py3-none-any.whl.metadata (6.9 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:46:06.5835379Z Collecting certifi>=2017.4.17 (from requests>=2.31->-r requirements.txt (line 3))
+generate-and-notify	Install dependencies	2026-03-01T07:46:06.6029362Z   Downloading certifi-2026.2.25-py3-none-any.whl.metadata (2.5 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:46:06.6374564Z Collecting pyasn1-modules>=0.2.1 (from google-auth<3.0.0,>=2.47.0->google-auth[requests]<3.0.0,>=2.47.0->google-genai>=1.0.0->-r requirements.txt (line 2))
+generate-and-notify	Install dependencies	2026-03-01T07:46:06.6564846Z   Downloading pyasn1_modules-0.4.2-py3-none-any.whl.metadata (3.5 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:46:06.8268708Z Collecting cryptography>=38.0.3 (from google-auth<3.0.0,>=2.47.0->google-auth[requests]<3.0.0,>=2.47.0->google-genai>=1.0.0->-r requirements.txt (line 2))
+generate-and-notify	Install dependencies	2026-03-01T07:46:06.8459369Z   Downloading cryptography-46.0.5-cp311-abi3-manylinux_2_34_x86_64.whl.metadata (5.7 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:46:06.8775320Z Collecting rsa<5,>=3.1.4 (from google-auth<3.0.0,>=2.47.0->google-auth[requests]<3.0.0,>=2.47.0->google-genai>=1.0.0->-r requirements.txt (line 2))
+generate-and-notify	Install dependencies	2026-03-01T07:46:06.8962235Z   Downloading rsa-4.9.1-py3-none-any.whl.metadata (5.6 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:46:06.9287770Z Collecting httpcore==1.* (from httpx<1.0.0,>=0.28.1->google-genai>=1.0.0->-r requirements.txt (line 2))
+generate-and-notify	Install dependencies	2026-03-01T07:46:06.9479383Z   Downloading httpcore-1.0.9-py3-none-any.whl.metadata (21 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:46:06.9799428Z Collecting h11>=0.16 (from httpcore==1.*->httpx<1.0.0,>=0.28.1->google-genai>=1.0.0->-r requirements.txt (line 2))
+generate-and-notify	Install dependencies	2026-03-01T07:46:06.9986806Z   Downloading h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:46:07.0256492Z Collecting annotated-types>=0.6.0 (from pydantic<3.0.0,>=2.9.0->google-genai>=1.0.0->-r requirements.txt (line 2))
+generate-and-notify	Install dependencies	2026-03-01T07:46:07.0443291Z   Downloading annotated_types-0.7.0-py3-none-any.whl.metadata (15 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:46:07.6021117Z Collecting pydantic-core==2.41.5 (from pydantic<3.0.0,>=2.9.0->google-genai>=1.0.0->-r requirements.txt (line 2))
+generate-and-notify	Install dependencies	2026-03-01T07:46:07.6218643Z   Downloading pydantic_core-2.41.5-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (7.3 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:46:07.6487296Z Collecting typing-inspection>=0.4.2 (from pydantic<3.0.0,>=2.9.0->google-genai>=1.0.0->-r requirements.txt (line 2))
+generate-and-notify	Install dependencies	2026-03-01T07:46:07.6674787Z   Downloading typing_inspection-0.4.2-py3-none-any.whl.metadata (2.6 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:46:07.7022359Z Collecting pyasn1>=0.1.3 (from rsa<5,>=3.1.4->google-auth<3.0.0,>=2.47.0->google-auth[requests]<3.0.0,>=2.47.0->google-genai>=1.0.0->-r requirements.txt (line 2))
+generate-and-notify	Install dependencies	2026-03-01T07:46:07.7217702Z   Downloading pyasn1-0.6.2-py3-none-any.whl.metadata (8.4 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:46:07.8186495Z Collecting cffi>=2.0.0 (from cryptography>=38.0.3->google-auth<3.0.0,>=2.47.0->google-auth[requests]<3.0.0,>=2.47.0->google-genai>=1.0.0->-r requirements.txt (line 2))
+generate-and-notify	Install dependencies	2026-03-01T07:46:07.8373547Z   Downloading cffi-2.0.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.6 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:46:07.8638011Z Collecting pycparser (from cffi>=2.0.0->cryptography>=38.0.3->google-auth<3.0.0,>=2.47.0->google-auth[requests]<3.0.0,>=2.47.0->google-genai>=1.0.0->-r requirements.txt (line 2))
+generate-and-notify	Install dependencies	2026-03-01T07:46:07.8828710Z   Downloading pycparser-3.0-py3-none-any.whl.metadata (8.2 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:46:07.9088070Z Downloading feedparser-6.0.12-py3-none-any.whl (81 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:46:07.9444701Z Downloading google_genai-1.65.0-py3-none-any.whl (724 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:46:08.0750076Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 724.4/724.4 kB 6.2 MB/s  0:00:00
+generate-and-notify	Install dependencies	2026-03-01T07:46:08.0947681Z Downloading requests-2.32.5-py3-none-any.whl (64 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:46:08.1214127Z Downloading anyio-4.12.1-py3-none-any.whl (113 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:46:08.1545846Z Downloading charset_normalizer-3.4.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (153 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:46:08.1956122Z Downloading distro-1.9.0-py3-none-any.whl (20 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:46:08.2185201Z Downloading google_auth-2.48.0-py3-none-any.whl (236 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:46:08.2675578Z Downloading httpx-0.28.1-py3-none-any.whl (73 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:46:08.2950427Z Downloading httpcore-1.0.9-py3-none-any.whl (78 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:46:08.3231311Z Downloading idna-3.11-py3-none-any.whl (71 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:46:08.3497579Z Downloading pydantic-2.12.5-py3-none-any.whl (463 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:46:08.4248959Z Downloading pydantic_core-2.41.5-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.1 MB)
+generate-and-notify	Install dependencies	2026-03-01T07:46:08.6043575Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 12.0 MB/s  0:00:00
+generate-and-notify	Install dependencies	2026-03-01T07:46:08.6233231Z Downloading rsa-4.9.1-py3-none-any.whl (34 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:46:08.6451751Z Downloading tenacity-9.1.4-py3-none-any.whl (28 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:46:08.6666063Z Downloading typing_extensions-4.15.0-py3-none-any.whl (44 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:46:08.6878068Z Downloading urllib3-2.6.3-py3-none-any.whl (131 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:46:08.7143806Z Downloading websockets-16.0-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (184 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:46:08.7447362Z Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (807 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:46:08.7958209Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 807.9/807.9 kB 16.3 MB/s  0:00:00
+generate-and-notify	Install dependencies	2026-03-01T07:46:08.8154075Z Downloading annotated_types-0.7.0-py3-none-any.whl (13 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:46:08.8367829Z Downloading certifi-2026.2.25-py3-none-any.whl (153 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:46:08.8636422Z Downloading cryptography-46.0.5-cp311-abi3-manylinux_2_34_x86_64.whl (4.5 MB)
+generate-and-notify	Install dependencies	2026-03-01T07:46:09.0994983Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.5/4.5 MB 22.3 MB/s  0:00:00
+generate-and-notify	Install dependencies	2026-03-01T07:46:09.1184503Z Downloading cffi-2.0.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (219 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:46:09.1450589Z Downloading h11-0.16.0-py3-none-any.whl (37 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:46:09.1662257Z Downloading pyasn1-0.6.2-py3-none-any.whl (83 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:46:09.1873522Z Downloading pyasn1_modules-0.4.2-py3-none-any.whl (181 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:46:09.2133914Z Downloading typing_inspection-0.4.2-py3-none-any.whl (14 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:46:09.2339816Z Downloading pycparser-3.0-py3-none-any.whl (48 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:46:09.2547822Z Downloading sniffio-1.3.1-py3-none-any.whl (10 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:46:09.2877391Z Building wheels for collected packages: sgmllib3k
+generate-and-notify	Install dependencies	2026-03-01T07:46:09.2883078Z   Building wheel for sgmllib3k (pyproject.toml): started
+generate-and-notify	Install dependencies	2026-03-01T07:46:09.4807146Z   Building wheel for sgmllib3k (pyproject.toml): finished with status 'done'
+generate-and-notify	Install dependencies	2026-03-01T07:46:09.4812470Z   Created wheel for sgmllib3k: filename=sgmllib3k-1.0.0-py3-none-any.whl size=6091 sha256=ca955610eff868743f178b41c2f085142fb807ec7d7329fe32bc4867b472d271
+generate-and-notify	Install dependencies	2026-03-01T07:46:09.4814161Z   Stored in directory: /home/runner/.cache/pip/wheels/03/f5/1a/23761066dac1d0e8e683e5fdb27e12de53209d05a4a37e6246
+generate-and-notify	Install dependencies	2026-03-01T07:46:09.4828693Z Successfully built sgmllib3k
+generate-and-notify	Install dependencies	2026-03-01T07:46:09.5252485Z Installing collected packages: sgmllib3k, websockets, urllib3, typing-extensions, tenacity, sniffio, pyyaml, pycparser, pyasn1, idna, h11, feedparser, distro, charset_normalizer, certifi, annotated-types, typing-inspection, rsa, requests, pydantic-core, pyasn1-modules, httpcore, cffi, anyio, pydantic, httpx, cryptography, google-auth, google-genai
+generate-and-notify	Install dependencies	2026-03-01T07:46:11.5515472Z 
+generate-and-notify	Install dependencies	2026-03-01T07:46:11.5543619Z Successfully installed annotated-types-0.7.0 anyio-4.12.1 certifi-2026.2.25 cffi-2.0.0 charset_normalizer-3.4.4 cryptography-46.0.5 distro-1.9.0 feedparser-6.0.12 google-auth-2.48.0 google-genai-1.65.0 h11-0.16.0 httpcore-1.0.9 httpx-0.28.1 idna-3.11 pyasn1-0.6.2 pyasn1-modules-0.4.2 pycparser-3.0 pydantic-2.12.5 pydantic-core-2.41.5 pyyaml-6.0.3 requests-2.32.5 rsa-4.9.1 sgmllib3k-1.0.0 sniffio-1.3.1 tenacity-9.1.4 typing-extensions-4.15.0 typing-inspection-0.4.2 urllib3-2.6.3 websockets-16.0
+generate-and-notify	Determine date	﻿2026-03-01T07:46:11.9004689Z ##[group]Run if [ -n "2026-03-01" ]; then
+generate-and-notify	Determine date	2026-03-01T07:46:11.9005025Z [36;1mif [ -n "2026-03-01" ]; then[0m
+generate-and-notify	Determine date	2026-03-01T07:46:11.9005304Z [36;1m  echo "date=2026-03-01" >> $GITHUB_OUTPUT[0m
+generate-and-notify	Determine date	2026-03-01T07:46:11.9005588Z [36;1melse[0m
+generate-and-notify	Determine date	2026-03-01T07:46:11.9005881Z [36;1m  echo "date=$(TZ='Asia/Kolkata' date +'%Y-%m-%d')" >> $GITHUB_OUTPUT[0m
+generate-and-notify	Determine date	2026-03-01T07:46:11.9006202Z [36;1mfi[0m
+generate-and-notify	Determine date	2026-03-01T07:46:11.9035807Z shell: /usr/bin/bash -e {0}
+generate-and-notify	Determine date	2026-03-01T07:46:11.9036058Z env:
+generate-and-notify	Determine date	2026-03-01T07:46:11.9036308Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.12/x64
+generate-and-notify	Determine date	2026-03-01T07:46:11.9036706Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.12/x64/lib/pkgconfig
+generate-and-notify	Determine date	2026-03-01T07:46:11.9037100Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.12/x64
+generate-and-notify	Determine date	2026-03-01T07:46:11.9037445Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.12/x64
+generate-and-notify	Determine date	2026-03-01T07:46:11.9037779Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.12/x64
+generate-and-notify	Determine date	2026-03-01T07:46:11.9038125Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.12/x64/lib
+generate-and-notify	Determine date	2026-03-01T07:46:11.9038473Z ##[endgroup]
+generate-and-notify	Generate LinkedIn post	﻿2026-03-01T07:46:11.9133627Z ##[group]Run if [ "false" == "true" ]; then
+generate-and-notify	Generate LinkedIn post	2026-03-01T07:46:11.9133940Z [36;1mif [ "false" == "true" ]; then[0m
+generate-and-notify	Generate LinkedIn post	2026-03-01T07:46:11.9134286Z [36;1m  python generate_post.py --date 2026-03-01 --cve --limit 2[0m
+generate-and-notify	Generate LinkedIn post	2026-03-01T07:46:11.9134616Z [36;1melif [ -n "" ]; then[0m
+generate-and-notify	Generate LinkedIn post	2026-03-01T07:46:11.9134920Z [36;1m  python generate_post.py --date 2026-03-01 --topic "" --limit 2[0m
+generate-and-notify	Generate LinkedIn post	2026-03-01T07:46:11.9135230Z [36;1melse[0m
+generate-and-notify	Generate LinkedIn post	2026-03-01T07:46:11.9135469Z [36;1m  python generate_post.py --date 2026-03-01 --limit 2[0m
+generate-and-notify	Generate LinkedIn post	2026-03-01T07:46:11.9135754Z [36;1mfi[0m
+generate-and-notify	Generate LinkedIn post	2026-03-01T07:46:11.9161965Z shell: /usr/bin/bash -e {0}
+generate-and-notify	Generate LinkedIn post	2026-03-01T07:46:11.9162201Z env:
+generate-and-notify	Generate LinkedIn post	2026-03-01T07:46:11.9162448Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.12/x64
+generate-and-notify	Generate LinkedIn post	2026-03-01T07:46:11.9162848Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.12/x64/lib/pkgconfig
+generate-and-notify	Generate LinkedIn post	2026-03-01T07:46:11.9163230Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.12/x64
+generate-and-notify	Generate LinkedIn post	2026-03-01T07:46:11.9163572Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.12/x64
+generate-and-notify	Generate LinkedIn post	2026-03-01T07:46:11.9163945Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.12/x64
+generate-and-notify	Generate LinkedIn post	2026-03-01T07:46:11.9164287Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.12/x64/lib
+generate-and-notify	Generate LinkedIn post	2026-03-01T07:46:11.9164931Z   GEMINI_API_KEY: ***
+generate-and-notify	Generate LinkedIn post	2026-03-01T07:46:11.9165119Z ##[endgroup]
+generate-and-notify	Generate LinkedIn post	2026-03-01T07:46:17.4499086Z [INFO] Fetching daily news...
+generate-and-notify	Generate LinkedIn post	2026-03-01T07:46:17.4499634Z [INFO] Fetching cybersecurity news from trusted RSS feeds...
+generate-and-notify	Generate LinkedIn post	2026-03-01T07:46:17.4500124Z [INFO] Fetched 49 raw articles from 8 feeds
+generate-and-notify	Generate LinkedIn post	2026-03-01T07:46:17.4500545Z [INFO] Cross-referencing articles across sources...
+generate-and-notify	Generate LinkedIn post	2026-03-01T07:46:17.4501021Z [INFO] 25/45 articles verified (multi-source or Tier 1)
+generate-and-notify	Generate LinkedIn post	2026-03-01T07:46:17.4501608Z [INFO] Spot-checking top article URLs...
+generate-and-notify	Generate LinkedIn post	2026-03-01T07:46:17.4502012Z [INFO] News context ready (4383 chars)
+generate-and-notify	Generate LinkedIn post	2026-03-01T07:46:17.4502285Z 
+generate-and-notify	Generate LinkedIn post	2026-03-01T07:46:17.4502593Z [INFO] Generating Sunday: Coding / Open Source project highlights post...
+generate-and-notify	Generate LinkedIn post	2026-03-01T07:46:17.4503058Z 
+generate-and-notify	Generate LinkedIn post	2026-03-01T07:46:17.4503256Z [INFO] Starting attempts with model gemini-2.5-pro...
+generate-and-notify	Generate LinkedIn post	2026-03-01T07:46:17.4503782Z [INFO] Using API key #1/2 for gemini-2.5-pro...
+generate-and-notify	Generate LinkedIn post	2026-03-01T07:46:17.4510829Z [WARN] Quota exhausted or invalid key for gemini-2.5-pro using Key #1: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.5-pro\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.5-pro\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.5-pro\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.5-pro\nPlease retry in 43.209443821s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_input_token_count', 'quotaId': 'GenerateContentInputTokensPerModelPerDay-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-pro'}}, {'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-pro'}}, {'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-pro'}}, {'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_input_token_count', 'quotaId': 'GenerateContentInputTokensPerModelPerMinute-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-pro'}}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '43s'}]}}
+generate-and-notify	Generate LinkedIn post	2026-03-01T07:46:17.4518650Z [INFO] Using API key #2/2 for gemini-2.5-pro...
+generate-and-notify	Generate LinkedIn post	2026-03-01T07:46:17.4525796Z [WARN] Quota exhausted or invalid key for gemini-2.5-pro using Key #2: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.5-pro\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.5-pro\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.5-pro\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.5-pro\nPlease retry in 42.965049532s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_input_token_count', 'quotaId': 'GenerateContentInputTokensPerModelPerMinute-FreeTier', 'quotaDimensions': {'model': 'gemini-2.5-pro', 'location': 'global'}}, {'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-pro'}}, {'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-pro'}}, {'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_input_token_count', 'quotaId': 'GenerateContentInputTokensPerModelPerDay-FreeTier', 'quotaDimensions': {'model': 'gemini-2.5-pro', 'location': 'global'}}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '42s'}]}}
+generate-and-notify	Generate LinkedIn post	2026-03-01T07:46:17.4533118Z 
+generate-and-notify	Generate LinkedIn post	2026-03-01T07:46:17.4533249Z [INFO] Starting attempts with model gemini-2.0-flash...
+generate-and-notify	Generate LinkedIn post	2026-03-01T07:46:17.4533567Z [INFO] Using API key #1/2 for gemini-2.0-flash...
+generate-and-notify	Generate LinkedIn post	2026-03-01T07:46:17.4539397Z [WARN] Quota exhausted or invalid key for gemini-2.0-flash using Key #1: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash\nPlease retry in 42.809569895s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_input_token_count', 'quotaId': 'GenerateContentInputTokensPerModelPerMinute-FreeTier', 'quotaDimensions': {'model': 'gemini-2.0-flash', 'location': 'global'}}, {'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-2.0-flash', 'location': 'global'}}, {'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.0-flash'}}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '42s'}]}}
+generate-and-notify	Generate LinkedIn post	2026-03-01T07:46:17.4545615Z [INFO] Using API key #2/2 for gemini-2.0-flash...
+generate-and-notify	Generate LinkedIn post	2026-03-01T07:46:17.4551536Z [WARN] Quota exhausted or invalid key for gemini-2.0-flash using Key #2: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash\nPlease retry in 42.568244381s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_input_token_count', 'quotaId': 'GenerateContentInputTokensPerModelPerMinute-FreeTier', 'quotaDimensions': {'model': 'gemini-2.0-flash', 'location': 'global'}}, {'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.0-flash'}}, {'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.0-flash'}}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '42s'}]}}
+generate-and-notify	Generate LinkedIn post	2026-03-01T07:46:17.4557474Z 
+generate-and-notify	Generate LinkedIn post	2026-03-01T07:46:17.4557599Z [FATAL] Exhausted all 2 models across all 2 API keys.
+generate-and-notify	Generate LinkedIn post	2026-03-01T07:46:17.4563342Z [FATAL] Last error encountered: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash\nPlease retry in 42.568244381s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_input_token_count', 'quotaId': 'GenerateContentInputTokensPerModelPerMinute-FreeTier', 'quotaDimensions': {'model': 'gemini-2.0-flash', 'location': 'global'}}, {'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.0-flash'}}, {'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.0-flash'}}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '42s'}]}}
+generate-and-notify	Generate LinkedIn post	2026-03-01T07:46:17.5635313Z ##[error]Process completed with exit code 1.
+generate-and-notify	Post Checkout repository	﻿2026-03-01T07:46:17.5742548Z Post job cleanup.
+generate-and-notify	Post Checkout repository	2026-03-01T07:46:17.6594523Z [command]/usr/bin/git version
+generate-and-notify	Post Checkout repository	2026-03-01T07:46:17.6628220Z git version 2.53.0
+generate-and-notify	Post Checkout repository	2026-03-01T07:46:17.6666988Z Temporarily overriding HOME='/home/runner/work/_temp/59cb8a6b-962c-462f-bc4a-26f86fdcfdc6' before making global git config changes
+generate-and-notify	Post Checkout repository	2026-03-01T07:46:17.6668189Z Adding repository directory to the temporary git global config as a safe directory
+generate-and-notify	Post Checkout repository	2026-03-01T07:46:17.6673321Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Linkedin-Daily-Post/Linkedin-Daily-Post
+generate-and-notify	Post Checkout repository	2026-03-01T07:46:17.6704736Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+generate-and-notify	Post Checkout repository	2026-03-01T07:46:17.6732020Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+generate-and-notify	Post Checkout repository	2026-03-01T07:46:17.6913172Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+generate-and-notify	Post Checkout repository	2026-03-01T07:46:17.6929246Z http.https://github.com/.extraheader
+generate-and-notify	Post Checkout repository	2026-03-01T07:46:17.6939434Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+generate-and-notify	Post Checkout repository	2026-03-01T07:46:17.6964446Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+generate-and-notify	Post Checkout repository	2026-03-01T07:46:17.7135322Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+generate-and-notify	Post Checkout repository	2026-03-01T07:46:17.7160883Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+generate-and-notify	Complete job	﻿2026-03-01T07:46:17.7417889Z Cleaning up orphan processes

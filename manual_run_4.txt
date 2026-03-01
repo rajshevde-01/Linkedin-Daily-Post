@@ -1,0 +1,292 @@
+generate-and-notify	Set up job	﻿2026-03-01T07:38:50.6906081Z Current runner version: '2.331.0'
+generate-and-notify	Set up job	2026-03-01T07:38:50.6937679Z ##[group]Runner Image Provisioner
+generate-and-notify	Set up job	2026-03-01T07:38:50.6938886Z Hosted Compute Agent
+generate-and-notify	Set up job	2026-03-01T07:38:50.6939668Z Version: 20260213.493
+generate-and-notify	Set up job	2026-03-01T07:38:50.6940681Z Commit: 5c115507f6dd24b8de37d8bbe0bb4509d0cc0fa3
+generate-and-notify	Set up job	2026-03-01T07:38:50.6941764Z Build Date: 2026-02-13T00:28:41Z
+generate-and-notify	Set up job	2026-03-01T07:38:50.6942705Z Worker ID: {979e83f8-0a71-4403-9cb9-13d34add548e}
+generate-and-notify	Set up job	2026-03-01T07:38:50.6943785Z Azure Region: westus3
+generate-and-notify	Set up job	2026-03-01T07:38:50.6944592Z ##[endgroup]
+generate-and-notify	Set up job	2026-03-01T07:38:50.6946950Z ##[group]Operating System
+generate-and-notify	Set up job	2026-03-01T07:38:50.6947908Z Ubuntu
+generate-and-notify	Set up job	2026-03-01T07:38:50.6948616Z 24.04.3
+generate-and-notify	Set up job	2026-03-01T07:38:50.6949251Z LTS
+generate-and-notify	Set up job	2026-03-01T07:38:50.6949961Z ##[endgroup]
+generate-and-notify	Set up job	2026-03-01T07:38:50.6950665Z ##[group]Runner Image
+generate-and-notify	Set up job	2026-03-01T07:38:50.6951505Z Image: ubuntu-24.04
+generate-and-notify	Set up job	2026-03-01T07:38:50.6952299Z Version: 20260224.36.1
+generate-and-notify	Set up job	2026-03-01T07:38:50.6953764Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260224.36/images/ubuntu/Ubuntu2404-Readme.md
+generate-and-notify	Set up job	2026-03-01T07:38:50.6956507Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260224.36
+generate-and-notify	Set up job	2026-03-01T07:38:50.6957937Z ##[endgroup]
+generate-and-notify	Set up job	2026-03-01T07:38:50.6959689Z ##[group]GITHUB_TOKEN Permissions
+generate-and-notify	Set up job	2026-03-01T07:38:50.6962305Z Contents: write
+generate-and-notify	Set up job	2026-03-01T07:38:50.6963106Z Issues: write
+generate-and-notify	Set up job	2026-03-01T07:38:50.6963750Z Metadata: read
+generate-and-notify	Set up job	2026-03-01T07:38:50.6964559Z ##[endgroup]
+generate-and-notify	Set up job	2026-03-01T07:38:50.6967682Z Secret source: Actions
+generate-and-notify	Set up job	2026-03-01T07:38:50.6968686Z Prepare workflow directory
+generate-and-notify	Set up job	2026-03-01T07:38:50.7343543Z Prepare all required actions
+generate-and-notify	Set up job	2026-03-01T07:38:50.7380668Z Getting action download info
+generate-and-notify	Set up job	2026-03-01T07:38:51.1078803Z Download action repository 'actions/checkout@v4' (SHA:34e114876b0b11c390a56381ad16ebd13914f8d5)
+generate-and-notify	Set up job	2026-03-01T07:38:51.2192649Z Download action repository 'actions/setup-python@v5' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+generate-and-notify	Set up job	2026-03-01T07:38:51.3910160Z Complete job name: generate-and-notify
+generate-and-notify	Checkout repository	﻿2026-03-01T07:38:51.4501984Z ##[group]Run actions/checkout@v4
+generate-and-notify	Checkout repository	2026-03-01T07:38:51.4502810Z with:
+generate-and-notify	Checkout repository	2026-03-01T07:38:51.4503384Z   repository: rajshevde-01/Linkedin-Daily-Post
+generate-and-notify	Checkout repository	2026-03-01T07:38:51.4504092Z   token: ***
+generate-and-notify	Checkout repository	2026-03-01T07:38:51.4504501Z   ssh-strict: true
+generate-and-notify	Checkout repository	2026-03-01T07:38:51.4505000Z   ssh-user: git
+generate-and-notify	Checkout repository	2026-03-01T07:38:51.4505415Z   persist-credentials: true
+generate-and-notify	Checkout repository	2026-03-01T07:38:51.4506029Z   clean: true
+generate-and-notify	Checkout repository	2026-03-01T07:38:51.4506514Z   sparse-checkout-cone-mode: true
+generate-and-notify	Checkout repository	2026-03-01T07:38:51.4507000Z   fetch-depth: 1
+generate-and-notify	Checkout repository	2026-03-01T07:38:51.4507414Z   fetch-tags: false
+generate-and-notify	Checkout repository	2026-03-01T07:38:51.4507880Z   show-progress: true
+generate-and-notify	Checkout repository	2026-03-01T07:38:51.4508322Z   lfs: false
+generate-and-notify	Checkout repository	2026-03-01T07:38:51.4508719Z   submodules: false
+generate-and-notify	Checkout repository	2026-03-01T07:38:51.4509169Z   set-safe-directory: true
+generate-and-notify	Checkout repository	2026-03-01T07:38:51.4509899Z ##[endgroup]
+generate-and-notify	Checkout repository	2026-03-01T07:38:51.5491312Z Syncing repository: rajshevde-01/Linkedin-Daily-Post
+generate-and-notify	Checkout repository	2026-03-01T07:38:51.5493240Z ##[group]Getting Git version info
+generate-and-notify	Checkout repository	2026-03-01T07:38:51.5494160Z Working directory is '/home/runner/work/Linkedin-Daily-Post/Linkedin-Daily-Post'
+generate-and-notify	Checkout repository	2026-03-01T07:38:51.5495415Z [command]/usr/bin/git version
+generate-and-notify	Checkout repository	2026-03-01T07:38:51.5547726Z git version 2.53.0
+generate-and-notify	Checkout repository	2026-03-01T07:38:51.5571249Z ##[endgroup]
+generate-and-notify	Checkout repository	2026-03-01T07:38:51.5584931Z Temporarily overriding HOME='/home/runner/work/_temp/787299c9-e6d3-41d6-a354-fab90fefaa8a' before making global git config changes
+generate-and-notify	Checkout repository	2026-03-01T07:38:51.5587599Z Adding repository directory to the temporary git global config as a safe directory
+generate-and-notify	Checkout repository	2026-03-01T07:38:51.5599964Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Linkedin-Daily-Post/Linkedin-Daily-Post
+generate-and-notify	Checkout repository	2026-03-01T07:38:51.5631991Z Deleting the contents of '/home/runner/work/Linkedin-Daily-Post/Linkedin-Daily-Post'
+generate-and-notify	Checkout repository	2026-03-01T07:38:51.5635184Z ##[group]Initializing the repository
+generate-and-notify	Checkout repository	2026-03-01T07:38:51.5640047Z [command]/usr/bin/git init /home/runner/work/Linkedin-Daily-Post/Linkedin-Daily-Post
+generate-and-notify	Checkout repository	2026-03-01T07:38:51.5717805Z hint: Using 'master' as the name for the initial branch. This default branch name
+generate-and-notify	Checkout repository	2026-03-01T07:38:51.5719762Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+generate-and-notify	Checkout repository	2026-03-01T07:38:51.5722267Z hint: to use in all of your new repositories, which will suppress this warning,
+generate-and-notify	Checkout repository	2026-03-01T07:38:51.5723803Z hint: call:
+generate-and-notify	Checkout repository	2026-03-01T07:38:51.5724584Z hint:
+generate-and-notify	Checkout repository	2026-03-01T07:38:51.5725878Z hint: 	git config --global init.defaultBranch <name>
+generate-and-notify	Checkout repository	2026-03-01T07:38:51.5727076Z hint:
+generate-and-notify	Checkout repository	2026-03-01T07:38:51.5727986Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+generate-and-notify	Checkout repository	2026-03-01T07:38:51.5729647Z hint: 'development'. The just-created branch can be renamed via this command:
+generate-and-notify	Checkout repository	2026-03-01T07:38:51.5730755Z hint:
+generate-and-notify	Checkout repository	2026-03-01T07:38:51.5731466Z hint: 	git branch -m <name>
+generate-and-notify	Checkout repository	2026-03-01T07:38:51.5732333Z hint:
+generate-and-notify	Checkout repository	2026-03-01T07:38:51.5733321Z hint: Disable this message with "git config set advice.defaultBranchName false"
+generate-and-notify	Checkout repository	2026-03-01T07:38:51.5735214Z Initialized empty Git repository in /home/runner/work/Linkedin-Daily-Post/Linkedin-Daily-Post/.git/
+generate-and-notify	Checkout repository	2026-03-01T07:38:51.5738374Z [command]/usr/bin/git remote add origin https://github.com/rajshevde-01/Linkedin-Daily-Post
+generate-and-notify	Checkout repository	2026-03-01T07:38:51.5761495Z ##[endgroup]
+generate-and-notify	Checkout repository	2026-03-01T07:38:51.5762779Z ##[group]Disabling automatic garbage collection
+generate-and-notify	Checkout repository	2026-03-01T07:38:51.5766218Z [command]/usr/bin/git config --local gc.auto 0
+generate-and-notify	Checkout repository	2026-03-01T07:38:51.5788775Z ##[endgroup]
+generate-and-notify	Checkout repository	2026-03-01T07:38:51.5789984Z ##[group]Setting up auth
+generate-and-notify	Checkout repository	2026-03-01T07:38:51.5795871Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+generate-and-notify	Checkout repository	2026-03-01T07:38:51.5820992Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+generate-and-notify	Checkout repository	2026-03-01T07:38:51.6082775Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+generate-and-notify	Checkout repository	2026-03-01T07:38:51.6109375Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+generate-and-notify	Checkout repository	2026-03-01T07:38:51.6274869Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+generate-and-notify	Checkout repository	2026-03-01T07:38:51.6299539Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+generate-and-notify	Checkout repository	2026-03-01T07:38:51.6474311Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+generate-and-notify	Checkout repository	2026-03-01T07:38:51.6499770Z ##[endgroup]
+generate-and-notify	Checkout repository	2026-03-01T07:38:51.6508041Z ##[group]Fetching the repository
+generate-and-notify	Checkout repository	2026-03-01T07:38:51.6510272Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +57acace9502adb0b43d51781ab7dfc0d3535577e:refs/remotes/origin/main
+generate-and-notify	Checkout repository	2026-03-01T07:38:52.0640123Z From https://github.com/rajshevde-01/Linkedin-Daily-Post
+generate-and-notify	Checkout repository	2026-03-01T07:38:52.0641052Z  * [new ref]         57acace9502adb0b43d51781ab7dfc0d3535577e -> origin/main
+generate-and-notify	Checkout repository	2026-03-01T07:38:52.0666957Z ##[endgroup]
+generate-and-notify	Checkout repository	2026-03-01T07:38:52.0668017Z ##[group]Determining the checkout info
+generate-and-notify	Checkout repository	2026-03-01T07:38:52.0669237Z ##[endgroup]
+generate-and-notify	Checkout repository	2026-03-01T07:38:52.0673179Z [command]/usr/bin/git sparse-checkout disable
+generate-and-notify	Checkout repository	2026-03-01T07:38:52.0706866Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+generate-and-notify	Checkout repository	2026-03-01T07:38:52.0727046Z ##[group]Checking out the ref
+generate-and-notify	Checkout repository	2026-03-01T07:38:52.0730164Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+generate-and-notify	Checkout repository	2026-03-01T07:38:52.0787579Z Switched to a new branch 'main'
+generate-and-notify	Checkout repository	2026-03-01T07:38:52.0789002Z branch 'main' set up to track 'origin/main'.
+generate-and-notify	Checkout repository	2026-03-01T07:38:52.0794628Z ##[endgroup]
+generate-and-notify	Checkout repository	2026-03-01T07:38:52.0822151Z [command]/usr/bin/git log -1 --format=%H
+generate-and-notify	Checkout repository	2026-03-01T07:38:52.0839205Z 57acace9502adb0b43d51781ab7dfc0d3535577e
+generate-and-notify	Set up Python	﻿2026-03-01T07:38:52.1044957Z ##[group]Run actions/setup-python@v5
+generate-and-notify	Set up Python	2026-03-01T07:38:52.1045673Z with:
+generate-and-notify	Set up Python	2026-03-01T07:38:52.1046027Z   python-version: 3.12
+generate-and-notify	Set up Python	2026-03-01T07:38:52.1046398Z   check-latest: false
+generate-and-notify	Set up Python	2026-03-01T07:38:52.1046917Z   token: ***
+generate-and-notify	Set up Python	2026-03-01T07:38:52.1047259Z   update-environment: true
+generate-and-notify	Set up Python	2026-03-01T07:38:52.1047660Z   allow-prereleases: false
+generate-and-notify	Set up Python	2026-03-01T07:38:52.1048206Z   freethreaded: false
+generate-and-notify	Set up Python	2026-03-01T07:38:52.1048563Z ##[endgroup]
+generate-and-notify	Set up Python	2026-03-01T07:38:52.2586744Z ##[group]Installed versions
+generate-and-notify	Set up Python	2026-03-01T07:38:52.2670187Z Successfully set up CPython (3.12.12)
+generate-and-notify	Set up Python	2026-03-01T07:38:52.2672173Z ##[endgroup]
+generate-and-notify	Install dependencies	﻿2026-03-01T07:38:52.2789765Z ##[group]Run pip install -r requirements.txt
+generate-and-notify	Install dependencies	2026-03-01T07:38:52.2790898Z [36;1mpip install -r requirements.txt[0m
+generate-and-notify	Install dependencies	2026-03-01T07:38:52.2900553Z shell: /usr/bin/bash -e {0}
+generate-and-notify	Install dependencies	2026-03-01T07:38:52.2901298Z env:
+generate-and-notify	Install dependencies	2026-03-01T07:38:52.2902008Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.12/x64
+generate-and-notify	Install dependencies	2026-03-01T07:38:52.2903441Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.12/x64/lib/pkgconfig
+generate-and-notify	Install dependencies	2026-03-01T07:38:52.2904852Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.12/x64
+generate-and-notify	Install dependencies	2026-03-01T07:38:52.2906230Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.12/x64
+generate-and-notify	Install dependencies	2026-03-01T07:38:52.2907456Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.12/x64
+generate-and-notify	Install dependencies	2026-03-01T07:38:52.2908717Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.12/x64/lib
+generate-and-notify	Install dependencies	2026-03-01T07:38:52.2909748Z ##[endgroup]
+generate-and-notify	Install dependencies	2026-03-01T07:38:54.4296095Z Collecting feedparser>=6.0 (from -r requirements.txt (line 1))
+generate-and-notify	Install dependencies	2026-03-01T07:38:54.5023887Z   Downloading feedparser-6.0.12-py3-none-any.whl.metadata (2.7 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:38:54.5352302Z Collecting google-genai>=1.0.0 (from -r requirements.txt (line 2))
+generate-and-notify	Install dependencies	2026-03-01T07:38:54.5447308Z   Downloading google_genai-1.65.0-py3-none-any.whl.metadata (51 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:38:54.5916521Z Collecting requests>=2.31 (from -r requirements.txt (line 3))
+generate-and-notify	Install dependencies	2026-03-01T07:38:54.6011546Z   Downloading requests-2.32.5-py3-none-any.whl.metadata (4.9 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:38:54.6483894Z Collecting pyyaml>=6.0 (from -r requirements.txt (line 4))
+generate-and-notify	Install dependencies	2026-03-01T07:38:54.6582494Z   Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:38:54.6737968Z Collecting sgmllib3k (from feedparser>=6.0->-r requirements.txt (line 1))
+generate-and-notify	Install dependencies	2026-03-01T07:38:54.6833000Z   Downloading sgmllib3k-1.0.0.tar.gz (5.8 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:38:54.6884171Z   Installing build dependencies: started
+generate-and-notify	Install dependencies	2026-03-01T07:38:55.7002525Z   Installing build dependencies: finished with status 'done'
+generate-and-notify	Install dependencies	2026-03-01T07:38:55.7010523Z   Getting requirements to build wheel: started
+generate-and-notify	Install dependencies	2026-03-01T07:38:56.1045880Z   Getting requirements to build wheel: finished with status 'done'
+generate-and-notify	Install dependencies	2026-03-01T07:38:56.1054351Z   Preparing metadata (pyproject.toml): started
+generate-and-notify	Install dependencies	2026-03-01T07:38:56.2738811Z   Preparing metadata (pyproject.toml): finished with status 'done'
+generate-and-notify	Install dependencies	2026-03-01T07:38:56.2944280Z Collecting anyio<5.0.0,>=4.8.0 (from google-genai>=1.0.0->-r requirements.txt (line 2))
+generate-and-notify	Install dependencies	2026-03-01T07:38:56.3041604Z   Downloading anyio-4.12.1-py3-none-any.whl.metadata (4.3 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:38:56.3365297Z Collecting google-auth<3.0.0,>=2.47.0 (from google-auth[requests]<3.0.0,>=2.47.0->google-genai>=1.0.0->-r requirements.txt (line 2))
+generate-and-notify	Install dependencies	2026-03-01T07:38:56.3462430Z   Downloading google_auth-2.48.0-py3-none-any.whl.metadata (6.2 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:38:56.3705821Z Collecting httpx<1.0.0,>=0.28.1 (from google-genai>=1.0.0->-r requirements.txt (line 2))
+generate-and-notify	Install dependencies	2026-03-01T07:38:56.3804302Z   Downloading httpx-0.28.1-py3-none-any.whl.metadata (7.1 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:38:56.4944684Z Collecting pydantic<3.0.0,>=2.9.0 (from google-genai>=1.0.0->-r requirements.txt (line 2))
+generate-and-notify	Install dependencies	2026-03-01T07:38:56.5045919Z   Downloading pydantic-2.12.5-py3-none-any.whl.metadata (90 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:38:56.5386496Z Collecting tenacity<9.2.0,>=8.2.3 (from google-genai>=1.0.0->-r requirements.txt (line 2))
+generate-and-notify	Install dependencies	2026-03-01T07:38:56.5482704Z   Downloading tenacity-9.1.4-py3-none-any.whl.metadata (1.2 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:38:56.6264335Z Collecting websockets<17.0,>=13.0.0 (from google-genai>=1.0.0->-r requirements.txt (line 2))
+generate-and-notify	Install dependencies	2026-03-01T07:38:56.6364958Z   Downloading websockets-16.0-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (6.8 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:38:56.6568365Z Collecting typing-extensions<5.0.0,>=4.11.0 (from google-genai>=1.0.0->-r requirements.txt (line 2))
+generate-and-notify	Install dependencies	2026-03-01T07:38:56.6669097Z   Downloading typing_extensions-4.15.0-py3-none-any.whl.metadata (3.3 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:38:56.6832035Z Collecting distro<2,>=1.7.0 (from google-genai>=1.0.0->-r requirements.txt (line 2))
+generate-and-notify	Install dependencies	2026-03-01T07:38:56.6927294Z   Downloading distro-1.9.0-py3-none-any.whl.metadata (6.8 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:38:56.7089813Z Collecting sniffio (from google-genai>=1.0.0->-r requirements.txt (line 2))
+generate-and-notify	Install dependencies	2026-03-01T07:38:56.7189471Z   Downloading sniffio-1.3.1-py3-none-any.whl.metadata (3.9 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:38:56.7990004Z Collecting charset_normalizer<4,>=2 (from requests>=2.31->-r requirements.txt (line 3))
+generate-and-notify	Install dependencies	2026-03-01T07:38:56.8094287Z   Downloading charset_normalizer-3.4.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (37 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:38:56.8314430Z Collecting idna<4,>=2.5 (from requests>=2.31->-r requirements.txt (line 3))
+generate-and-notify	Install dependencies	2026-03-01T07:38:56.8422138Z   Downloading idna-3.11-py3-none-any.whl.metadata (8.4 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:38:56.8701597Z Collecting urllib3<3,>=1.21.1 (from requests>=2.31->-r requirements.txt (line 3))
+generate-and-notify	Install dependencies	2026-03-01T07:38:56.8802902Z   Downloading urllib3-2.6.3-py3-none-any.whl.metadata (6.9 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:38:56.9035743Z Collecting certifi>=2017.4.17 (from requests>=2.31->-r requirements.txt (line 3))
+generate-and-notify	Install dependencies	2026-03-01T07:38:56.9138932Z   Downloading certifi-2026.2.25-py3-none-any.whl.metadata (2.5 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:38:56.9398132Z Collecting pyasn1-modules>=0.2.1 (from google-auth<3.0.0,>=2.47.0->google-auth[requests]<3.0.0,>=2.47.0->google-genai>=1.0.0->-r requirements.txt (line 2))
+generate-and-notify	Install dependencies	2026-03-01T07:38:56.9496421Z   Downloading pyasn1_modules-0.4.2-py3-none-any.whl.metadata (3.5 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:38:57.1033152Z Collecting cryptography>=38.0.3 (from google-auth<3.0.0,>=2.47.0->google-auth[requests]<3.0.0,>=2.47.0->google-genai>=1.0.0->-r requirements.txt (line 2))
+generate-and-notify	Install dependencies	2026-03-01T07:38:57.1137048Z   Downloading cryptography-46.0.5-cp311-abi3-manylinux_2_34_x86_64.whl.metadata (5.7 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:38:57.1392484Z Collecting rsa<5,>=3.1.4 (from google-auth<3.0.0,>=2.47.0->google-auth[requests]<3.0.0,>=2.47.0->google-genai>=1.0.0->-r requirements.txt (line 2))
+generate-and-notify	Install dependencies	2026-03-01T07:38:57.1489686Z   Downloading rsa-4.9.1-py3-none-any.whl.metadata (5.6 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:38:57.1730934Z Collecting httpcore==1.* (from httpx<1.0.0,>=0.28.1->google-genai>=1.0.0->-r requirements.txt (line 2))
+generate-and-notify	Install dependencies	2026-03-01T07:38:57.1826886Z   Downloading httpcore-1.0.9-py3-none-any.whl.metadata (21 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:38:57.2014751Z Collecting h11>=0.16 (from httpcore==1.*->httpx<1.0.0,>=0.28.1->google-genai>=1.0.0->-r requirements.txt (line 2))
+generate-and-notify	Install dependencies	2026-03-01T07:38:57.2110363Z   Downloading h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:38:57.2281989Z Collecting annotated-types>=0.6.0 (from pydantic<3.0.0,>=2.9.0->google-genai>=1.0.0->-r requirements.txt (line 2))
+generate-and-notify	Install dependencies	2026-03-01T07:38:57.2382042Z   Downloading annotated_types-0.7.0-py3-none-any.whl.metadata (15 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:38:57.7875947Z Collecting pydantic-core==2.41.5 (from pydantic<3.0.0,>=2.9.0->google-genai>=1.0.0->-r requirements.txt (line 2))
+generate-and-notify	Install dependencies	2026-03-01T07:38:57.7988349Z   Downloading pydantic_core-2.41.5-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (7.3 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:38:57.8175729Z Collecting typing-inspection>=0.4.2 (from pydantic<3.0.0,>=2.9.0->google-genai>=1.0.0->-r requirements.txt (line 2))
+generate-and-notify	Install dependencies	2026-03-01T07:38:57.8278932Z   Downloading typing_inspection-0.4.2-py3-none-any.whl.metadata (2.6 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:38:57.8538848Z Collecting pyasn1>=0.1.3 (from rsa<5,>=3.1.4->google-auth<3.0.0,>=2.47.0->google-auth[requests]<3.0.0,>=2.47.0->google-genai>=1.0.0->-r requirements.txt (line 2))
+generate-and-notify	Install dependencies	2026-03-01T07:38:57.8637566Z   Downloading pyasn1-0.6.2-py3-none-any.whl.metadata (8.4 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:38:57.9529716Z Collecting cffi>=2.0.0 (from cryptography>=38.0.3->google-auth<3.0.0,>=2.47.0->google-auth[requests]<3.0.0,>=2.47.0->google-genai>=1.0.0->-r requirements.txt (line 2))
+generate-and-notify	Install dependencies	2026-03-01T07:38:57.9629293Z   Downloading cffi-2.0.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.6 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:38:57.9804674Z Collecting pycparser (from cffi>=2.0.0->cryptography>=38.0.3->google-auth<3.0.0,>=2.47.0->google-auth[requests]<3.0.0,>=2.47.0->google-genai>=1.0.0->-r requirements.txt (line 2))
+generate-and-notify	Install dependencies	2026-03-01T07:38:57.9898391Z   Downloading pycparser-3.0-py3-none-any.whl.metadata (8.2 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:38:58.0073030Z Downloading feedparser-6.0.12-py3-none-any.whl (81 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:38:58.0267336Z Downloading google_genai-1.65.0-py3-none-any.whl (724 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:38:58.0963096Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 724.4/724.4 kB 11.4 MB/s  0:00:00
+generate-and-notify	Install dependencies	2026-03-01T07:38:58.1060355Z Downloading requests-2.32.5-py3-none-any.whl (64 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:38:58.1212189Z Downloading anyio-4.12.1-py3-none-any.whl (113 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:38:58.1403729Z Downloading charset_normalizer-3.4.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (153 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:38:58.1608083Z Downloading distro-1.9.0-py3-none-any.whl (20 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:38:58.1732091Z Downloading google_auth-2.48.0-py3-none-any.whl (236 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:38:58.1975850Z Downloading httpx-0.28.1-py3-none-any.whl (73 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:38:58.2109756Z Downloading httpcore-1.0.9-py3-none-any.whl (78 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:38:58.2247960Z Downloading idna-3.11-py3-none-any.whl (71 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:38:58.2378609Z Downloading pydantic-2.12.5-py3-none-any.whl (463 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:38:58.2747331Z Downloading pydantic_core-2.41.5-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.1 MB)
+generate-and-notify	Install dependencies	2026-03-01T07:38:58.3614714Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 25.0 MB/s  0:00:00
+generate-and-notify	Install dependencies	2026-03-01T07:38:58.3713320Z Downloading rsa-4.9.1-py3-none-any.whl (34 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:38:58.3828325Z Downloading tenacity-9.1.4-py3-none-any.whl (28 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:38:58.3960510Z Downloading typing_extensions-4.15.0-py3-none-any.whl (44 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:38:58.4076272Z Downloading urllib3-2.6.3-py3-none-any.whl (131 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:38:58.4214956Z Downloading websockets-16.0-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (184 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:38:58.4365377Z Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (807 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:38:58.4634886Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 807.9/807.9 kB 31.3 MB/s  0:00:00
+generate-and-notify	Install dependencies	2026-03-01T07:38:58.4734258Z Downloading annotated_types-0.7.0-py3-none-any.whl (13 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:38:58.4848339Z Downloading certifi-2026.2.25-py3-none-any.whl (153 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:38:58.4982548Z Downloading cryptography-46.0.5-cp311-abi3-manylinux_2_34_x86_64.whl (4.5 MB)
+generate-and-notify	Install dependencies	2026-03-01T07:38:58.6299289Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.5/4.5 MB 45.7 MB/s  0:00:00
+generate-and-notify	Install dependencies	2026-03-01T07:38:58.6398632Z Downloading cffi-2.0.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (219 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:38:58.6537133Z Downloading h11-0.16.0-py3-none-any.whl (37 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:38:58.6665407Z Downloading pyasn1-0.6.2-py3-none-any.whl (83 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:38:58.6778696Z Downloading pyasn1_modules-0.4.2-py3-none-any.whl (181 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:38:58.6905079Z Downloading typing_inspection-0.4.2-py3-none-any.whl (14 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:38:58.7018504Z Downloading pycparser-3.0-py3-none-any.whl (48 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:38:58.7132494Z Downloading sniffio-1.3.1-py3-none-any.whl (10 kB)
+generate-and-notify	Install dependencies	2026-03-01T07:38:58.7463904Z Building wheels for collected packages: sgmllib3k
+generate-and-notify	Install dependencies	2026-03-01T07:38:58.7470971Z   Building wheel for sgmllib3k (pyproject.toml): started
+generate-and-notify	Install dependencies	2026-03-01T07:38:58.9354385Z   Building wheel for sgmllib3k (pyproject.toml): finished with status 'done'
+generate-and-notify	Install dependencies	2026-03-01T07:38:58.9359105Z   Created wheel for sgmllib3k: filename=sgmllib3k-1.0.0-py3-none-any.whl size=6091 sha256=30ae4234902a50ba6cfcc2f6089fe32d7231bbeccd9357937984a8c56bdf8283
+generate-and-notify	Install dependencies	2026-03-01T07:38:58.9360691Z   Stored in directory: /home/runner/.cache/pip/wheels/03/f5/1a/23761066dac1d0e8e683e5fdb27e12de53209d05a4a37e6246
+generate-and-notify	Install dependencies	2026-03-01T07:38:58.9373840Z Successfully built sgmllib3k
+generate-and-notify	Install dependencies	2026-03-01T07:38:58.9801680Z Installing collected packages: sgmllib3k, websockets, urllib3, typing-extensions, tenacity, sniffio, pyyaml, pycparser, pyasn1, idna, h11, feedparser, distro, charset_normalizer, certifi, annotated-types, typing-inspection, rsa, requests, pydantic-core, pyasn1-modules, httpcore, cffi, anyio, pydantic, httpx, cryptography, google-auth, google-genai
+generate-and-notify	Install dependencies	2026-03-01T07:39:00.9918043Z 
+generate-and-notify	Install dependencies	2026-03-01T07:39:00.9946346Z Successfully installed annotated-types-0.7.0 anyio-4.12.1 certifi-2026.2.25 cffi-2.0.0 charset_normalizer-3.4.4 cryptography-46.0.5 distro-1.9.0 feedparser-6.0.12 google-auth-2.48.0 google-genai-1.65.0 h11-0.16.0 httpcore-1.0.9 httpx-0.28.1 idna-3.11 pyasn1-0.6.2 pyasn1-modules-0.4.2 pycparser-3.0 pydantic-2.12.5 pydantic-core-2.41.5 pyyaml-6.0.3 requests-2.32.5 rsa-4.9.1 sgmllib3k-1.0.0 sniffio-1.3.1 tenacity-9.1.4 typing-extensions-4.15.0 typing-inspection-0.4.2 urllib3-2.6.3 websockets-16.0
+generate-and-notify	Determine date	﻿2026-03-01T07:39:01.2859188Z ##[group]Run if [ -n "2026-03-01" ]; then
+generate-and-notify	Determine date	2026-03-01T07:39:01.2859505Z [36;1mif [ -n "2026-03-01" ]; then[0m
+generate-and-notify	Determine date	2026-03-01T07:39:01.2859778Z [36;1m  echo "date=2026-03-01" >> $GITHUB_OUTPUT[0m
+generate-and-notify	Determine date	2026-03-01T07:39:01.2860042Z [36;1melse[0m
+generate-and-notify	Determine date	2026-03-01T07:39:01.2860318Z [36;1m  echo "date=$(TZ='Asia/Kolkata' date +'%Y-%m-%d')" >> $GITHUB_OUTPUT[0m
+generate-and-notify	Determine date	2026-03-01T07:39:01.2860634Z [36;1mfi[0m
+generate-and-notify	Determine date	2026-03-01T07:39:01.2890193Z shell: /usr/bin/bash -e {0}
+generate-and-notify	Determine date	2026-03-01T07:39:01.2890448Z env:
+generate-and-notify	Determine date	2026-03-01T07:39:01.2890697Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.12/x64
+generate-and-notify	Determine date	2026-03-01T07:39:01.2891095Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.12/x64/lib/pkgconfig
+generate-and-notify	Determine date	2026-03-01T07:39:01.2891469Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.12/x64
+generate-and-notify	Determine date	2026-03-01T07:39:01.2891811Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.12/x64
+generate-and-notify	Determine date	2026-03-01T07:39:01.2892151Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.12/x64
+generate-and-notify	Determine date	2026-03-01T07:39:01.2892489Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.12/x64/lib
+generate-and-notify	Determine date	2026-03-01T07:39:01.2892818Z ##[endgroup]
+generate-and-notify	Generate LinkedIn post	﻿2026-03-01T07:39:01.2990441Z ##[group]Run if [ "false" == "true" ]; then
+generate-and-notify	Generate LinkedIn post	2026-03-01T07:39:01.2990743Z [36;1mif [ "false" == "true" ]; then[0m
+generate-and-notify	Generate LinkedIn post	2026-03-01T07:39:01.2991091Z [36;1m  python generate_post.py --date 2026-03-01 --cve --limit 2[0m
+generate-and-notify	Generate LinkedIn post	2026-03-01T07:39:01.2991400Z [36;1melif [ -n "" ]; then[0m
+generate-and-notify	Generate LinkedIn post	2026-03-01T07:39:01.2991697Z [36;1m  python generate_post.py --date 2026-03-01 --topic "" --limit 2[0m
+generate-and-notify	Generate LinkedIn post	2026-03-01T07:39:01.2992010Z [36;1melse[0m
+generate-and-notify	Generate LinkedIn post	2026-03-01T07:39:01.2992355Z [36;1m  python generate_post.py --date 2026-03-01 --limit 2[0m
+generate-and-notify	Generate LinkedIn post	2026-03-01T07:39:01.2992639Z [36;1mfi[0m
+generate-and-notify	Generate LinkedIn post	2026-03-01T07:39:01.3018317Z shell: /usr/bin/bash -e {0}
+generate-and-notify	Generate LinkedIn post	2026-03-01T07:39:01.3018556Z env:
+generate-and-notify	Generate LinkedIn post	2026-03-01T07:39:01.3018791Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.12/x64
+generate-and-notify	Generate LinkedIn post	2026-03-01T07:39:01.3019184Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.12/x64/lib/pkgconfig
+generate-and-notify	Generate LinkedIn post	2026-03-01T07:39:01.3019567Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.12/x64
+generate-and-notify	Generate LinkedIn post	2026-03-01T07:39:01.3019898Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.12/x64
+generate-and-notify	Generate LinkedIn post	2026-03-01T07:39:01.3020273Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.12/x64
+generate-and-notify	Generate LinkedIn post	2026-03-01T07:39:01.3020615Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.12/x64/lib
+generate-and-notify	Generate LinkedIn post	2026-03-01T07:39:01.3021426Z   GEMINI_API_KEY: ***
+generate-and-notify	Generate LinkedIn post	2026-03-01T07:39:01.3021610Z ##[endgroup]
+generate-and-notify	Generate LinkedIn post	2026-03-01T07:39:04.9147305Z [INFO] Fetching daily news...
+generate-and-notify	Generate LinkedIn post	2026-03-01T07:39:04.9148266Z [INFO] Fetching cybersecurity news from trusted RSS feeds...
+generate-and-notify	Generate LinkedIn post	2026-03-01T07:39:04.9149209Z [INFO] Fetched 49 raw articles from 8 feeds
+generate-and-notify	Generate LinkedIn post	2026-03-01T07:39:04.9150065Z [INFO] Cross-referencing articles across sources...
+generate-and-notify	Generate LinkedIn post	2026-03-01T07:39:04.9151003Z [INFO] 25/45 articles verified (multi-source or Tier 1)
+generate-and-notify	Generate LinkedIn post	2026-03-01T07:39:04.9151861Z [INFO] Spot-checking top article URLs...
+generate-and-notify	Generate LinkedIn post	2026-03-01T07:39:04.9152613Z [INFO] News context ready (4383 chars)
+generate-and-notify	Generate LinkedIn post	2026-03-01T07:39:04.9153082Z 
+generate-and-notify	Generate LinkedIn post	2026-03-01T07:39:04.9153628Z [INFO] Generating Sunday: Coding / Open Source project highlights post...
+generate-and-notify	Generate LinkedIn post	2026-03-01T07:39:04.9154790Z [INFO] Attempting generation with gemini-2.5-pro...
+generate-and-notify	Generate LinkedIn post	2026-03-01T07:39:04.9160480Z [ERROR] Gemini API failed: 400 INVALID_ARGUMENT. {'error': {'code': 400, 'message': 'API key not valid. Please pass a valid API key.', 'status': 'INVALID_ARGUMENT', 'details': [{'@type': 'type.googleapis.com/google.rpc.ErrorInfo', 'reason': 'API_KEY_INVALID', 'domain': 'googleapis.com', 'metadata': {'service': 'generativelanguage.googleapis.com'}}, {'@type': 'type.googleapis.com/google.rpc.LocalizedMessage', 'locale': 'en-US', 'message': 'API key not valid. Please pass a valid API key.'}]}}
+generate-and-notify	Generate LinkedIn post	2026-03-01T07:39:05.0164833Z ##[error]Process completed with exit code 1.
+generate-and-notify	Post Checkout repository	﻿2026-03-01T07:39:05.0264265Z Post job cleanup.
+generate-and-notify	Post Checkout repository	2026-03-01T07:39:05.1121415Z [command]/usr/bin/git version
+generate-and-notify	Post Checkout repository	2026-03-01T07:39:05.1152409Z git version 2.53.0
+generate-and-notify	Post Checkout repository	2026-03-01T07:39:05.1191235Z Temporarily overriding HOME='/home/runner/work/_temp/4e8c438f-b300-4aa5-a506-ed2c6e88a613' before making global git config changes
+generate-and-notify	Post Checkout repository	2026-03-01T07:39:05.1192419Z Adding repository directory to the temporary git global config as a safe directory
+generate-and-notify	Post Checkout repository	2026-03-01T07:39:05.1197682Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Linkedin-Daily-Post/Linkedin-Daily-Post
+generate-and-notify	Post Checkout repository	2026-03-01T07:39:05.1228985Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+generate-and-notify	Post Checkout repository	2026-03-01T07:39:05.1255577Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+generate-and-notify	Post Checkout repository	2026-03-01T07:39:05.1433761Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+generate-and-notify	Post Checkout repository	2026-03-01T07:39:05.1451877Z http.https://github.com/.extraheader
+generate-and-notify	Post Checkout repository	2026-03-01T07:39:05.1462753Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+generate-and-notify	Post Checkout repository	2026-03-01T07:39:05.1489343Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+generate-and-notify	Post Checkout repository	2026-03-01T07:39:05.1658821Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+generate-and-notify	Post Checkout repository	2026-03-01T07:39:05.1683294Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+generate-and-notify	Complete job	﻿2026-03-01T07:39:05.1931522Z Cleaning up orphan processes

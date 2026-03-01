@@ -161,8 +161,11 @@ def main():
         post_text = args.post_text
         if not post_text:
             # Read from post file
-            post_file = Path(__file__).parent.parent / "posts" / f"{args.date}.md"
-            if post_file.exists():
+            posts_dir = Path(__file__).parent.parent / "posts"
+            matching_files = sorted(list(posts_dir.glob(f"{args.date}*.md")))
+            
+            if matching_files:
+                post_file = matching_files[-1]  # Get the latest one
                 content = post_file.read_text(encoding="utf-8")
                 parts = content.split("---")
                 if len(parts) >= 3:

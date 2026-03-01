@@ -181,22 +181,15 @@ def format_news_context(articles: list[dict]) -> str:
 
     lines = ["=== VERIFIED NEWS (confirmed by multiple trusted sources) ===", ""]
 
-    for i, article in enumerate(verified[:10], 1):
+    # Dramatically reduced payload to avoid quota limits
+    for i, article in enumerate(verified[:1], 1):
         sources_str = ", ".join(article["cross_ref_sources"])
         lines.append(f"{i}. [{sources_str}] {article['title']}")
         if article["summary"]:
-            lines.append(f"   Summary: {article['summary'][:200]}")
+            lines.append(f"   Summary: {article['summary'][:50]}")
         lines.append(f"   Link: {article['link']}")
         lines.append(f"   Published: {article['published']}")
         lines.append("")
-
-    if unverified:
-        lines.append("=== ADDITIONAL NEWS (single source, use with caution) ===")
-        lines.append("")
-        for i, article in enumerate(unverified[:5], 1):
-            lines.append(f"{i}. [{article['source']}] {article['title']}")
-            lines.append(f"   Link: {article['link']}")
-            lines.append("")
 
     return "\n".join(lines)
 

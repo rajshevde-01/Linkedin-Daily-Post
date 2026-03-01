@@ -27,6 +27,10 @@ on:
         description: "Run Live Incident Response Tracker (Fetch CISA Zero-Days instead of News)"
         type: boolean
         default: false
+      use_knowledge_base:
+        description: "Force the post to generate from your Personal Brain folder"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -63,11 +67,20 @@ jobs:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
         working-directory: scripts
         run: |
+          CHANCE=$((1 + RANDOM % 100))
+          echo "Rolled a $CHANCE for Knowledge Base probability."
+
           if [ "${{ github.event.inputs.use_cve_tracker }}" == "true" ]; then
             python generate_post.py --date ${{ steps.date.outputs.date }} --cve --limit 2
+          elif [ "${{ github.event.inputs.use_knowledge_base }}" == "true" ]; then
+            python generate_post.py --date ${{ steps.date.outputs.date }} --knowledge --limit 2
           elif [ -n "${{ github.event.inputs.custom_topic }}" ]; then
             python generate_post.py --date ${{ steps.date.outputs.date }} --topic "${{ github.event.inputs.custom_topic }}" --limit 2
+          elif [ $CHANCE -le 30 ]; then
+            echo "Knowledge Base triggered (<=30)!"
+            python generate_post.py --date ${{ steps.date.outputs.date }} --knowledge --limit 2
           else
+            echo "Using Standard News Fetcher."
             python generate_post.py --date ${{ steps.date.outputs.date }} --limit 2
           fi
 

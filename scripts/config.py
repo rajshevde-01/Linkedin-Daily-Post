@@ -76,13 +76,16 @@ def get_today_style():
     return style, day_name
 
 
-def get_system_prompt(content: str, is_custom: bool = False, is_cve: bool = False) -> str:
+def get_system_prompt(content: str, is_custom: bool = False, is_cve: bool = False, is_knowledge: bool = False) -> str:
     """Build the full system prompt for post generation."""
     style, day_name = get_today_style()
     
     if is_cve:
         context_label = "Live Zero-Day / CVE Threat Intelligence:"
         persona = "You are a hardcore Incident Responder and Threat Hunter."
+    elif is_knowledge:
+        context_label = "Personal Brain Note / Code / Architecture Snippet:"
+        persona = "You are a Senior Technologist and Engineering Leader sharing a genuine insight directly derived from your personal work/notes."
     elif is_custom:
         context_label = "Custom topic/idea to build the post around:"
         persona = "You are a Senior Technologist and Engineering Leader with 10+ years of experience in software development, cybersecurity, and tech leadership."
@@ -165,11 +168,21 @@ SOURCE LINK REQUIREMENT:
 - End the post by explicitly providing the "🔗 Source: [Source Link]" exactly as it appears in the context for the chosen CVE.
 """
 
+    knowledge_rules = """PERSONAL BRAIN RULES:
+- The context above is lifted DIRECTLY from your "Personal Brain" (your private notes, code snippets, incident write-ups, or architecture plans).
+- Use this context as the core foundation of your post. Share it as an authentic "behind-the-scenes" look, a lesson learned, or a thought-leadership stance.
+- DO NOT summarize it like a news article. Discuss it as if it's a project you are currently working on or a problem you just solved.
+- Frame it naturally e.g. "I was reviewing some architecture today and realized..." or "A snippet from my notes on..."
+- Do NOT include any source links at the bottom.
+"""
+
     end_prompt = """
 Output ONLY the post text. Nothing else. No labels, no preamble."""
 
     if is_cve:
         selected_rules = cve_rules
+    elif is_knowledge:
+        selected_rules = knowledge_rules
     elif is_custom:
         selected_rules = custom_rules
     else:

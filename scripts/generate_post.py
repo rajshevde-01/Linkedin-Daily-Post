@@ -13,8 +13,9 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from config import GROQ_API_KEYS, get_system_prompt, HASHTAGS, POST_MIN_WORDS, POST_MAX_WORDS
 from fetch_news import get_news_context
 from fetch_cve import get_cve_context
+from fetch_knowledge import fetch_random_knowledge
 
-def generate_post(content: str, is_custom: bool = False, is_cve: bool = False) -> str:
+def generate_post(content: str, is_custom: bool = False, is_cve: bool = False, is_knowledge: bool = False) -> str:
     """Generate a LinkedIn post using Groq API."""
     try:
         from groq import Groq
@@ -26,7 +27,7 @@ def generate_post(content: str, is_custom: bool = False, is_cve: bool = False) -
         print("[ERROR] GROQ_API_KEY environment variable not set or invalid")
         sys.exit(1)
 
-    system_prompt = get_system_prompt(content, is_custom=is_custom, is_cve=is_cve)
+    system_prompt = get_system_prompt(content, is_custom=is_custom, is_cve=is_cve, is_knowledge=is_knowledge)
 
     # Added robust retry and fallback logic for Rate Limits / Quotas
     import time
@@ -150,6 +151,8 @@ def main():
                         help="Custom topic to write about (bypasses news fetching)")
     parser.add_argument("--cve", action="store_true",
                         help="Generate a threat intel post from live CVE data (bypasses news fetching)")
+    parser.add_argument("--knowledge", action="store_true",
+                        help="Generate a thought leadership post from a private note in the knowledge/ folder")
     parser.add_argument("--limit", type=int, default=0,
                         help="Maximum number of posts to generate per day (0 for no limit)")
     args = parser.parse_args()
@@ -167,6 +170,7 @@ def main():
     # Step 1: Determine topic vs news
     is_custom = False
     is_cve = False
+    is_knowledge = False
     content_to_use = ""
     used_custom_file = False
     
@@ -180,6 +184,16 @@ def main():
         is_cve = True
         print("[INFO] Using Live Incident Response Tracker (--cve flag)")
         content_to_use = get_cve_context()
+    elif args.knowledge:
+        print("[INFO] Using Personal Brain / Knowledge Base (--knowledge flag)")
+        knowledge_result = fetch_random_knowledge()
+        if knowledge_result:
+            content_to_use, filename = knowledge_result
+            is_knowledge = True
+            print(f"[INFO] Successfully loaded knowledge source: {filename}")
+        else:
+            print("[WARN] Could not load knowledge. Falling back to news.")
+            content_to_use = get_news_context()
     elif custom_idea_file.exists():
         file_content = custom_idea_file.read_text(encoding="utf-8").strip()
         if file_content:
@@ -196,7 +210,7 @@ def main():
 
     # Step 2: Generate post
     print(f"\n[INFO] Generating {get_style_for_display()} post...")
-    post_text = generate_post(content_to_use, is_custom=is_custom, is_cve=is_cve)
+    post_text = generate_post(content_to_use, is_custom=is_custom, is_cve=is_cve, is_knowledge=is_knowledge)
 
     if args.dry_run:
         print("\n=== GENERATED POST ===\n")

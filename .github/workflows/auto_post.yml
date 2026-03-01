@@ -1,7 +1,7 @@
 # ============================================================
-# PHASE 2: Auto-post to LinkedIn (11:11 PM IST)
+# PHASE 2: Auto-post to LinkedIn (3 PM & 11:11 PM IST)
 # ============================================================
-# Runs daily at 11:11 PM IST (5:41 PM UTC)
+# Runs daily at 3:00 PM IST (9:30 AM UTC) & 11:11 PM IST (5:41 PM UTC)
 # Checks if user approved/rejected the post.
 # If approved or no response (timeout) -> posts to LinkedIn.
 # If rejected -> skips posting.

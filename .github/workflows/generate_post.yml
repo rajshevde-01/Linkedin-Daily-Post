@@ -1,18 +1,18 @@
 # ============================================================
-# PHASE 1: Generate post + send confirmation (5:00 PM IST)
+# PHASE 1: Generate post + send confirmation (2 PM & 5 PM IST)
 # ============================================================
-# Runs daily at 5:00 PM IST (11:30 AM UTC)
+# Runs daily at 2:00 PM IST (8:30 AM UTC) and 5:00 PM IST (11:30 AM UTC)
 # Generates the LinkedIn post and creates a GitHub Issue for review.
-# User gets an email notification (via GitHub) and has 3 hours to respond.
+# User gets an email notification (via GitHub) and has 1-6 hours to respond.
 # ============================================================
 
 name: Generate Post & Send Confirmation
 
 on:
   schedule:
-    # 9:00 AM IST = 3:30 AM UTC
+    # 2:00 PM IST = 8:30 AM UTC
     # 5:00 PM IST = 11:30 AM UTC
-    - cron: "30 3,11 * * *"
+    - cron: "30 8,11 * * *"
   workflow_dispatch:
     inputs:
       date:

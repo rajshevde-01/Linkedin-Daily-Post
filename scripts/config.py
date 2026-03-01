@@ -5,7 +5,9 @@ import os
 from datetime import datetime
 
 # --- API Keys (from environment / GitHub Secrets) ---
-GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
+GEMINI_API_KEY_ENV = os.environ.get("GEMINI_API_KEY", "")
+# Parse into a list of keys, splitting by comma and stripping whitespace
+GEMINI_API_KEYS = [k.strip() for k in GEMINI_API_KEY_ENV.split(",") if k.strip()]
 LINKEDIN_ACCESS_TOKEN = os.environ.get("LINKEDIN_ACCESS_TOKEN", "")
 LINKEDIN_PERSON_URN = os.environ.get("LINKEDIN_PERSON_URN", "")  # e.g., "urn:li:person:XXXX"
 

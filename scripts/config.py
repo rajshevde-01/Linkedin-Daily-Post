@@ -2,6 +2,7 @@
 Configuration for Daily LinkedIn Post Automation
 """
 import os
+import random
 from datetime import datetime
 
 # --- API Keys (from environment / GitHub Secrets) ---
@@ -68,9 +69,11 @@ HASHTAGS = [
 
 
 def get_today_style():
-    """Return the post style for today based on day of week."""
+    """Return a random post style for this generation."""
     day = datetime.now().weekday()  # 0=Monday
-    return DAY_STYLES[day], DAY_NAMES[day]
+    day_name = DAY_NAMES[day]
+    style = random.choice(list(DAY_STYLES.values()))
+    return style, day_name
 
 
 def get_system_prompt(content: str, is_custom: bool = False, is_cve: bool = False) -> str:

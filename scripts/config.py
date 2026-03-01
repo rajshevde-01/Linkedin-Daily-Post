@@ -104,9 +104,7 @@ STRICT RULES:
 - Start with a powerful hook (shocking stat, bold question, or surprising fact)
 - Length: {POST_MIN_WORDS}-{POST_MAX_WORDS} words only
 - Tone: professional but human — like a real practitioner and leader, not a corporate bot
-- FORMATTING: Use bullet points (•) and short paragraphs to make the post highly readable and scannable.
 - Include ONE actionable tip or insight professionals can use TODAY
-- POLL QUESTION: Instead of a normal question, end the main text with an engaging "Poll-style" question. Provide 2 to 3 numbered or emoji options for people to vote on in the comments. (e.g., "Do you agree? Reply with 1️⃣ for Yes or 2️⃣ for No.")
 - NO hashtags in the body (they are added automatically later)
 - Use emojis tastefully (e.g., 💡, 🚀, 🛡️) but don't overdo it.
 - NO phrases like "In today's digital landscape" or "In conclusion"
@@ -114,6 +112,30 @@ STRICT RULES:
 - Write in first person ("I", "we", "our team")
 
 """
+
+    format_3 = """DESIGN & FORMATTING RULE (The "Controversial Take"):
+- Start with a bold, 1-sentence statement paragraph that challenges common thinking.
+- Use explicit "Myth vs Reality" or "Why everyone is wrong about" phrasing.
+- Heavily use single-sentence paragraphs and wide line breaks for dramatic effect.
+- DO NOT use bullet points unless absolutely necessary.
+"""
+
+    format_4 = """DESIGN & FORMATTING RULE (The "Data Dump / Report"):
+- Make the post extremely scannable like an executive summary.
+- Start with a "TL;DR:" section at the very top.
+- Heavily utilize data points, metrics, and statistics (pulled accurately from context).
+- Use structured sections with all-caps headers.
+"""
+
+    format_5 = """DESIGN & FORMATTING RULE (The "Standard" Format):
+- Use bullet points (•) and short paragraphs to make the post highly readable and scannable.
+- End the main text with an engaging "Poll-style" question. 
+- Provide 2 to 3 numbered or emoji options for people to vote on in the comments. (e.g., "Do you agree? Reply with 1️⃣ for Yes or 2️⃣ for No.")
+"""
+
+    format_options = [format_3, format_4, format_5]
+    selected_format = random.choice(format_options)
+
 
     news_rules = """FACTUAL ACCURACY RULES (CRITICAL):
 - ONLY reference news stories, projects, or incidents that are listed in the VERIFIED NEWS section above
@@ -153,5 +175,5 @@ Output ONLY the post text. Nothing else. No labels, no preamble."""
     else:
         selected_rules = news_rules
 
-    return base_prompt + selected_rules + end_prompt
+    return base_prompt + selected_format + selected_rules + end_prompt
 

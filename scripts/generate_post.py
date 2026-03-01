@@ -10,20 +10,20 @@ from pathlib import Path
 # Add scripts dir to path for imports
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-from config import GEMINI_API_KEYS, get_system_prompt, HASHTAGS, POST_MIN_WORDS, POST_MAX_WORDS
+from config import GROQ_API_KEYS, get_system_prompt, HASHTAGS, POST_MIN_WORDS, POST_MAX_WORDS
 from fetch_news import get_news_context
 from fetch_cve import get_cve_context
 
 def generate_post(content: str, is_custom: bool = False, is_cve: bool = False) -> str:
-    """Generate a LinkedIn post using Google Gemini API."""
+    """Generate a LinkedIn post using Groq API."""
     try:
-        from google import genai
+        from groq import Groq
     except ImportError:
-        print("[ERROR] google-genai package not installed. Run: pip install google-genai")
+        print("[ERROR] groq package not installed. Run: pip install groq")
         sys.exit(1)
 
-    if not GEMINI_API_KEYS:
-        print("[ERROR] GEMINI_API_KEY environment variable not set or invalid")
+    if not GROQ_API_KEYS:
+        print("[ERROR] GROQ_API_KEY environment variable not set or invalid")
         sys.exit(1)
 
     system_prompt = get_system_prompt(content, is_custom=is_custom, is_cve=is_cve)
@@ -32,7 +32,7 @@ def generate_post(content: str, is_custom: bool = False, is_cve: bool = False) -
     import time
     
     max_retries = 3
-    models_to_try = ["gemini-2.5-pro", "gemini-2.0-flash"]
+    models_to_try = ["llama-3.3-70b-versatile", "llama-3.1-8b-instant"]
     
     post_text = None
     last_error = None
@@ -45,31 +45,35 @@ def generate_post(content: str, is_custom: bool = False, is_cve: bool = False) -
         print(f"\n[INFO] Starting attempts with model {current_model}...")
         
         # Middle Loop: Try each API key for the current model
-        for key_idx, api_key in enumerate(GEMINI_API_KEYS):
+        for key_idx, api_key in enumerate(GROQ_API_KEYS):
             if post_text is not None:
                 break
                 
-            print(f"[INFO] Using API key #{key_idx + 1}/{len(GEMINI_API_KEYS)} for {current_model}...")
-            client = genai.Client(api_key=api_key)
+            print(f"[INFO] Using API key #{key_idx + 1}/{len(GROQ_API_KEYS)} for {current_model}...")
+            client = Groq(api_key=api_key)
             
             # Inner Loop: Retries for temporary issues (like concurrent requests)
             for attempt in range(max_retries):
                 try:
-                    response = client.models.generate_content(
+                    response = client.chat.completions.create(
                         model=current_model,
-                        contents=system_prompt,
+                        messages=[
+                            {
+                                "role": "user",
+                                "content": system_prompt
+                            }
+                        ]
                     )
-                    post_text = response.text.strip()
+                    post_text = response.choices[0].message.content.strip()
                     print(f"[SUCCESS] Generation successful with {current_model} (Key #{key_idx + 1})")
                     break  # Success, break inner loop
                 except Exception as e:
-                    err_msg = str(e)
+                    err_msg = str(e).lower()
                     last_error = e
                     
-                    if "429" in err_msg or "Too Many Requests" in err_msg or "quota" in err_msg.lower() or "400" in err_msg or "API_KEY_INVALID" in err_msg:
+                    if "429" in err_msg or "too many requests" in err_msg or "quota" in err_msg or "401" in err_msg or "invalid_api_key" in err_msg:
                         print(f"[WARN] Quota exhausted or invalid key for {current_model} using Key #{key_idx + 1}: {e}")
                         # Immediately fail this key and move to the next key without retrying wait times
-                        # Quota exhaustion or invalid keys mean we shouldn't wait, but rather switch keys immediately.
                         break 
                     else:
                         # Other non-quota errors (transient API issues)
@@ -81,7 +85,7 @@ def generate_post(content: str, is_custom: bool = False, is_cve: bool = False) -
                             break
                             
     if post_text is None:
-        print(f"\n[FATAL] Exhausted all {len(models_to_try)} models across all {len(GEMINI_API_KEYS)} API keys.")
+        print(f"\n[FATAL] Exhausted all {len(models_to_try)} models across all {len(GROQ_API_KEYS)} API keys.")
         print(f"[FATAL] Last error encountered: {last_error}")
         sys.exit(1)
 

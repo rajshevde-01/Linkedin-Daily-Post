@@ -10,7 +10,7 @@ from pathlib import Path
 # Add scripts dir to path for imports
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-from config import GEMINI_API_KEY, get_system_prompt, HASHTAGS, POST_MIN_WORDS, POST_MAX_WORDS
+from config import GEMINI_API_KEYS, get_system_prompt, HASHTAGS, POST_MIN_WORDS, POST_MAX_WORDS
 from fetch_news import get_news_context
 from fetch_cve import get_cve_context
 
@@ -22,11 +22,9 @@ def generate_post(content: str, is_custom: bool = False, is_cve: bool = False) -
         print("[ERROR] google-genai package not installed. Run: pip install google-genai")
         sys.exit(1)
 
-    if not GEMINI_API_KEY:
-        print("[ERROR] GEMINI_API_KEY environment variable not set")
+    if not GEMINI_API_KEYS:
+        print("[ERROR] GEMINI_API_KEY environment variable not set or invalid")
         sys.exit(1)
-
-    client = genai.Client(api_key=GEMINI_API_KEY)
 
     system_prompt = get_system_prompt(content, is_custom=is_custom, is_cve=is_cve)
 
@@ -34,32 +32,58 @@ def generate_post(content: str, is_custom: bool = False, is_cve: bool = False) -
     import time
     
     max_retries = 3
-    current_model = "gemini-2.5-pro"
+    models_to_try = ["gemini-2.5-pro", "gemini-2.0-flash"]
     
-    for attempt in range(max_retries):
-        try:
-            print(f"[INFO] Attempting generation with {current_model}...")
-            response = client.models.generate_content(
-                model=current_model,
-                contents=system_prompt,
-            )
-            post_text = response.text.strip()
+    post_text = None
+    last_error = None
+    
+    # Outer Loop: Try each model
+    for current_model in models_to_try:
+        if post_text is not None:
             break
-        except Exception as e:
-            err_msg = str(e)
-            if "429" in err_msg or "Too Many Requests" in err_msg or "quota" in err_msg.lower():
-                if attempt < max_retries - 1:
-                    # If Pro quota is exhausted, fallback to Flash immediately
-                    if current_model == "gemini-2.5-pro":
-                        print(f"[WARN] Quota exhausted for {current_model}. Falling back to gemini-2.0-flash...")
-                        current_model = "gemini-2.0-flash"
-                        continue
-                        
-                    print(f"[WARN] Gemini API rate limit hit. Waiting 60s before retry {attempt+1}/{max_retries}...")
-                    time.sleep(60)
-                    continue
-            print(f"[ERROR] Gemini API failed: {e}")
-            sys.exit(1)
+            
+        print(f"\n[INFO] Starting attempts with model {current_model}...")
+        
+        # Middle Loop: Try each API key for the current model
+        for key_idx, api_key in enumerate(GEMINI_API_KEYS):
+            if post_text is not None:
+                break
+                
+            print(f"[INFO] Using API key #{key_idx + 1}/{len(GEMINI_API_KEYS)} for {current_model}...")
+            client = genai.Client(api_key=api_key)
+            
+            # Inner Loop: Retries for temporary issues (like concurrent requests)
+            for attempt in range(max_retries):
+                try:
+                    response = client.models.generate_content(
+                        model=current_model,
+                        contents=system_prompt,
+                    )
+                    post_text = response.text.strip()
+                    print(f"[SUCCESS] Generation successful with {current_model} (Key #{key_idx + 1})")
+                    break  # Success, break inner loop
+                except Exception as e:
+                    err_msg = str(e)
+                    last_error = e
+                    
+                    if "429" in err_msg or "Too Many Requests" in err_msg or "quota" in err_msg.lower() or "400" in err_msg or "API_KEY_INVALID" in err_msg:
+                        print(f"[WARN] Quota exhausted or invalid key for {current_model} using Key #{key_idx + 1}: {e}")
+                        # Immediately fail this key and move to the next key without retrying wait times
+                        # Quota exhaustion or invalid keys mean we shouldn't wait, but rather switch keys immediately.
+                        break 
+                    else:
+                        # Other non-quota errors (transient API issues)
+                        if attempt < max_retries - 1:
+                            print(f"[WARN] API Error. Waiting 10s before retry {attempt+1}/{max_retries}... Error: {e}")
+                            time.sleep(10)
+                        else:
+                            print(f"[ERROR] Max retries reached for Key #{key_idx + 1}. Moving to next key/model.")
+                            break
+                            
+    if post_text is None:
+        print(f"\n[FATAL] Exhausted all {len(models_to_try)} models across all {len(GEMINI_API_KEYS)} API keys.")
+        print(f"[FATAL] Last error encountered: {last_error}")
+        sys.exit(1)
 
     # Validate word count
     word_count = len(post_text.split())

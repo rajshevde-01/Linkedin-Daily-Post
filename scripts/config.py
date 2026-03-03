@@ -109,34 +109,64 @@ STRICT RULES:
 - Tone: professional but human — like a real practitioner and leader, not a corporate bot
 - Include ONE actionable tip or insight professionals can use TODAY
 - NO hashtags in the body (they are added automatically later)
-- Use emojis tastefully (e.g., 💡, 🚀, 🛡️) but don't overdo it.
+- USE EMOJIS — they are REQUIRED. Use 3–6 emojis throughout the post placed naturally (e.g., 💡 before insights, 🚀 for momentum, 🛡️ for security, 🔥 for urgency, ✅ for action items). Emojis must feel intentional, not decorative noise.
 - NO phrases like "In today's digital landscape" or "In conclusion"
 - DO NOT mention AI or that this was generated
 - Write in first person ("I", "we", "our team")
 
 """
 
+    format_1 = """DESIGN & FORMATTING RULE (The "Storytelling Narrative"):
+- Open with a vivid, first-person scene-setter — paint a picture of a real moment (e.g., "It was 2 AM. Our prod database was down and no one knew why.").
+- Use short punchy paragraphs (1-2 sentences max) separated by blank lines to build tension and pacing.
+- Include an emoji at the start of key scene-shift paragraphs to guide the eye (e.g., 🔍 for investigation, 💥 for the turning point, 💡 for the lesson).
+- End with a single, resonating takeaway line, then a reflective open question to the reader.
+- DO NOT use bullet points or headers — this is pure narrative flow.
+"""
+
+    format_2 = """DESIGN & FORMATTING RULE (The "X Things I Learned" List):
+- Start with a bold hook line, e.g. "5 brutal truths I learned after [doing X]:"
+- Use a numbered list (1. 2. 3. ...) with 4–6 items. Each item MUST:
+    • Start with a relevant emoji (e.g., 🔥, ✅, ⚠️, 💡, 🚀, 🎯)
+    • Have a bold 2-5 word label in CAPS or bold, followed by a colon
+    • Have a 1-2 sentence explanation
+- Keep each list item punchy and standalone — zero fluff.
+- End with a 1-line call-to-action or reflective question.
+"""
+
     format_3 = """DESIGN & FORMATTING RULE (The "Controversial Take"):
-- Start with a bold, 1-sentence statement paragraph that challenges common thinking.
+- Start with a bold, 1-sentence statement paragraph that challenges common thinking — open with a 🔥 or ⚡ emoji.
 - Use explicit "Myth vs Reality" or "Why everyone is wrong about" phrasing.
-- Heavily use single-sentence paragraphs and wide line breaks for dramatic effect.
+- Heavily use single-sentence paragraphs with wide line breaks for dramatic effect.
+- Add emojis (🚫, ✅, 💡, 👇) to emphasize contrast and key turns.
 - DO NOT use bullet points unless absolutely necessary.
 """
 
     format_4 = """DESIGN & FORMATTING RULE (The "Data Dump / Report"):
-- Make the post extremely scannable like an executive summary.
-- Start with a "TL;DR:" section at the very top.
+- Make the post extremely scannable like an executive briefing.
+- Start with a "📌 TL;DR:" section at the very top, followed by a blank line.
+- Use structured sections with all-caps emoji-prefixed headers (e.g., "📊 THE NUMBERS:", "⚠️ THE RISK:", "✅ THE FIX:").
 - Heavily utilize data points, metrics, and statistics (pulled accurately from context).
-- Use structured sections with all-caps headers.
+- Use emojis as visual anchors before every section header and key stat.
 """
 
-    format_5 = """DESIGN & FORMATTING RULE (The "Standard" Format):
+    format_5 = """DESIGN & FORMATTING RULE (The "Standard" Bullet Format):
 - Use bullet points (•) and short paragraphs to make the post highly readable and scannable.
-- End the main text with an engaging "Poll-style" question. 
-- Provide 2 to 3 numbered or emoji options for people to vote on in the comments. (e.g., "Do you agree? Reply with 1️⃣ for Yes or 2️⃣ for No.")
+- Place a relevant emoji before 2-3 key bullets to draw attention.
+- End the main text with an engaging "Poll-style" question with a 🗳️ emoji. 
+- Provide 2–3 numbered emoji options for people to vote on in the comments. (e.g., "Reply with 1️⃣ for Yes, 2️⃣ for No, 3️⃣ for Maybe.")
 """
 
-    format_options = [format_3, format_4, format_5]
+    format_6 = """DESIGN & FORMATTING RULE (The "Mini Thread" Style):
+- Structure the post like a Twitter/X thread condensed into one LinkedIn post.
+- Open with a teaser + 🧵 emoji, e.g.: "I broke down X so you don't have to. 🧵 A quick thread:"
+- Use numbered thread entries: "1/", "2/", "3/" etc. (4–6 entries total), each on its own paragraph.
+- Start each entry with a mini-headline as the first sentence (bold idea/conclusion first), then 1-sentence elaboration.
+- Add a relevant emoji to each thread entry (🔍, 💡, ⚡, 🛡️, 🚀, ✅).
+- Close with "That's a wrap. What's your take? 👇" or similar.
+"""
+
+    format_options = [format_1, format_2, format_3, format_4, format_5, format_6]
     selected_format = random.choice(format_options)
 
 

@@ -13,34 +13,34 @@ LINKEDIN_ACCESS_TOKEN = os.environ.get("LINKEDIN_ACCESS_TOKEN", "")
 LINKEDIN_PERSON_URN = os.environ.get("LINKEDIN_PERSON_URN", "")  # e.g., "urn:li:person:XXXX"
 
 # --- Trusted RSS Feeds (tiered by reliability) ---
-# Tier 1: Top-tier general tech news
-# Tier 2: Reputable cybersecurity and developer news
+# Tier 1: Top-tier cybersecurity news
+# Tier 2: Dedicated Threat Intel and Forensics
 # Tier 3: Focused blogs and communities
 RSS_FEEDS = [
-    # Tier 1 — Broad Tech News
-    {"url": "https://www.wired.com/feed/rss", "name": "Wired", "tier": 1},
-    {"url": "https://techcrunch.com/feed/", "name": "TechCrunch", "tier": 1},
-    {"url": "https://www.theverge.com/rss/index.xml", "name": "The Verge", "tier": 1},
+    # Tier 1 — Broad Cybersecurity News
+    {"url": "https://feeds.feedburner.com/TheHackersNews", "name": "The Hacker News", "tier": 1},
+    {"url": "https://www.bleepingcomputer.com/feed/", "name": "BleepingComputer", "tier": 1},
+    {"url": "https://www.darkreading.com/rss.xml", "name": "Dark Reading", "tier": 1},
 
-    # Tier 2 — Cyber & Developer News
-    {"url": "https://feeds.feedburner.com/TheHackersNews", "name": "The Hacker News", "tier": 2},
-    {"url": "https://www.bleepingcomputer.com/feed/", "name": "BleepingComputer", "tier": 2},
-    {"url": "https://github.blog/feed/", "name": "GitHub Blog", "tier": 2},
+    # Tier 2 — Threat Intel & Forensics
+    {"url": "https://www.cisa.gov/uscert/ncas/current-activity.xml", "name": "CISA Current Activity", "tier": 2},
+    {"url": "https://krebsonsecurity.com/feed/", "name": "Krebs on Security", "tier": 2},
+    {"url": "https://www.cybersecuritydive.com/feeds/news/", "name": "Cybersecurity Dive", "tier": 2},
 
     # Tier 3 — Expert Blogs & Deep Tech
-    {"url": "https://krebsonsecurity.com/feed/", "name": "Krebs on Security", "tier": 3},
+    {"url": "https://portswigger.net/daily-swig/rss", "name": "The Daily Swig", "tier": 3},
     {"url": "https://news.ycombinator.com/rss", "name": "Hacker News (YC)", "tier": 3},
 ]
 
 # --- Day-of-Week Rotation ---
 DAY_STYLES = {
-    0: "Tech Leadership & Strategy",
-    1: "AI & Future of Tech",
-    2: "Cybersecurity Deep Dive",
-    3: "Productivity & Developer Workflows",
-    4: "Week in review — top tech news",
-    5: "Soft Skills in Tech (Communication, Burnout)",
-    6: "Coding / Open Source project highlights",
+    0: "SOC (Security Operations Center) Operations & Analysts",
+    1: "VAPT (Vulnerability Assessment & Penetration Testing)",
+    2: "Digital Forensics & Incident Response (DFIR)",
+    3: "Global Cyber Attacks & Threat Intelligence",
+    4: "Week in review — Major Cybersecurity Breaches",
+    5: "Cybersecurity Career Advice & Certifications",
+    6: "Open Source Security Tools & Frameworks",
 }
 
 DAY_NAMES = {
@@ -85,13 +85,13 @@ def get_system_prompt(content: str, is_custom: bool = False, is_cve: bool = Fals
         persona = "You are a hardcore Incident Responder and Threat Hunter."
     elif is_knowledge:
         context_label = "Personal Brain Note / Code / Architecture Snippet:"
-        persona = "You are a Senior Technologist and Engineering Leader sharing a genuine insight directly derived from your personal work/notes."
+        persona = "You are a Senior Cybersecurity Architect and DFIR Specialist sharing a genuine insight directly derived from your personal work/notes."
     elif is_custom:
         context_label = "Custom topic/idea to build the post around:"
-        persona = "You are a Senior Technologist and Engineering Leader with 10+ years of experience in software development, cybersecurity, and tech leadership."
+        persona = "You are a Senior Cybersecurity Architect and Threat Intelligence Leader with 10+ years of experience in SOC, VAPT, and Digital Forensics."
     else:
-        context_label = "Latest technology and industry news context:"
-        persona = "You are a Senior Technologist and Engineering Leader with 10+ years of experience in software development, cybersecurity, and tech leadership."
+        context_label = "Latest cybersecurity and threat intelligence context:"
+        persona = "You are a Senior Cybersecurity Architect and Threat Intelligence Leader with 10+ years of experience in SOC, VAPT, and Digital Forensics."
 
     base_prompt = f"""{persona}
 

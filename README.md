@@ -35,13 +35,13 @@ Each post is generated from one of four content sources, chosen probabilisticall
 
 | Day | Theme |
 |-----|-------|
-| Monday | Tech Leadership & Strategy |
-| Tuesday | AI & Future of Tech |
-| Wednesday | Cybersecurity Deep Dive |
-| Thursday | Productivity & Developer Workflows |
-| Friday | Week in Review — Top Tech News |
-| Saturday | Soft Skills in Tech (Communication, Burnout) |
-| Sunday | Coding / Open Source Project Highlights |
+| Monday | SOC (Security Operations Center) Operations & Analysts |
+| Tuesday | VAPT (Vulnerability Assessment & Penetration Testing) |
+| Wednesday | Digital Forensics & Incident Response (DFIR) |
+| Thursday | Global Cyber Attacks & Threat Intelligence |
+| Friday | Week in Review — Major Cybersecurity Breaches |
+| Saturday | Cybersecurity Career Advice & Certifications |
+| Sunday | Open Source Security Tools & Frameworks |
 
 ---
 

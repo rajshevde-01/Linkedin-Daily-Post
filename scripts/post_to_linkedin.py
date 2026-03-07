@@ -7,6 +7,7 @@ import sys
 import json
 import argparse
 import requests
+import re
 from datetime import datetime
 from pathlib import Path
 
@@ -14,6 +15,34 @@ from pathlib import Path
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from config import LINKEDIN_ACCESS_TOKEN, LINKEDIN_PERSON_URN, HASHTAGS
+
+
+def clean_markdown_for_linkedin(text: str) -> str:
+    """
+    Remove markdown artifacts (bold, italic, links, headers) to ensure 
+    clean plain text rendering on LinkedIn.
+    """
+    if not text:
+        return text
+
+    # Remove bold (**text** or __text__)
+    text = re.sub(r'\*\*(.*?)\*\*', r'\1', text)
+    text = re.sub(r'__(.*?)__', r'\1', text)
+    
+    # Remove italic (*text* or _text_)
+    text = re.sub(r'\*(.*?)\*', r'\1', text)
+    text = re.sub(r'_(.*?)_', r'\1', text)
+    
+    # Convert links [Title](URL) -> Title: URL
+    text = re.sub(r'\[(.*?)\]\((.*?)\)', r'\1: \2', text)
+    
+    # Remove headers (### Text -> Text)
+    text = re.sub(r'^#+\s+(.*?)$', r'\1', text, flags=re.MULTILINE)
+    
+    # Remove stray backticks that might have been used for inline quotes
+    text = text.replace('`', '')
+    
+    return text.strip()
 
 
 def post_to_linkedin(text: str) -> dict:
@@ -28,6 +57,9 @@ def post_to_linkedin(text: str) -> dict:
 
     url = "https://api.linkedin.com/rest/posts"
 
+    # Clean the markdown from the text before sending to LinkedIn
+    cleaned_text = clean_markdown_for_linkedin(text)
+
     headers = {
         "Authorization": f"Bearer {LINKEDIN_ACCESS_TOKEN}",
         "Content-Type": "application/json",
@@ -37,7 +69,7 @@ def post_to_linkedin(text: str) -> dict:
 
     payload = {
         "author": LINKEDIN_PERSON_URN,
-        "commentary": text,
+        "commentary": cleaned_text,
         "visibility": "PUBLIC",
         "distribution": {
             "feedDistribution": "MAIN_FEED",

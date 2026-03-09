@@ -18,7 +18,7 @@ Fully automated daily LinkedIn posts on tech, cybersecurity, and leadership topi
 
 ---
 
-## 📅 Content Sources (Rotated Automatically)
+## 📅 Content Sources (Rotate Automatically)
 
 Each post is generated from one of four content sources, chosen probabilistically:
 

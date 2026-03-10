@@ -57,15 +57,6 @@ DAY_NAMES = {
 POST_MIN_WORDS = 150
 POST_MAX_WORDS = 280  # Increased to allow for polls and links
 
-# --- Hashtags (added automatically after generation) ---
-HASHTAGS = [
-    "#TechLeadership",
-    "#Cybersecurity",
-    "#OpenSource",
-    "#SoftwareEngineering",
-    "#FutureOfTech",
-    "#DeveloperProductivity",
-]
 
 
 def get_today_style():
@@ -105,7 +96,7 @@ Today is {day_name}, so the post style MUST be: {style}
 
 STRICT RULES:
 - Length: {POST_MIN_WORDS}-{POST_MAX_WORDS} words only
-- NO hashtags in the body (they are added automatically later)
+- HASHTAGS: At the very end of your response, add exactly 3 to 5 highly relevant hashtags based on the specific tools, threats, or concepts discussed in the post. Do NOT use generic tags like #CyberSecurity if you can use specific ones like #ActiveDirectory or #ZeroTrust.
 - NO phrases like "In today's digital landscape", "In conclusion", or "Delving into"
 - DO NOT mention AI or that this was generated
 - Write in first person ("I", "we", "our team")

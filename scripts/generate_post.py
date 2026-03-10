@@ -10,7 +10,7 @@ from pathlib import Path
 # Add scripts dir to path for imports
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-from config import GROQ_API_KEYS, get_system_prompt, HASHTAGS, POST_MIN_WORDS, POST_MAX_WORDS
+from config import GROQ_API_KEYS, get_system_prompt, POST_MIN_WORDS, POST_MAX_WORDS
 from fetch_news import get_news_context
 from fetch_cve import get_cve_context
 from fetch_knowledge import fetch_random_knowledge
@@ -100,12 +100,7 @@ def generate_post(content: str, is_custom: bool = False, is_cve: bool = False, i
     return post_text
 
 
-def add_hashtags(post_text: str) -> str:
-    """Append hashtags to the post."""
-    return post_text + "\n\n" + " ".join(HASHTAGS)
-
-
-def save_post(post_text: str, date_str: str, with_hashtags: bool = True) -> str:
+def save_post(post_text: str, date_str: str) -> str:
     """Save post to posts/ directory and return the file path."""
     posts_dir = Path(__file__).parent.parent / "posts"
     posts_dir.mkdir(exist_ok=True)
@@ -117,7 +112,7 @@ def save_post(post_text: str, date_str: str, with_hashtags: bool = True) -> str:
         index += 1
         filepath = posts_dir / f"{date_str}-{index}.md"
 
-    full_post = add_hashtags(post_text) if with_hashtags else post_text
+    full_post = post_text
 
     content = f"""---
 date: {date_str}
@@ -215,8 +210,6 @@ def main():
     if args.dry_run:
         print("\n=== GENERATED POST ===\n")
         print(post_text)
-        print(f"\n=== WITH HASHTAGS ===\n")
-        print(add_hashtags(post_text))
         return
 
     # Clean up the custom idea file if we successfully used it (so it doesn't repeat tomorrow)
@@ -238,7 +231,6 @@ def main():
             f.write(f"post_file={filepath}\n")
             # Use delimiter for multiline output
             f.write(f"post_text<<EOF\n{post_text}\nEOF\n")
-            f.write(f"post_with_hashtags<<EOF\n{add_hashtags(post_text)}\nEOF\n")
 
     print("\n[SUCCESS] Post generation complete!")
 

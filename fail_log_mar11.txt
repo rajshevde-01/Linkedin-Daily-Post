@@ -1,0 +1,311 @@
+check-and-post	Set up job	﻿2026-03-10T19:02:06.1467808Z Current runner version: '2.332.0'
+check-and-post	Set up job	2026-03-10T19:02:06.1493187Z ##[group]Runner Image Provisioner
+check-and-post	Set up job	2026-03-10T19:02:06.1494054Z Hosted Compute Agent
+check-and-post	Set up job	2026-03-10T19:02:06.1494611Z Version: 20260213.493
+check-and-post	Set up job	2026-03-10T19:02:06.1495598Z Commit: 5c115507f6dd24b8de37d8bbe0bb4509d0cc0fa3
+check-and-post	Set up job	2026-03-10T19:02:06.1496390Z Build Date: 2026-02-13T00:28:41Z
+check-and-post	Set up job	2026-03-10T19:02:06.1497048Z Worker ID: {10720052-dab2-4db5-9867-06449cf27ac9}
+check-and-post	Set up job	2026-03-10T19:02:06.1497817Z Azure Region: centralus
+check-and-post	Set up job	2026-03-10T19:02:06.1498396Z ##[endgroup]
+check-and-post	Set up job	2026-03-10T19:02:06.1499784Z ##[group]Operating System
+check-and-post	Set up job	2026-03-10T19:02:06.1500547Z Ubuntu
+check-and-post	Set up job	2026-03-10T19:02:06.1501057Z 24.04.3
+check-and-post	Set up job	2026-03-10T19:02:06.1501533Z LTS
+check-and-post	Set up job	2026-03-10T19:02:06.1502061Z ##[endgroup]
+check-and-post	Set up job	2026-03-10T19:02:06.1502596Z ##[group]Runner Image
+check-and-post	Set up job	2026-03-10T19:02:06.1503155Z Image: ubuntu-24.04
+check-and-post	Set up job	2026-03-10T19:02:06.1503759Z Version: 20260302.42.1
+check-and-post	Set up job	2026-03-10T19:02:06.1504964Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260302.42/images/ubuntu/Ubuntu2404-Readme.md
+check-and-post	Set up job	2026-03-10T19:02:06.1506736Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260302.42
+check-and-post	Set up job	2026-03-10T19:02:06.1507675Z ##[endgroup]
+check-and-post	Set up job	2026-03-10T19:02:06.1508871Z ##[group]GITHUB_TOKEN Permissions
+check-and-post	Set up job	2026-03-10T19:02:06.1510683Z Contents: write
+check-and-post	Set up job	2026-03-10T19:02:06.1511291Z Issues: write
+check-and-post	Set up job	2026-03-10T19:02:06.1511952Z Metadata: read
+check-and-post	Set up job	2026-03-10T19:02:06.1512454Z ##[endgroup]
+check-and-post	Set up job	2026-03-10T19:02:06.1514413Z Secret source: Actions
+check-and-post	Set up job	2026-03-10T19:02:06.1515830Z Prepare workflow directory
+check-and-post	Set up job	2026-03-10T19:02:06.1922654Z Prepare all required actions
+check-and-post	Set up job	2026-03-10T19:02:06.1977648Z Getting action download info
+check-and-post	Set up job	2026-03-10T19:02:06.5892822Z Download action repository 'actions/checkout@v4' (SHA:34e114876b0b11c390a56381ad16ebd13914f8d5)
+check-and-post	Set up job	2026-03-10T19:02:06.7257621Z Download action repository 'actions/setup-python@v5' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+check-and-post	Set up job	2026-03-10T19:02:06.9122982Z Complete job name: check-and-post
+check-and-post	Checkout repository	﻿2026-03-10T19:02:06.9891332Z ##[group]Run actions/checkout@v4
+check-and-post	Checkout repository	2026-03-10T19:02:06.9892264Z with:
+check-and-post	Checkout repository	2026-03-10T19:02:06.9892758Z   repository: rajshevde-01/Linkedin-Daily-Post
+check-and-post	Checkout repository	2026-03-10T19:02:06.9893538Z   token: ***
+check-and-post	Checkout repository	2026-03-10T19:02:06.9893959Z   ssh-strict: true
+check-and-post	Checkout repository	2026-03-10T19:02:06.9894386Z   ssh-user: git
+check-and-post	Checkout repository	2026-03-10T19:02:06.9895133Z   persist-credentials: true
+check-and-post	Checkout repository	2026-03-10T19:02:06.9895733Z   clean: true
+check-and-post	Checkout repository	2026-03-10T19:02:06.9896183Z   sparse-checkout-cone-mode: true
+check-and-post	Checkout repository	2026-03-10T19:02:06.9896700Z   fetch-depth: 1
+check-and-post	Checkout repository	2026-03-10T19:02:06.9897132Z   fetch-tags: false
+check-and-post	Checkout repository	2026-03-10T19:02:06.9897574Z   show-progress: true
+check-and-post	Checkout repository	2026-03-10T19:02:06.9898021Z   lfs: false
+check-and-post	Checkout repository	2026-03-10T19:02:06.9898437Z   submodules: false
+check-and-post	Checkout repository	2026-03-10T19:02:06.9898880Z   set-safe-directory: true
+check-and-post	Checkout repository	2026-03-10T19:02:06.9899665Z ##[endgroup]
+check-and-post	Checkout repository	2026-03-10T19:02:07.0997961Z Syncing repository: rajshevde-01/Linkedin-Daily-Post
+check-and-post	Checkout repository	2026-03-10T19:02:07.0999846Z ##[group]Getting Git version info
+check-and-post	Checkout repository	2026-03-10T19:02:07.1000707Z Working directory is '/home/runner/work/Linkedin-Daily-Post/Linkedin-Daily-Post'
+check-and-post	Checkout repository	2026-03-10T19:02:07.1001929Z [command]/usr/bin/git version
+check-and-post	Checkout repository	2026-03-10T19:02:07.1069409Z git version 2.53.0
+check-and-post	Checkout repository	2026-03-10T19:02:07.1097035Z ##[endgroup]
+check-and-post	Checkout repository	2026-03-10T19:02:07.1120918Z Temporarily overriding HOME='/home/runner/work/_temp/f5071098-3196-4c37-8a87-e32ae1d5775c' before making global git config changes
+check-and-post	Checkout repository	2026-03-10T19:02:07.1123714Z Adding repository directory to the temporary git global config as a safe directory
+check-and-post	Checkout repository	2026-03-10T19:02:07.1127398Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Linkedin-Daily-Post/Linkedin-Daily-Post
+check-and-post	Checkout repository	2026-03-10T19:02:07.1166856Z Deleting the contents of '/home/runner/work/Linkedin-Daily-Post/Linkedin-Daily-Post'
+check-and-post	Checkout repository	2026-03-10T19:02:07.1170119Z ##[group]Initializing the repository
+check-and-post	Checkout repository	2026-03-10T19:02:07.1174753Z [command]/usr/bin/git init /home/runner/work/Linkedin-Daily-Post/Linkedin-Daily-Post
+check-and-post	Checkout repository	2026-03-10T19:02:07.1275598Z hint: Using 'master' as the name for the initial branch. This default branch name
+check-and-post	Checkout repository	2026-03-10T19:02:07.1276863Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+check-and-post	Checkout repository	2026-03-10T19:02:07.1278162Z hint: to use in all of your new repositories, which will suppress this warning,
+check-and-post	Checkout repository	2026-03-10T19:02:07.1279303Z hint: call:
+check-and-post	Checkout repository	2026-03-10T19:02:07.1280146Z hint:
+check-and-post	Checkout repository	2026-03-10T19:02:07.1280782Z hint: 	git config --global init.defaultBranch <name>
+check-and-post	Checkout repository	2026-03-10T19:02:07.1281409Z hint:
+check-and-post	Checkout repository	2026-03-10T19:02:07.1281991Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+check-and-post	Checkout repository	2026-03-10T19:02:07.1282928Z hint: 'development'. The just-created branch can be renamed via this command:
+check-and-post	Checkout repository	2026-03-10T19:02:07.1283661Z hint:
+check-and-post	Checkout repository	2026-03-10T19:02:07.1284091Z hint: 	git branch -m <name>
+check-and-post	Checkout repository	2026-03-10T19:02:07.1285033Z hint:
+check-and-post	Checkout repository	2026-03-10T19:02:07.1285722Z hint: Disable this message with "git config set advice.defaultBranchName false"
+check-and-post	Checkout repository	2026-03-10T19:02:07.1286911Z Initialized empty Git repository in /home/runner/work/Linkedin-Daily-Post/Linkedin-Daily-Post/.git/
+check-and-post	Checkout repository	2026-03-10T19:02:07.1291362Z [command]/usr/bin/git remote add origin https://github.com/rajshevde-01/Linkedin-Daily-Post
+check-and-post	Checkout repository	2026-03-10T19:02:07.1326007Z ##[endgroup]
+check-and-post	Checkout repository	2026-03-10T19:02:07.1326870Z ##[group]Disabling automatic garbage collection
+check-and-post	Checkout repository	2026-03-10T19:02:07.1330398Z [command]/usr/bin/git config --local gc.auto 0
+check-and-post	Checkout repository	2026-03-10T19:02:07.1361794Z ##[endgroup]
+check-and-post	Checkout repository	2026-03-10T19:02:07.1363208Z ##[group]Setting up auth
+check-and-post	Checkout repository	2026-03-10T19:02:07.1370005Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+check-and-post	Checkout repository	2026-03-10T19:02:07.1402661Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+check-and-post	Checkout repository	2026-03-10T19:02:07.1770626Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+check-and-post	Checkout repository	2026-03-10T19:02:07.1806540Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+check-and-post	Checkout repository	2026-03-10T19:02:07.2072543Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+check-and-post	Checkout repository	2026-03-10T19:02:07.2110878Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+check-and-post	Checkout repository	2026-03-10T19:02:07.2355094Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+check-and-post	Checkout repository	2026-03-10T19:02:07.2391071Z ##[endgroup]
+check-and-post	Checkout repository	2026-03-10T19:02:07.2392520Z ##[group]Fetching the repository
+check-and-post	Checkout repository	2026-03-10T19:02:07.2401406Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +98b897a53e87f8898be7fdad61b99e89756233ee:refs/remotes/origin/main
+check-and-post	Checkout repository	2026-03-10T19:02:07.5878342Z From https://github.com/rajshevde-01/Linkedin-Daily-Post
+check-and-post	Checkout repository	2026-03-10T19:02:07.5879981Z  * [new ref]         98b897a53e87f8898be7fdad61b99e89756233ee -> origin/main
+check-and-post	Checkout repository	2026-03-10T19:02:07.5914277Z ##[endgroup]
+check-and-post	Checkout repository	2026-03-10T19:02:07.5915749Z ##[group]Determining the checkout info
+check-and-post	Checkout repository	2026-03-10T19:02:07.5919370Z ##[endgroup]
+check-and-post	Checkout repository	2026-03-10T19:02:07.5923586Z [command]/usr/bin/git sparse-checkout disable
+check-and-post	Checkout repository	2026-03-10T19:02:07.5968018Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+check-and-post	Checkout repository	2026-03-10T19:02:07.5997238Z ##[group]Checking out the ref
+check-and-post	Checkout repository	2026-03-10T19:02:07.6001835Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+check-and-post	Checkout repository	2026-03-10T19:02:07.6128179Z Switched to a new branch 'main'
+check-and-post	Checkout repository	2026-03-10T19:02:07.6130571Z branch 'main' set up to track 'origin/main'.
+check-and-post	Checkout repository	2026-03-10T19:02:07.6137800Z ##[endgroup]
+check-and-post	Checkout repository	2026-03-10T19:02:07.6175449Z [command]/usr/bin/git log -1 --format=%H
+check-and-post	Checkout repository	2026-03-10T19:02:07.6199012Z 98b897a53e87f8898be7fdad61b99e89756233ee
+check-and-post	Set up Python	﻿2026-03-10T19:02:07.6516507Z ##[group]Run actions/setup-python@v5
+check-and-post	Set up Python	2026-03-10T19:02:07.6517717Z with:
+check-and-post	Set up Python	2026-03-10T19:02:07.6518546Z   python-version: 3.12
+check-and-post	Set up Python	2026-03-10T19:02:07.6519510Z   check-latest: false
+check-and-post	Set up Python	2026-03-10T19:02:07.6520718Z   token: ***
+check-and-post	Set up Python	2026-03-10T19:02:07.6521611Z   update-environment: true
+check-and-post	Set up Python	2026-03-10T19:02:07.6522686Z   allow-prereleases: false
+check-and-post	Set up Python	2026-03-10T19:02:07.6523904Z   freethreaded: false
+check-and-post	Set up Python	2026-03-10T19:02:07.6524998Z ##[endgroup]
+check-and-post	Set up Python	2026-03-10T19:02:07.8352284Z ##[group]Installed versions
+check-and-post	Set up Python	2026-03-10T19:02:07.8459763Z Successfully set up CPython (3.12.12)
+check-and-post	Set up Python	2026-03-10T19:02:07.8462633Z ##[endgroup]
+check-and-post	Install dependencies	﻿2026-03-10T19:02:07.8611889Z ##[group]Run pip install -r requirements.txt
+check-and-post	Install dependencies	2026-03-10T19:02:07.8613262Z [36;1mpip install -r requirements.txt[0m
+check-and-post	Install dependencies	2026-03-10T19:02:07.8725849Z shell: /usr/bin/bash -e {0}
+check-and-post	Install dependencies	2026-03-10T19:02:07.8726830Z env:
+check-and-post	Install dependencies	2026-03-10T19:02:07.8727823Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.12/x64
+check-and-post	Install dependencies	2026-03-10T19:02:07.8729577Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.12/x64/lib/pkgconfig
+check-and-post	Install dependencies	2026-03-10T19:02:07.8731315Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.12/x64
+check-and-post	Install dependencies	2026-03-10T19:02:07.8732884Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.12/x64
+check-and-post	Install dependencies	2026-03-10T19:02:07.8734455Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.12/x64
+check-and-post	Install dependencies	2026-03-10T19:02:07.8736300Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.12/x64/lib
+check-and-post	Install dependencies	2026-03-10T19:02:07.8737648Z ##[endgroup]
+check-and-post	Install dependencies	2026-03-10T19:02:10.6568385Z Collecting feedparser>=6.0 (from -r requirements.txt (line 1))
+check-and-post	Install dependencies	2026-03-10T19:02:10.7505704Z   Downloading feedparser-6.0.12-py3-none-any.whl.metadata (2.7 kB)
+check-and-post	Install dependencies	2026-03-10T19:02:10.7850111Z Collecting groq>=0.4.0 (from -r requirements.txt (line 2))
+check-and-post	Install dependencies	2026-03-10T19:02:10.8013819Z   Downloading groq-1.1.0-py3-none-any.whl.metadata (16 kB)
+check-and-post	Install dependencies	2026-03-10T19:02:10.8489295Z Collecting requests>=2.31 (from -r requirements.txt (line 3))
+check-and-post	Install dependencies	2026-03-10T19:02:10.8650432Z   Downloading requests-2.32.5-py3-none-any.whl.metadata (4.9 kB)
+check-and-post	Install dependencies	2026-03-10T19:02:10.9196704Z Collecting pyyaml>=6.0 (from -r requirements.txt (line 4))
+check-and-post	Install dependencies	2026-03-10T19:02:10.9360411Z   Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)
+check-and-post	Install dependencies	2026-03-10T19:02:10.9591238Z Collecting sgmllib3k (from feedparser>=6.0->-r requirements.txt (line 1))
+check-and-post	Install dependencies	2026-03-10T19:02:10.9752037Z   Downloading sgmllib3k-1.0.0.tar.gz (5.8 kB)
+check-and-post	Install dependencies	2026-03-10T19:02:10.9828457Z   Installing build dependencies: started
+check-and-post	Install dependencies	2026-03-10T19:02:11.9371618Z   Installing build dependencies: finished with status 'done'
+check-and-post	Install dependencies	2026-03-10T19:02:11.9377478Z   Getting requirements to build wheel: started
+check-and-post	Install dependencies	2026-03-10T19:02:12.3463447Z   Getting requirements to build wheel: finished with status 'done'
+check-and-post	Install dependencies	2026-03-10T19:02:12.3472897Z   Preparing metadata (pyproject.toml): started
+check-and-post	Install dependencies	2026-03-10T19:02:12.5397322Z   Preparing metadata (pyproject.toml): finished with status 'done'
+check-and-post	Install dependencies	2026-03-10T19:02:12.5680681Z Collecting anyio<5,>=3.5.0 (from groq>=0.4.0->-r requirements.txt (line 2))
+check-and-post	Install dependencies	2026-03-10T19:02:12.5845770Z   Downloading anyio-4.12.1-py3-none-any.whl.metadata (4.3 kB)
+check-and-post	Install dependencies	2026-03-10T19:02:12.6087954Z Collecting distro<2,>=1.7.0 (from groq>=0.4.0->-r requirements.txt (line 2))
+check-and-post	Install dependencies	2026-03-10T19:02:12.6252380Z   Downloading distro-1.9.0-py3-none-any.whl.metadata (6.8 kB)
+check-and-post	Install dependencies	2026-03-10T19:02:12.6566855Z Collecting httpx<1,>=0.23.0 (from groq>=0.4.0->-r requirements.txt (line 2))
+check-and-post	Install dependencies	2026-03-10T19:02:12.6742569Z   Downloading httpx-0.28.1-py3-none-any.whl.metadata (7.1 kB)
+check-and-post	Install dependencies	2026-03-10T19:02:12.8144425Z Collecting pydantic<3,>=1.9.0 (from groq>=0.4.0->-r requirements.txt (line 2))
+check-and-post	Install dependencies	2026-03-10T19:02:12.8308390Z   Downloading pydantic-2.12.5-py3-none-any.whl.metadata (90 kB)
+check-and-post	Install dependencies	2026-03-10T19:02:12.8759985Z Collecting sniffio (from groq>=0.4.0->-r requirements.txt (line 2))
+check-and-post	Install dependencies	2026-03-10T19:02:12.8922498Z   Downloading sniffio-1.3.1-py3-none-any.whl.metadata (3.9 kB)
+check-and-post	Install dependencies	2026-03-10T19:02:12.9196238Z Collecting typing-extensions<5,>=4.10 (from groq>=0.4.0->-r requirements.txt (line 2))
+check-and-post	Install dependencies	2026-03-10T19:02:12.9357778Z   Downloading typing_extensions-4.15.0-py3-none-any.whl.metadata (3.3 kB)
+check-and-post	Install dependencies	2026-03-10T19:02:12.9619378Z Collecting idna>=2.8 (from anyio<5,>=3.5.0->groq>=0.4.0->-r requirements.txt (line 2))
+check-and-post	Install dependencies	2026-03-10T19:02:12.9787743Z   Downloading idna-3.11-py3-none-any.whl.metadata (8.4 kB)
+check-and-post	Install dependencies	2026-03-10T19:02:13.0256079Z Collecting certifi (from httpx<1,>=0.23.0->groq>=0.4.0->-r requirements.txt (line 2))
+check-and-post	Install dependencies	2026-03-10T19:02:13.0416045Z   Downloading certifi-2026.2.25-py3-none-any.whl.metadata (2.5 kB)
+check-and-post	Install dependencies	2026-03-10T19:02:13.0699856Z Collecting httpcore==1.* (from httpx<1,>=0.23.0->groq>=0.4.0->-r requirements.txt (line 2))
+check-and-post	Install dependencies	2026-03-10T19:02:13.0863722Z   Downloading httpcore-1.0.9-py3-none-any.whl.metadata (21 kB)
+check-and-post	Install dependencies	2026-03-10T19:02:13.1118543Z Collecting h11>=0.16 (from httpcore==1.*->httpx<1,>=0.23.0->groq>=0.4.0->-r requirements.txt (line 2))
+check-and-post	Install dependencies	2026-03-10T19:02:13.1276795Z   Downloading h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+check-and-post	Install dependencies	2026-03-10T19:02:13.1508942Z Collecting annotated-types>=0.6.0 (from pydantic<3,>=1.9.0->groq>=0.4.0->-r requirements.txt (line 2))
+check-and-post	Install dependencies	2026-03-10T19:02:13.1670191Z   Downloading annotated_types-0.7.0-py3-none-any.whl.metadata (15 kB)
+check-and-post	Install dependencies	2026-03-10T19:02:13.7956739Z Collecting pydantic-core==2.41.5 (from pydantic<3,>=1.9.0->groq>=0.4.0->-r requirements.txt (line 2))
+check-and-post	Install dependencies	2026-03-10T19:02:13.8126700Z   Downloading pydantic_core-2.41.5-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (7.3 kB)
+check-and-post	Install dependencies	2026-03-10T19:02:13.8359478Z Collecting typing-inspection>=0.4.2 (from pydantic<3,>=1.9.0->groq>=0.4.0->-r requirements.txt (line 2))
+check-and-post	Install dependencies	2026-03-10T19:02:13.8520451Z   Downloading typing_inspection-0.4.2-py3-none-any.whl.metadata (2.6 kB)
+check-and-post	Install dependencies	2026-03-10T19:02:13.9458566Z Collecting charset_normalizer<4,>=2 (from requests>=2.31->-r requirements.txt (line 3))
+check-and-post	Install dependencies	2026-03-10T19:02:13.9627078Z   Downloading charset_normalizer-3.4.5-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (39 kB)
+check-and-post	Install dependencies	2026-03-10T19:02:14.0014330Z Collecting urllib3<3,>=1.21.1 (from requests>=2.31->-r requirements.txt (line 3))
+check-and-post	Install dependencies	2026-03-10T19:02:14.0174140Z   Downloading urllib3-2.6.3-py3-none-any.whl.metadata (6.9 kB)
+check-and-post	Install dependencies	2026-03-10T19:02:14.0451438Z Downloading feedparser-6.0.12-py3-none-any.whl (81 kB)
+check-and-post	Install dependencies	2026-03-10T19:02:14.0665218Z Downloading groq-1.1.0-py3-none-any.whl (139 kB)
+check-and-post	Install dependencies	2026-03-10T19:02:14.0897973Z Downloading anyio-4.12.1-py3-none-any.whl (113 kB)
+check-and-post	Install dependencies	2026-03-10T19:02:14.1101944Z Downloading distro-1.9.0-py3-none-any.whl (20 kB)
+check-and-post	Install dependencies	2026-03-10T19:02:14.1289316Z Downloading httpx-0.28.1-py3-none-any.whl (73 kB)
+check-and-post	Install dependencies	2026-03-10T19:02:14.1478600Z Downloading httpcore-1.0.9-py3-none-any.whl (78 kB)
+check-and-post	Install dependencies	2026-03-10T19:02:14.1668436Z Downloading pydantic-2.12.5-py3-none-any.whl (463 kB)
+check-and-post	Install dependencies	2026-03-10T19:02:14.2022730Z Downloading pydantic_core-2.41.5-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.1 MB)
+check-and-post	Install dependencies	2026-03-10T19:02:14.2308950Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 72.6 MB/s  0:00:00
+check-and-post	Install dependencies	2026-03-10T19:02:14.2479598Z Downloading typing_extensions-4.15.0-py3-none-any.whl (44 kB)
+check-and-post	Install dependencies	2026-03-10T19:02:14.2667100Z Downloading requests-2.32.5-py3-none-any.whl (64 kB)
+check-and-post	Install dependencies	2026-03-10T19:02:14.2851664Z Downloading charset_normalizer-3.4.5-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (196 kB)
+check-and-post	Install dependencies	2026-03-10T19:02:14.3042879Z Downloading idna-3.11-py3-none-any.whl (71 kB)
+check-and-post	Install dependencies	2026-03-10T19:02:14.3235071Z Downloading urllib3-2.6.3-py3-none-any.whl (131 kB)
+check-and-post	Install dependencies	2026-03-10T19:02:14.3422335Z Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (807 kB)
+check-and-post	Install dependencies	2026-03-10T19:02:14.3494574Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 807.9/807.9 kB 114.0 MB/s  0:00:00
+check-and-post	Install dependencies	2026-03-10T19:02:14.3661649Z Downloading annotated_types-0.7.0-py3-none-any.whl (13 kB)
+check-and-post	Install dependencies	2026-03-10T19:02:14.3852752Z Downloading certifi-2026.2.25-py3-none-any.whl (153 kB)
+check-and-post	Install dependencies	2026-03-10T19:02:14.4039427Z Downloading h11-0.16.0-py3-none-any.whl (37 kB)
+check-and-post	Install dependencies	2026-03-10T19:02:14.4221428Z Downloading typing_inspection-0.4.2-py3-none-any.whl (14 kB)
+check-and-post	Install dependencies	2026-03-10T19:02:14.4405247Z Downloading sniffio-1.3.1-py3-none-any.whl (10 kB)
+check-and-post	Install dependencies	2026-03-10T19:02:14.4625102Z Building wheels for collected packages: sgmllib3k
+check-and-post	Install dependencies	2026-03-10T19:02:14.4632763Z   Building wheel for sgmllib3k (pyproject.toml): started
+check-and-post	Install dependencies	2026-03-10T19:02:14.6774174Z   Building wheel for sgmllib3k (pyproject.toml): finished with status 'done'
+check-and-post	Install dependencies	2026-03-10T19:02:14.6780767Z   Created wheel for sgmllib3k: filename=sgmllib3k-1.0.0-py3-none-any.whl size=6090 sha256=cadda41482d7cea16921d2927183e7e90666fae5273df1bc2dec74f28aac1ff4
+check-and-post	Install dependencies	2026-03-10T19:02:14.6782718Z   Stored in directory: /home/runner/.cache/pip/wheels/03/f5/1a/23761066dac1d0e8e683e5fdb27e12de53209d05a4a37e6246
+check-and-post	Install dependencies	2026-03-10T19:02:14.6798704Z Successfully built sgmllib3k
+check-and-post	Install dependencies	2026-03-10T19:02:14.7110498Z Installing collected packages: sgmllib3k, urllib3, typing-extensions, sniffio, pyyaml, idna, h11, feedparser, distro, charset_normalizer, certifi, annotated-types, typing-inspection, requests, pydantic-core, httpcore, anyio, pydantic, httpx, groq
+check-and-post	Install dependencies	2026-03-10T19:02:15.7903206Z 
+check-and-post	Install dependencies	2026-03-10T19:02:15.7928009Z Successfully installed annotated-types-0.7.0 anyio-4.12.1 certifi-2026.2.25 charset_normalizer-3.4.5 distro-1.9.0 feedparser-6.0.12 groq-1.1.0 h11-0.16.0 httpcore-1.0.9 httpx-0.28.1 idna-3.11 pydantic-2.12.5 pydantic-core-2.41.5 pyyaml-6.0.3 requests-2.32.5 sgmllib3k-1.0.0 sniffio-1.3.1 typing-extensions-4.15.0 typing-inspection-0.4.2 urllib3-2.6.3
+check-and-post	Determine date	﻿2026-03-10T19:02:16.0853881Z ##[group]Run if [ -n "" ]; then
+check-and-post	Determine date	2026-03-10T19:02:16.0854208Z [36;1mif [ -n "" ]; then[0m
+check-and-post	Determine date	2026-03-10T19:02:16.0854485Z [36;1m  echo "date=" >> $GITHUB_OUTPUT[0m
+check-and-post	Determine date	2026-03-10T19:02:16.0854755Z [36;1melse[0m
+check-and-post	Determine date	2026-03-10T19:02:16.0855349Z [36;1m  echo "date=$(TZ='Asia/Kolkata' date -d '2 hours ago' +'%Y-%m-%d')" >> $GITHUB_OUTPUT[0m
+check-and-post	Determine date	2026-03-10T19:02:16.0855770Z [36;1mfi[0m
+check-and-post	Determine date	2026-03-10T19:02:16.0908126Z shell: /usr/bin/bash -e {0}
+check-and-post	Determine date	2026-03-10T19:02:16.0908370Z env:
+check-and-post	Determine date	2026-03-10T19:02:16.0908628Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.12/x64
+check-and-post	Determine date	2026-03-10T19:02:16.0909057Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.12/x64/lib/pkgconfig
+check-and-post	Determine date	2026-03-10T19:02:16.0909466Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.12/x64
+check-and-post	Determine date	2026-03-10T19:02:16.0909836Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.12/x64
+check-and-post	Determine date	2026-03-10T19:02:16.0910229Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.12/x64
+check-and-post	Determine date	2026-03-10T19:02:16.0910609Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.12/x64/lib
+check-and-post	Determine date	2026-03-10T19:02:16.0910967Z ##[endgroup]
+check-and-post	Check user response	﻿2026-03-10T19:02:16.1092700Z ##[group]Run python notify.py --action check --date 2026-03-10
+check-and-post	Check user response	2026-03-10T19:02:16.1093183Z [36;1mpython notify.py --action check --date 2026-03-10[0m
+check-and-post	Check user response	2026-03-10T19:02:16.1140304Z shell: /usr/bin/bash -e {0}
+check-and-post	Check user response	2026-03-10T19:02:16.1140560Z env:
+check-and-post	Check user response	2026-03-10T19:02:16.1140819Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.12/x64
+check-and-post	Check user response	2026-03-10T19:02:16.1141240Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.12/x64/lib/pkgconfig
+check-and-post	Check user response	2026-03-10T19:02:16.1141656Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.12/x64
+check-and-post	Check user response	2026-03-10T19:02:16.1142028Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.12/x64
+check-and-post	Check user response	2026-03-10T19:02:16.1142398Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.12/x64
+check-and-post	Check user response	2026-03-10T19:02:16.1142763Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.12/x64/lib
+check-and-post	Check user response	2026-03-10T19:02:16.1143392Z   GITHUB_TOKEN: ***
+check-and-post	Check user response	2026-03-10T19:02:16.1143598Z ##[endgroup]
+check-and-post	Check user response	2026-03-10T19:02:16.8164320Z [INFO] Confirmation status: no_response
+check-and-post	Decide whether to post	﻿2026-03-10T19:02:16.8358338Z ##[group]Run CONFIRMATION="no_response"
+check-and-post	Decide whether to post	2026-03-10T19:02:16.8358708Z [36;1mCONFIRMATION="no_response"[0m
+check-and-post	Decide whether to post	2026-03-10T19:02:16.8358963Z [36;1mFORCE="true"[0m
+check-and-post	Decide whether to post	2026-03-10T19:02:16.8359218Z [36;1mecho "Confirmation status: $CONFIRMATION"[0m
+check-and-post	Decide whether to post	2026-03-10T19:02:16.8359499Z [36;1m[0m
+check-and-post	Decide whether to post	2026-03-10T19:02:16.8359706Z [36;1mif [ "$CONFIRMATION" = "rejected" ]; then[0m
+check-and-post	Decide whether to post	2026-03-10T19:02:16.8360026Z [36;1m  echo "should_post=false" >> $GITHUB_OUTPUT[0m
+check-and-post	Decide whether to post	2026-03-10T19:02:16.8360382Z [36;1m  echo "reason=User rejected the post" >> $GITHUB_OUTPUT[0m
+check-and-post	Decide whether to post	2026-03-10T19:02:16.8360911Z [36;1melif [ "$CONFIRMATION" = "approved" ] || [ "$CONFIRMATION" = "no_response" ] || [ "$FORCE" = "true" ]; then[0m
+check-and-post	Decide whether to post	2026-03-10T19:02:16.8361414Z [36;1m  echo "should_post=true" >> $GITHUB_OUTPUT[0m
+check-and-post	Decide whether to post	2026-03-10T19:02:16.8361814Z [36;1m  echo "reason=Auto-posting (status: $CONFIRMATION)" >> $GITHUB_OUTPUT[0m
+check-and-post	Decide whether to post	2026-03-10T19:02:16.8362173Z [36;1melse[0m
+check-and-post	Decide whether to post	2026-03-10T19:02:16.8362395Z [36;1m  echo "should_post=true" >> $GITHUB_OUTPUT[0m
+check-and-post	Decide whether to post	2026-03-10T19:02:16.8362776Z [36;1m  echo "reason=Defaulting to auto-post" >> $GITHUB_OUTPUT[0m
+check-and-post	Decide whether to post	2026-03-10T19:02:16.8363268Z [36;1mfi[0m
+check-and-post	Decide whether to post	2026-03-10T19:02:16.8412142Z shell: /usr/bin/bash -e {0}
+check-and-post	Decide whether to post	2026-03-10T19:02:16.8412387Z env:
+check-and-post	Decide whether to post	2026-03-10T19:02:16.8412650Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.12/x64
+check-and-post	Decide whether to post	2026-03-10T19:02:16.8413085Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.12/x64/lib/pkgconfig
+check-and-post	Decide whether to post	2026-03-10T19:02:16.8413509Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.12/x64
+check-and-post	Decide whether to post	2026-03-10T19:02:16.8413880Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.12/x64
+check-and-post	Decide whether to post	2026-03-10T19:02:16.8414248Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.12/x64
+check-and-post	Decide whether to post	2026-03-10T19:02:16.8414608Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.12/x64/lib
+check-and-post	Decide whether to post	2026-03-10T19:02:16.8415264Z ##[endgroup]
+check-and-post	Decide whether to post	2026-03-10T19:02:16.8484448Z Confirmation status: no_response
+check-and-post	Post to LinkedIn	﻿2026-03-10T19:02:16.8514475Z ##[group]Run echo "Auto-posting (status: no_response)"
+check-and-post	Post to LinkedIn	2026-03-10T19:02:16.8515178Z [36;1mecho "Auto-posting (status: no_response)"[0m
+check-and-post	Post to LinkedIn	2026-03-10T19:02:16.8515579Z [36;1mpython post_to_linkedin.py --date 2026-03-10 --force[0m
+check-and-post	Post to LinkedIn	2026-03-10T19:02:16.8558867Z shell: /usr/bin/bash -e {0}
+check-and-post	Post to LinkedIn	2026-03-10T19:02:16.8559109Z env:
+check-and-post	Post to LinkedIn	2026-03-10T19:02:16.8559370Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.12/x64
+check-and-post	Post to LinkedIn	2026-03-10T19:02:16.8559803Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.12/x64/lib/pkgconfig
+check-and-post	Post to LinkedIn	2026-03-10T19:02:16.8560214Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.12/x64
+check-and-post	Post to LinkedIn	2026-03-10T19:02:16.8560586Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.12/x64
+check-and-post	Post to LinkedIn	2026-03-10T19:02:16.8560957Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.12/x64
+check-and-post	Post to LinkedIn	2026-03-10T19:02:16.8561327Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.12/x64/lib
+check-and-post	Post to LinkedIn	2026-03-10T19:02:16.8563300Z   LINKEDIN_ACCESS_TOKEN: ***
+check-and-post	Post to LinkedIn	2026-03-10T19:02:16.8563601Z   LINKEDIN_PERSON_URN: ***
+check-and-post	Post to LinkedIn	2026-03-10T19:02:16.8563825Z ##[endgroup]
+check-and-post	Post to LinkedIn	2026-03-10T19:02:16.8627764Z Auto-posting (status: no_response)
+check-and-post	Post to LinkedIn	2026-03-10T19:02:16.9748533Z Traceback (most recent call last):
+check-and-post	Post to LinkedIn	2026-03-10T19:02:16.9755337Z   File "/home/runner/work/Linkedin-Daily-Post/Linkedin-Daily-Post/scripts/post_to_linkedin.py", line 17, in <module>
+check-and-post	Post to LinkedIn	2026-03-10T19:02:16.9756200Z     from config import LINKEDIN_ACCESS_TOKEN, LINKEDIN_PERSON_URN, HASHTAGS
+check-and-post	Post to LinkedIn	2026-03-10T19:02:16.9756937Z ImportError: cannot import name 'HASHTAGS' from 'config' (/home/runner/work/Linkedin-Daily-Post/Linkedin-Daily-Post/scripts/config.py)
+check-and-post	Post to LinkedIn	2026-03-10T19:02:16.9912100Z ##[error]Process completed with exit code 1.
+check-and-post	Commit status update	﻿2026-03-10T19:02:16.9962854Z ##[group]Run git config user.name "github-actions[bot]"
+check-and-post	Commit status update	2026-03-10T19:02:16.9963285Z [36;1mgit config user.name "github-actions[bot]"[0m
+check-and-post	Commit status update	2026-03-10T19:02:16.9963707Z [36;1mgit config user.email "github-actions[bot]@users.noreply.github.com"[0m
+check-and-post	Commit status update	2026-03-10T19:02:16.9964084Z [36;1mgit add posts/[0m
+check-and-post	Commit status update	2026-03-10T19:02:16.9964355Z [36;1mif [ -n "$(git status --porcelain)" ]; then[0m
+check-and-post	Commit status update	2026-03-10T19:02:16.9964713Z [36;1m  git commit -m "Update post status for 2026-03-10"[0m
+check-and-post	Commit status update	2026-03-10T19:02:16.9965307Z [36;1m  git push origin HEAD:refs/heads/main[0m
+check-and-post	Commit status update	2026-03-10T19:02:16.9965587Z [36;1melse[0m
+check-and-post	Commit status update	2026-03-10T19:02:16.9965805Z [36;1m  echo "No status changes to commit."[0m
+check-and-post	Commit status update	2026-03-10T19:02:16.9966066Z [36;1mfi[0m
+check-and-post	Commit status update	2026-03-10T19:02:17.0014248Z shell: /usr/bin/bash -e {0}
+check-and-post	Commit status update	2026-03-10T19:02:17.0014491Z env:
+check-and-post	Commit status update	2026-03-10T19:02:17.0014743Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.12/x64
+check-and-post	Commit status update	2026-03-10T19:02:17.0015440Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.12/x64/lib/pkgconfig
+check-and-post	Commit status update	2026-03-10T19:02:17.0015896Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.12/x64
+check-and-post	Commit status update	2026-03-10T19:02:17.0016269Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.12/x64
+check-and-post	Commit status update	2026-03-10T19:02:17.0016639Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.12/x64
+check-and-post	Commit status update	2026-03-10T19:02:17.0017015Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.12/x64/lib
+check-and-post	Commit status update	2026-03-10T19:02:17.0017323Z ##[endgroup]
+check-and-post	Commit status update	2026-03-10T19:02:17.0203623Z No status changes to commit.
+check-and-post	Post Checkout repository	﻿2026-03-10T19:02:17.0290749Z Post job cleanup.
+check-and-post	Post Checkout repository	2026-03-10T19:02:17.1238786Z [command]/usr/bin/git version
+check-and-post	Post Checkout repository	2026-03-10T19:02:17.1276734Z git version 2.53.0
+check-and-post	Post Checkout repository	2026-03-10T19:02:17.1321106Z Temporarily overriding HOME='/home/runner/work/_temp/3c40d230-9605-483e-aba0-6d0bf900c1e3' before making global git config changes
+check-and-post	Post Checkout repository	2026-03-10T19:02:17.1322502Z Adding repository directory to the temporary git global config as a safe directory
+check-and-post	Post Checkout repository	2026-03-10T19:02:17.1328041Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Linkedin-Daily-Post/Linkedin-Daily-Post
+check-and-post	Post Checkout repository	2026-03-10T19:02:17.1365600Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+check-and-post	Post Checkout repository	2026-03-10T19:02:17.1399774Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+check-and-post	Post Checkout repository	2026-03-10T19:02:17.1667583Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+check-and-post	Post Checkout repository	2026-03-10T19:02:17.1692528Z http.https://github.com/.extraheader
+check-and-post	Post Checkout repository	2026-03-10T19:02:17.1710815Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+check-and-post	Post Checkout repository	2026-03-10T19:02:17.1747218Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+check-and-post	Post Checkout repository	2026-03-10T19:02:17.2009906Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+check-and-post	Post Checkout repository	2026-03-10T19:02:17.2048775Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+check-and-post	Complete job	﻿2026-03-10T19:02:17.2442666Z Cleaning up orphan processes

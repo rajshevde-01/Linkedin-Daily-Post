@@ -104,66 +104,61 @@ Today is {day_name}, so the post style MUST be: {style}
 {content}
 
 STRICT RULES:
-- Start with a powerful hook (shocking stat, bold question, or surprising fact)
 - Length: {POST_MIN_WORDS}-{POST_MAX_WORDS} words only
-- Tone: professional but human — like a real practitioner and leader, not a corporate bot
-- Include ONE actionable tip or insight professionals can use TODAY
 - NO hashtags in the body (they are added automatically later)
-- USE EMOJIS — they are REQUIRED. Use 3–6 emojis throughout the post placed naturally (e.g., 💡 before insights, 🚀 for momentum, 🛡️ for security, 🔥 for urgency, ✅ for action items). Emojis must feel intentional, not decorative noise.
-- NO phrases like "In today's digital landscape" or "In conclusion"
+- NO phrases like "In today's digital landscape", "In conclusion", or "Delving into"
 - DO NOT mention AI or that this was generated
 - Write in first person ("I", "we", "our team")
 
+CREATIVITY & TONE RULES:
+- AVOID sounding like a generic corporate thought leader. Write like a real practitioner talking to a colleague on Slack, or writing a personal developer blog.
+- Vary your sentence length dramatically. Use powerful 3-word sentences. Then use longer, flowing explanatory sentences. Disrupt the typical "AI cadence" by being punchy and unpredictable.
+- Emojis are allowed, but do NOT force a specific number. Use them organically where they fit the specific style below.
 """
 
-    format_1 = """DESIGN & FORMATTING RULE (The "Storytelling Narrative"):
-- Open with a vivid, first-person scene-setter — paint a picture of a real moment (e.g., "It was 2 AM. Our prod database was down and no one knew why.").
-- Use short punchy paragraphs (1-2 sentences max) separated by blank lines to build tension and pacing.
-- Include an emoji at the start of key scene-shift paragraphs to guide the eye (e.g., 🔍 for investigation, 💥 for the turning point, 💡 for the lesson).
-- End with a single, resonating takeaway line, then a reflective open question to the reader.
-- DO NOT use bullet points or headers — this is pure narrative flow.
+    format_1 = """DESIGN & FORMATTING RULE (The "War Story"):
+- Style: A dramatic, first-person narrative. Almost like a journal entry.
+- Opening: Drop the reader immediately into a stressful or active scene (e.g., "It was 2 AM and the alerts wouldn't stop." or "I just stared at the packet capture for 10 minutes.").
+- Formatting: Use short, punchy paragraphs separated by blank lines. ZERO bullet points.
+- Tone: Exhausted but victorious, or highly reflective. Speak purely from experience.
+- Closing: A single-sentence profound takeaway.
 """
 
-    format_2 = """DESIGN & FORMATTING RULE (The "X Things I Learned" List):
-- Start with a bold hook line, e.g. "5 brutal truths I learned after [doing X]:"
-- Use a numbered list (1. 2. 3. ...) with 4–6 items. Each item MUST:
-    • Start with a relevant emoji (e.g., 🔥, ✅, ⚠️, 💡, 🚀, 🎯)
-    • Have a bold 2-5 word label in CAPS or bold, followed by a colon
-    • Have a 1-2 sentence explanation
-- Keep each list item punchy and standalone — zero fluff.
-- End with a 1-line call-to-action or reflective question.
+    format_2 = """DESIGN & FORMATTING RULE (The "Unpopular Opinion"):
+- Style: Highly argumentative, punchy, and slightly controversial within the security space.
+- Opening: Start with a bold, 1-sentence statement that challenges common thinking (e.g., "Stop telling people to just 'patch faster'. It's lazy advice." or "Most IOC feeds are garbage.").
+- Formatting: Heavily use single-sentence paragraphs with wide line breaks for dramatic effect. Contrast "What people think" vs. "What actually happens".
+- Tone: Sharp, direct, zero fluff.
+- Closing: Challenge the audience to disagree with you in the comments.
 """
 
-    format_3 = """DESIGN & FORMATTING RULE (The "Controversial Take"):
-- Start with a bold, 1-sentence statement paragraph that challenges common thinking — open with a 🔥 or ⚡ emoji.
-- Use explicit "Myth vs Reality" or "Why everyone is wrong about" phrasing.
-- Heavily use single-sentence paragraphs with wide line breaks for dramatic effect.
-- Add emojis (🚫, ✅, 💡, 👇) to emphasize contrast and key turns.
-- DO NOT use bullet points unless absolutely necessary.
+    format_3 = """DESIGN & FORMATTING RULE (The "Cheat Sheet"):
+- Style: Highly structured, scannable, and bookmarkable reference guide.
+- Opening: "The ultimate cheat sheet for [Topic]:" or "Everything you need to know about [Event], summarized in 30 seconds:"
+- Formatting: Use a tight, numbered or bulleted list. Start each bullet with an emoji (e.g., 📌, ⚠️, ✅, 🛡️, 🔍), followed by a 2-4 word bold label, then a 1-sentence explanation.
+- Tone: Academic, helpful, and concise. Make it easy to screenshot.
 """
 
-    format_4 = """DESIGN & FORMATTING RULE (The "Data Dump / Report"):
-- Make the post extremely scannable like an executive briefing.
-- Start with a "📌 TL;DR:" section at the very top, followed by a blank line.
-- Use structured sections with all-caps emoji-prefixed headers (e.g., "📊 THE NUMBERS:", "⚠️ THE RISK:", "✅ THE FIX:").
-- Heavily utilize data points, metrics, and statistics (pulled accurately from context).
-- Use emojis as visual anchors before every section header and key stat.
+    format_4 = """DESIGN & FORMATTING RULE (The "Technical Deep-Dive"):
+- Style: Dense, highly technical, and analytical. Written for senior engineers.
+- Formatting: Use backticks (`code`) for technical terms, IPs, CVSS scores, or malware names. Break the post down into explicit mini-sections: "The Vector", "The Exploit", and "The Mitigation".
+- Tone: Analytical, dry, and brutally factual. Assume the reader is already a security expert. No generic advice.
+- Closing: Provide one highly specific detection rule or technical action item.
 """
 
-    format_5 = """DESIGN & FORMATTING RULE (The "Standard" Bullet Format):
-- Use bullet points (•) and short paragraphs to make the post highly readable and scannable.
-- Place a relevant emoji before 2-3 key bullets to draw attention.
-- End the main text with an engaging "Poll-style" question with a 🗳️ emoji. 
-- Provide 2–3 numbered emoji options for people to vote on in the comments. (e.g., "Reply with 1️⃣ for Yes, 2️⃣ for No, 3️⃣ for Maybe.")
+    format_5 = """DESIGN & FORMATTING RULE (The "Ask the Community" Poll):
+- Style: Short, conversational, and designed purely to generate debate.
+- Opening: State a recent event, finding, or security dilemma in 2-3 sentences max.
+- Formatting: Ask a direct question, then provide 3 numbered options for people to vote on. (e.g., "1️⃣ Keep the legacy system, 2️⃣ Rip and replace, 3️⃣ Build a proxy layer.")
+- Tone: Curious and open-minded. You are asking for advice/opinions, not giving it.
 """
 
-    format_6 = """DESIGN & FORMATTING RULE (The "Mini Thread" Style):
-- Structure the post like a Twitter/X thread condensed into one LinkedIn post.
-- Open with a teaser + 🧵 emoji, e.g.: "I broke down X so you don't have to. 🧵 A quick thread:"
-- Use numbered thread entries: "1/", "2/", "3/" etc. (4–6 entries total), each on its own paragraph.
-- Start each entry with a mini-headline as the first sentence (bold idea/conclusion first), then 1-sentence elaboration.
-- Add a relevant emoji to each thread entry (🔍, 💡, ⚡, 🛡️, 🚀, ✅).
-- Close with "That's a wrap. What's your take? 👇" or similar.
+    format_6 = """DESIGN & FORMATTING RULE (The "Day in the Life" Insight):
+- Style: Extremely casual, like a quick Slack message to a coworker or a thought you had while brewing coffee.
+- Opening: Start with a casual, over-the-shoulder observation (e.g., "Currently digging through a massive log file and realized..." or "Just wrapped up a post-mortem call and wanted to vent/share something.").
+- Formatting: Very natural prose. 1 or 2 medium-length paragraphs. No forced listicles.
+- Tone: Relaxed, colloquial, and authentic. 
+- Closing: Just a casual sign-off or an open thought.
 """
 
     format_options = [format_1, format_2, format_3, format_4, format_5, format_6]

@@ -14,7 +14,7 @@ from pathlib import Path
 # Add scripts dir to path
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-from config import LINKEDIN_ACCESS_TOKEN, LINKEDIN_PERSON_URN, HASHTAGS
+from config import LINKEDIN_ACCESS_TOKEN, LINKEDIN_PERSON_URN
 
 
 def clean_markdown_for_linkedin(text: str) -> str:

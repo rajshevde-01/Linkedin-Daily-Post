@@ -1,6 +1,6 @@
 # 🚀 Daily LinkedIn Post Automation
 
-Fully automated daily LinkedIn posts on tech, cybersecurity, and leadership topics. Runs 100% in the cloud via GitHub Actions — works even when your PC is off.
+Fully automated daily LinkedIn posts on tech, cybersecurity, and leadership topics. Runs 100% in the cloud via GitHub Actions works even when your PC is off.
 
 ---
 

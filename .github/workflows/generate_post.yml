@@ -58,7 +58,7 @@ jobs:
           if [ -n "${{ github.event.inputs.date }}" ]; then
             echo "date=${{ github.event.inputs.date }}" >> $GITHUB_OUTPUT
           else
-            echo "date=$(TZ='Asia/Kolkata' date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
+            echo "date=$(TZ='Asia/Kolkata' date -d '2 hours ago' +'%Y-%m-%d')" >> $GITHUB_OUTPUT
           fi
 
       - name: Generate LinkedIn post

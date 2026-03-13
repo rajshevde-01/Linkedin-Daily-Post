@@ -26,8 +26,8 @@ WIDTH = 1200
 HEIGHT = 628
 
 FONTS_DIR = Path(__file__).parent / "fonts"
-BRAND_NAME = "RAJ SHEVDE"
-BRAND_TAGLINE = "Cybersecurity • Threat Intelligence"
+BRAND_NAME = ""
+BRAND_TAGLINE = ""
 
 
 def get_font(name="Inter", size=40):
@@ -172,29 +172,17 @@ def draw_shield_logo(draw, x, y, size=40, color=ELECTRIC_CYAN):
 
 
 def draw_brand_bar(draw, y_pos, bg_dark=True):
-    """Draw the bottom brand bar with logo + name."""
+    """Draw the bottom brand bar with logo."""
     bar_height = 55
     bar_color = (15, 15, 25) if bg_dark else (230, 225, 218)
-    text_color = PURE_WHITE if bg_dark else CHARCOAL
     
     # Brand bar background
     draw.rectangle([(0, y_pos), (WIDTH, y_pos + bar_height)], fill=bar_color)
     # Top accent line
     draw.rectangle([(0, y_pos), (WIDTH, y_pos + 2)], fill=ELECTRIC_CYAN)
     
-    # Shield logo
+    # Shield logo only
     draw_shield_logo(draw, 30, y_pos + 10, size=35, color=ELECTRIC_CYAN)
-    
-    # Brand name
-    font_brand = get_font("Inter", 16)
-    draw.text((75, y_pos + 12), BRAND_NAME, font=font_brand, fill=text_color)
-    
-    font_tag = get_font("Inter", 12)
-    draw.text((75, y_pos + 32), BRAND_TAGLINE, font=font_tag, fill=ELECTRIC_CYAN if bg_dark else DEEP_TEAL)
-    
-    # Right side: website/social
-    font_right = get_font("Inter", 13)
-    draw.text((WIDTH - 200, y_pos + 20), "linkedin.com/in/rajshevde", font=font_right, fill=(*text_color[:3], 150) if bg_dark else (*CHARCOAL, 150))
 
 
 # ============================================================

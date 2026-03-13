@@ -61,14 +61,32 @@ Each post is written in one of 6 rotating formats, now enhanced with **Multi-Mod
 > [!TIP]
 > **Sense Check (V2)**: Every post is double-checked by a separate AI model to strip out 'AI-speak' and marketing fluff.
 
-## 🖼️ AI Image Prompt Generation (V2)
+## 🖼️ Professional Image Generation (V3)
 
-Every generated post now includes a **Custom Image Prompt** in its metadata, optimized for DALL-E 3 or Midjourney. 
-- **Style**: Cyberpunk Synthwave / Neon Future.
-- **Colors**: Neon Purple, Cyan, and Pink highlights on Dark Graphite.
-- **Aesthetic**: Premium glassmorphism and abstract technical metaphors.
+Every post automatically generates a **1200×628px LinkedIn-optimized image** using Pillow — no external APIs needed.
+
+### 11 Templates (6 Core + 5 SOC-Style)
+
+| # | Template | Style |
+|---|---|---|
+| 1 | 🌑 **Dark Gradient** | Navy → Teal gradient, Cyan accent |
+| 2 | ⚡ **Neon Split** | Cyan panel + Charcoal split |
+| 3 | 📊 **Clean Grid** | Charcoal card with grid pattern |
+| 4 | 💻 **Terminal** | Hacker terminal, green monospace |
+| 5 | ❓ **Bold Question** | Teal gradient, large Gold "?" |
+| 6 | ✨ **Minimal Pro** | Off-white, dark text, clean |
+| 7 | 🚨 **SOC Alert** | Severity dashboard with live metrics |
+| 8 | 📡 **Threat Radar** | Radar circles with threat dots |
+| 9 | 🔴 **Incident Response** | Red gradient, NIST timeline |
+| 10 | 🧩 **MITRE ATT&CK** | Framework grid background |
+| 11 | 💀 **Breach Alert** | Breaking news banner, scan lines |
+
+- **Color Palette**: Deep Teal, Electric Cyan, Amber Gold
+- **Text**: Headline + subtitle auto-extracted from post content
+- **Test**: `python scripts/generate_image.py --test`
 
 ---
+
 
 ## 🔧 Setup (One-Time)
 

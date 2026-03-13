@@ -26,8 +26,6 @@ WIDTH = 1200
 HEIGHT = 628
 
 FONTS_DIR = Path(__file__).parent / "fonts"
-BRAND_NAME = ""
-BRAND_TAGLINE = ""
 
 
 def get_font(name="Inter", size=40):
@@ -49,7 +47,7 @@ def get_font(name="Inter", size=40):
 
 
 # ============================================================
-# TEXT EXTRACTION — Catchy headline + subtitle from post
+# TEXT EXTRACTION â€” Catchy headline + subtitle from post
 # ============================================================
 def extract_content(post_text: str) -> dict:
     """Extract headline, subtitle, and key takeaway from post text."""
@@ -60,7 +58,7 @@ def extract_content(post_text: str) -> dict:
     for l in lines:
         cleaned = re.sub(r'^[^\w\s"\']+', '', l).strip()
         # Skip very short lines, hashtag lines, source lines
-        if cleaned and len(cleaned) > 10 and not cleaned.startswith('#') and not cleaned.startswith('🔗'):
+        if cleaned and len(cleaned) > 10 and not cleaned.startswith('#') and not cleaned.startswith('ðŸ”—'):
             clean_lines.append(cleaned)
     
     if not clean_lines:
@@ -142,48 +140,6 @@ def draw_text_wrapped(draw, text, font, max_width, start_x, start_y, fill=PURE_W
     return y - start_y
 
 
-def draw_shield_logo(draw, x, y, size=40, color=ELECTRIC_CYAN):
-    """Draw a simple shield icon as the brand logo."""
-    s = size
-    # Shield shape using polygon
-    points = [
-        (x + s // 2, y),           # top center
-        (x + s, y + s // 4),       # top right
-        (x + s, y + s * 2 // 3),   # mid right
-        (x + s // 2, y + s),       # bottom center (point)
-        (x, y + s * 2 // 3),       # mid left
-        (x, y + s // 4),           # top left
-    ]
-    draw.polygon(points, fill=color)
-    # Inner shield (smaller, darker)
-    inner_margin = size // 5
-    inner_points = [
-        (x + s // 2, y + inner_margin),
-        (x + s - inner_margin, y + s // 4 + inner_margin // 2),
-        (x + s - inner_margin, y + s * 2 // 3 - inner_margin // 2),
-        (x + s // 2, y + s - inner_margin),
-        (x + inner_margin, y + s * 2 // 3 - inner_margin // 2),
-        (x + inner_margin, y + s // 4 + inner_margin // 2),
-    ]
-    draw.polygon(inner_points, fill=CHARCOAL)
-    # Checkmark inside
-    cx, cy = x + s // 2, y + s // 2
-    draw.line([(cx - 6, cy), (cx - 1, cy + 5), (cx + 8, cy - 6)], fill=color, width=2)
-
-
-def draw_brand_bar(draw, y_pos, bg_dark=True):
-    """Draw the bottom brand bar with logo."""
-    bar_height = 55
-    bar_color = (15, 15, 25) if bg_dark else (230, 225, 218)
-    
-    # Brand bar background
-    draw.rectangle([(0, y_pos), (WIDTH, y_pos + bar_height)], fill=bar_color)
-    # Top accent line
-    draw.rectangle([(0, y_pos), (WIDTH, y_pos + 2)], fill=ELECTRIC_CYAN)
-    
-    # Shield logo only
-    draw_shield_logo(draw, 30, y_pos + 10, size=35, color=ELECTRIC_CYAN)
-
 
 # ============================================================
 # TEMPLATE 1: Dark Gradient (War Story)
@@ -223,8 +179,6 @@ def template_dark_gradient(content: dict) -> Image.Image:
     # Divider line
     draw.line([(80, HEIGHT - 80), (WIDTH - 80, HEIGHT - 80)], fill=ELECTRIC_CYAN, width=1)
     
-    # Brand bar
-    draw_brand_bar(draw, HEIGHT - 55, bg_dark=True)
     
     return img
 
@@ -254,7 +208,7 @@ def template_neon_split(content: dict) -> Image.Image:
     
     # Left: Large icon
     font_icon = get_font("Inter", 160)
-    draw.text((90, 130), "⚡", font=font_icon, fill=PURE_WHITE)
+    draw.text((90, 130), "âš¡", font=font_icon, fill=PURE_WHITE)
     
     # Left: label
     font_label = get_font("Inter", 14)
@@ -270,8 +224,6 @@ def template_neon_split(content: dict) -> Image.Image:
         font_sub = get_font("Inter", 20)
         draw_text_wrapped(draw, content["subtitle"], font_sub, WIDTH - split_x - 100, split_x + 50, 340, fill=(*PURE_WHITE[:3],))
     
-    # Brand bar
-    draw_brand_bar(draw, HEIGHT - 55, bg_dark=True)
     
     return img
 
@@ -320,8 +272,6 @@ def template_clean_grid(content: dict) -> Image.Image:
             radius=4, fill=ELECTRIC_CYAN if i == 0 else AMBER_GOLD if i == 1 else PURE_WHITE
         )
     
-    # Brand bar
-    draw_brand_bar(draw, HEIGHT - 55, bg_dark=True)
     
     return img
 
@@ -351,7 +301,7 @@ def template_terminal(content: dict) -> Image.Image:
     y = chrome_h + 30
     draw.text((40, y), "$ cat /var/log/intel_brief.md", font=font_mono, fill=TERMINAL_GREEN)
     y += 35
-    draw.text((40, y), "═" * 50, font=font_mono, fill=(60, 60, 80))
+    draw.text((40, y), "â•" * 50, font=font_mono, fill=(60, 60, 80))
     y += 30
     
     # Headline
@@ -364,7 +314,7 @@ def template_terminal(content: dict) -> Image.Image:
     
     # Bottom prompt
     draw.text((40, HEIGHT - 75), "$ echo $RECOMMENDATION", font=font_mono, fill=(100, 100, 130))
-    draw.text((40, HEIGHT - 50), "> Patch immediately. Monitor for IOCs. █", font=font_mono, fill=TERMINAL_GREEN)
+    draw.text((40, HEIGHT - 50), "> Patch immediately. Monitor for IOCs. â–ˆ", font=font_mono, fill=TERMINAL_GREEN)
     
     # Scanline effect
     for sy in range(0, HEIGHT, 3):
@@ -392,7 +342,7 @@ def template_bold_question(content: dict) -> Image.Image:
     # Label
     font_label = get_font("Inter", 14)
     draw.rounded_rectangle([(80, 40), (240, 66)], radius=4, fill=AMBER_GOLD)
-    draw.text((92, 44), "POLL • YOUR TAKE?", font=font_label, fill=CHARCOAL)
+    draw.text((92, 44), "POLL â€¢ YOUR TAKE?", font=font_label, fill=CHARCOAL)
     
     # Headline
     font_title = get_font("Inter", 46)
@@ -403,8 +353,6 @@ def template_bold_question(content: dict) -> Image.Image:
         font_sub = get_font("Inter", 20)
         draw_text_wrapped(draw, content["subtitle"], font_sub, WIDTH - 300, 80, 360, fill=(*PURE_WHITE[:3],))
     
-    # Brand bar
-    draw_brand_bar(draw, HEIGHT - 55, bg_dark=True)
     
     return img
 
@@ -438,8 +386,6 @@ def template_minimal_pro(content: dict) -> Image.Image:
     draw.ellipse([(WIDTH - 90, 80), (WIDTH - 76, 94)], fill=AMBER_GOLD)
     draw.ellipse([(WIDTH - 70, 80), (WIDTH - 56, 94)], fill=ELECTRIC_CYAN)
     
-    # Brand bar (light version)
-    draw_brand_bar(draw, HEIGHT - 55, bg_dark=False)
     
     return img
 
@@ -507,8 +453,6 @@ def template_soc_alert(content: dict) -> Image.Image:
         draw.text((mx, metrics_y + 26), value, font=font_metric, fill=color)
         mx += 260
     
-    # Brand bar
-    draw_brand_bar(draw, HEIGHT - 55, bg_dark=True)
     
     return img
 
@@ -566,8 +510,6 @@ def template_threat_radar(content: dict) -> Image.Image:
         font_sub = get_font("Inter", 18)
         draw_text_wrapped(draw, content["subtitle"], font_sub, WIDTH // 2 - 40, 40, 320, fill=(150, 200, 220))
     
-    # Brand bar
-    draw_brand_bar(draw, HEIGHT - 55, bg_dark=True)
     
     return img
 
@@ -627,8 +569,6 @@ def template_incident_response(content: dict) -> Image.Image:
             draw.line([(px + 85, timeline_y + 14), (px + 120, timeline_y + 14)], fill=(60, 40, 40), width=1)
         px += 140 if i < 2 else 130
     
-    # Brand bar
-    draw_brand_bar(draw, HEIGHT - 55, bg_dark=True)
     
     return img
 
@@ -683,8 +623,6 @@ def template_mitre_attack(content: dict) -> Image.Image:
         font_sub = get_font("Inter", 17)
         draw_text_wrapped(draw, content["subtitle"], font_sub, WIDTH - 120, 50, card_y + 190, fill=(150, 170, 200))
     
-    # Brand bar
-    draw_brand_bar(draw, HEIGHT - 55, bg_dark=True)
     
     return img
 
@@ -711,8 +649,7 @@ def template_breach_alert(content: dict) -> Image.Image:
         alpha = random.randint(0, 15)
         draw.line([(0, i), (WIDTH, i)], fill=(200, 40, 40, alpha), width=1)
     
-    # Shield icon (broken/cracked)
-    draw_shield_logo(draw, WIDTH - 120, 80, size=60, color=ALERT_RED)
+
     
     # Headline
     font_title = get_font("Inter", 44)
@@ -733,8 +670,6 @@ def template_breach_alert(content: dict) -> Image.Image:
     draw.text((300, stats_y + 10), "DATA EXFILTRATION CONFIRMED", font=font_stat, fill=AMBER_GOLD)
     draw.text((650, stats_y + 10), "INVESTIGATION ONGOING", font=font_stat, fill=ELECTRIC_CYAN)
     
-    # Brand bar
-    draw_brand_bar(draw, HEIGHT - 55, bg_dark=True)
     
     return img
 
@@ -791,13 +726,13 @@ def test_all_templates():
     """Generate one sample of each template for visual review."""
     sample_post = """Ransomware gangs are now using AI-generated phishing lures to bypass email gateways.
 
-We saw this firsthand during our latest incident response engagement. The payload was a polymorphic loader — it changed its hash on every execution.
+We saw this firsthand during our latest incident response engagement. The payload was a polymorphic loader â€” it changed its hash on every execution.
 
 Our SOC flagged the initial beacon within 8 minutes, but the lateral movement had already begun.
 
 Bottom line: if your detection is still signature-based, you're already compromised.
 
-🔗 Source: https://thehackernews.com/2026/03/ai-phishing.html
+ðŸ”— Source: https://thehackernews.com/2026/03/ai-phishing.html
 #Ransomware #ThreatIntel #SOC"""
     
     content = extract_content(sample_post)

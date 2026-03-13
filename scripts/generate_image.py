@@ -457,6 +457,301 @@ def template_minimal_pro(content: dict) -> Image.Image:
 
 
 # ============================================================
+# TEMPLATE 7: SOC Alert Dashboard
+# ============================================================
+def template_soc_alert(content: dict) -> Image.Image:
+    img = Image.new("RGB", (WIDTH, HEIGHT))
+    draw = ImageDraw.Draw(img)
+    
+    # Dark background
+    draw.rectangle([(0, 0), (WIDTH, HEIGHT)], fill=(8, 8, 16))
+    
+    # Top status bar (red severity)
+    ALERT_RED = (220, 50, 47)
+    draw.rectangle([(0, 0), (WIDTH, 50)], fill=(30, 10, 12))
+    draw.rectangle([(0, 0), (WIDTH, 3)], fill=ALERT_RED)
+    
+    # Status indicators in top bar
+    font_status = get_font("JetBrains", 12)
+    draw.ellipse([(20, 18), (34, 32)], fill=ALERT_RED)
+    draw.text((42, 18), "SEVERITY: CRITICAL", font=font_status, fill=ALERT_RED)
+    
+    draw.ellipse([(250, 18), (264, 32)], fill=AMBER_GOLD)
+    draw.text((272, 18), "STATUS: ACTIVE", font=font_status, fill=AMBER_GOLD)
+    
+    draw.ellipse([(460, 18), (474, 32)], fill=TERMINAL_GREEN)
+    draw.text((482, 18), "SOC TIER: 2", font=font_status, fill=TERMINAL_GREEN)
+    
+    # Timestamp right side
+    from datetime import datetime
+    ts = datetime.now().strftime("%Y-%m-%d %H:%M UTC")
+    draw.text((WIDTH - 220, 18), ts, font=font_status, fill=(100, 100, 120))
+    
+    # Alert ID badge
+    font_label = get_font("JetBrains", 13)
+    alert_id = f"ALERT-{random.randint(1000, 9999)}"
+    draw.rounded_rectangle([(40, 70), (190, 94)], radius=4, fill=ALERT_RED)
+    draw.text((52, 74), alert_id, font=font_label, fill=PURE_WHITE)
+    
+    # Headline
+    font_title = get_font("Inter", 42)
+    draw_text_wrapped(draw, content["headline"], font_title, WIDTH - 120, 40, 115, fill=PURE_WHITE)
+    
+    # Subtitle
+    if content["subtitle"]:
+        font_sub = get_font("Inter", 19)
+        draw_text_wrapped(draw, content["subtitle"], font_sub, WIDTH - 120, 40, 310, fill=(180, 180, 200))
+    
+    # Bottom metrics bar
+    metrics_y = HEIGHT - 100
+    draw.line([(40, metrics_y), (WIDTH - 40, metrics_y)], fill=(40, 40, 60), width=1)
+    
+    font_metric = get_font("JetBrains", 14)
+    metrics = [
+        ("AFFECTED HOSTS", str(random.randint(12, 250)), ALERT_RED),
+        ("INDICATORS", str(random.randint(5, 40)), AMBER_GOLD),
+        ("TIME TO DETECT", f"{random.randint(2, 15)}m", TERMINAL_GREEN),
+        ("CONFIDENCE", f"{random.randint(85, 99)}%", ELECTRIC_CYAN),
+    ]
+    mx = 50
+    for label, value, color in metrics:
+        draw.text((mx, metrics_y + 10), label, font=get_font("JetBrains", 10), fill=(80, 80, 100))
+        draw.text((mx, metrics_y + 26), value, font=font_metric, fill=color)
+        mx += 260
+    
+    # Brand bar
+    draw_brand_bar(draw, HEIGHT - 55, bg_dark=True)
+    
+    return img
+
+
+# ============================================================
+# TEMPLATE 8: Threat Radar / Scan Grid
+# ============================================================
+def template_threat_radar(content: dict) -> Image.Image:
+    img = Image.new("RGB", (WIDTH, HEIGHT))
+    draw = ImageDraw.Draw(img)
+    
+    draw.rectangle([(0, 0), (WIDTH, HEIGHT)], fill=(5, 10, 20))
+    
+    # Radar grid (concentric circles + crosshair)
+    center_x, center_y = WIDTH - 200, HEIGHT // 2
+    for r in range(50, 300, 60):
+        draw.ellipse(
+            [(center_x - r, center_y - r), (center_x + r, center_y + r)],
+            outline=(0, 60, 80), width=1
+        )
+    # Crosshair
+    draw.line([(center_x - 280, center_y), (center_x + 280, center_y)], fill=(0, 60, 80), width=1)
+    draw.line([(center_x, center_y - 280), (center_x, center_y + 280)], fill=(0, 60, 80), width=1)
+    
+    # Threat dots on radar
+    for _ in range(15):
+        dx = random.randint(-200, 200)
+        dy = random.randint(-200, 200)
+        if dx * dx + dy * dy < 200 * 200:
+            dot_color = random.choice([
+                (220, 50, 47), AMBER_GOLD, ELECTRIC_CYAN, TERMINAL_GREEN
+            ])
+            dot_size = random.randint(3, 8)
+            draw.ellipse(
+                [(center_x + dx, center_y + dy), (center_x + dx + dot_size, center_y + dy + dot_size)],
+                fill=dot_color
+            )
+    
+    # Sweep line (static representation)
+    import math as m
+    angle = random.uniform(0, 2 * m.pi)
+    sweep_end_x = center_x + int(250 * m.cos(angle))
+    sweep_end_y = center_y + int(250 * m.sin(angle))
+    draw.line([(center_x, center_y), (sweep_end_x, sweep_end_y)], fill=ELECTRIC_CYAN, width=2)
+    
+    # Left side content
+    font_label = get_font("JetBrains", 12)
+    draw.rounded_rectangle([(40, 40), (225, 64)], radius=4, fill=ELECTRIC_CYAN)
+    draw.text((52, 44), "THREAT INTELLIGENCE", font=font_label, fill=CHARCOAL)
+    
+    font_title = get_font("Inter", 40)
+    draw_text_wrapped(draw, content["headline"], font_title, WIDTH // 2 - 40, 40, 90, fill=PURE_WHITE)
+    
+    if content["subtitle"]:
+        font_sub = get_font("Inter", 18)
+        draw_text_wrapped(draw, content["subtitle"], font_sub, WIDTH // 2 - 40, 40, 320, fill=(150, 200, 220))
+    
+    # Brand bar
+    draw_brand_bar(draw, HEIGHT - 55, bg_dark=True)
+    
+    return img
+
+
+# ============================================================
+# TEMPLATE 9: Incident Response (Emergency Red)
+# ============================================================
+def template_incident_response(content: dict) -> Image.Image:
+    img = Image.new("RGB", (WIDTH, HEIGHT))
+    draw = ImageDraw.Draw(img)
+    
+    ALERT_RED = (200, 40, 40)
+    DARK_RED = (40, 8, 8)
+    
+    # Dark red gradient
+    draw_gradient(draw, WIDTH, HEIGHT, (15, 5, 8), DARK_RED)
+    
+    # Top red strip with pulse effect
+    draw.rectangle([(0, 0), (WIDTH, 6)], fill=ALERT_RED)
+    draw.rectangle([(0, HEIGHT - 62), (WIDTH, HEIGHT - 60)], fill=ALERT_RED)
+    
+    # Warning triangle icon
+    tri_x, tri_y = WIDTH - 180, 50
+    tri_size = 80
+    points = [
+        (tri_x + tri_size // 2, tri_y),
+        (tri_x + tri_size, tri_y + tri_size),
+        (tri_x, tri_y + tri_size),
+    ]
+    draw.polygon(points, fill=AMBER_GOLD)
+    draw.text((tri_x + 30, tri_y + 25), "!", font=get_font("Inter", 40), fill=DARK_RED)
+    
+    # Label
+    font_label = get_font("JetBrains", 14)
+    draw.rounded_rectangle([(40, 40), (240, 66)], radius=4, fill=ALERT_RED)
+    draw.text((52, 44), "INCIDENT RESPONSE", font=font_label, fill=PURE_WHITE)
+    
+    # Headline
+    font_title = get_font("Inter", 44)
+    draw_text_wrapped(draw, content["headline"], font_title, WIDTH - 250, 40, 90, fill=PURE_WHITE)
+    
+    # Subtitle
+    if content["subtitle"]:
+        font_sub = get_font("Inter", 19)
+        draw_text_wrapped(draw, content["subtitle"], font_sub, WIDTH - 120, 40, 310, fill=(220, 180, 180))
+    
+    # Response timeline at bottom
+    timeline_y = HEIGHT - 100
+    font_time = get_font("JetBrains", 11)
+    phases = ["DETECT", "CONTAIN", "ERADICATE", "RECOVER"]
+    phase_colors = [TERMINAL_GREEN, AMBER_GOLD, ALERT_RED, ELECTRIC_CYAN]
+    px = 50
+    for i, (phase, pcolor) in enumerate(zip(phases, phase_colors)):
+        draw.rounded_rectangle([(px, timeline_y + 5), (px + 18, timeline_y + 23)], radius=9, fill=pcolor)
+        draw.text((px + 25, timeline_y + 7), phase, font=font_time, fill=(180, 180, 190))
+        if i < 3:
+            draw.line([(px + 85, timeline_y + 14), (px + 120, timeline_y + 14)], fill=(60, 40, 40), width=1)
+        px += 140 if i < 2 else 130
+    
+    # Brand bar
+    draw_brand_bar(draw, HEIGHT - 55, bg_dark=True)
+    
+    return img
+
+
+# ============================================================
+# TEMPLATE 10: MITRE ATT&CK Framework
+# ============================================================
+def template_mitre_attack(content: dict) -> Image.Image:
+    img = Image.new("RGB", (WIDTH, HEIGHT))
+    draw = ImageDraw.Draw(img)
+    
+    draw.rectangle([(0, 0), (WIDTH, HEIGHT)], fill=(10, 12, 22))
+    
+    # MITRE-style technique grid in background
+    tactics = ["Recon", "Init Access", "Execution", "Persist", "Priv Esc", "Defense Ev", "Cred Access", "Lateral"]
+    font_tactic = get_font("JetBrains", 9)
+    
+    cell_w = WIDTH // 8
+    for i, tactic in enumerate(tactics):
+        x = i * cell_w
+        # Column header
+        draw.rectangle([(x, 0), (x + cell_w - 2, 25)], fill=(30, 35, 55))
+        draw.text((x + 5, 6), tactic.upper(), font=font_tactic, fill=(80, 90, 120))
+        
+        # Random technique cells (faded background effect)
+        for j in range(random.randint(2, 5)):
+            cell_y = 30 + j * 28
+            highlighted = random.random() < 0.15
+            cell_color = (60, 20, 20) if highlighted else (20, 22, 35)
+            draw.rectangle([(x + 1, cell_y), (x + cell_w - 3, cell_y + 24)], fill=cell_color)
+            if highlighted:
+                draw.rectangle([(x + 1, cell_y), (x + 3, cell_y + 24)], fill=(200, 40, 40))
+    
+    # Content overlay card
+    card_y = 180
+    draw.rounded_rectangle(
+        [(30, card_y), (WIDTH - 30, HEIGHT - 60)],
+        radius=12, fill=(12, 14, 28, 230), outline=ELECTRIC_CYAN, width=1
+    )
+    
+    # Label
+    font_label = get_font("JetBrains", 12)
+    draw.rounded_rectangle([(50, card_y + 15), (220, card_y + 38)], radius=4, fill=ELECTRIC_CYAN)
+    draw.text((62, card_y + 18), "MITRE ATT&CK", font=font_label, fill=CHARCOAL)
+    
+    # Headline
+    font_title = get_font("Inter", 38)
+    draw_text_wrapped(draw, content["headline"], font_title, WIDTH - 120, 50, card_y + 55, fill=PURE_WHITE)
+    
+    # Subtitle
+    if content["subtitle"]:
+        font_sub = get_font("Inter", 17)
+        draw_text_wrapped(draw, content["subtitle"], font_sub, WIDTH - 120, 50, card_y + 190, fill=(150, 170, 200))
+    
+    # Brand bar
+    draw_brand_bar(draw, HEIGHT - 55, bg_dark=True)
+    
+    return img
+
+
+# ============================================================
+# TEMPLATE 11: Breach Alert (Breaking News)
+# ============================================================
+def template_breach_alert(content: dict) -> Image.Image:
+    img = Image.new("RGB", (WIDTH, HEIGHT))
+    draw = ImageDraw.Draw(img)
+    
+    ALERT_RED = (200, 40, 40)
+    
+    # Dark background with slight red tint
+    draw_gradient(draw, WIDTH, HEIGHT, (12, 5, 8), (20, 8, 12))
+    
+    # Top "BREAKING" banner
+    draw.rectangle([(0, 0), (WIDTH, 60)], fill=ALERT_RED)
+    font_break = get_font("Inter", 24)
+    draw.text((WIDTH // 2 - 100, 15), "BREACH ALERT", font=font_break, fill=PURE_WHITE)
+    
+    # Side scan lines
+    for i in range(0, HEIGHT, 8):
+        alpha = random.randint(0, 15)
+        draw.line([(0, i), (WIDTH, i)], fill=(200, 40, 40, alpha), width=1)
+    
+    # Shield icon (broken/cracked)
+    draw_shield_logo(draw, WIDTH - 120, 80, size=60, color=ALERT_RED)
+    
+    # Headline
+    font_title = get_font("Inter", 44)
+    draw_text_wrapped(draw, content["headline"], font_title, WIDTH - 200, 50, 90, fill=PURE_WHITE)
+    
+    # Subtitle
+    if content["subtitle"]:
+        font_sub = get_font("Inter", 20)
+        draw_text_wrapped(draw, content["subtitle"], font_sub, WIDTH - 120, 50, 320, fill=(220, 180, 180))
+    
+    # Bottom stats
+    stats_y = HEIGHT - 100
+    draw.line([(50, stats_y), (WIDTH - 50, stats_y)], fill=(60, 20, 20), width=1)
+    font_stat = get_font("JetBrains", 12)
+    
+    records = f"{random.randint(1, 50)}M+ RECORDS"
+    draw.text((60, stats_y + 10), records, font=font_stat, fill=ALERT_RED)
+    draw.text((300, stats_y + 10), "DATA EXFILTRATION CONFIRMED", font=font_stat, fill=AMBER_GOLD)
+    draw.text((650, stats_y + 10), "INVESTIGATION ONGOING", font=font_stat, fill=ELECTRIC_CYAN)
+    
+    # Brand bar
+    draw_brand_bar(draw, HEIGHT - 55, bg_dark=True)
+    
+    return img
+
+
+# ============================================================
 # MAIN ENGINE
 # ============================================================
 TEMPLATES = {
@@ -466,6 +761,11 @@ TEMPLATES = {
     "deep_dive": template_terminal,
     "poll": template_bold_question,
     "insight": template_minimal_pro,
+    "soc_alert": template_soc_alert,
+    "threat_radar": template_threat_radar,
+    "incident_response": template_incident_response,
+    "mitre_attack": template_mitre_attack,
+    "breach_alert": template_breach_alert,
 }
 
 
@@ -523,7 +823,7 @@ Bottom line: if your detection is still signature-based, you're already compromi
         img.save(str(filepath), "PNG", quality=95)
         print(f"[OK] {name}: {filepath}")
     
-    print(f"\n[SUCCESS] All 6 test images saved to: {images_dir}")
+    print(f"\n[SUCCESS] All {len(TEMPLATES)} test images saved to: {images_dir}")
 
 
 if __name__ == "__main__":

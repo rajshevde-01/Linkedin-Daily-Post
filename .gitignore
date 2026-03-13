@@ -6,3 +6,22 @@ __pycache__/
 venv/
 linkedin_credentials.json
 scripts/get_linkedin_id.py
+
+# Debug / log dumps (never commit to public repo)
+*.log
+log*.txt
+fail_log*.txt
+manual_run*.txt
+march*.txt
+auto_post_err*.txt
+autopost_log*.txt
+clean_*.txt
+error*.txt
+full_log*.txt
+gh_runs.txt
+latest_fail_log.txt
+run*.txt
+models.txt
+
+# Test images (regenerate locally with --test)
+posts/images/test/

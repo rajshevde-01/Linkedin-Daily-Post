@@ -10,7 +10,13 @@ from pathlib import Path
 # Add scripts dir to path for imports
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-from config import GROQ_API_KEYS, get_system_prompt, POST_MIN_WORDS, POST_MAX_WORDS
+from config import (
+    GROQ_API_KEYS, 
+    get_system_prompt, 
+    get_image_system_prompt,
+    POST_MIN_WORDS, 
+    POST_MAX_WORDS
+)
 from fetch_news import get_news_context
 from fetch_cve import get_cve_context
 from fetch_knowledge import fetch_random_knowledge
@@ -90,29 +96,74 @@ def generate_post(content: str, is_custom: bool = False, is_cve: bool = False, i
         print(f"[FATAL] Last error encountered: {last_error}")
         sys.exit(1)
 
-    # Validate word count
-    word_count = len(post_text.split())
-    print(f"[INFO] Generated post: {word_count} words")
-
-    if word_count < POST_MIN_WORDS or word_count > POST_MAX_WORDS:
-        print(f"[WARN] Word count {word_count} outside target range ({POST_MIN_WORDS}-{POST_MAX_WORDS})")
-
     return post_text
 
 
-def save_post(post_text: str, date_str: str) -> str:
-    """Save post to posts/ directory and return the file path."""
+def verify_post(post_text: str) -> str:
+    """Perform a second-pass 'Sense Check' to remove AI-isms and improve flow."""
+    from groq import Groq
+    
+    sense_check_prompt = f"""You are a brutal Executive Editor for a top-tier cybersecurity blog.
+Review the LinkedIn post below. Your goal is to make it sound 100% like a human practitioner and 0% like an AI.
+
+STRICT EDITING RULES:
+1. Remove generic 'AI-speak' (e.g., 'In world where...', 'Unlock the potential', 'Comprehensive approach').
+2. If the tone is too 'excited' or 'marketing-heavy', flatten it. Make it sound like a tired senior architect.
+3. Ensure technical terms are used correctly.
+4. DO NOT change the core meaning or the source links.
+5. Keep the formatting (hashtags/links) intact at the end.
+
+POST TO REVIEW:
+{post_text}
+
+Output ONLY the improved, finalized post text."""
+
+    print("[INFO] Performing Multi-Model Sense Check...")
+    # Use the fastest/cheapest model for the sense check
+    try:
+        client = Groq(api_key=GROQ_API_KEYS[0])
+        response = client.chat.completions.create(
+            model="llama-3.1-8b-instant",
+            messages=[{"role": "user", "content": sense_check_prompt}]
+        )
+        verified_text = response.choices[0].message.content.strip()
+        print("[SUCCESS] Sense Check complete.")
+        return verified_text
+    except Exception as e:
+        print(f"[WARN] Sense Check failed ({e}). Using original post.")
+        return post_text
+
+
+def generate_image_prompt(post_text: str) -> str:
+    """Generate a high-quality DALL-E prompt based on the post content."""
+    from groq import Groq
+    system_prompt = get_image_system_prompt(post_text)
+
+    print("[INFO] Generating premium Image Prompt...")
+    try:
+        client = Groq(api_key=GROQ_API_KEYS[0])
+        response = client.chat.completions.create(
+            model="llama-3.1-8b-instant",
+            messages=[{"role": "user", "content": system_prompt}]
+        )
+        image_prompt = response.choices[0].message.content.strip()
+        print("[SUCCESS] Image Prompt generated.")
+        return image_prompt
+    except Exception as e:
+        print(f"[WARN] Image Prompt generation failed ({e}).")
+        return ""
+
+
+def save_post(post_text: str, image_prompt: str, date_str: str) -> str:
+    """Save post and image prompt to posts/ directory and return the file path."""
     posts_dir = Path(__file__).parent.parent / "posts"
     posts_dir.mkdir(exist_ok=True)
 
-    # To support multiple posts per day, append an index if necessary
     index = 1
     filepath = posts_dir / f"{date_str}-{index}.md"
     while filepath.exists():
         index += 1
         filepath = posts_dir / f"{date_str}-{index}.md"
-
-    full_post = post_text
 
     content = f"""---
 date: {date_str}
@@ -120,12 +171,14 @@ status: pending
 style: {get_style_for_display()}
 word_count: {len(post_text.split())}
 generated_at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
+image_prompt: |
+  {image_prompt}
 ---
 
-{full_post}
+{post_text}
 """
     filepath.write_text(content, encoding="utf-8")
-    print(f"[INFO] Post saved to {filepath}")
+    print(f"[INFO] Post (with Image Prompt) saved to {filepath}")
     return str(filepath)
 
 
@@ -205,11 +258,17 @@ def main():
 
     # Step 2: Generate post
     print(f"\n[INFO] Generating {get_style_for_display()} post...")
-    post_text = generate_post(content_to_use, is_custom=is_custom, is_cve=is_cve, is_knowledge=is_knowledge)
+    raw_post_text = generate_post(content_to_use, is_custom=is_custom, is_cve=is_cve, is_knowledge=is_knowledge)
+    
+    # Step 2.5: Sense Check & Image Prompt
+    final_post_text = verify_post(raw_post_text)
+    image_prompt = generate_image_prompt(final_post_text)
 
     if args.dry_run:
         print("\n=== GENERATED POST ===\n")
-        print(post_text)
+        print(final_post_text)
+        print("\n=== IMAGE PROMPT ===\n")
+        print(image_prompt)
         return
 
     # Clean up the custom idea file if we successfully used it (so it doesn't repeat tomorrow)
@@ -221,7 +280,7 @@ def main():
             print(f"[WARN] Could not delete custom_idea.txt: {e}")
 
     # Step 3: Save post
-    filepath = save_post(post_text, args.date)
+    filepath = save_post(final_post_text, image_prompt, args.date)
 
     # Step 4: Output for GitHub Actions
     # Write to GITHUB_OUTPUT if available
@@ -230,7 +289,7 @@ def main():
         with open(github_output, "a") as f:
             f.write(f"post_file={filepath}\n")
             # Use delimiter for multiline output
-            f.write(f"post_text<<EOF\n{post_text}\nEOF\n")
+            f.write(f"post_text<<EOF\n{final_post_text}\nEOF\n")
 
     print("\n[SUCCESS] Post generation complete!")
 

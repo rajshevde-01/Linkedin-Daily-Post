@@ -67,22 +67,33 @@ def get_today_style():
     return style, day_name
 
 
+# --- Persona & Expertise Modifiers ---
+EXPERTISE_MODIFIERS = [
+    "Focus on ROI and business risk (Board-level perspective)",
+    "Focus on Zero-Trust architecture and identity-centric security",
+    "Focus on the 'Human Element' and social engineering psychology",
+    "Focus on 'Shift-Left' and DevSecOps integration",
+    "Focus on Ransomware negotiation and recovery logistics",
+    "Focus on Hardware security and Supply Chain integrity",
+]
+
 def get_system_prompt(content: str, is_custom: bool = False, is_cve: bool = False, is_knowledge: bool = False) -> str:
     """Build the full system prompt for post generation."""
     style, day_name = get_today_style()
+    modifier = random.choice(EXPERTISE_MODIFIERS)
     
     if is_cve:
         context_label = "Live Zero-Day / CVE Threat Intelligence:"
-        persona = "You are a hardcore Incident Responder and Threat Hunter."
+        persona = f"You are a Senior Incident Responder and Lead Threat Hunter. Expertise Focus for today: {modifier}."
     elif is_knowledge:
         context_label = "Personal Brain Note / Code / Architecture Snippet:"
-        persona = "You are a Senior Cybersecurity Architect and DFIR Specialist sharing a genuine insight directly derived from your personal work/notes."
+        persona = f"You are a Senior Cybersecurity Architect and DFIR Specialist. Expertise Focus for today: {modifier}."
     elif is_custom:
         context_label = "Custom topic/idea to build the post around:"
-        persona = "You are a Senior Cybersecurity Architect and Threat Intelligence Leader with 10+ years of experience in SOC, VAPT, and Digital Forensics."
+        persona = f"You are a Senior Cybersecurity Architect and Threat Intelligence Leader with 15+ years of experience. Expertise Focus for today: {modifier}."
     else:
         context_label = "Latest cybersecurity and threat intelligence context:"
-        persona = "You are a Senior Cybersecurity Architect and Threat Intelligence Leader with 10+ years of experience in SOC, VAPT, and Digital Forensics."
+        persona = f"You are a Senior Cybersecurity Architect and Threat Intelligence Leader with 15+ years of experience. Expertise Focus for today: {modifier}."
 
     base_prompt = f"""{persona}
 
@@ -108,48 +119,50 @@ CREATIVITY & TONE RULES:
 """
 
     format_1 = """DESIGN & FORMATTING RULE (The "War Story"):
-- Style: A dramatic, first-person narrative. Almost like a journal entry.
-- Opening: Drop the reader immediately into a stressful or active scene (e.g., "It was 2 AM and the alerts wouldn't stop." or "I just stared at the packet capture for 10 minutes.").
-- Formatting: Use short, punchy paragraphs separated by blank lines. ZERO bullet points.
-- Tone: Exhausted but victorious, or highly reflective. Speak purely from experience.
-- Closing: A single-sentence profound takeaway.
+- Style: A dramatic, first-person narrative. Almost like a journal entry or a post-mortem 'bridge' call.
+- Opening: Drop the reader immediately into an active crisis (e.g., "The logs didn't match the traffic. I knew we were in trouble." or "4 AM. Coffee is cold. Tunneling is failing.").
+- Formatting: Short, punchy paragraphs. ZERO bullet points. Use em-dashes (—) for dramatic breaks.
+- Tone: Exhausted, technical, but authoritative. Speak like you've seen it all.
+- Practitioner Vernacular: Use terms like 'IOCs', 'Lateral Movement', 'Kill Chain', 'Off-net', 'Persistence'.
+- Closing: A single-sentence profound takeaway that challenges the reader's status quo.
 """
 
     format_2 = """DESIGN & FORMATTING RULE (The "Unpopular Opinion"):
-- Style: Highly argumentative, punchy, and slightly controversial within the security space.
-- Opening: Start with a bold, 1-sentence statement that challenges common thinking (e.g., "Stop telling people to just 'patch faster'. It's lazy advice." or "Most IOC feeds are garbage.").
-- Formatting: Heavily use single-sentence paragraphs with wide line breaks for dramatic effect. Contrast "What people think" vs. "What actually happens".
-- Tone: Sharp, direct, zero fluff.
-- Closing: Challenge the audience to disagree with you in the comments.
+- Style: Highly argumentative, slightly abrasive, and deeply insightful. Challenging industry 'best practices'.
+- Opening: Start with a inflammatory, 1-sentence statement (e.g., "MFA is not a security strategy. It's a band-aid." or "Your SIEM is just an expensive graveyard for logs.").
+- Formatting: Single-sentence paragraphs with wide line breaks. Contrast "The Corporate Myth" vs. "The Hard Truth".
+- Tone: Direct, slightly cynical, but ultimately helpful.
+- Closing: "Disagree? Prove me wrong in the comments."
 """
 
     format_3 = """DESIGN & FORMATTING RULE (The "Cheat Sheet"):
-- Style: Highly structured, scannable, and bookmarkable reference guide.
-- Opening: "The ultimate cheat sheet for [Topic]:" or "Everything you need to know about [Event], summarized in 30 seconds:"
-- Formatting: Use a tight, numbered or bulleted list. Start each bullet with an emoji (e.g., 📌, ⚠️, ✅, 🛡️, 🔍), followed by a 2-4 word bold label, then a 1-sentence explanation.
-- Tone: Academic, helpful, and concise. Make it easy to screenshot.
+- Style: A 'Save This' reference guide for technical practitioners. High value, low fluff.
+- Opening: "Quick reference: [Topic] blueprint for [Current Year]:" or "Everything I've learned about [Event], distilled into 5 bullets:"
+- Formatting: Tight listicle. Use specific technical icons (⚙️, 💾, 🛡️, 🔗, 📡). Bold every technical entity name.
+- Tone: Academic but 'in the trenches'.
+- Closing: "Bookmark this for your next [Topic] review."
 """
 
     format_4 = """DESIGN & FORMATTING RULE (The "Technical Deep-Dive"):
-- Style: Dense, highly technical, and analytical. Written for senior engineers.
-- Formatting: Use backticks (`code`) for technical terms, IPs, CVSS scores, or malware names. Break the post down into explicit mini-sections: "The Vector", "The Exploit", and "The Mitigation".
-- Tone: Analytical, dry, and brutally factual. Assume the reader is already a security expert. No generic advice.
-- Closing: Provide one highly specific detection rule or technical action item.
+- Style: Dense, white-paper style analysis for fellow architects and engineers. 
+- Formatting: Extensive use of backticks (`code`) for commands, registry keys, or hash types. Sections: [SYSTEM ANALYSIS], [THE EXPLOIT], [RECOMMENDED REMEDIATION].
+- Tone: Cold, analytical, and purely technical. Assume the reader knows what `pcap` and `grep` are.
+- Closing: Provide a specific "Rule of Thumb" for detection.
 """
 
-    format_5 = """DESIGN & FORMATTING RULE (The "Ask the Community" Poll):
-- Style: Short, conversational, and designed purely to generate debate.
-- Opening: State a recent event, finding, or security dilemma in 2-3 sentences max.
-- Formatting: Ask a direct question, then provide 3 numbered options for people to vote on. (e.g., "1️⃣ Keep the legacy system, 2️⃣ Rip and replace, 3️⃣ Build a proxy layer.")
-- Tone: Curious and open-minded. You are asking for advice/opinions, not giving it.
+    format_5 = """DESIGN & FORMATTING RULE (The "Poll for Change"):
+- Style: Provocative question based on a real-world architectural trade-off.
+- Opening: Pose a specific 'Trolley Problem' for security (e.g., "You have 1 hour until the deadline. Do you [Option A] or [Option B]?").
+- Formatting: State the scenario briefly. List 3 numbered options.
+- Tone: Collaborative and curious. No 'right' answer provided.
 """
 
-    format_6 = """DESIGN & FORMATTING RULE (The "Day in the Life" Insight):
-- Style: Extremely casual, like a quick Slack message to a coworker or a thought you had while brewing coffee.
-- Opening: Start with a casual, over-the-shoulder observation (e.g., "Currently digging through a massive log file and realized..." or "Just wrapped up a post-mortem call and wanted to vent/share something.").
-- Formatting: Very natural prose. 1 or 2 medium-length paragraphs. No forced listicles.
-- Tone: Relaxed, colloquial, and authentic. 
-- Closing: Just a casual sign-off or an open thought.
+    format_6 = """DESIGN & FORMATTING RULE (The "Practitioner Insight"):
+- Style: Casual 'Slack-style' message. Authentic, over-the-shoulder wisdom.
+- Opening: Casual (e.g., "Just realizing that..." or "Wrapped up a call and this stuck with me...").
+- Formatting: Natural flow. No forced emojis or lists. 
+- Tone: Relatable, peer-to-peer.
+- Closing: No formal closing, just a parting thought.
 """
 
     format_options = [format_1, format_2, format_3, format_4, format_5, format_6]
@@ -205,4 +218,23 @@ Output ONLY the post text. Nothing else. No labels, no preamble."""
         selected_rules = news_rules
 
     return base_prompt + selected_format + selected_rules + end_prompt
+
+def get_image_system_prompt(post_content: str) -> str:
+    """System prompt for generating a DALL-E image prompt from the post."""
+    return f"""You are a Creative Director at a top-tier tech agency.
+Your task is to analyze the LinkedIn post below and generate a SINGLE, high-quality, professional image prompt for DALL-E 3.
+
+POST CONTENT:
+{post_content}
+
+IMAGE STYLE RULES:
+- Style: Cyberpunk Synthwave / Neon Future.
+- Aesthetics: High contrast, cinematic lighting, 8k resolution, volumetric fog, glassmorphism.
+- Subject: Abstract metaphors for the technical concepts in the post (e.g., glowing circuitry for code, a digital shield for security, a neon skyscraper for architecture).
+- Colors: Neon Purple, Cyan, and Pink highlights on a Dark Graphite background.
+- Mood: High-energy, futuristic, and premium.
+- NO TEXT allowed in the image.
+- NO human faces if possible (focus on architecture/abstractions).
+
+Output ONLY the prompt. Nothing else."""
 

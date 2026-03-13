@@ -32,18 +32,18 @@ def format_cve_context(cves: list[dict]) -> str:
     lines = ["=== LIVE THREAT INTELLIGENCE (CISA KEV CATALOG) ===", ""]
     
     for i, cve in enumerate(cves, 1):
-        lines.append(f"{i}. {cve.get('cveID', 'Unknown CVE')} - {cve.get('vulnerabilityName', 'Unnamed Vuln')}")
-        lines.append(f"   Vendor/Project: {cve.get('vendorProject', 'Unknown')}")
-        lines.append(f"   Product: {cve.get('product', 'Unknown')}")
-        lines.append(f"   Description: {cve.get('shortDescription', 'No description provided.')}")
-        lines.append(f"   Required Action: {cve.get('requiredAction', 'Unknown action.')}")
-        lines.append(f"   Date Added to KEV: {cve.get('dateAdded', 'Unknown date')}")
+        lines.append(f"{i}. [{cve.get('cveID', 'Unknown CVE')}] - {cve.get('vulnerabilityName', 'Unnamed Vuln')}")
+        lines.append(f"   [!] Vendor: {cve.get('vendorProject', 'Unknown')}")
+        lines.append(f"   [!] Product: {cve.get('product', 'Unknown')}")
+        lines.append(f"   [!] Critical Impact: {cve.get('shortDescription', 'No description provided.')}")
+        lines.append(f"   [>] Action Required: {cve.get('requiredAction', 'Unknown action.')}")
+        lines.append(f"   [i] Date Added: {cve.get('dateAdded', 'Unknown date')}")
         
         notes = cve.get('notes')
         if notes and "http" in notes:
-            lines.append(f"   Source Link: {notes}")
+            lines.append(f"   [🔗] Adv: {notes}")
         else:
-            lines.append(f"   Source Link: https://nvd.nist.gov/vuln/detail/{cve.get('cveID')}")
+            lines.append(f"   [🔗] Adv: https://nvd.nist.gov/vuln/detail/{cve.get('cveID')}")
         
         lines.append("")
 

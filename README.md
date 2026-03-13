@@ -7,13 +7,13 @@ Fully automated daily LinkedIn posts on tech, cybersecurity, and leadership topi
 ## ⚙️ How It Works
 
 ```
-2:00 PM & 5:00 PM IST  →  Fetch content → Generate post (Groq AI) → Create GitHub Issue for review
-                                                                              ↓
-                                                                   You get an email notification
-                                                                              ↓
-                                                              Approve / Reject / Ignore (1–6 hours)
-                                                                              ↓
-3:00 PM & 11:11 PM IST →  Check response → Auto-post to LinkedIn (if approved or no response)
+2:00 PM & 5:00 PM IST  →  Fetch context  →  Generate post  →  Sense Check (V2)  →  Generate Image Prompt (V2)
+                                                                               ↓
+                                                                    Create GitHub Issue for review
+                                                                               ↓
+                                                                     Approve / Reject / Ignore
+                                                                               ↓
+3:00 PM & 11:11 PM IST →  Auto-post to LinkedIn (with verified practitioners vernacular)
 ```
 
 ---
@@ -45,20 +45,28 @@ Each post is generated from one of four content sources, chosen probabilisticall
 
 ---
 
-## 🖊️ Post Formats (Randomly Selected Each Run)
+## 🖊️ Post Formats (V2: Practitioners Vernacular)
 
-Each post is written in one of 6 rotating formats for maximum variety:
+Each post is written in one of 6 rotating formats, now enhanced with **Multi-Model Verification (Sense Check)** to ensure it sounds like a human 🛡️:
 
-| # | Format | Description |
+| # | Format | description |
 |---|--------|-------------|
-| 1 | 🎬 **Storytelling Narrative** | Cinematic scene-setter, short punchy paragraphs, pure story — no bullets |
-| 2 | 📋 **X Things I Learned** | Numbered list (4–6 items), each with emoji + bold label + punchy explanation |
-| 3 | 🔥 **Controversial Take** | Bold challenge statement, Myth vs Reality framing, dramatic single-line paragraphs |
-| 4 | 📌 **Data Dump / Report** | TL;DR up top, emoji section headers (`📊 THE NUMBERS:`, `✅ THE FIX:`), stats-heavy |
-| 5 | 🗳️ **Standard Bullet Format** | Bullet points, emojis on key points, ends with a comment poll |
-| 6 | 🧵 **Mini Thread** | Twitter/X thread style (`1/ 2/ 3/`) condensed into a single LinkedIn post |
+| 1 | 🎬 **The War Story** | Dramatic 4 AM incident response bridge call narrative |
+| 2 | 🔥 **Unpopular Opinion** | Arguments that challenge common industry 'best practices' |
+| 3 | 📌 **Technical Cheat Sheet** | Scannable blueprints for Senior Engineers |
+| 4 | 🧪 **Technical Deep-Dive** | Dense analysis with hash types, registry keys, and `code` snippets |
+| 5 | 🗳️ **Trolley Problem Poll** | Provocative architectural trade-off comparisons |
+| 6 | 🧵 **Practitioner Insight** | Casual, Slack-style over-the-shoulder wisdom |
 
-> **Emoji rule**: Every post uses 3–6 intentional emojis for engagement and scannability.
+> [!TIP]
+> **Sense Check (V2)**: Every post is double-checked by a separate AI model to strip out 'AI-speak' and marketing fluff.
+
+## 🖼️ AI Image Prompt Generation (V2)
+
+Every generated post now includes a **Custom Image Prompt** in its metadata, optimized for DALL-E 3 or Midjourney. 
+- **Style**: Cyberpunk Synthwave / Neon Future.
+- **Colors**: Neon Purple, Cyan, and Pink highlights on Dark Graphite.
+- **Aesthetic**: Premium glassmorphism and abstract technical metaphors.
 
 ---
 

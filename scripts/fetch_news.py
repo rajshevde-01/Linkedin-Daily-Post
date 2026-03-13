@@ -30,8 +30,11 @@ def strip_html(text: str) -> str:
     return re.sub(r"<[^>]+>", "", text).strip()
 
 
-def titles_are_similar(title_a: str, title_b: str, threshold: float = 0.45) -> bool:
-    """Check if two article titles are about the same story."""
+def titles_are_similar(title_a: str, title_b: str, threshold: float = 0.55) -> bool:
+    """
+    Check if two article titles are about the same story.
+    Uses a combination of SequenceMatcher and significant keyword overlap.
+    """
     a = title_a.lower().strip()
     b = title_b.lower().strip()
 
@@ -40,12 +43,18 @@ def titles_are_similar(title_a: str, title_b: str, threshold: float = 0.45) -> b
     if ratio >= threshold:
         return True
 
-    # Keyword overlap check — extract significant words (4+ chars)
-    words_a = set(w for w in re.findall(r'\b\w{4,}\b', a))
-    words_b = set(w for w in re.findall(r'\b\w{4,}\b', b))
+    # Keyword overlap check — focused on technical entities and proper nouns
+    # We ignore common stop-words and short noise
+    ignore_words = {"this", "that", "with", "from", "your", "their", "about", "could"}
+    words_a = set(w for w in re.findall(r'\b\w{3,}\b', a) if w not in ignore_words)
+    words_b = set(w for w in re.findall(r'\b\w{3,}\b', b) if w not in ignore_words)
+    
     if words_a and words_b:
-        overlap = len(words_a & words_b) / min(len(words_a), len(words_b))
-        if overlap >= 0.5:
+        overlap = len(words_a & words_b)
+        min_len = min(len(words_a), len(words_b))
+        
+        # If 60% of unique technical words overlap, it's likely the same story
+        if overlap / min_len >= 0.6:
             return True
 
     return False
@@ -108,21 +117,23 @@ def fetch_recent_articles(max_per_feed: int = 8, max_age_days: int = 3) -> list[
 
 def cross_reference_articles(articles: list[dict]) -> list[dict]:
     """
-    Cross-reference articles across sources.
-    Stories reported by multiple sources get higher confidence.
+    Groups similar articles into clusters and selects the 'gold' version
+    based on source trustworthiness and detail level.
     """
     if not articles:
         return articles
 
-    # Group similar articles together
-    clusters = []  # each cluster = list of similar articles
+    clusters = [] 
 
     for article in articles:
         matched_cluster = None
         for cluster in clusters:
-            # Compare against the first article in the cluster
-            if titles_are_similar(article["title"], cluster[0]["title"]):
-                matched_cluster = cluster
+            # Compare against ALL articles in the cluster for better accuracy
+            for existing in cluster:
+                if titles_are_similar(article["title"], existing["title"]):
+                    matched_cluster = cluster
+                    break
+            if matched_cluster:
                 break
 
         if matched_cluster:
@@ -134,16 +145,17 @@ def cross_reference_articles(articles: list[dict]) -> list[dict]:
     verified_articles = []
 
     for cluster in clusters:
-        # Pick the best article from the cluster (highest trust tier source)
-        cluster.sort(key=lambda a: a["trust_tier"])
+        # Sort by: Trust Tier (lower is better), then by Summary Length (more detail)
+        cluster.sort(key=lambda a: (a["trust_tier"], -len(a.get("summary", ""))))
         best = cluster[0].copy()
 
-        # Collect all unique sources that reported this story
         all_sources = list(set(a["source"] for a in cluster))
         best["cross_ref_count"] = len(all_sources)
-        best["cross_ref_sources"] = all_sources
+        best["cross_ref_sources"] = sorted(all_sources)
 
-        # Mark as verified if reported by 2+ sources OR from a Tier 1 source
+        # A story is 'verified' if:
+        # 1. It appears in multiple independent sources
+        # 2. OR it comes from a Tier 1 (ultra-high trust) source
         best["verified"] = (len(all_sources) >= 2) or (best["trust_tier"] == 1)
 
         verified_articles.append(best)

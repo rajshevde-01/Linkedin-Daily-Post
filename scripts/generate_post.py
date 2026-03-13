@@ -22,6 +22,7 @@ from fetch_news import get_news_context
 from fetch_cve import get_cve_context
 from fetch_knowledge import fetch_random_knowledge
 from history import add_to_history
+from generate_image import generate_post_image
 
 def generate_post(content: str, is_custom: bool = False, is_cve: bool = False, is_knowledge: bool = False) -> str:
     """Generate a LinkedIn post using Groq API."""
@@ -157,7 +158,7 @@ def generate_image_prompt(post_text: str) -> str:
         return ""
 
 
-def save_post(post_text: str, image_prompt: str, date_str: str) -> str:
+def save_post(post_text: str, image_prompt: str, date_str: str, image_path: str = "") -> str:
     """Save post and image prompt to posts/ directory and return the file path."""
     posts_dir = Path(__file__).parent.parent / "posts"
     posts_dir.mkdir(exist_ok=True)
@@ -174,6 +175,7 @@ status: pending
 style: {get_style_for_display()}
 word_count: {len(post_text.split())}
 generated_at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
+image_path: {image_path}
 image_prompt: |
   {image_prompt}
 ---
@@ -181,7 +183,7 @@ image_prompt: |
 {post_text}
 """
     filepath.write_text(content, encoding="utf-8")
-    print(f"[INFO] Post (with Image Prompt) saved to {filepath}")
+    print(f"[INFO] Post saved to {filepath}")
     return str(filepath)
 
 
@@ -278,11 +280,19 @@ def main():
     except Exception as e:
         print(f"[WARN] Failed to log to history: {e}")
 
+    # Step 2.7: Generate Canva-style image
+    image_path = ""
+    try:
+        image_path = generate_post_image(final_post_text)
+        print(f"[SUCCESS] Professional image generated: {image_path}")
+    except Exception as e:
+        print(f"[WARN] Image generation failed ({e}). Posting without image.")
+
     if args.dry_run:
         print("\n=== GENERATED POST ===\n")
         print(final_post_text)
-        print("\n=== IMAGE PROMPT ===\n")
-        print(image_prompt)
+        print("\n=== IMAGE ===\n")
+        print(f"Image saved at: {image_path}")
         return
 
     # Clean up the custom idea file if we successfully used it (so it doesn't repeat tomorrow)
@@ -294,15 +304,14 @@ def main():
             print(f"[WARN] Could not delete custom_idea.txt: {e}")
 
     # Step 3: Save post
-    filepath = save_post(final_post_text, image_prompt, args.date)
+    filepath = save_post(final_post_text, image_prompt, args.date, image_path)
 
     # Step 4: Output for GitHub Actions
-    # Write to GITHUB_OUTPUT if available
     github_output = os.environ.get("GITHUB_OUTPUT")
     if github_output:
         with open(github_output, "a") as f:
             f.write(f"post_file={filepath}\n")
-            # Use delimiter for multiline output
+            f.write(f"image_path={image_path}\n")
             f.write(f"post_text<<EOF\n{final_post_text}\nEOF\n")
 
     print("\n[SUCCESS] Post generation complete!")

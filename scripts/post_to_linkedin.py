@@ -45,8 +45,58 @@ def clean_markdown_for_linkedin(text: str) -> str:
     return text.strip()
 
 
-def post_to_linkedin(text: str) -> dict:
-    """Publish a text post to LinkedIn using the REST Posts API."""
+def upload_image_to_linkedin(image_path: str) -> str:
+    """Upload an image to LinkedIn and return the asset URN."""
+    if not image_path or not os.path.exists(image_path):
+        return ""
+    
+    print(f"[INFO] Uploading image to LinkedIn: {image_path}")
+    
+    # Step 1: Initialize the upload
+    init_url = "https://api.linkedin.com/rest/images?action=initializeUpload"
+    headers = {
+        "Authorization": f"Bearer {LINKEDIN_ACCESS_TOKEN}",
+        "Content-Type": "application/json",
+        "LinkedIn-Version": "202601",
+        "X-Restli-Protocol-Version": "2.0.0",
+    }
+    init_payload = {
+        "initializeUploadRequest": {
+            "owner": LINKEDIN_PERSON_URN
+        }
+    }
+    
+    try:
+        resp = requests.post(init_url, headers=headers, json=init_payload)
+        if resp.status_code != 200:
+            print(f"[WARN] Image upload init failed: {resp.status_code} - {resp.text}")
+            return ""
+        
+        data = resp.json()
+        upload_url = data["value"]["uploadUrl"]
+        image_urn = data["value"]["image"]
+        
+        # Step 2: Upload the binary image
+        with open(image_path, "rb") as img_file:
+            upload_headers = {
+                "Authorization": f"Bearer {LINKEDIN_ACCESS_TOKEN}",
+                "Content-Type": "application/octet-stream",
+            }
+            upload_resp = requests.put(upload_url, headers=upload_headers, data=img_file)
+            
+            if upload_resp.status_code not in (200, 201):
+                print(f"[WARN] Image binary upload failed: {upload_resp.status_code}")
+                return ""
+        
+        print(f"[SUCCESS] Image uploaded: {image_urn}")
+        return image_urn
+    except Exception as e:
+        print(f"[WARN] Image upload failed: {e}")
+        return ""
+
+
+def post_to_linkedin(text: str, image_urn: str = "") -> dict:
+    """Publish a post to LinkedIn using the REST Posts API, optionally with an image."""
     if not LINKEDIN_ACCESS_TOKEN:
         print("[ERROR] LINKEDIN_ACCESS_TOKEN not set")
         sys.exit(1)
@@ -79,6 +129,15 @@ def post_to_linkedin(text: str) -> dict:
         "lifecycleState": "PUBLISHED",
         "isReshareDisabledByAuthor": False,
     }
+    
+    # Attach image if available
+    if image_urn:
+        payload["content"] = {
+            "media": {
+                "id": image_urn,
+            }
+        }
+        print(f"[INFO] Attaching image to post: {image_urn}")
 
     response = requests.post(url, headers=headers, json=payload)
 
@@ -208,10 +267,16 @@ def main():
 
         # Read the post
         post_text, metadata = read_post_file(filename)
+        
+        # Upload image if available
+        image_urn = ""
+        image_path = metadata.get("image_path", "")
+        if image_path and os.path.exists(image_path):
+            image_urn = upload_image_to_linkedin(image_path)
 
         # Post to LinkedIn
         print(f"[INFO] Publishing post {filename} to LinkedIn...")
-        result = post_to_linkedin(post_text)
+        result = post_to_linkedin(post_text, image_urn=image_urn)
 
         # Update status
         update_post_status(filename, "posted")

@@ -2,3 +2,5 @@ feedparser>=6.0
 groq>=0.4.0
 requests>=2.31
 pyyaml>=6.0
+Pillow>=10.0
+python-dotenv>=1.0

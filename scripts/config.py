@@ -4,6 +4,11 @@ Configuration for Daily LinkedIn Post Automation
 import os
 import random
 from datetime import datetime
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass
 
 # --- API Keys (from environment / GitHub Secrets) ---
 GROQ_API_KEY_ENV = os.environ.get("GROQ_API_KEY", "")

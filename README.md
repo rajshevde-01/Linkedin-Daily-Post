@@ -1,19 +1,19 @@
 # 🚀 Daily LinkedIn Post Automation
 
-Fully automated daily LinkedIn posts on tech, cybersecurity, and leadership topics. Runs 100% in the cloud via GitHub Actions works even when your PC is off.
+Fully automated daily LinkedIn posts on cybersecurity, threat intelligence, and SOC operations. Runs 100% in the cloud via GitHub Actions — works even when your PC is off.
 
 ---
 
 ## ⚙️ How It Works
 
 ```
-2:00 PM & 5:00 PM IST  →  Fetch context  →  Generate post  →  Sense Check (V2)  →  Generate Image Prompt (V2)
-                                                                               ↓
-                                                                    Create GitHub Issue for review
-                                                                               ↓
-                                                                     Approve / Reject / Ignore
-                                                                               ↓
-3:00 PM & 11:11 PM IST →  Auto-post to LinkedIn (with verified practitioners vernacular)
+2:00 PM & 5:00 PM IST  →  Fetch context  →  Generate post  →  Sense Check  →  Generate Image
+                                                                              ↓
+                                                                   Create GitHub Issue for review
+                                                                              ↓
+                                                                    Approve / Reject / Ignore
+                                                                              ↓
+3:00 PM & 11:11 PM IST →  Auto-post to LinkedIn (with image attachment)
 ```
 
 ---
@@ -25,7 +25,7 @@ Each post is generated from one of four content sources, chosen probabilisticall
 | Source | Description |
 |--------|-------------|
 | 📰 **RSS News** | Latest articles from Wired, TechCrunch, The Hacker News, BleepingComputer, etc. |
-| 🛡️ **CVE Tracker** | Live zero-day and vulnerability intelligence |
+| 🛡️ **CVE Tracker** | Live zero-day and vulnerability intelligence from CISA |
 | 🧠 **Personal Brain** | Private notes, code snippets, and architecture docs from your `knowledge/` folder |
 | ✍️ **Custom Topic** | A user-defined topic passed via `--topic` flag |
 
@@ -45,11 +45,11 @@ Each post is generated from one of four content sources, chosen probabilisticall
 
 ---
 
-## 🖊️ Post Formats (V2: Practitioners Vernacular)
+## 🖊️ Post Formats (Practitioners Vernacular)
 
-Each post is written in one of 6 rotating formats, now enhanced with **Multi-Model Verification (Sense Check)** to ensure it sounds like a human 🛡️:
+Each post is written in one of 6 rotating formats, enhanced with **Multi-Model Sense Check** to ensure it sounds like a real practitioner:
 
-| # | Format | description |
+| # | Format | Description |
 |---|--------|-------------|
 | 1 | 🎬 **The War Story** | Dramatic 4 AM incident response bridge call narrative |
 | 2 | 🔥 **Unpopular Opinion** | Arguments that challenge common industry 'best practices' |
@@ -59,11 +59,13 @@ Each post is written in one of 6 rotating formats, now enhanced with **Multi-Mod
 | 6 | 🧵 **Practitioner Insight** | Casual, Slack-style over-the-shoulder wisdom |
 
 > [!TIP]
-> **Sense Check (V2)**: Every post is double-checked by a separate AI model to strip out 'AI-speak' and marketing fluff.
+> **Sense Check**: Every post is double-checked by a separate AI model to strip out 'AI-speak', marketing fluff, and ensure natural human tone.
+
+---
 
 ## 🖼️ Professional Image Generation (V3)
 
-Every post automatically generates a **1200×628px LinkedIn-optimized image** using Pillow — no external APIs needed.
+Every post automatically generates a **1200×628px LinkedIn-optimized image** using Pillow — zero external APIs needed.
 
 ### 11 Templates (6 Core + 5 SOC-Style)
 
@@ -81,12 +83,21 @@ Every post automatically generates a **1200×628px LinkedIn-optimized image** us
 | 10 | 🧩 **MITRE ATT&CK** | Framework grid background |
 | 11 | 💀 **Breach Alert** | Breaking news banner, scan lines |
 
-- **Color Palette**: Deep Teal, Electric Cyan, Amber Gold
-- **Text**: Headline + subtitle auto-extracted from post content
-- **Test**: `python scripts/generate_image.py --test`
+- **Color Palette**: Deep Teal · Electric Cyan · Amber Gold
+- **Smart Text**: Headline + subtitle auto-extracted from post content
+- **Test all templates**: `python scripts/generate_image.py --test`
 
 ---
 
+## 🔁 Anti-Repetition System
+
+| Feature | How It Works |
+|---------|--------------|
+| 📜 **Topic Memory** | Tracks previously used titles and links in `history.json` — prevents duplicate content |
+| 🎭 **Technical Moods** | Randomized AI personas (battle-scarred analyst, methodical architect, etc.) for varied tone |
+| 🚫 **AI-Speak Ban** | Aggressive filtering of phrases like "game-changer", "landscape", "crucial" |
+
+---
 
 ## 🔧 Setup (One-Time)
 
@@ -133,10 +144,10 @@ Go to repo → **Actions** tab → Enable workflows if prompted.
 
 ## 📆 Daily Flow (Two Posts Per Day)
 
-1. **2:00 PM & 5:00 PM IST** — GitHub Actions generates a post and creates a GitHub Issue
+1. **2:00 PM & 5:00 PM IST** — GitHub Actions generates a post + image and creates a GitHub Issue
 2. **You get an email** from GitHub with the full post content for review
 3. **Optionally respond** by commenting `approve` or `reject` on the issue
-4. **3:00 PM & 11:11 PM IST** — Post goes live on LinkedIn (if approved or no response), skipped if rejected
+4. **3:00 PM & 11:11 PM IST** — Post goes live on LinkedIn (with image), skipped if rejected
 5. **Post limit**: Maximum **1 post per day** enforced automatically
 
 ---
@@ -173,8 +184,8 @@ python scripts/generate_post.py --cve
 # Generate from Personal Brain (knowledge/ folder)
 python scripts/generate_post.py --knowledge
 
-# Enforce daily post limit
-python scripts/generate_post.py --limit 1
+# Test all 11 image templates
+python scripts/generate_image.py --test
 ```
 
 ---
@@ -191,12 +202,15 @@ Daily-Linkedin-Post/
 │   ├── fetch_news.py         # RSS news fetcher (tiered feeds)
 │   ├── fetch_cve.py          # Live CVE / zero-day threat intelligence fetcher
 │   ├── fetch_knowledge.py    # Personal Brain reader (from knowledge/ folder)
-│   ├── generate_post.py      # Groq AI post generator
-│   ├── post_to_linkedin.py   # LinkedIn API poster
+│   ├── generate_post.py      # Groq AI post generator + sense check
+│   ├── generate_image.py     # Pillow image generator (11 templates)
+│   ├── post_to_linkedin.py   # LinkedIn API poster (text + image upload)
+│   ├── history.py            # Topic memory / anti-repetition tracker
 │   └── notify.py             # GitHub Issue confirmation system
 ├── knowledge/                # Your private notes, snippets, diagrams (Personal Brain)
 │   └── README.md
 ├── posts/                    # Generated posts saved as YYYY-MM-DD-N.md
+│   └── images/               # Generated post images (1200×628px)
 ├── requirements.txt
 └── README.md
 ```
@@ -216,4 +230,4 @@ knowledge/
 
 ---
 
-*Built with [Groq](https://groq.com) • [LinkedIn API](https://developer.linkedin.com) • [GitHub Actions](https://github.com/features/actions)*
+*Built with [Groq](https://groq.com) • [Pillow](https://pillow.readthedocs.io) • [LinkedIn API](https://developer.linkedin.com) • [GitHub Actions](https://github.com/features/actions)*

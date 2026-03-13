@@ -6,6 +6,7 @@ import sys
 import argparse
 from datetime import datetime
 from pathlib import Path
+import re
 
 # Add scripts dir to path for imports
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -20,6 +21,7 @@ from config import (
 from fetch_news import get_news_context
 from fetch_cve import get_cve_context
 from fetch_knowledge import fetch_random_knowledge
+from history import add_to_history
 
 def generate_post(content: str, is_custom: bool = False, is_cve: bool = False, is_knowledge: bool = False) -> str:
     """Generate a LinkedIn post using Groq API."""
@@ -107,11 +109,12 @@ def verify_post(post_text: str) -> str:
 Review the LinkedIn post below. Your goal is to make it sound 100% like a human practitioner and 0% like an AI.
 
 STRICT EDITING RULES:
-1. Remove generic 'AI-speak' (e.g., 'In world where...', 'Unlock the potential', 'Comprehensive approach').
+1. Remove generic 'AI-speak' (e.g., 'In world where...', 'Unlock the potential', 'Comprehensive approach', 'Fast-paced world').
 2. If the tone is too 'excited' or 'marketing-heavy', flatten it. Make it sound like a tired senior architect.
-3. Ensure technical terms are used correctly.
-4. DO NOT change the core meaning or the source links.
-5. Keep the formatting (hashtags/links) intact at the end.
+3. Ensure technical terms are used correctly. 
+4. VARY SENTENCE LENGTH: Ensure there are several very short (3-5 word) sentences and a few longer, complex ones.
+5. NO CONCLUSION: Remove any paragraph that starts with "In conclusion" or "To sum up".
+6. Ensure the formatting (hashtags/links) is preserved at the end.
 
 POST TO REVIEW:
 {post_text}
@@ -263,6 +266,17 @@ def main():
     # Step 2.5: Sense Check & Image Prompt
     final_post_text = verify_post(raw_post_text)
     image_prompt = generate_image_prompt(final_post_text)
+
+    # Step 2.6: Log to history (extracting the main topic/link)
+    try:
+        # Extract title (first line) and first link found
+        title_line = final_post_text.split("\n")[0][:100]
+        links = re.findall(r'http\S+', final_post_text)
+        first_link = links[0] if links else ""
+        add_to_history(title_line, first_link)
+        print(f"[INFO] Topic logged to history for anti-repetition.")
+    except Exception as e:
+        print(f"[WARN] Failed to log to history: {e}")
 
     if args.dry_run:
         print("\n=== GENERATED POST ===\n")

@@ -4,6 +4,7 @@ This provides raw, live threat intelligence for incident response posts.
 """
 import requests
 from datetime import datetime
+from history import is_in_history
 
 CISA_KEV_URL = "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
 
@@ -16,10 +17,12 @@ def get_latest_cves(limit=5):
         
         vulnerabilities = data.get("vulnerabilities", [])
         
-        # Sort by date added (newest first)
         vulnerabilities.sort(key=lambda x: x.get("dateAdded", ""), reverse=True)
         
-        return vulnerabilities[:limit]
+        # Filter out those already in history
+        filtered = [v for v in vulnerabilities if not is_in_history(v.get("cveID", ""), "")]
+        
+        return filtered[:limit]
     except Exception as e:
         print(f"[ERROR] Failed to fetch CISA KEV catalog: {e}")
         return []

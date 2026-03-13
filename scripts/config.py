@@ -82,23 +82,34 @@ EXPERTISE_MODIFIERS = [
     "Focus on Hardware security and Supply Chain integrity",
 ]
 
+# --- Technical Moods ---
+TECHNICAL_MOODS = [
+    "Cynical and tired (The Grizzled Veteran)",
+    "Excited and technical (The Security Researcher)",
+    "Urgent and authoritative (The Incident Responder)",
+    "Helpful and scholarly (The Architect)",
+    "Argumentative and sharp (The Devil's Advocate)",
+    "Casual and over-the-shoulder (The Slack Colleague)",
+]
+
 def get_system_prompt(content: str, is_custom: bool = False, is_cve: bool = False, is_knowledge: bool = False) -> str:
     """Build the full system prompt for post generation."""
     style, day_name = get_today_style()
     modifier = random.choice(EXPERTISE_MODIFIERS)
+    mood = random.choice(TECHNICAL_MOODS)
     
     if is_cve:
         context_label = "Live Zero-Day / CVE Threat Intelligence:"
-        persona = f"You are a Senior Incident Responder and Lead Threat Hunter. Expertise Focus for today: {modifier}."
+        persona = f"You are a Senior Incident Responder. Tone: {mood}. Focus: {modifier}."
     elif is_knowledge:
         context_label = "Personal Brain Note / Code / Architecture Snippet:"
-        persona = f"You are a Senior Cybersecurity Architect and DFIR Specialist. Expertise Focus for today: {modifier}."
+        persona = f"You are a Senior Cybersecurity Architect. Tone: {mood}. Focus: {modifier}."
     elif is_custom:
         context_label = "Custom topic/idea to build the post around:"
-        persona = f"You are a Senior Cybersecurity Architect and Threat Intelligence Leader with 15+ years of experience. Expertise Focus for today: {modifier}."
+        persona = f"You are a Senior Lead with 15+ years of experience. Tone: {mood}. Focus: {modifier}."
     else:
         context_label = "Latest cybersecurity and threat intelligence context:"
-        persona = f"You are a Senior Cybersecurity Architect and Threat Intelligence Leader with 15+ years of experience. Expertise Focus for today: {modifier}."
+        persona = f"You are a Senior Lead with 15+ years of experience. Tone: {mood}. Focus: {modifier}."
 
     base_prompt = f"""{persona}
 
@@ -116,6 +127,12 @@ STRICT RULES:
 - NO phrases like "In today's digital landscape", "In conclusion", or "Delving into"
 - DO NOT mention AI or that this was generated
 - Write in first person ("I", "we", "our team")
+
+VOCABULARY & FLOW RULES:
+- Use industry acronyms naturally (IOC, TTP, RCE, CVE, SIEM, SOAR, APY).
+- NEVER use the word "In conclusion", "Unlock", "Delve", "Crucial", or "Embark". 
+- Break the flow with an occasional technical aside in brackets [e.g. "I suspect they're using a novel obfuscation here"].
+- Avoid the 'perfect AI list'. If using bullets, make them punchy and conversational.
 
 CREATIVITY & TONE RULES:
 - AVOID sounding like a generic corporate thought leader. Write like a real practitioner talking to a colleague on Slack, or writing a personal developer blog.

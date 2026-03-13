@@ -11,6 +11,7 @@ import requests
 from datetime import datetime, timedelta
 from difflib import SequenceMatcher
 from config import RSS_FEEDS
+from history import is_in_history
 
 
 def validate_article_url(url: str) -> bool:
@@ -187,9 +188,9 @@ def format_news_context(articles: list[dict]) -> str:
     if not articles:
         return "No recent verified cybersecurity news available. Use your general expertise to write the post based on well-known, verifiable current events."
 
-    # Separate verified and unverified
-    verified = [a for a in articles if a.get("verified")]
-    unverified = [a for a in articles if not a.get("verified")]
+    # Separate verified and unverified, but SKIP those in history
+    verified = [a for a in articles if a.get("verified") and not is_in_history(a["title"], a["link"])]
+    unverified = [a for a in articles if not a.get("verified") and not is_in_history(a["title"], a["link"])]
 
     lines = ["=== VERIFIED NEWS (confirmed by multiple trusted sources) ===", ""]
 

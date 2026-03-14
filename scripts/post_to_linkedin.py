@@ -8,8 +8,10 @@ import json
 import argparse
 import requests
 import re
+import time
 from datetime import datetime
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 # Add scripts dir to path
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -218,6 +220,35 @@ def check_confirmation_status(date_str: str) -> str:
         return "pending"
 
 
+def wait_for_exact_time(target_time_str: str):
+    """Sleep until the exact time (HH:MM) in IST."""
+    if not target_time_str:
+        return
+        
+    ist = ZoneInfo("Asia/Kolkata")
+    now_ist = datetime.now(ist)
+    
+    try:
+        hours, minutes = map(int, target_time_str.split(":"))
+    except ValueError:
+        print(f"[WARN] Invalid exact-time format: {target_time_str}. Expected HH:MM")
+        return
+        
+    target_ist = now_ist.replace(hour=hours, minute=minutes, second=0, microsecond=0)
+    delta_seconds = (target_ist - now_ist).total_seconds()
+    
+    if 0 < delta_seconds <= 3600:
+        print(f"[INFO] Current IST time: {now_ist.strftime('%H:%M:%S')}")
+        print(f"[INFO] Target  IST time: {target_ist.strftime('%H:%M:%S')}")
+        print(f"[INFO] Sleeping for {int(delta_seconds)} seconds to guarantee exact posting time...")
+        time.sleep(delta_seconds)
+        print(f"[INFO] Woke up at exact time: {datetime.now(ist).strftime('%H:%M:%S')}! Posting now.")
+    elif delta_seconds <= 0:
+        print(f"[INFO] Target time {target_time_str} passed by {abs(int(delta_seconds))}s. Posting immediately.")
+    else:
+        print(f"[INFO] Target time {target_time_str} is >1 hr away. Posting immediately so CI doesn't timeout.")
+
+
 def main():
     parser = argparse.ArgumentParser(description="Post to LinkedIn")
     parser.add_argument("--date", default=datetime.now().strftime("%Y-%m-%d"),
@@ -226,6 +257,8 @@ def main():
                         help="Just check confirmation status, don't post")
     parser.add_argument("--force", action="store_true",
                         help="Post even if status is pending (auto-post after timeout)")
+    parser.add_argument("--exact-time", default="",
+                        help="Exact posting time in IST (e.g., '15:00' or '23:11')")
     args = parser.parse_args()
 
     if args.check_status:
@@ -247,6 +280,10 @@ def main():
     if not post_files:
         print(f"[INFO] No post files found for {args.date}.")
         return
+
+    # Wait for exact time before proceeding to post
+    if args.exact_time:
+        wait_for_exact_time(args.exact_time)
 
     for filepath in post_files:
         filename = filepath.stem

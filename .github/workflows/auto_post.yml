@@ -11,10 +11,10 @@ name: Auto-Post to LinkedIn
 
 on:
   schedule:
-    # 3:00 PM IST = 9:30 AM UTC
-    - cron: "30 9 * * *"
-    # 11:11 PM IST = 5:41 PM UTC
-    - cron: "41 17 * * *"
+    # Trigger 15 mins early: 2:45 PM IST (9:15 AM UTC) to guarantee 3:00 PM exact post
+    - cron: "15 9 * * *"
+    # Trigger 15 mins early: 10:56 PM IST (5:26 PM UTC) to guarantee 11:11 PM exact post
+    - cron: "26 17 * * *"
   workflow_dispatch:
     inputs:
       date:
@@ -88,7 +88,20 @@ jobs:
         working-directory: scripts
         run: |
           echo "${{ steps.decide.outputs.reason }}"
-          python post_to_linkedin.py --date ${{ steps.date.outputs.date }} --force
+          CURRENT_HOUR=$(TZ='Asia/Kolkata' date +'%H')
+          if [ "$CURRENT_HOUR" == "14" ] || [ "$CURRENT_HOUR" == "15" ]; then
+            EXACT_TIME="15:00"
+          elif [ "$CURRENT_HOUR" == "22" ] || [ "$CURRENT_HOUR" == "23" ]; then
+            EXACT_TIME="23:11"
+          else
+            EXACT_TIME=""
+          fi
+          
+          if [ -n "$EXACT_TIME" ]; then
+            python post_to_linkedin.py --date ${{ steps.date.outputs.date }} --force --exact-time "$EXACT_TIME"
+          else
+            python post_to_linkedin.py --date ${{ steps.date.outputs.date }} --force
+          fi
 
       - name: Skip notification
         if: steps.decide.outputs.should_post == 'false'

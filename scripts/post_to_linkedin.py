@@ -17,6 +17,7 @@ from zoneinfo import ZoneInfo
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from config import LINKEDIN_ACCESS_TOKEN, LINKEDIN_PERSON_URN
+from history import add_post_to_history
 
 
 def clean_markdown_for_linkedin(text: str) -> str:
@@ -317,6 +318,13 @@ def main():
 
         # Update status
         update_post_status(filename, "posted")
+
+        # Add to history for engagement tracking
+        title_match = re.search(r"## (.*?)\n", post_text)
+        title = title_match.group(1) if title_match else filename
+        link_match = re.search(r"🔗 Source: (https?://\S+)", post_text)
+        link = link_match.group(1) if link_match else ""
+        add_post_to_history(result["id"], title, link, post_text)
 
     print("[SUCCESS] Done!")
 

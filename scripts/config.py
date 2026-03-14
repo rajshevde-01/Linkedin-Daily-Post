@@ -10,6 +10,8 @@ try:
 except ImportError:
     pass
 
+from history import load_history
+
 # --- API Keys (from environment / GitHub Secrets) ---
 GROQ_API_KEY_ENV = os.environ.get("GROQ_API_KEY", "")
 # Parse into a list of keys, splitting by comma and stripping whitespace
@@ -111,12 +113,37 @@ def get_system_prompt(content: str, is_custom: bool = False, is_cve: bool = Fals
         context_label = "Latest cybersecurity and threat intelligence context:"
         persona = f"You are a Senior Lead with 15+ years of experience. Tone: {mood}. Focus: {modifier}."
 
+    # Fetch high-performing examples from history
+    history = load_history()
+    high_performers = []
+    if history.get("posts"):
+        # Sort posts by engagement (likes + comments)
+        sorted_posts = sorted(
+            history["posts"], 
+            key=lambda p: p.get("metrics", {}).get("likes", 0) + p.get("metrics", {}).get("comments", 0), 
+            reverse=True
+        )
+        # Get top 2 posts that actually have views/likes
+        for p in sorted_posts[:3]:
+            m = p.get("metrics", {})
+            if (m.get("likes", 0) + m.get("comments", 0)) > 0:
+                high_performers.append(p)
+
+    examples_text = ""
+    if high_performers:
+        examples_text = "\nHIGH-PERFORMING PAST EXAMPLES (Emulate the depth and engagement factor of these):\n"
+        for p in high_performers:
+            examples_text += f"--- EXAMPLE ({p.get('metrics', {}).get('likes')} likes, {p.get('metrics', {}).get('comments')} comments) ---\n{p.get('content_preview')}...\n"
+        examples_text += "--- END OF EXAMPLES ---\n"
+
     base_prompt = f"""{persona}
 
 Your task is to write ONE LinkedIn post for today.
 
 Today's date: {datetime.now().strftime('%B %d, %Y')}
 Today is {day_name}, so the post style MUST be: {style}
+
+{examples_text}
 
 {context_label}
 {content}

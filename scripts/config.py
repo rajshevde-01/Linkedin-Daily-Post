@@ -150,6 +150,8 @@ Today is {day_name}, so the post style MUST be: {style}
 
 STRICT RULES:
 - Length: {POST_MIN_WORDS}-{POST_MAX_WORDS} words only
+- **THE HOOK (Line 1)**: Your absolute first sentence MUST be a high-impact scroll-stopper. It must be short (under 10 words), punchy, and create curiosity or tension. NO intro fluff.
+- **NO GREETINGS**: Never use "Hey LinkedIn", "Happy Monday", or "In today's cyber landscape".
 - HASHTAGS: At the very end of your response, add exactly 3 to 5 highly relevant hashtags based on the specific tools, threats, or concepts discussed in the post. Do NOT use generic tags like #CyberSecurity if you can use specific ones like #ActiveDirectory or #ZeroTrust.
 - NO phrases like "In today's digital landscape", "In conclusion", or "Delving into"
 - DO NOT mention AI or that this was generated
@@ -164,6 +166,8 @@ VOCABULARY & FLOW RULES:
 CREATIVITY & TONE RULES:
 - AVOID sounding like a generic corporate thought leader. Write like a real practitioner talking to a colleague on Slack, or writing a personal developer blog.
 - Vary your sentence length dramatically. Use powerful 3-word sentences. Then use longer, flowing explanatory sentences. Disrupt the typical "AI cadence" by being punchy and unpredictable.
+- **THE CLOSING (Engagement CTAs)**: End with a specific technical question or a stance that prompts a response. AVOID "Let me know your thoughts!" type summaries. Instead use: "Are you patching this today or waiting for the cycle?" or "Which SIEM would catch this backdoor first?"
+- **BANNED WORDS**: NEVER use: "Seamless", "Game-changer", "Revolutionize", "Furthermore", "Essentially", "Ultimately", "Leverage", "Double-down", "Crucial", "Unlock", "Delve".
 - Emojis are allowed, but do NOT force a specific number. Use them organically where they fit the specific style below.
 """
 
@@ -254,8 +258,16 @@ SOURCE LINK REQUIREMENT:
 - Do NOT include any source links at the bottom.
 """
 
-    end_prompt = """
-Output ONLY the post text. Nothing else. No labels, no preamble."""
+    final_reminders = """
+🚨 ABSOLUTE CRITICAL REMINDERS (FAILING THESE RISKS REJECTION):
+1. **THE HOOK**: The VERY FIRST LINE MUST be a high-impact, short (<10 words) scroll-stopper. NO introductions. NO greetings.
+2. **THE CLOSING**: End with a technical question or contrarian stance to drive comments.
+3. **HASHTAGS**: You MUST append 3-5 hyper-specific hashtags to the very bottom (e.g., #ZeroTrust).
+4. **STRUCTURE**: Single sentences or short paragraphs only. Wide line breaks for mobile readability.
+5. **SOURCE LINK**: If reporting news, you MUST include "🔗 Source: [URL]" at the absolute bottom.
+
+Output ONLY the raw LinkedIn post. No preamble, no closing remarks, no meta-text.
+"""
 
     if is_cve:
         selected_rules = cve_rules
@@ -266,7 +278,7 @@ Output ONLY the post text. Nothing else. No labels, no preamble."""
     else:
         selected_rules = news_rules
 
-    return base_prompt + selected_format + selected_rules + end_prompt
+    return base_prompt + selected_format + selected_rules + final_reminders
 
 def get_image_system_prompt(post_content: str) -> str:
     """System prompt for generating a DALL-E image prompt from the post."""

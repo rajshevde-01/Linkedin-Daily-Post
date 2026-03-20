@@ -110,12 +110,12 @@ def verify_post(post_text: str) -> str:
 Review the LinkedIn post below. Your goal is to make it sound 100% like a human practitioner and 0% like an AI.
 
 STRICT EDITING RULES:
-1. Remove generic 'AI-speak' (e.g., 'In world where...', 'Unlock the potential', 'Comprehensive approach', 'Fast-paced world').
-2. If the tone is too 'excited' or 'marketing-heavy', flatten it. Make it sound like a tired senior architect.
-3. Ensure technical terms are used correctly. 
-4. VARY SENTENCE LENGTH: Ensure there are several very short (3-5 word) sentences and a few longer, complex ones.
-5. NO CONCLUSION: Remove any paragraph that starts with "In conclusion" or "To sum up".
-6. Ensure the formatting (hashtags/links) is preserved at the end.
+1. **CUT THE FLUFF**: Remove generic 'AI-speak' (e.g., 'In world where...', 'Unlock potential', 'Comprehensive', 'Fast-paced'). If a sentence isn't adding technical value or a strong opinion, DELETE IT.
+2. **KILLER HOOK**: Ensure the first line is a direct, jarring statement. If it starts with an introduction ("Let's dive into", "Today I'm looking at"), REWRITE to start with the core problem or fact.
+3. **FLATTEN THE TONE**: If the text sounds like a corporate marketing pitch, make it dry, analytical, and practitioner-first.
+4. **VARY SENTENCE LENGTH**: Ruthlessly enforce mixed lengths. Add 3-word sentences. Break up long clauses.
+5. **NO CONCLUSION**: Delete any concluding summary paragraphs. The post should end on the CTA or raw takeaway.
+6. **PRESERVE EXTRAS**: Keep hashtags and source links intact at the absolute bottom.
 
 POST TO REVIEW:
 {post_text}

@@ -1,12 +1,24 @@
 {
   "titles": [
     "ransomware negotiation and recovery logistics:",
-    "ransomware attacks on oceania's healthcare institutions remind us of security's importance."
+    "ransomware attacks on oceania's healthcare institutions remind us of security's importance.",
+    "record-breaking 31.4 tbps attacks happen.",
+    "exploit kits have returned, courtesy of darksword iphone's global targeting.",
+    "zero-day vulnerabilities in darksword exploit kit hit iphone users in saudi arabia, turkey, malaysia",
+    "polyshell flaw exposed. it's unauthenticated rce and account takeover on magento.",
+    "darksword ios exploit chain now in wild, targeting claude users for data theft.",
+    "users are data thieves in google search results."
   ],
   "links": [
     "https://thehackernews.com/2026/03/hive0163-uses-ai-assisted-slopoly.html",
-    "https://www.darkreading.com/threat-intelligence/inc-ransomware-healthcare-oceania"
+    "https://www.darkreading.com/threat-intelligence/inc-ransomware-healthcare-oceania",
+    "https://thehackernews.com/2026/03/doj-disrupts-3-million-device-iot.html",
+    "https://www.darkreading.com/cyberattacks-data-breaches/new-c2-implant-snappyclient-targets-crypto-wallets",
+    "",
+    "https://thehackernews.com/2026/03/magento-polyshell-flaw-enables.html",
+    "https://www.darkreading.com/threat-intelligence/darksword-iphone-exploit-spies-thieves",
+    "https://www.darkreading.com/vulnerabilities-threats/claudy-day-trio-flaws-claude-users-data-theft"
   ],
-  "last_updated": "2026-03-13 12:44:48",
+  "last_updated": "2026-03-20 19:00:41",
   "posts": []
 }

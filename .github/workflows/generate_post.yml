@@ -71,17 +71,32 @@ jobs:
           echo "Rolled a $CHANCE for Knowledge Base probability."
 
           if [ "${{ github.event.inputs.use_cve_tracker }}" == "true" ]; then
-            python generate_post.py --date ${{ steps.date.outputs.date }} --cve --limit 2
+            python generate_post.py --date ${{ steps.date.outputs.date }} --cve --limit 2 --carousel
           elif [ "${{ github.event.inputs.use_knowledge_base }}" == "true" ]; then
-            python generate_post.py --date ${{ steps.date.outputs.date }} --knowledge --limit 2
+            python generate_post.py --date ${{ steps.date.outputs.date }} --knowledge --limit 2 --carousel
           elif [ -n "${{ github.event.inputs.custom_topic }}" ]; then
-            python generate_post.py --date ${{ steps.date.outputs.date }} --topic "${{ github.event.inputs.custom_topic }}" --limit 2
+            python generate_post.py --date ${{ steps.date.outputs.date }} --topic "${{ github.event.inputs.custom_topic }}" --limit 2 --carousel
           elif [ $CHANCE -le 30 ]; then
             echo "Knowledge Base triggered (<=30)!"
-            python generate_post.py --date ${{ steps.date.outputs.date }} --knowledge --limit 2
+            python generate_post.py --date ${{ steps.date.outputs.date }} --knowledge --limit 2 --carousel
           else
             echo "Using Standard News Fetcher."
-            python generate_post.py --date ${{ steps.date.outputs.date }} --limit 2
+            python generate_post.py --date ${{ steps.date.outputs.date }} --limit 2 --carousel
+          fi
+
+      - name: Send Webhook Notification
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        working-directory: scripts
+        run: |
+          # Use find to pick the latest file since we don't have absolute output in bash step directly if multi-line is used
+          LATEST_POST=$(ls -t ../posts/*.md | head -n 1)
+          if [ -f "$LATEST_POST" ]; then
+            echo "Notifying for file: $LATEST_POST"
+            python notify_webhook.py --file "$LATEST_POST"
+          else
+            echo "No post file found to notify."
           fi
 
       - name: Create confirmation issue

@@ -7,7 +7,11 @@
     "zero-day vulnerabilities in darksword exploit kit hit iphone users in saudi arabia, turkey, malaysia",
     "polyshell flaw exposed. it's unauthenticated rce and account takeover on magento.",
     "darksword ios exploit chain now in wild, targeting claude users for data theft.",
-    "users are data thieves in google search results."
+    "users are data thieves in google search results.",
+    "1 hour until the deadline. pay the ransom, and you still risk getting nothing back in return.",
+    "ransomware is being patched out of existence in 1 hour or less.",
+    "quantum key exchange can be broken in 5 hours.",
+    "most implementations of zero trust are just marketing fluff, hiding weak identity and access managem"
   ],
   "links": [
     "https://thehackernews.com/2026/03/hive0163-uses-ai-assisted-slopoly.html",
@@ -17,8 +21,12 @@
     "",
     "https://thehackernews.com/2026/03/magento-polyshell-flaw-enables.html",
     "https://www.darkreading.com/threat-intelligence/darksword-iphone-exploit-spies-thieves",
-    "https://www.darkreading.com/vulnerabilities-threats/claudy-day-trio-flaws-claude-users-data-theft"
+    "https://www.darkreading.com/vulnerabilities-threats/claudy-day-trio-flaws-claude-users-data-theft",
+    "",
+    "",
+    "https://www.darkreading.com/cloud-security/post-quantum-web-could-be-safer-faster",
+    "https://www.sans.org/webcasts/113815"
   ],
-  "last_updated": "2026-03-20 19:00:41",
+  "last_updated": "2026-03-21 15:30:06",
   "posts": []
 }

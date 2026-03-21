@@ -18,11 +18,11 @@ from config import (
     POST_MIN_WORDS, 
     POST_MAX_WORDS
 )
-from fetch_news import get_news_context
+from fetch_news import get_news_context, get_raw_articles, format_news_context
 from fetch_cve import get_cve_context
 from fetch_knowledge import fetch_random_knowledge
 from history import add_to_history
-from generate_image import generate_post_image
+from generate_image import generate_post_image, generate_carousel_pdf
 
 def generate_post(content: str, is_custom: bool = False, is_cve: bool = False, is_knowledge: bool = False) -> str:
     """Generate a LinkedIn post using Groq API."""
@@ -194,6 +194,60 @@ def get_style_for_display() -> str:
     return f"{day}: {style}"
 
 
+def score_articles(articles: list[dict]) -> dict:
+    """Ask AI to pick the single most engaging article from the list."""
+    from groq import Groq
+    
+    if not articles:
+        return None
+
+    # Limit to top 5 for prompt economy
+    candidates = articles[:5]
+    
+    # Format candidates for the prompt
+    options_text = ""
+    for i, a in enumerate(candidates):
+        options_text += f"--- INDEX {i} ---\nSource: {a.get('source')}\nTitle: {a.get('title')}\nSummary: {a.get('summary')}\n\n"
+
+    scoring_prompt = f"""You are a LinkedIn Algorithm Expert & Chief Editor.
+Review these {len(candidates)} cybersecurity news stories and pick the ONE that will generate the absolute highest engagement, comments, and shares on LinkedIn for a technical audience.
+
+CRITERIA:
+- High technical intrigue or shock value
+- Relatability to practitioners (EDR, Zero Trust, AD, Cloud)
+- Urgency or broad industry impact
+
+ARTICLES:
+{options_text}
+
+Output ONLY the Index number of the winner. Do NOT say anything else. Just a single digit.
+Example Response: 2"""
+
+    print("[INFO] Asking AI to pick the most engaging topic...")
+    try:
+        client = Groq(api_key=GROQ_API_KEYS[0])
+        response = client.chat.completions.create(
+            model="llama-3.1-8b-instant", # fast model
+            messages=[{"role": "user", "content": scoring_prompt}],
+            temperature=0.1 # low temp for deterministic choice
+        )
+        answer = response.choices[0].message.content.strip()
+        
+        # Extract first digit found
+        match = re.search(r'\d', answer)
+        if match:
+            idx = int(match.group(0))
+            if 0 <= idx < len(candidates):
+                print(f"[SUCCESS] AI picked Article Index {idx}: {candidates[idx].get('title')[:60]}...")
+                return candidates[idx]
+        
+        print("[WARN] Invalid AI choice index. Falling back to default top article.")
+        return candidates[0]
+    except Exception as e:
+        print(f"[WARN] AI Topic Scoring failed ({e}). Falling back to top article.")
+        return articles[0] if articles else None
+
+
 def main():
     parser = argparse.ArgumentParser(description="Generate daily LinkedIn post")
     parser.add_argument("--date", default=datetime.now().strftime("%Y-%m-%d"),
@@ -208,6 +262,8 @@ def main():
                         help="Generate a thought leadership post from a private note in the knowledge/ folder")
     parser.add_argument("--limit", type=int, default=0,
                         help="Maximum number of posts to generate per day (0 for no limit)")
+    parser.add_argument("--carousel", action="store_true",
+                        help="Generate a multi-page PDF Carousel slider instead of a single image")
     args = parser.parse_args()
 
     # Step 0: Check daily limit
@@ -258,8 +314,16 @@ def main():
             print("[INFO] custom_idea.txt is empty. Falling back to news.")
             content_to_use = get_news_context()
     else:
-        print("[INFO] Fetching daily news...")
-        content_to_use = get_news_context()
+        print("[INFO] Fetching and scoring daily news...")
+        raw_articles = get_raw_articles()
+        if raw_articles:
+            best_article = score_articles(raw_articles)
+            if best_article:
+                content_to_use = format_news_context([best_article])
+            else:
+                content_to_use = format_news_context(raw_articles)
+        else:
+            content_to_use = get_news_context()
 
     # Step 2: Generate post
     print(f"\n[INFO] Generating {get_style_for_display()} post...")
@@ -280,13 +344,21 @@ def main():
     except Exception as e:
         print(f"[WARN] Failed to log to history: {e}")
 
-    # Step 2.7: Generate Canva-style image
+    # Step 2.7: Generate Canva-style image or Carousel PDF
     image_path = ""
     try:
-        image_path = generate_post_image(final_post_text)
-        print(f"[SUCCESS] Professional image generated: {image_path}")
+        if args.carousel:
+            print("[INFO] Creating PDF Carousel slider deck...")
+            # Use title from first line if possible
+            title_guess = final_post_text.split("\n")[0][:30].strip() or "Cyber Insight"
+            image_path = generate_carousel_pdf(final_post_text, title=title_guess)
+        else:
+            image_path = generate_post_image(final_post_text)
+            
+        if image_path:
+             print(f"[SUCCESS] Media deck generated: {image_path}")
     except Exception as e:
-        print(f"[WARN] Image generation failed ({e}). Posting without image.")
+        print(f"[WARN] Media generation failed ({e}). Posting text-only.")
 
     if args.dry_run:
         print("\n=== GENERATED POST ===\n")

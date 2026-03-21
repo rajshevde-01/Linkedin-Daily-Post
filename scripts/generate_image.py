@@ -692,6 +692,128 @@ TEMPLATES = {
 }
 
 
+# ============================================================
+# CAROUSEL SLIDE TEMPLATE
+# ============================================================
+def template_carousel_slide(text: str, page_num: int, total_pages: int, title: str = "Cyber Insight") -> Image.Image:
+    """Render a generic aesthetic slide for a PDF Carousel bundle."""
+    img = Image.new("RGB", (WIDTH, HEIGHT))
+    draw = ImageDraw.Draw(img)
+    
+    # 1. Dark Gradient Background
+    draw_gradient(draw, WIDTH, HEIGHT, NEAR_BLACK, (15, 15, 25))
+    
+    # Grid overlay for high-tech vibe
+    grid_size = 40
+    for x in range(0, WIDTH, grid_size):
+        draw.line([(x, 0), (x, HEIGHT)], fill=(25, 25, 40), width=1)
+    for y in range(0, HEIGHT, grid_size):
+        draw.line([(0, y), (WIDTH, y)], fill=(25, 25, 40), width=1)
+
+    # 2. Top Header Bar
+    draw.rectangle([(0, 0), (WIDTH, 4)], fill=ELECTRIC_CYAN)
+    font_header = get_font("JetBrains", 14)
+    draw.text((40, 25), f"$ {title.upper()}", font=font_header, fill=ELECTRIC_CYAN)
+    
+    # 3. Large Center Text
+    font_size = 36 if len(text) > 200 else 44 if len(text) > 100 else 54
+    font_main = get_font("Inter", font_size)
+    
+    # Center vertically roughly, or use drawing Height
+    text_y = (HEIGHT // 2) - 100
+    draw_text_wrapped(draw, text, font_main, WIDTH - 160, 80, text_y, fill=PURE_WHITE, line_spacing=12)
+
+    # 4. Footer Pagination
+    footer_y = HEIGHT - 60
+    draw.line([(40, footer_y), (WIDTH - 40, footer_y)], fill=(40, 40, 60), width=1)
+    
+    font_footer = get_font("Inter", 16)
+    pages_text = f"Slide {page_num} of {total_pages}  â€¢  Swipe index ->"
+    draw.text((60, footer_y + 15), pages_text, font=font_footer, fill=(150, 150, 180))
+    
+    # Visual dot indicators
+    dot_start_x = WIDTH - 200
+    dot_spacing = 20
+    for i in range(total_pages):
+        x = dot_start_x + (i * dot_spacing)
+        radius = 5
+        color = ELECTRIC_CYAN if (i + 1) == page_num else (40, 40, 60)
+        draw.ellipse([(x - radius, footer_y + 20 - radius), (x + radius, footer_y + 20 + radius)], fill=color)
+
+    return img
+
+
+def generate_carousel_pdf(post_text: str, title: str = "Cyber Insight") -> str:
+    """
+    Splits post_text into logical nodes and generates a swipe-through PDF Carousel.
+    """
+    try:
+        import img2pdf
+    except ImportError:
+        print("[ERROR] img2pdf not installed. Run: pip install img2pdf")
+        return ""
+
+    # 1. Clean and split logic
+    paragraphs = [p.strip() for p in post_text.split('\n\n') if p.strip()]
+    
+    # Filter out pure link nodes and hashtag nodes initially
+    slides_text = []
+    footer_items = []
+    for p in paragraphs:
+        if p.startswith('#') or "🔗" in p or "Source:" in p or "http" in p:
+            if len(p) < 100 or p.startswith('#'):
+               footer_items.append(p)
+               continue
+        slides_text.append(p)
+
+    if not slides_text:
+        slides_text = ["No carousel content found.", "Check formatting."]
+
+    total_pages = len(slides_text)
+    image_paths = []
+    
+    images_dir = Path(__file__).parent.parent / "posts" / "images" / "tmp_carousel"
+    images_dir.mkdir(parents=True, exist_ok=True)
+
+    from datetime import datetime
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+
+    # 2. Render each slide
+    for idx, text in enumerate(slides_text):
+        page_num = idx + 1
+        
+        # For last slide, maybe append footer items if they fit well
+        if page_num == total_pages and footer_items:
+             text += "\n\n" + " | ".join(footer_items)
+
+        img = template_carousel_slide(text, page_num, total_pages, title)
+        img_path = images_dir / f"{timestamp}_slide_{page_num:02d}.png"
+        img.save(str(img_path), "PNG")
+        image_paths.append(str(img_path))
+
+    # 3. Stitch with img2pdf
+    target_pdf = Path(__file__).parent.parent / "posts" / "images" / f"{timestamp}_carousel.pdf"
+    target_pdf.parent.mkdir(parents=True, exist_ok=True)
+
+    with open(str(target_pdf), "wb") as f:
+        f.write(img2pdf.convert(image_paths))
+
+    print(f"[SUCCESS] Carousel PDF saved: {target_pdf}")
+
+    # clean up tmp PNGs
+    for p in image_paths:
+        try:
+            os.remove(p)
+        except Exception:
+            pass
+    try:
+        os.rmdir(images_dir)
+    except Exception:
+        pass
+
+    return str(target_pdf)
+
+
 def generate_post_image(post_text: str, template_name: str = None) -> str:
     """
     Generate a professional LinkedIn image from post text.

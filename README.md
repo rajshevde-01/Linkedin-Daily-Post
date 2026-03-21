@@ -7,13 +7,13 @@ Fully automated daily LinkedIn posts on cybersecurity, threat intelligence, and 
 ## ⚙️ How It Works
 
 ```
-2:00 PM & 5:00 PM IST  →  Fetch context  →  Generate post  →  Sense Check  →  Generate Image
-                                                                              ↓
-                                                                   Create GitHub Issue for review
-                                                                              ↓
-                                                                    Approve / Reject / Ignore
-                                                                              ↓
-3:00 PM & 11:11 PM IST →  Auto-post to LinkedIn (with image attachment)
+2:00 PM & 5:00 PM IST  →  Fetch news  →  AI Content Scoring  →  Sense Check  →  Generate Carousel PDF/Image
+                                                                               ↓
+                                                                    Create GitHub Issue for review
+                                                                               ↓
+                                                                     Approve / Reject / Ignore
+                                                                               ↓
+3:00 PM & 11:11 PM IST →  Auto-post to LinkedIn (with slider document or image attachment)
 ```
 
 ---
@@ -86,6 +86,23 @@ Every post automatically generates a **1200×628px LinkedIn-optimized image** us
 - **Color Palette**: Deep Teal · Electric Cyan · Amber Gold
 - **Smart Text**: Headline + subtitle auto-extracted from post content
 - **Test all templates**: `python scripts/generate_image.py --test`
+
+---
+
+## 📄 PDF Carousel Sliders (V4 Premium)
+
+You can generate multi-page PDF documents optimized for maximum algorithmic reach on LinkedIn.
+
+- **How to generate**: Run `python scripts/generate_post.py --carousel`
+- **Logic**: Automatically splits nodes on `\n\n` into gorgeous layout slides including standard frame paginations & swipe frames.
+
+---
+
+## 🔔 Slack & Discord Webhooks (V4 Premium)
+
+Get live alerts in your company messaging triggers when a post gets drafted locally:
+- **Configure**: Add `SLACK_WEBHOOK_URL` or `DISCORD_WEBHOOK_URL` in GitHub Action Secrets.
+- **Workflow**: Automated streams dispatch preview contents back directly to target webhook links.
 
 ---
 
@@ -171,6 +188,9 @@ python scripts/fetch_news.py
 # Test post generation (dry run, no file saved)
 export GROQ_API_KEY="your-key"
 python scripts/generate_post.py --dry-run
+
+# Generate Carousel Slider (.pdf)
+python scripts/generate_post.py --dry-run --carousel
 
 # Generate and save for a specific date
 python scripts/generate_post.py --date 2026-03-03

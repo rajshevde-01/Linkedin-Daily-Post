@@ -98,8 +98,65 @@ def upload_image_to_linkedin(image_path: str) -> str:
         return ""
 
 
-def post_to_linkedin(text: str, image_urn: str = "") -> dict:
-    """Publish a post to LinkedIn using the REST Posts API, optionally with an image."""
+def upload_document(pdf_path: str) -> str:
+    """Upload a PDF document to LinkedIn and return its URN."""
+    if not LINKEDIN_ACCESS_TOKEN:
+        print("[ERROR] LINKEDIN_ACCESS_TOKEN not set")
+        return ""
+
+    # PDF uses the 'documents' namespace
+    init_url = "https://api.linkedin.com/rest/documents?action=initializeUpload"
+    headers = {
+        "Authorization": f"Bearer {LINKEDIN_ACCESS_TOKEN}",
+        "Content-Type": "application/json",
+        "LinkedIn-Version": "202601",
+        "X-Restli-Protocol-Version": "2.0.0",
+    }
+    init_payload = {
+        "initializeUploadRequest": {
+            "owner": LINKEDIN_PERSON_URN
+        }
+    }
+    
+    try:
+        resp = requests.post(init_url, headers=headers, json=init_payload)
+        if resp.status_code != 200:
+            print(f"[WARN] Document upload init failed: {resp.status_code} - {resp.text}")
+            return ""
+        
+        data = resp.json()
+        upload_url = data["value"]["uploadUrl"]
+        doc_urn = data["value"]["document"]
+        
+        # Step 2: Upload the binary PDF
+        with open(pdf_path, "rb") as pdf_file:
+            upload_headers = {
+                "Authorization": f"Bearer {LINKEDIN_ACCESS_TOKEN}",
+                "Content-Type": "application/octet-stream",
+            }
+            upload_resp = requests.put(upload_url, headers=upload_headers, data=pdf_file)
+            
+            if upload_resp.status_code not in (200, 201):
+                print(f"[WARN] Document binary upload failed: {upload_resp.status_code}")
+                return ""
+        
+        print(f"[SUCCESS] Document uploaded: {doc_urn}")
+        return doc_urn
+    except Exception as e:
+        print(f"[WARN] Document upload failed: {e}")
+        return ""
+
+def upload_media(media_path: str) -> str:
+    """Intelligently upload media based on file extension."""
+    if not media_path:
+        return ""
+    if media_path.lower().endswith('.pdf'):
+        return upload_document(media_path)
+    return upload_image(media_path)
+
+
+def post_to_linkedin(text: str, media_urn: str = "") -> dict:
+    """Publish a post to LinkedIn using the REST Posts API, optionally with an image or document."""
     if not LINKEDIN_ACCESS_TOKEN:
         print("[ERROR] LINKEDIN_ACCESS_TOKEN not set")
         sys.exit(1)
@@ -133,14 +190,14 @@ def post_to_linkedin(text: str, image_urn: str = "") -> dict:
         "isReshareDisabledByAuthor": False,
     }
     
-    # Attach image if available
-    if image_urn:
+    # Attach media if available
+    if media_urn:
         payload["content"] = {
             "media": {
-                "id": image_urn,
+                "id": media_urn,
             }
         }
-        print(f"[INFO] Attaching image to post: {image_urn}")
+        print(f"[INFO] Attaching media to post: {media_urn}")
 
     response = requests.post(url, headers=headers, json=payload)
 
@@ -306,15 +363,15 @@ def main():
         # Read the post
         post_text, metadata = read_post_file(filename)
         
-        # Upload image if available
-        image_urn = ""
-        image_path = metadata.get("image_path", "")
-        if image_path and os.path.exists(image_path):
-            image_urn = upload_image_to_linkedin(image_path)
+        # Upload media if available
+        media_urn = ""
+        media_path = metadata.get("image_path", "")
+        if media_path and os.path.exists(media_path):
+            media_urn = upload_media(media_path)
 
         # Post to LinkedIn
         print(f"[INFO] Publishing post {filename} to LinkedIn...")
-        result = post_to_linkedin(post_text, image_urn=image_urn)
+        result = post_to_linkedin(post_text, media_urn=media_urn)
 
         # Update status
         update_post_status(filename, "posted")

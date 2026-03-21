@@ -208,16 +208,8 @@ def format_news_context(articles: list[dict]) -> str:
     return "\n".join(lines)
 
 
-def get_news_context() -> str:
-    """
-    Main entry point: fetch, verify, and return formatted news context.
-
-    Pipeline:
-    1. Fetch from all trusted RSS feeds
-    2. Cross-reference across sources (same story = higher confidence)
-    3. Spot-check top article URLs for reachability
-    4. Format with verification status for the LLM
-    """
+def get_raw_articles() -> list[dict]:
+    """Fetch and verify articles, returning the raw list instead of a string."""
     print("[INFO] Fetching cybersecurity news from trusted RSS feeds...")
     articles = fetch_recent_articles()
     print(f"[INFO] Fetched {len(articles)} raw articles from {len(RSS_FEEDS)} feeds")
@@ -236,7 +228,11 @@ def get_news_context() -> str:
         -a.get("cross_ref_count", 0),  # more sources = higher
         a.get("published", ""),        # newest first (reversed below)
     ))
+    return articles
 
+def get_news_context() -> str:
+    """Main entry point: fetch, verify, and return formatted news context string."""
+    articles = get_raw_articles()
     context = format_news_context(articles)
     print(f"[INFO] News context ready ({len(context)} chars)")
     return context

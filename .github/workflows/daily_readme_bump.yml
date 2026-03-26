@@ -49,12 +49,6 @@ jobs:
               f.write(content)
           print(f"[INFO] Stats updated: date={date}, posts={total}, streak={streak}")
           PYEOF
-              content = f.read()
-          content = re.sub(r"<!-- STATS_START -->.*?<!-- STATS_END -->", block, content, flags=re.DOTALL)
-          with open("README.md", "w", encoding="utf-8") as f:
-              f.write(content)
-          print(f"[INFO] Stats updated: date={date}, posts={total}, streak={streak}")
-          PYEOF
 
       - name: Commit and push
         run: |

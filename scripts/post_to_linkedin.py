@@ -18,6 +18,16 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from config import LINKEDIN_ACCESS_TOKEN, LINKEDIN_PERSON_URN
 from history import add_post_to_history
+from notify_webhook import notify_failure as _notify_failure
+
+def _send_failure_alert(message: str):
+    """Fire-and-forget failure alert via webhook (best-effort)."""
+    webhook_url = os.environ.get("SLACK_WEBHOOK_URL") or os.environ.get("DISCORD_WEBHOOK_URL")
+    if webhook_url:
+        try:
+            _notify_failure(message, webhook_url)
+        except Exception:
+            pass  # Don't let alerting crash the process
 
 
 def clean_markdown_for_linkedin(text: str) -> str:
@@ -206,9 +216,11 @@ def post_to_linkedin(text: str, media_urn: str = "") -> dict:
         print(f"[SUCCESS] Post published to LinkedIn! (ID: {post_id})")
         return {"id": post_id}
     else:
-        print(f"[ERROR] LinkedIn API returned {response.status_code}")
-        print(f"[ERROR] Response: {response.text}")
+        error_msg = f"LinkedIn API returned {response.status_code}: {response.text[:400]}"
+        print(f"[ERROR] {error_msg}")
+        _send_failure_alert(error_msg)
         sys.exit(1)
+
 
 
 def read_post_file(date_str: str) -> tuple[str, dict]:

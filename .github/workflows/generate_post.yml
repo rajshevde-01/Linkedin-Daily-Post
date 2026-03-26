@@ -114,5 +114,13 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add posts/
           git add custom_idea.txt || true
-          git diff --staged --quiet || git commit -m "Generate LinkedIn post for ${{ steps.date.outputs.date }}"
+          # Build a descriptive commit message using the post's hook line
+          LATEST_POST=$(ls -t posts/*.md 2>/dev/null | head -n 1)
+          if [ -f "$LATEST_POST" ]; then
+            HOOK=$(grep -m 1 "." "$LATEST_POST" | head -c 80 | tr -d '\r')
+            COMMIT_MSG="Generate post (${{ steps.date.outputs.date }}): $HOOK"
+          else
+            COMMIT_MSG="Generate LinkedIn post for ${{ steps.date.outputs.date }}"
+          fi
+          git diff --staged --quiet || git commit -m "$COMMIT_MSG"
           git push

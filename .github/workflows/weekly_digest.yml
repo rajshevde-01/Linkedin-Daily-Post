@@ -1,0 +1,41 @@
+# ============================================================
+# Weekly Digest — creates a GitHub Issue summary every Sunday
+# ============================================================
+# Runs every Sunday at 08:30 AM IST (03:00 UTC)
+# Summarises the week's posts and any engagement metrics.
+# Can also be triggered manually from the Actions tab.
+# ============================================================
+
+name: Weekly Digest
+
+on:
+  schedule:
+    - cron: "0 3 * * 0"    # Every Sunday at 08:30 AM IST (03:00 UTC)
+  workflow_dispatch:        # Allow manual trigger
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  digest:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Generate and post weekly digest
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        working-directory: scripts
+        run: python weekly_digest.py

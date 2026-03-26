@@ -1,7 +1,7 @@
 import json
 import os
 from pathlib import Path
-from datetime import datetime
+from datetime import datetime, timedelta
 
 HISTORY_FILE = Path(__file__).parent.parent / "history.json"
 
@@ -22,13 +22,21 @@ def load_history():
         return default
 
 def save_history(history):
-    """Save the history to file (keeping only the last 50 entries)."""
+    """Save the history to file.
+    - posts[]: pruned to entries from the last 30 days
+    - titles[] / links[]: capped at 50 (no timestamps available)
+    """
+    cutoff = (datetime.now() - timedelta(days=30)).strftime("%Y-%m-%d %H:%M:%S")
+    history["posts"] = [
+        p for p in history.get("posts", [])
+        if p.get("posted_at", "9999") >= cutoff
+    ]
     history["titles"] = history["titles"][-50:]
     history["links"] = history["links"][-50:]
-    history["posts"] = history["posts"][-50:]
     history["last_updated"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     with open(HISTORY_FILE, "w") as f:
         json.dump(history, f, indent=2)
+
 
 def is_in_history(title, link):
     """Check if a title or link was recently used."""

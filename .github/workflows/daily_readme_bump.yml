@@ -1,7 +1,7 @@
 # ============================================================
 # Daily README Bump — keeps GitHub activity streak alive
 # Runs every day at 08:00 AM IST (02:30 UTC)
-# Appends a hidden comment line to README.md and commits it.
+# Updates the 📊 Live Stats table in README.md and commits.
 # ============================================================
 
 name: Daily README Bump
@@ -21,19 +21,39 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # needed to count commits for streak
 
-      - name: Bump README with today's date
+      - name: Update README stats table
         run: |
           DATE=$(TZ='Asia/Kolkata' date +'%Y-%m-%d')
-          # Remove any existing activity line, then append a fresh one
-          grep -v "<!-- Activity:" README.md > README.tmp && mv README.tmp README.md
-          echo "" >> README.md
-          echo "<!-- Activity: $DATE -->" >> README.md
+          TOTAL=$(find posts/ -maxdepth 1 -name "*.md" 2>/dev/null | wc -l | tr -d ' ')
+          FIRST_COMMIT=$(git log --reverse --format="%ad" --date=short | head -1)
+          STREAK=$(( ($(date -d "$DATE" +%s) - $(date -d "$FIRST_COMMIT" +%s)) / 86400 + 1 ))
+
+          python3 - "$DATE" "$TOTAL" "$STREAK" <<'PYEOF'
+          import re, sys
+          date, total, streak = sys.argv[1], sys.argv[2], sys.argv[3]
+          block = f"""<!-- STATS_START -->
+| Metric | Value |
+|--------|-------|
+| 🗓️ Last Updated | {date} |
+| 📝 Total Posts | {total} |
+| 🔥 Streak Day | {streak} |
+<!-- STATS_END -->"""
+          with open("README.md", "r", encoding="utf-8") as f:
+              content = f.read()
+          content = re.sub(r"<!-- STATS_START -->.*?<!-- STATS_END -->", block, content, flags=re.DOTALL)
+          with open("README.md", "w", encoding="utf-8") as f:
+              f.write(content)
+          print(f"[INFO] Stats updated: date={date}, posts={total}, streak={streak}")
+          PYEOF
 
       - name: Commit and push
         run: |
+          DATE=$(TZ='Asia/Kolkata' date +'%Y-%m-%d')
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add README.md
-          git commit -m "chore: daily activity bump $(TZ='Asia/Kolkata' date +'%Y-%m-%d')"
+          git diff --staged --quiet || git commit -m "chore: daily activity bump $DATE"
           git push origin HEAD:${{ github.ref }}

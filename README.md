@@ -251,3 +251,15 @@ knowledge/
 ---
 
 *Built with [Groq](https://groq.com) • [Pillow](https://pillow.readthedocs.io) • [LinkedIn API](https://developer.linkedin.com) • [GitHub Actions](https://github.com/features/actions)*
+
+---
+
+## 📊 Live Stats
+
+<!-- STATS_START -->
+| Metric | Value |
+|--------|-------|
+| 🗓️ Last Updated | — |
+| 📝 Total Posts | — |
+| 🔥 Streak Day | — |
+<!-- STATS_END -->

@@ -53,12 +53,12 @@ def extract_content(post_text: str) -> dict:
     """Extract headline, subtitle, and key takeaway from post text."""
     lines = [l.strip() for l in post_text.strip().split('\n') if l.strip()]
     
-    # Clean all lines of emojis/special prefix chars
+        # Clean all lines of emojis/special prefix chars
     clean_lines = []
     for l in lines:
         cleaned = re.sub(r'^[^\w\s"\']+', '', l).strip()
         # Skip very short lines, hashtag lines, source lines
-        if cleaned and len(cleaned) > 10 and not cleaned.startswith('#') and not cleaned.startswith('ðŸ”—'):
+        if cleaned and len(cleaned) > 10 and not cleaned.startswith('#') and not (cleaned.startswith('🔗') or 'http' in l):
             clean_lines.append(cleaned)
     
     if not clean_lines:

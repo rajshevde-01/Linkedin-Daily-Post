@@ -259,7 +259,7 @@ knowledge/
 <!-- STATS_START -->
 | Metric | Value |
 |--------|-------|
-| 🗓️ Last Updated | — |
-| 📝 Total Posts | — |
-| 🔥 Streak Day | — |
+| 🗓️ Last Updated | 2026-03-27 |
+| 📝 Total Posts | 54 |
+| 🔥 Streak Day | 29 |
 <!-- STATS_END -->

@@ -35,13 +35,20 @@ jobs:
           import re, sys
           date, total, streak = sys.argv[1], sys.argv[2], sys.argv[3]
           block = f"""<!-- STATS_START -->
-| Metric | Value |
-|--------|-------|
-| 🗓️ Last Updated | {date} |
-| 📝 Total Posts | {total} |
-| 🔥 Streak Day | {streak} |
-<!-- STATS_END -->"""
+          | Metric | Value |
+          |--------|-------|
+          | \U0001f5d3\ufe0f Last Updated | {date} |
+          | \U0001f4dd Total Posts | {total} |
+          | \U0001f525 Streak Day | {streak} |
+          <!-- STATS_END -->"""
+          block = "\n".join(line.strip() for line in block.split("\n"))
           with open("README.md", "r", encoding="utf-8") as f:
+              content = f.read()
+          content = re.sub(r"<!-- STATS_START -->.*?<!-- STATS_END -->", block, content, flags=re.DOTALL)
+          with open("README.md", "w", encoding="utf-8") as f:
+              f.write(content)
+          print(f"[INFO] Stats updated: date={date}, posts={total}, streak={streak}")
+          PYEOF
               content = f.read()
           content = re.sub(r"<!-- STATS_START -->.*?<!-- STATS_END -->", block, content, flags=re.DOTALL)
           with open("README.md", "w", encoding="utf-8") as f:

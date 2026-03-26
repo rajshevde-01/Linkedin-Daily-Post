@@ -11,7 +11,9 @@
     "1 hour until the deadline. pay the ransom, and you still risk getting nothing back in return.",
     "ransomware is being patched out of existence in 1 hour or less.",
     "quantum key exchange can be broken in 5 hours.",
-    "most implementations of zero trust are just marketing fluff, hiding weak identity and access managem"
+    "most implementations of zero trust are just marketing fluff, hiding weak identity and access managem",
+    "github's using ai to detect bugs.",
+    "ransomware spreads in mere hours. most breaches are contained in under 24 hours thanks to novel rce"
   ],
   "links": [
     "https://thehackernews.com/2026/03/hive0163-uses-ai-assisted-slopoly.html",
@@ -25,8 +27,10 @@
     "",
     "",
     "https://www.darkreading.com/cloud-security/post-quantum-web-could-be-safer-faster",
-    "https://www.sans.org/webcasts/113815"
+    "https://www.sans.org/webcasts/113815",
+    "https://www.bleepingcomputer.com/news/security/github-adds-ai-powered-bug-detection-to-expand-security-coverage/",
+    "https"
   ],
-  "last_updated": "2026-03-21 15:30:06",
+  "last_updated": "2026-03-27 00:46:12",
   "posts": []
 }

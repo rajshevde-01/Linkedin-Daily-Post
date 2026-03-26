@@ -24,8 +24,8 @@ from fetch_knowledge import fetch_random_knowledge
 from history import add_to_history
 from generate_image import generate_post_image, generate_carousel_pdf
 
-def generate_post(content: str, is_custom: bool = False, is_cve: bool = False, is_knowledge: bool = False) -> str:
-    """Generate a LinkedIn post using Groq API."""
+def _call_groq_with_retries(prompt: str, temperature: float = 0.7) -> str:
+    """Robust helper to call Groq with API key rotation and model fallbacks."""
     try:
         from groq import Groq
     except ImportError:
@@ -36,70 +36,47 @@ def generate_post(content: str, is_custom: bool = False, is_cve: bool = False, i
         print("[ERROR] GROQ_API_KEY environment variable not set or invalid")
         sys.exit(1)
 
-    system_prompt = get_system_prompt(content, is_custom=is_custom, is_cve=is_cve, is_knowledge=is_knowledge)
-
-    # Added robust retry and fallback logic for Rate Limits / Quotas
     import time
-    
     max_retries = 3
+    # Upgraded models to avoid 404s on deprecated ones
     models_to_try = ["llama-3.3-70b-versatile", "llama-3.1-8b-instant"]
     
-    post_text = None
     last_error = None
     
-    # Outer Loop: Try each model
     for current_model in models_to_try:
-        if post_text is not None:
-            break
-            
-        print(f"\n[INFO] Starting attempts with model {current_model}...")
-        
-        # Middle Loop: Try each API key for the current model
         for key_idx, api_key in enumerate(GROQ_API_KEYS):
-            if post_text is not None:
-                break
-                
-            print(f"[INFO] Using API key #{key_idx + 1}/{len(GROQ_API_KEYS)} for {current_model}...")
             client = Groq(api_key=api_key)
-            
-            # Inner Loop: Retries for temporary issues (like concurrent requests)
             for attempt in range(max_retries):
                 try:
                     response = client.chat.completions.create(
                         model=current_model,
-                        messages=[
-                            {
-                                "role": "user",
-                                "content": system_prompt
-                            }
-                        ]
+                        messages=[{"role": "user", "content": prompt}],
+                        temperature=temperature
                     )
-                    post_text = response.choices[0].message.content.strip()
-                    print(f"[SUCCESS] Generation successful with {current_model} (Key #{key_idx + 1})")
-                    break  # Success, break inner loop
+                    return response.choices[0].message.content.strip()
                 except Exception as e:
                     err_msg = str(e).lower()
                     last_error = e
-                    
-                    if "429" in err_msg or "too many requests" in err_msg or "quota" in err_msg or "401" in err_msg or "invalid_api_key" in err_msg:
-                        print(f"[WARN] Quota exhausted or invalid key for {current_model} using Key #{key_idx + 1}: {e}")
-                        # Immediately fail this key and move to the next key without retrying wait times
+                    if any(x in err_msg for x in ["429", "too many requests", "quota", "401", "invalid", "not found"]):
+                        # Immediately fail this key/model combo 
                         break 
                     else:
-                        # Other non-quota errors (transient API issues)
                         if attempt < max_retries - 1:
-                            print(f"[WARN] API Error. Waiting 10s before retry {attempt+1}/{max_retries}... Error: {e}")
-                            time.sleep(10)
+                            time.sleep(5)
                         else:
-                            print(f"[ERROR] Max retries reached for Key #{key_idx + 1}. Moving to next key/model.")
                             break
                             
-    if post_text is None:
-        print(f"\n[FATAL] Exhausted all {len(models_to_try)} models across all {len(GROQ_API_KEYS)} API keys.")
-        print(f"[FATAL] Last error encountered: {last_error}")
-        sys.exit(1)
+    raise Exception(f"Exhausted all models/keys. Last error: {last_error}")
 
-    return post_text
+
+def generate_post(content: str, is_custom: bool = False, is_cve: bool = False, is_knowledge: bool = False) -> str:
+    """Generate a LinkedIn post using Groq API."""
+    system_prompt = get_system_prompt(content, is_custom=is_custom, is_cve=is_cve, is_knowledge=is_knowledge)
+    try:
+        return _call_groq_with_retries(system_prompt, temperature=0.7)
+    except Exception as e:
+        print(f"\n[FATAL] Post generation failed: {e}")
+        sys.exit(1)
 
 
 def verify_post(post_text: str) -> str:
@@ -123,14 +100,8 @@ POST TO REVIEW:
 Output ONLY the improved, finalized post text."""
 
     print("[INFO] Performing Multi-Model Sense Check...")
-    # Use the fastest/cheapest model for the sense check
     try:
-        client = Groq(api_key=GROQ_API_KEYS[0])
-        response = client.chat.completions.create(
-            model="llama-3.1-8b-instant",
-            messages=[{"role": "user", "content": sense_check_prompt}]
-        )
-        verified_text = response.choices[0].message.content.strip()
+        verified_text = _call_groq_with_retries(sense_check_prompt, temperature=0.7)
         print("[SUCCESS] Sense Check complete.")
         return verified_text
     except Exception as e:
@@ -145,12 +116,7 @@ def generate_image_prompt(post_text: str) -> str:
 
     print("[INFO] Generating premium Image Prompt...")
     try:
-        client = Groq(api_key=GROQ_API_KEYS[0])
-        response = client.chat.completions.create(
-            model="llama-3.1-8b-instant",
-            messages=[{"role": "user", "content": system_prompt}]
-        )
-        image_prompt = response.choices[0].message.content.strip()
+        image_prompt = _call_groq_with_retries(system_prompt, temperature=0.7)
         print("[SUCCESS] Image Prompt generated.")
         return image_prompt
     except Exception as e:
@@ -225,13 +191,7 @@ Example Response: 2"""
 
     print("[INFO] Asking AI to pick the most engaging topic...")
     try:
-        client = Groq(api_key=GROQ_API_KEYS[0])
-        response = client.chat.completions.create(
-            model="llama-3.1-8b-instant", # fast model
-            messages=[{"role": "user", "content": scoring_prompt}],
-            temperature=0.1 # low temp for deterministic choice
-        )
-        answer = response.choices[0].message.content.strip()
+        answer = _call_groq_with_retries(scoring_prompt, temperature=0.1)
         
         # Extract first digit found
         match = re.search(r'\d', answer)

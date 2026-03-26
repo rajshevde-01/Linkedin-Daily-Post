@@ -1,0 +1,39 @@
+# ============================================================
+# Daily README Bump — keeps GitHub activity streak alive
+# Runs every day at 08:00 AM IST (02:30 UTC)
+# Appends a hidden comment line to README.md and commits it.
+# ============================================================
+
+name: Daily README Bump
+
+on:
+  schedule:
+    - cron: "30 2 * * *"   # 08:00 AM IST daily
+  workflow_dispatch:        # allow manual trigger
+
+permissions:
+  contents: write
+
+jobs:
+  bump:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Bump README with today's date
+        run: |
+          DATE=$(TZ='Asia/Kolkata' date +'%Y-%m-%d')
+          # Remove any existing activity line, then append a fresh one
+          grep -v "<!-- Activity:" README.md > README.tmp && mv README.tmp README.md
+          echo "" >> README.md
+          echo "<!-- Activity: $DATE -->" >> README.md
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          git commit -m "chore: daily activity bump $(TZ='Asia/Kolkata' date +'%Y-%m-%d')"
+          git push origin HEAD:${{ github.ref }}

@@ -19,6 +19,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from config import LINKEDIN_ACCESS_TOKEN, LINKEDIN_PERSON_URN
 from history import add_post_to_history
 from notify_webhook import notify_failure as _notify_failure
+from utils import text_to_unicode_bold, text_to_unicode_italic
 
 def _send_failure_alert(message: str):
     """Fire-and-forget failure alert via webhook (best-effort)."""
@@ -32,27 +33,28 @@ def _send_failure_alert(message: str):
 
 def clean_markdown_for_linkedin(text: str) -> str:
     """
-    Remove markdown artifacts (bold, italic, links, headers) to ensure 
-    clean plain text rendering on LinkedIn.
+    Remove markdown artifacts (bold, italic, links, headers) and 
+    convert to Unicode bold/italic for LinkedIn.
     """
     if not text:
         return text
 
-    # Remove bold (**text** or __text__)
-    text = re.sub(r'\*\*(.*?)\*\*', r'\1', text)
-    text = re.sub(r'__(.*?)__', r'\1', text)
+    # Convert bold (**text** or __text__) to Unicode Bold
+    text = re.sub(r'\*\*(.*?)\*\*', lambda m: text_to_unicode_bold(m.group(1)), text)
+    text = re.sub(r'__(.*?)__', lambda m: text_to_unicode_bold(m.group(1)), text)
     
-    # Remove italic (*text* or _text_)
-    text = re.sub(r'\*(.*?)\*', r'\1', text)
-    text = re.sub(r'_(.*?)_', r'\1', text)
+    # Convert italic (*text* or _text_) to Unicode Italic
+    text = re.sub(r'\*(.*?)\*', lambda m: text_to_unicode_italic(m.group(1)), text)
+    text = re.sub(r'_(.*?)_', lambda m: text_to_unicode_italic(m.group(1)), text)
     
     # Convert links [Title](URL) -> Title: URL
     text = re.sub(r'\[(.*?)\]\((.*?)\)', r'\1: \2', text)
     
     # Remove headers (### Text -> Text)
-    text = re.sub(r'^#+\s+(.*?)$', r'\1', text, flags=re.MULTILINE)
+    # We should still bold the header text
+    text = re.sub(r'^#+\s+(.*?)$', lambda m: text_to_unicode_bold(m.group(1)), text, flags=re.MULTILINE)
     
-    # Remove stray backticks that might have been used for inline quotes
+    # Remove stray backticks
     text = text.replace('`', '')
     
     return text.strip()

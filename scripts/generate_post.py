@@ -11,6 +11,12 @@ import re
 # Add scripts dir to path for imports
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
+# Fix console encoding for Windows to handle Unicode (e.g., premium icons)
+if sys.platform == "win32":
+    import io
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+    sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8')
+
 from config import (
     GROQ_API_KEYS, 
     get_system_prompt, 
@@ -21,6 +27,8 @@ from config import (
 from fetch_news import get_news_context, get_raw_articles, format_news_context
 from fetch_cve import get_cve_context
 from fetch_knowledge import fetch_random_knowledge
+from fetch_github import fetch_top_github_repo
+from memory import search_memory, extract_keywords
 from history import add_to_history
 from generate_image import generate_post_image, generate_carousel_pdf
 
@@ -69,9 +77,13 @@ def _call_groq_with_retries(prompt: str, temperature: float = 0.7) -> str:
     raise Exception(f"Exhausted all models/keys. Last error: {last_error}")
 
 
-def generate_post(content: str, is_custom: bool = False, is_cve: bool = False, is_knowledge: bool = False) -> str:
+def generate_post(content: str, is_custom: bool = False, is_cve: bool = False, 
+                  is_knowledge: bool = False, github_repo: dict = None, 
+                  past_posts: list = None) -> str:
     """Generate a LinkedIn post using Groq API."""
-    system_prompt = get_system_prompt(content, is_custom=is_custom, is_cve=is_cve, is_knowledge=is_knowledge)
+    system_prompt = get_system_prompt(content, is_custom=is_custom, is_cve=is_cve, 
+                                     is_knowledge=is_knowledge, github_repo=github_repo, 
+                                     past_posts=past_posts)
     try:
         return _call_groq_with_retries(system_prompt, temperature=0.7)
     except Exception as e:
@@ -83,29 +95,60 @@ def verify_post(post_text: str) -> str:
     """Perform a second-pass 'Sense Check' to remove AI-isms and improve flow."""
     from groq import Groq
     
-    sense_check_prompt = f"""You are a brutal Executive Editor for a top-tier cybersecurity blog.
-Review the LinkedIn post below. Your goal is to make it sound 100% like a human practitioner and 0% like an AI.
+    sense_check_prompt = f"""You are a brutal Executive Editor for a top-tier cybersecurity blog. You have ZERO tolerance for fluff, AI-speak, or generic content.
+Review the LinkedIn post below. Your goal is to make it sound 100% like a battle-scarred human practitioner and 0% like an AI.
 
 STRICT EDITING RULES:
-1. **CUT THE FLUFF**: Remove generic 'AI-speak' (e.g., 'In world where...', 'Unlock potential', 'Comprehensive', 'Fast-paced'). If a sentence isn't adding technical value or a strong opinion, DELETE IT.
-2. **KILLER HOOK**: Ensure the first line is a direct, jarring statement. If it starts with an introduction ("Let's dive into", "Today I'm looking at"), REWRITE to start with the core problem or fact.
-3. **FLATTEN THE TONE**: If the text sounds like a corporate marketing pitch, make it dry, analytical, and practitioner-first.
-4. **VARY SENTENCE LENGTH**: Ruthlessly enforce mixed lengths. Add 3-word sentences. Break up long clauses.
-5. **NO CONCLUSION**: Delete any concluding summary paragraphs. The post should end on the CTA or raw takeaway.
-6. **PRESERVE EXTRAS**: Keep hashtags and source links intact at the absolute bottom.
+1. **HOOK ENFORCEMENT**: The first line MUST be ≤8 words and wrapped in **double-asterisks**. If it's longer, rewrite it shorter and punchier. If it's missing bold markers, add them.
+2. **CUT RUTHLESSLY**: Remove ANY sentence that doesn't contain a technical term, tool name, specific claim, statistic, or strong opinion. Generic filler = DELETE.
+3. **FLATTEN THE TONE**: If ANY sentence sounds like a corporate marketing pitch, rewrite it to be dry, blunt, and practitioner-first. Replace "organizations should consider" with "patch it or get breached."
+4. **BANNED WORD ENFORCEMENT**: Delete or rewrite any sentence containing: "Seamless", "Game-changer", "Revolutionize", "Leverage", "Crucial", "Robust", "Holistic", "Landscape", "Navigate", "Paradigm", "Cutting-edge", "State-of-the-art", "In an era", "The reality is", "It goes without saying", "Notably", "Moving forward", "Comprehensive", "Furthermore", "Essentially", "Ultimately".
+5. **VARY SENTENCE LENGTH**: Ruthlessly enforce mixed lengths. Insert 3-word sentences. Break up any sentence longer than 25 words into two.
+6. **NO CONCLUSION PARAGRAPHS**: Delete any concluding summary. The post must end on the CTA, a bold prediction, or a raw takeaway.
+7. **PRESERVE PREMIUM DESIGN**: Do NOT remove **bolded** headers, technical terms, the `━━━━━━━━━━━━━━` separator, or premium icons (▸, ⚡, 🛡️).
+8. **PRESERVE EXTRAS**: Keep hashtags and source links intact at the absolute bottom.
+9. **DEPTH & LENGTH**: Ensure the post stays within **280-350 words**. If it's too short, expand the technical 'why' or add a micro-story. If it's too long, trim the least impactful sentences.
 
 POST TO REVIEW:
 {post_text}
 
 Output ONLY the improved, finalized post text."""
 
-    print("[INFO] Performing Multi-Model Sense Check...")
+    print("[INFO] Performing Hardened Sense Check (Pass 2/3)...")
     try:
-        verified_text = _call_groq_with_retries(sense_check_prompt, temperature=0.7)
+        verified_text = _call_groq_with_retries(sense_check_prompt, temperature=0.4)
         print("[SUCCESS] Sense Check complete.")
         return verified_text
     except Exception as e:
         print(f"[WARN] Sense Check failed ({e}). Using original post.")
+        return post_text
+
+
+def final_polish(post_text: str) -> str:
+    """Third pass: deduplication, compliance check, and power-closing enforcement."""
+    
+    polish_prompt = f"""You are a LinkedIn Algorithm Optimization Specialist. This post has already been written and edited. Your ONLY job is a final quality-assurance pass.
+
+RULES (do NOT rewrite the post — only make surgical fixes):
+1. **DEDUPLICATION**: If two paragraphs express the same idea in different words, merge them or delete the weaker one.
+2. **HOOK VERIFY**: Confirm the first line is ≤8 words and **bolded**. If not, fix it.
+3. **CLOSING VERIFY**: The last line before hashtags must be a bold prediction OR a polarizing question. If it's generic ("Stay safe out there"), replace it with something sharp and specific.
+4. **WORD COUNT**: Count the words (excluding hashtags and source link). If under 280, add a 2-sentence practitioner anecdote. If over 350, trim the weakest paragraph.
+5. **DATA CHECK**: Verify at least one concrete number/statistic/CVE exists in the body. If not, flag it by adding "[NEEDS DATA]" at the top (this will alert the pipeline).
+6. **PRESERVE**: Do not change hashtags, source links, formatting markers, or separators.
+
+POST:
+{post_text}
+
+Output ONLY the polished post text."""
+
+    print("[INFO] Performing Final Polish (Pass 3/3)...")
+    try:
+        polished = _call_groq_with_retries(polish_prompt, temperature=0.3)
+        print("[SUCCESS] Final Polish complete.")
+        return polished
+    except Exception as e:
+        print(f"[WARN] Final Polish failed ({e}). Using sense-checked post.")
         return post_text
 
 
@@ -285,12 +328,31 @@ def main():
         else:
             content_to_use = get_news_context()
 
-    # Step 2: Generate post
-    print(f"\n[INFO] Generating {get_style_for_display()} post...")
-    raw_post_text = generate_post(content_to_use, is_custom=is_custom, is_cve=is_cve, is_knowledge=is_knowledge)
+    # Step 2: Fetch Semantic Context and GitHub Tools
+    print("[INFO] Fetching semantic memory and tool recommendations...")
+    # Extract keywords from the content to search memory and GitHub
+    keywords = extract_keywords(content_to_use[:500])
     
-    # Step 2.5: Sense Check & Image Prompt
+    # Get Tool of the Day
+    github_repo = None
+    if keywords:
+        github_repo = fetch_top_github_repo(keywords[0]) # Use the first significant keyword
+        
+    # Get Past Perspectives from memory
+    past_posts = search_memory(keywords, top_k=3)
+    
+    # Step 3: Generate post
+    print(f"\n[INFO] Generating {get_style_for_display()} post...")
+    raw_post_text = generate_post(content_to_use, is_custom=is_custom, is_cve=is_cve, 
+                                 is_knowledge=is_knowledge, github_repo=github_repo, 
+                                 past_posts=past_posts)
+    
+    # Step 3.5: Sense Check & Image Prompt
     final_post_text = verify_post(raw_post_text)
+    
+    # Step 3.6: Final Polish (Pass 3/3 — dedup, compliance, power-closing)
+    final_post_text = final_polish(final_post_text)
+    
     image_prompt = generate_image_prompt(final_post_text)
 
     # Step 2.6: Log to history (extracting the main topic/link)

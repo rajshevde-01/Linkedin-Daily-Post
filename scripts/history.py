@@ -2,6 +2,7 @@ import json
 import os
 from pathlib import Path
 from datetime import datetime, timedelta
+from memory import add_to_memory, extract_keywords
 
 HISTORY_FILE = Path(__file__).parent.parent / "history.json"
 
@@ -78,5 +79,9 @@ def add_post_to_history(post_id, title, link, content):
     # Also update legacy lists for duplication check
     history["titles"].append(entry["title"])
     history["links"].append(link)
+    
+    # NEW: Add to Semantic Memory for long-term recall
+    keywords = extract_keywords(title + " " + content[:200])
+    add_to_memory(post_id, title, keywords)
     
     save_history(history)

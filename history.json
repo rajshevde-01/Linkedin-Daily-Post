@@ -33,7 +33,8 @@
     "**logs compromised**. ransomware attacks are targeting **hardware security** vulnerabilities. we're",
     "**zero trust is broken**. **mikrotik** routers are under attack.",
     "**gpo abuse is rampant**.",
-    "**ransomware surges**"
+    "**ransomware surges**",
+    "**logs didn't match.**"
   ],
   "links": [
     "https://thehackernews.com/2026/03/hive0163-uses-ai-assisted-slopoly.html",
@@ -69,8 +70,9 @@
     "https://www.cisa.gov/uscert/ncas/alerts/2024",
     "",
     "",
-    ""
+    "",
+    "https://thehackernews.com/2026/05/cybercrime-groups-using-vishing-and-sso.html"
   ],
-  "last_updated": "2026-05-04 12:32:09",
+  "last_updated": "2026-05-04 07:23:14",
   "posts": []
 }

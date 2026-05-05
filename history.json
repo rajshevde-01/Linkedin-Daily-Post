@@ -34,7 +34,8 @@
     "**zero trust is broken**. **mikrotik** routers are under attack.",
     "**gpo abuse is rampant**.",
     "**ransomware surges**",
-    "**logs didn't match.**"
+    "**logs didn't match.**",
+    "**time's up**. 12 minutes to exfiltration."
   ],
   "links": [
     "https://thehackernews.com/2026/03/hive0163-uses-ai-assisted-slopoly.html",
@@ -71,8 +72,9 @@
     "",
     "",
     "",
-    "https://thehackernews.com/2026/05/cybercrime-groups-using-vishing-and-sso.html"
+    "https://thehackernews.com/2026/05/cybercrime-groups-using-vishing-and-sso.html",
+    "https://thehackernews.com/2026/05/cisa-adds-actively-exploited-linux-root.html"
   ],
-  "last_updated": "2026-05-04 07:23:14",
+  "last_updated": "2026-05-05 05:28:05",
   "posts": []
 }

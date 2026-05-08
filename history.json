@@ -37,7 +37,8 @@
     "**logs didn't match.**",
     "**time's up**. 12 minutes to exfiltration.",
     "**time's up**. 12 minutes to exfiltration.",
-    "**breach imminent**"
+    "**breach imminent**",
+    "**cve alert issued.**"
   ],
   "links": [
     "https://thehackernews.com/2026/03/hive0163-uses-ai-assisted-slopoly.html",
@@ -77,8 +78,9 @@
     "https://thehackernews.com/2026/05/cybercrime-groups-using-vishing-and-sso.html",
     "https://thehackernews.com/2026/05/cisa-adds-actively-exploited-linux-root.html",
     "https://www.darkreading.com/threat-intelligence/exploit-cyber-frenzy-critical-cpanel-vulnerability",
-    "https://www.darkreading.com/cyberattacks-data-breaches/trellix-source-code-breach-supply-chain-threats"
+    "https://www.darkreading.com/cyberattacks-data-breaches/trellix-source-code-breach-supply-chain-threats",
+    "https://thehackernews.com/2026/05/ivanti-epmm-cve-2026-6973-rce-under.html"
   ],
-  "last_updated": "2026-05-07 05:46:43",
+  "last_updated": "2026-05-08 05:16:47",
   "posts": []
 }

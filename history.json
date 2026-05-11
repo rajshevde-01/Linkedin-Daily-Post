@@ -40,7 +40,8 @@
     "**breach imminent**",
     "**cve alert issued.**",
     "**system breached.**",
-    "**logs lied**."
+    "**logs lied**.",
+    "**cybersecurity fails**. 12 minutes to exfiltration."
   ],
   "links": [
     "https://thehackernews.com/2026/03/hive0163-uses-ai-assisted-slopoly.html",
@@ -83,8 +84,9 @@
     "https://www.darkreading.com/cyberattacks-data-breaches/trellix-source-code-breach-supply-chain-threats",
     "https://thehackernews.com/2026/05/ivanti-epmm-cve-2026-6973-rce-under.html",
     "https://thehackernews.com/2026/05/linux-kernel-dirty-frag-lpe-exploit.html",
-    "https://www.darkreading.com/cloud-security/teampcp-malware-pcpjack-steals-cloud-secrets"
+    "https://www.darkreading.com/cloud-security/teampcp-malware-pcpjack-steals-cloud-secrets",
+    "https://thehackernews.com/2026/05/one-click-total-shutdown-patient-zero.html"
   ],
-  "last_updated": "2026-05-10 05:49:37",
+  "last_updated": "2026-05-11 06:13:46",
   "posts": []
 }

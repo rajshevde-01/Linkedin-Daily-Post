@@ -42,7 +42,8 @@
     "**system breached.**",
     "**logs lied**.",
     "**cybersecurity fails**. 12 minutes to exfiltration.",
-    "**zero-day hit**"
+    "**zero-day hit**",
+    "**logs didn't match.**"
   ],
   "links": [
     "https://thehackernews.com/2026/03/hive0163-uses-ai-assisted-slopoly.html",
@@ -87,8 +88,9 @@
     "https://thehackernews.com/2026/05/linux-kernel-dirty-frag-lpe-exploit.html",
     "https://www.darkreading.com/cloud-security/teampcp-malware-pcpjack-steals-cloud-secrets",
     "https://thehackernews.com/2026/05/one-click-total-shutdown-patient-zero.html",
-    "https://thehackernews.com/2026/05/hackers-used-ai-to-develop-first-known.html"
+    "https://thehackernews.com/2026/05/hackers-used-ai-to-develop-first-known.html",
+    "https://www.bleepingcomputer.com/news/microsoft/microsoft-may-2026-patch-tuesday-fixes-120-flaws-no-zero-days/"
   ],
-  "last_updated": "2026-05-12 05:53:05",
+  "last_updated": "2026-05-13 06:03:12",
   "posts": []
 }

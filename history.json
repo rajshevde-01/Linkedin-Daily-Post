@@ -44,6 +44,7 @@
     "**cybersecurity fails**. 12 minutes to exfiltration.",
     "**zero-day hit**",
     "**logs didn't match.**",
+    "**logs are fake.**",
     "**logs are fake.**"
   ],
   "links": [
@@ -91,8 +92,9 @@
     "https://thehackernews.com/2026/05/one-click-total-shutdown-patient-zero.html",
     "https://thehackernews.com/2026/05/hackers-used-ai-to-develop-first-known.html",
     "https://www.bleepingcomputer.com/news/microsoft/microsoft-may-2026-patch-tuesday-fixes-120-flaws-no-zero-days/",
-    "https://www.darkreading.com/cloud-security/hugging-face-packages-weaponized-single-file-tweak"
+    "https://www.darkreading.com/cloud-security/hugging-face-packages-weaponized-single-file-tweak",
+    "https://thehackernews.com/2026/05/cisco-catalyst-sd-wan-controller-auth.html"
   ],
-  "last_updated": "2026-05-14 06:02:35",
+  "last_updated": "2026-05-15 06:09:20",
   "posts": []
 }

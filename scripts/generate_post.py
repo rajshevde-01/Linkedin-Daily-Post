@@ -22,7 +22,8 @@ from config import (
     get_system_prompt, 
     get_image_system_prompt,
     POST_MIN_WORDS, 
-    POST_MAX_WORDS
+    POST_MAX_WORDS,
+    POST_ABSOLUTE_MIN
 )
 from fetch_news import get_news_context, get_raw_articles, format_news_context
 from fetch_cve import get_cve_context
@@ -80,15 +81,35 @@ def _call_groq_with_retries(prompt: str, temperature: float = 0.7) -> str:
 def generate_post(content: str, is_custom: bool = False, is_cve: bool = False, 
                   is_knowledge: bool = False, github_repo: dict = None, 
                   past_posts: list = None) -> str:
-    """Generate a LinkedIn post using Groq API."""
-    system_prompt = get_system_prompt(content, is_custom=is_custom, is_cve=is_cve, 
-                                     is_knowledge=is_knowledge, github_repo=github_repo, 
-                                     past_posts=past_posts)
-    try:
-        return _call_groq_with_retries(system_prompt, temperature=0.7)
-    except Exception as e:
-        print(f"\n[FATAL] Post generation failed: {e}")
-        sys.exit(1)
+    """Generate a LinkedIn post using Groq API with word count enforcement."""
+    max_attempts = 3
+    
+    for attempt in range(1, max_attempts + 1):
+        system_prompt = get_system_prompt(content, is_custom=is_custom, is_cve=is_cve, 
+                                         is_knowledge=is_knowledge, github_repo=github_repo, 
+                                         past_posts=past_posts)
+        try:
+            post_text = _call_groq_with_retries(system_prompt, temperature=0.7)
+        except Exception as e:
+            print(f"\n[FATAL] Post generation failed: {e}")
+            sys.exit(1)
+        
+        word_count = len(post_text.split())
+        print(f"[INFO] Attempt {attempt}/{max_attempts}: Generated {word_count} words")
+        
+        if word_count >= POST_ABSOLUTE_MIN:
+            if word_count < POST_MIN_WORDS:
+                print(f"[WARN] Post is {word_count} words (target: {POST_MIN_WORDS}-{POST_MAX_WORDS}). Slightly short but acceptable.")
+            return post_text
+        
+        print(f"[WARN] Post is only {word_count} words (minimum: {POST_ABSOLUTE_MIN}). {'Retrying...' if attempt < max_attempts else 'Using best attempt.'}")
+        
+        if attempt == max_attempts:
+            # On final attempt, if still too short, try to salvage
+            print(f"[WARN] All {max_attempts} attempts produced short posts. Using last attempt ({word_count} words).")
+            return post_text
+    
+    return post_text
 
 
 def verify_post(post_text: str) -> str:

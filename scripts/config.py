@@ -24,19 +24,24 @@ LINKEDIN_PERSON_URN = os.environ.get("LINKEDIN_PERSON_URN", "")  # e.g., "urn:li
 # Tier 2: Dedicated Threat Intel and Forensics
 # Tier 3: Focused blogs and communities
 RSS_FEEDS = [
-    # Tier 1 — Broad Cybersecurity News
+    # Tier 1 — Broad Cybersecurity News (High volume, trusted)
     {"url": "https://feeds.feedburner.com/TheHackersNews", "name": "The Hacker News", "tier": 1},
     {"url": "https://www.bleepingcomputer.com/feed/", "name": "BleepingComputer", "tier": 1},
     {"url": "https://www.darkreading.com/rss.xml", "name": "Dark Reading", "tier": 1},
+    {"url": "https://www.securityweek.com/feed/", "name": "SecurityWeek", "tier": 1},
 
-    # Tier 2 — Threat Intel & Forensics
+    # Tier 2 — Threat Intel, Forensics & Global Coverage
     {"url": "https://www.cisa.gov/uscert/ncas/current-activity.xml", "name": "CISA Current Activity", "tier": 2},
     {"url": "https://krebsonsecurity.com/feed/", "name": "Krebs on Security", "tier": 2},
     {"url": "https://www.cybersecuritydive.com/feeds/news/", "name": "Cybersecurity Dive", "tier": 2},
+    {"url": "https://therecord.media/feed", "name": "The Record by Recorded Future", "tier": 2},
+    {"url": "https://securityaffairs.com/feed", "name": "Security Affairs", "tier": 2},
+    {"url": "https://feeds.feedburner.com/SCMagazineHome", "name": "SC Media", "tier": 2},
 
     # Tier 3 — Expert Blogs & Deep Tech
     {"url": "https://portswigger.net/daily-swig/rss", "name": "The Daily Swig", "tier": 3},
     {"url": "https://news.ycombinator.com/rss", "name": "Hacker News (YC)", "tier": 3},
+    {"url": "https://www.schneier.com/feed/atom/", "name": "Schneier on Security", "tier": 3},
 ]
 
 # --- Day-of-Week Rotation ---
@@ -63,6 +68,7 @@ DAY_NAMES = {
 # --- Post Settings ---
 POST_MIN_WORDS = 280
 POST_MAX_WORDS = 350  # Targeted for 280-350 word "10x Premium" depth
+POST_ABSOLUTE_MIN = 250  # Hard floor — posts below this are auto-rejected
 
 
 
@@ -163,11 +169,11 @@ Today is {day_name}, so the post style MUST be: {style}
 {content}{tool_context}{memory_context}
 
 STRICT RULES:
-- Length: {POST_MIN_WORDS}-{POST_MAX_WORDS} words (STRICTLY aim for 280-350 for deep premium technical insight. Going UNDER 280 = REJECTION.)
+- Length: {POST_MIN_WORDS}-{POST_MAX_WORDS} words. THIS IS NON-NEGOTIABLE. Count your words carefully. You MUST write a FULL, DETAILED post of at least 280 words. Posts under 250 words are AUTOMATICALLY DELETED. Do NOT write a skeletal outline — write complete sentences, full paragraphs, and technical depth. A 50-word post = IMMEDIATE REJECTION.
 - **MULTI-LAYER HOOK (Lines 1-3)**: Your opening must be a 3-line micro-narrative arc:
-  Line 1: A bold, jarring statement under 8 words, wrapped in **double-asterisks** (e.g., **The logs didn't match the traffic.**)
-  Line 2: A single follow-up sentence that adds intrigue or stakes (e.g., "We had 12 minutes before exfiltration.")
-  Line 3: A pivoting question or context-setter that pulls the reader in.
+  Line 1: A bold, jarring statement under 8 words, wrapped in **double-asterisks**. Be ORIGINAL — DO NOT reuse any of these examples: "The logs didn't match", "12 minutes", "exfiltrate", "4 AM", "Coffee is cold". Instead, invent a hook rooted in THIS SPECIFIC news story.
+  Line 2: A single follow-up sentence with a UNIQUE, SPECIFIC consequence or metric drawn from the actual news. Never use generic filler.
+  Line 3: A pivoting question or context-setter that pulls the reader into the specific topic.
 - **DATA ANCHORING (MANDATORY)**: Every post MUST include at least ONE real statistic, CVE ID, percentage, tool version, or quantified claim from the news context. Vague posts with zero numbers = REJECTION.
 - **CONTRAST FRAMEWORK**: Include an explicit "What most teams assume" vs "What actually happens" contrast somewhere in the body. This drives engagement through cognitive dissonance.
 - **MICRO-STORY**: Include at least one 2-sentence anecdote using "I", "Our team", or "Last week" — even a fabricated-sounding practitioner vignette that grounds the insight in lived experience.
@@ -175,17 +181,17 @@ STRICT RULES:
 - **NO GREETINGS**: Never use "Hey LinkedIn", "Happy Monday", or "In today's cyber landscape".
 - HASHTAGS: At the very end of your response, add exactly 3 to 5 highly relevant hashtags.
 - TOOL OF THE DAY: If a TOOL OF THE DAY is provided in the content above, you MUST include a dedicated '🛠️ Tool Recommendation' section with its name and stars near the bottom (before the hashtags), explaining concisely why it's relevant to this topic.
-- DESIGN V3: Ensure you use the solid `━━━━━━━━━━━━━━` separator before the tool recommendation or link sections.
+- DESIGN V3: Ensure you use the standard `---` separator before the tool recommendation or link sections.
 - NO phrases like "In today's digital landscape", "In conclusion", or "Delving into"
 - DO NOT mention AI or that this was generated
 - Write in first person ("I", "we", "our team")
 
 DESIGN & STRUCTURE RULES (V3 PREMIUM):
-- **SECTION HEADERS**: Use bolded headers with icons for a premium magazine/newsletter feel (e.g., **🛡️ THE DEFENSE BRIEF**, **⚡ TECHNICAL RADIANCE**, **▸ KEY ARCHITECTURE**).
-- **BOLDING**: Every single technical entity, tool name, CVE ID, or specialized concept MUST be wrapped in **double-asterisks** (e.g., **Zero-Trust**, **CISA**, **ADDS**, **Kubernetes**). This creates a high-density 'expert' visual look.
+- **SECTION HEADERS**: Use bolded headers with universally supported emojis (e.g., **✅ THE DEFENSE BRIEF**, **⚠️ TECHNICAL RADIANCE**, **📌 KEY ARCHITECTURE**).
+- **BOLDING**: Every single technical entity, tool name, CVE ID, or specialized concept MUST be wrapped in standard markdown **double-asterisks** (e.g., **Zero-Trust**, **CISA**, **ADDS**). Do NOT generate mathematical bold unicode fonts, as they appear as boxes.
 - **THE HOOK**: The first line MUST be bolded and extremely short.
-- **SEPARATORS**: Use the solid visual divider `━━━━━━━━━━━━━━` to separate the main narrative from the 'Tool of the Day' or 'Executive CTA'.
-- **BULLETS**: Use ONLY premium icons (▸, ⚡, 🛡️, 🔗). Never use - or *.
+- **SEPARATORS**: Use standard dashes `---` to separate the main narrative from the 'Tool of the Day' or 'Executive CTA'. Avoid obscure unicode line-drawing characters.
+- **BULLETS**: Use ONLY standard bullet points (•) or universally supported emojis (✅, ⚠️, 📌). Never use obscure unicode characters, keycap emojis (like 1️⃣), or mathematical fonts, as they render as missing boxes on LinkedIn.
 - **SPACING**: Strictly use double newlines between blocks. No wall of text.
 
 VOCABULARY & FLOW RULES:
@@ -197,7 +203,7 @@ VOCABULARY & FLOW RULES:
 CREATIVITY & TONE RULES:
 - AVOID sounding like a generic corporate thought leader. Write like a real practitioner talking to a colleague on Slack, or writing a personal developer blog.
 - Vary your sentence length dramatically. Use powerful 3-word sentences. Then use longer, flowing explanatory sentences. Disrupt the typical "AI cadence" by being punchy and unpredictable.
-- **LENGTH**: You MUST hit the 280-350 word range. If you are under, expand on the technical 'How', add a '🛡️ Operational Checklist' section, or deepen the contrast framework.
+- **LENGTH**: You MUST hit the 280-350 word range. THIS IS THE SINGLE MOST IMPORTANT RULE. If your draft is under 280 words, you MUST expand it before outputting. Add technical analysis of the 'How' and 'Why', include a '🛡️ Operational Checklist' section, deepen the contrast framework, or add a practitioner micro-story. A post under 250 words is an AUTOMATIC FAILURE.
 - **CTAs**: End with a bold prediction or polarizing either/or question. Never use generic 'hope this helps' or 'what do you think?' fluff.
 - **BANNED WORDS**: "Seamless", "Game-changer", "Revolutionize", "Furthermore", "Essentially", "Ultimately", "Leverage", "Double-down", "Crucial", "Unlock", "Delve", "Embark", "Notably", "It's worth noting", "Moving forward", "Navigate", "Landscape", "Robust", "Holistic", "Paradigm", "Cutting-edge", "State-of-the-art", "In an era", "The reality is", "It goes without saying", "At the end of the day", "Comprehensive".
 - Emojis are allowed, but do NOT force a specific number. Use them organically where they fit the specific style below.
@@ -205,7 +211,7 @@ CREATIVITY & TONE RULES:
 
     format_1 = """DESIGN & FORMATTING RULE (The "War Story"):
 - Style: A dramatic, first-person narrative. Almost like a journal entry or a post-mortem 'bridge' call.
-- Opening: Drop the reader immediately into an active crisis (e.g., "The logs didn't match the traffic. I knew we were in trouble." or "4 AM. Coffee is cold. Tunneling is failing.").
+- Opening: Drop the reader immediately into an active crisis. Be ORIGINAL — invent a unique scenario tied to THIS story's specific vulnerability or attack vector. NEVER reuse "The logs didn't match" or "4 AM. Coffee is cold" — those are overused.
 - Formatting: Short, punchy paragraphs. ZERO bullet points. Use em-dashes (—) for dramatic breaks.
 - Tone: Exhausted, technical, but authoritative. Speak like you've seen it all.
 - Practitioner Vernacular: Use terms like 'IOCs', 'Lateral Movement', 'Kill Chain', 'Off-net', 'Persistence'.
@@ -238,7 +244,7 @@ CREATIVITY & TONE RULES:
     format_5 = """DESIGN & FORMATTING RULE (The "Poll for Change"):
 - Style: Provocative question based on a real-world architectural trade-off.
 - Opening: Pose a specific 'Trolley Problem' for security (e.g., "You have 1 hour until the deadline. Do you [Option A] or [Option B]?").
-- Formatting: State the scenario briefly. List 3 numbered options.
+- Formatting: State the scenario briefly. List 3 standard numbered options (e.g., "1.", "2.", "3."). Do NOT use keycap emojis.
 - Tone: Collaborative and curious. No 'right' answer provided.
 """
 
@@ -259,7 +265,8 @@ CREATIVITY & TONE RULES:
 - DO NOT invent statistics, company names, or incident details
 - If you cite a number or percentage, it must come directly from the provided news context
 - If the news context is insufficient or irrelevant to today's theme, write the post based on general well-known tech principles, open-source knowledge, and your practitioner experience — do NOT fabricate specific events
-- When in doubt, be general and insightful rather than specific and fabricated.
+- When in doubt, be general and insightful rather than specific and fabricated
+- WRITE ABOUT REAL, CURRENT WORLDWIDE CYBERSECURITY NEWS. The news context above contains stories from today's top cybersecurity sources (The Hacker News, BleepingComputer, Dark Reading, Krebs on Security, CISA). Use them. Your post must feel timely and globally relevant.
 
 SOURCE LINK REQUIREMENT:
 - You MUST include a source link at the absolute bottom of the post.
@@ -291,15 +298,16 @@ SOURCE LINK REQUIREMENT:
 """
 
     final_reminders = """
-🚨 ABSOLUTE CRITICAL REMINDERS (FAILING THESE RISKS REJECTION):
-1. **MULTI-LAYER HOOK**: The FIRST 3 LINES must form a micro-narrative arc (bold statement → stakes → pull). Line 1 MUST be ≤8 words and wrapped in **bold**.
-2. **DATA ANCHOR**: You MUST include at least one real number, percentage, CVE ID, or quantified claim. Zero data = REJECTION.
-3. **CONTRAST**: Include a "What most teams think" vs "What actually happens" moment.
-4. **POWER CLOSING**: End with a bold prediction or polarizing either/or question. NOT "What do you think?"
-5. **HASHTAGS**: You MUST append 3-5 hyper-specific hashtags to the very bottom (e.g., #ZeroTrust).
-6. **STRUCTURE**: Single sentences or short paragraphs only. Wide line breaks for mobile readability.
-7. **SOURCE LINK**: If reporting news, you MUST include "🔗 Source: [URL]" at the absolute bottom.
-8. **WORD COUNT**: Strictly 280-350 words. Under 280 = REJECTION.
+🚨 ABSOLUTE CRITICAL REMINDERS (FAILING THESE = AUTOMATIC REJECTION):
+1. **WORD COUNT IS #1 PRIORITY**: You MUST write 280-350 words of SUBSTANTIVE content. Count carefully before submitting. Under 250 = DELETED. Under 280 = REJECTION. A post with only 50-80 words is a CATASTROPHIC FAILURE. Write FULL paragraphs with technical depth.
+2. **MULTI-LAYER HOOK**: The FIRST 3 LINES must form a micro-narrative arc (bold statement → stakes → pull). Line 1 MUST be ≤8 words and wrapped in **bold**. BE ORIGINAL — never copy prompt examples.
+3. **DATA ANCHOR**: You MUST include at least one real number, percentage, CVE ID, or quantified claim. Zero data = REJECTION.
+4. **CONTRAST**: Include a "What most teams think" vs "What actually happens" moment.
+5. **POWER CLOSING**: End with a bold prediction or polarizing either/or question. NOT "What do you think?"
+6. **HASHTAGS**: You MUST append 3-5 hyper-specific hashtags to the very bottom (e.g., #ZeroTrust).
+7. **STRUCTURE**: Single sentences or short paragraphs only. Wide line breaks for mobile readability. But NEVER sacrifice depth for brevity — short paragraphs doesn't mean short post.
+8. **SOURCE LINK**: If reporting news, you MUST include "🔗 Source: [URL]" at the absolute bottom.
+9. **WORLDWIDE NEWS**: Write about REAL, CURRENT cybersecurity events happening globally. Your post should reflect what's actually trending in the cybersecurity world TODAY.
 
 Output ONLY the raw LinkedIn post. No preamble, no closing remarks, no meta-text.
 """

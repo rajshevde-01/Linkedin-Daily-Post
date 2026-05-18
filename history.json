@@ -47,7 +47,8 @@
     "**logs are fake.**",
     "**logs are fake.**",
     "**root access lost**",
-    "**breached in 5 minutes**"
+    "**breached in 5 minutes**",
+    "**big money**"
   ],
   "links": [
     "https://thehackernews.com/2026/03/hive0163-uses-ai-assisted-slopoly.html",
@@ -97,8 +98,9 @@
     "https://www.darkreading.com/cloud-security/hugging-face-packages-weaponized-single-file-tweak",
     "https://thehackernews.com/2026/05/cisco-catalyst-sd-wan-controller-auth.html",
     "https://www.securityweek.com/new-linux-kernel-vulnerability-fragnesia-allows-root-privilege-escalation/",
-    "https://github.com/infosecn1nja/Red-Teaming-Toolkit"
+    "https://github.com/infosecn1nja/Red-Teaming-Toolkit",
+    "https://www.securityweek.com/hackers-earn-1-3-million-at-pwn2own-berlin-2026/"
   ],
-  "last_updated": "2026-05-17 06:01:08",
+  "last_updated": "2026-05-18 06:37:59",
   "posts": []
 }

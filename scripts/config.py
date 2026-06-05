@@ -66,9 +66,9 @@ DAY_NAMES = {
 }
 
 # --- Post Settings ---
-POST_MIN_WORDS = 280
-POST_MAX_WORDS = 350  # Targeted for 280-350 word "10x Premium" depth
-POST_ABSOLUTE_MIN = 250  # Hard floor — posts below this are auto-rejected
+POST_MIN_WORDS = 200
+POST_MAX_WORDS = 400  # Targeted for 200-400 word range
+POST_ABSOLUTE_MIN = 180  # Hard floor — posts below this are auto-rejected
 
 
 
@@ -169,7 +169,7 @@ Today is {day_name}, so the post style MUST be: {style}
 {content}{tool_context}{memory_context}
 
 STRICT RULES:
-- Length: {POST_MIN_WORDS}-{POST_MAX_WORDS} words. THIS IS NON-NEGOTIABLE. Count your words carefully. You MUST write a FULL, DETAILED post of at least 280 words. Posts under 250 words are AUTOMATICALLY DELETED. Do NOT write a skeletal outline — write complete sentences, full paragraphs, and technical depth. A 50-word post = IMMEDIATE REJECTION.
+- Length: {POST_MIN_WORDS}-{POST_MAX_WORDS} words. THIS IS NON-NEGOTIABLE. Count your words carefully. You MUST write a FULL, DETAILED post of at least 200 words but no more than 400 words. Posts under 180 words are AUTOMATICALLY DELETED. Posts over 400 words are AUTOMATICALLY TRIMMED. Do NOT write a skeletal outline — write complete sentences, full paragraphs, and technical depth. A 50-word post = IMMEDIATE REJECTION.
 - **MULTI-LAYER HOOK (Lines 1-3)**: Your opening must be a 3-line micro-narrative arc:
   Line 1: A bold, jarring statement under 8 words, wrapped in **double-asterisks**. Be ORIGINAL — DO NOT reuse any of these examples: "The logs didn't match", "12 minutes", "exfiltrate", "4 AM", "Coffee is cold". Instead, invent a hook rooted in THIS SPECIFIC news story.
   Line 2: A single follow-up sentence with a UNIQUE, SPECIFIC consequence or metric drawn from the actual news. Never use generic filler.
@@ -203,7 +203,7 @@ VOCABULARY & FLOW RULES:
 CREATIVITY & TONE RULES:
 - AVOID sounding like a generic corporate thought leader. Write like a real practitioner talking to a colleague on Slack, or writing a personal developer blog.
 - Vary your sentence length dramatically. Use powerful 3-word sentences. Then use longer, flowing explanatory sentences. Disrupt the typical "AI cadence" by being punchy and unpredictable.
-- **LENGTH**: You MUST hit the 280-350 word range. THIS IS THE SINGLE MOST IMPORTANT RULE. If your draft is under 280 words, you MUST expand it before outputting. Add technical analysis of the 'How' and 'Why', include a '🛡️ Operational Checklist' section, deepen the contrast framework, or add a practitioner micro-story. A post under 250 words is an AUTOMATIC FAILURE.
+- **LENGTH**: You MUST hit the 200-400 word range. THIS IS THE SINGLE MOST IMPORTANT RULE. If your draft is under 200 words, you MUST expand it before outputting. If your draft exceeds 400 words, you MUST trim it. Add technical analysis of the 'How' and 'Why', include a '🛡️ Operational Checklist' section, deepen the contrast framework, or add a practitioner micro-story. A post under 180 words is an AUTOMATIC FAILURE.
 - **CTAs**: End with a bold prediction or polarizing either/or question. Never use generic 'hope this helps' or 'what do you think?' fluff.
 - **BANNED WORDS**: "Seamless", "Game-changer", "Revolutionize", "Furthermore", "Essentially", "Ultimately", "Leverage", "Double-down", "Crucial", "Unlock", "Delve", "Embark", "Notably", "It's worth noting", "Moving forward", "Navigate", "Landscape", "Robust", "Holistic", "Paradigm", "Cutting-edge", "State-of-the-art", "In an era", "The reality is", "It goes without saying", "At the end of the day", "Comprehensive".
 - Emojis are allowed, but do NOT force a specific number. Use them organically where they fit the specific style below.
@@ -299,7 +299,7 @@ SOURCE LINK REQUIREMENT:
 
     final_reminders = """
 🚨 ABSOLUTE CRITICAL REMINDERS (FAILING THESE = AUTOMATIC REJECTION):
-1. **WORD COUNT IS #1 PRIORITY**: You MUST write 280-350 words of SUBSTANTIVE content. Count carefully before submitting. Under 250 = DELETED. Under 280 = REJECTION. A post with only 50-80 words is a CATASTROPHIC FAILURE. Write FULL paragraphs with technical depth.
+1. **WORD COUNT IS #1 PRIORITY**: You MUST write 200-400 words of SUBSTANTIVE content. Count carefully before submitting. Under 180 = DELETED. Under 200 = REJECTION. Over 400 = TRIM REQUIRED. A post with only 50-80 words is a CATASTROPHIC FAILURE. Write FULL paragraphs with technical depth.
 2. **MULTI-LAYER HOOK**: The FIRST 3 LINES must form a micro-narrative arc (bold statement → stakes → pull). Line 1 MUST be ≤8 words and wrapped in **bold**. BE ORIGINAL — never copy prompt examples.
 3. **DATA ANCHOR**: You MUST include at least one real number, percentage, CVE ID, or quantified claim. Zero data = REJECTION.
 4. **CONTRAST**: Include a "What most teams think" vs "What actually happens" moment.

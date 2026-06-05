@@ -128,7 +128,7 @@ STRICT EDITING RULES:
 6. **NO CONCLUSION PARAGRAPHS**: Delete any concluding summary. The post must end on the CTA, a bold prediction, or a raw takeaway.
 7. **PRESERVE PREMIUM DESIGN**: Do NOT remove **bolded** headers, technical terms, the `━━━━━━━━━━━━━━` separator, or premium icons (▸, ⚡, 🛡️).
 8. **PRESERVE EXTRAS**: Keep hashtags and source links intact at the absolute bottom.
-9. **DEPTH & LENGTH**: Ensure the post stays within **280-350 words**. If it's too short, expand the technical 'why' or add a micro-story. If it's too long, trim the least impactful sentences.
+9. **DEPTH & LENGTH**: Ensure the post stays within **200-400 words**. If it's too short, expand the technical 'why' or add a micro-story. If it's too long, trim the least impactful sentences.
 
 POST TO REVIEW:
 {post_text}
@@ -154,7 +154,7 @@ RULES (do NOT rewrite the post — only make surgical fixes):
 1. **DEDUPLICATION**: If two paragraphs express the same idea in different words, merge them or delete the weaker one.
 2. **HOOK VERIFY**: Confirm the first line is ≤8 words and **bolded**. If not, fix it.
 3. **CLOSING VERIFY**: The last line before hashtags must be a bold prediction OR a polarizing question. If it's generic ("Stay safe out there"), replace it with something sharp and specific.
-4. **WORD COUNT**: Count the words (excluding hashtags and source link). If under 280, add a 2-sentence practitioner anecdote. If over 350, trim the weakest paragraph.
+4. **WORD COUNT**: Count the words (excluding hashtags and source link). If under 200, add a 2-sentence practitioner anecdote. If over 400, trim the weakest paragraph.
 5. **DATA CHECK**: Verify at least one concrete number/statistic/CVE exists in the body. If not, flag it by adding "[NEEDS DATA]" at the top (this will alert the pipeline).
 6. **PRESERVE**: Do not change hashtags, source links, formatting markers, or separators.
 

@@ -8,7 +8,12 @@ def text_to_unicode_bold(text: str) -> str:
     Convert ASCII text to Unicode Mathematical Sans-Serif Bold.
     A-Z: U+1D5D4 - U+1D5ED
     a-z: U+1D5EE - U+1D607
-    0-9: U+1D7EC - U+1D7F5
+    
+    NOTE: Digits (0-9) are intentionally LEFT as plain ASCII.
+    LinkedIn does NOT render Mathematical Sans-Serif Bold digits
+    (U+1D7EC-U+1D7F5) — they appear as empty boxes or invisible
+    characters, which breaks CVE numbers (e.g., CVE-2025-5042)
+    and other critical numeric data.
     """
     if not text:
         return text
@@ -20,9 +25,8 @@ def text_to_unicode_bold(text: str) -> str:
             result += chr(codepoint + 120211)
         elif 97 <= codepoint <= 122:  # a-z
             result += chr(codepoint + 120205)
-        elif 48 <= codepoint <= 57:  # 0-9
-            result += chr(codepoint + 120796)
         else:
+            # Digits, hyphens, punctuation — keep as-is for LinkedIn compatibility
             result = result + char
     return result
 

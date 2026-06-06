@@ -46,7 +46,8 @@
     "**logs didn't match.**",
     "**logs are fake.**",
     "**logs are fake.**",
-    "**root access lost**"
+    "**root access lost**",
+    "**supply chain chaos**"
   ],
   "links": [
     "https://thehackernews.com/2026/03/hive0163-uses-ai-assisted-slopoly.html",
@@ -95,8 +96,9 @@
     "https://www.bleepingcomputer.com/news/microsoft/microsoft-may-2026-patch-tuesday-fixes-120-flaws-no-zero-days/",
     "https://www.darkreading.com/cloud-security/hugging-face-packages-weaponized-single-file-tweak",
     "https://thehackernews.com/2026/05/cisco-catalyst-sd-wan-controller-auth.html",
-    "https://www.securityweek.com/new-linux-kernel-vulnerability-fragnesia-allows-root-privilege-escalation/"
+    "https://www.securityweek.com/new-linux-kernel-vulnerability-fragnesia-allows-root-privilege-escalation/",
+    "https://thehackernews.com/2026/06/ironworm-and-new-miasma-worm-variant.html"
   ],
-  "last_updated": "2026-05-15 09:16:08",
+  "last_updated": "2026-06-06 06:08:07",
   "posts": []
 }

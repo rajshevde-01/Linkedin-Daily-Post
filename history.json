@@ -48,7 +48,8 @@
     "**logs are fake.**",
     "**root access lost**",
     "**supply chain chaos**",
-    "**zero-day alert**"
+    "**zero-day alert**",
+    "**supply chain breach**"
   ],
   "links": [
     "https://thehackernews.com/2026/03/hive0163-uses-ai-assisted-slopoly.html",
@@ -99,8 +100,9 @@
     "https://thehackernews.com/2026/05/cisco-catalyst-sd-wan-controller-auth.html",
     "https://www.securityweek.com/new-linux-kernel-vulnerability-fragnesia-allows-root-privilege-escalation/",
     "https://thehackernews.com/2026/06/ironworm-and-new-miasma-worm-variant.html",
-    "https://thehackernews.com/2026/06/cisa-adds-actively-exploited-solarwinds.html"
+    "https://thehackernews.com/2026/06/cisa-adds-actively-exploited-solarwinds.html",
+    "https://thehackernews.com/2026/06/miasma-worm-hits-73-microsoft-github.html"
   ],
-  "last_updated": "2026-06-07 06:48:33",
+  "last_updated": "2026-06-08 07:13:41",
   "posts": []
 }

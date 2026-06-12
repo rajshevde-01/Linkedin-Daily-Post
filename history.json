@@ -1,6 +1,5 @@
 {
   "titles": [
-    "exploit kits have returned, courtesy of darksword iphone's global targeting.",
     "zero-day vulnerabilities in darksword exploit kit hit iphone users in saudi arabia, turkey, malaysia",
     "polyshell flaw exposed. it's unauthenticated rce and account takeover on magento.",
     "darksword ios exploit chain now in wild, targeting claude users for data theft.",
@@ -49,10 +48,10 @@
     "**supply chain breach**",
     "**vpn breach imminent**",
     "**breach happens**. miasma supply chain worm hits 73 microsoft repositories.",
-    "**zero-day alert**"
+    "**zero-day alert**",
+    "**ransomware alert**"
   ],
   "links": [
-    "https://www.darkreading.com/cyberattacks-data-breaches/new-c2-implant-snappyclient-targets-crypto-wallets",
     "",
     "https://thehackernews.com/2026/03/magento-polyshell-flaw-enables.html",
     "https://www.darkreading.com/threat-intelligence/darksword-iphone-exploit-spies-thieves",
@@ -101,8 +100,9 @@
     "https://thehackernews.com/2026/06/miasma-worm-hits-73-microsoft-github.html",
     "https://thehackernews.com/2026/06/critical-check-point-vpn-flaw-exploited.html",
     "https://www.darkreading.com/application-security/miasma-supply-chain-worm-73-microsoft-repositories",
-    "https://www.bleepingcomputer.com/news/microsoft/microsoft-patches-exchange-server-zero-day-exploited-in-attacks/"
+    "https://www.bleepingcomputer.com/news/microsoft/microsoft-patches-exchange-server-zero-day-exploited-in-attacks/",
+    "https://www.cisa.gov/"
   ],
-  "last_updated": "2026-06-11 07:15:05",
+  "last_updated": "2026-06-12 07:05:11",
   "posts": []
 }

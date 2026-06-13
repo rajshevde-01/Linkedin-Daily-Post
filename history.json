@@ -1,6 +1,5 @@
 {
   "titles": [
-    "zero-day vulnerabilities in darksword exploit kit hit iphone users in saudi arabia, turkey, malaysia",
     "polyshell flaw exposed. it's unauthenticated rce and account takeover on magento.",
     "darksword ios exploit chain now in wild, targeting claude users for data theft.",
     "users are data thieves in google search results.",
@@ -49,10 +48,10 @@
     "**vpn breach imminent**",
     "**breach happens**. miasma supply chain worm hits 73 microsoft repositories.",
     "**zero-day alert**",
-    "**ransomware alert**"
+    "**ransomware alert**",
+    "**package hijacked**"
   ],
   "links": [
-    "",
     "https://thehackernews.com/2026/03/magento-polyshell-flaw-enables.html",
     "https://www.darkreading.com/threat-intelligence/darksword-iphone-exploit-spies-thieves",
     "https://www.darkreading.com/vulnerabilities-threats/claudy-day-trio-flaws-claude-users-data-theft",
@@ -101,8 +100,9 @@
     "https://thehackernews.com/2026/06/critical-check-point-vpn-flaw-exploited.html",
     "https://www.darkreading.com/application-security/miasma-supply-chain-worm-73-microsoft-repositories",
     "https://www.bleepingcomputer.com/news/microsoft/microsoft-patches-exchange-server-zero-day-exploited-in-attacks/",
-    "https://www.cisa.gov/"
+    "https://www.cisa.gov/",
+    "https://thehackernews.com/2026/06/over-400-arch-linux-aur-packages.html"
   ],
-  "last_updated": "2026-06-12 07:05:11",
+  "last_updated": "2026-06-13 06:38:33",
   "posts": []
 }

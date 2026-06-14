@@ -1,6 +1,5 @@
 {
   "titles": [
-    "polyshell flaw exposed. it's unauthenticated rce and account takeover on magento.",
     "darksword ios exploit chain now in wild, targeting claude users for data theft.",
     "users are data thieves in google search results.",
     "1 hour until the deadline. pay the ransom, and you still risk getting nothing back in return.",
@@ -49,10 +48,10 @@
     "**breach happens**. miasma supply chain worm hits 73 microsoft repositories.",
     "**zero-day alert**",
     "**ransomware alert**",
-    "**package hijacked**"
+    "**package hijacked**",
+    "**cyber war**"
   ],
   "links": [
-    "https://thehackernews.com/2026/03/magento-polyshell-flaw-enables.html",
     "https://www.darkreading.com/threat-intelligence/darksword-iphone-exploit-spies-thieves",
     "https://www.darkreading.com/vulnerabilities-threats/claudy-day-trio-flaws-claude-users-data-theft",
     "",
@@ -101,8 +100,9 @@
     "https://www.darkreading.com/application-security/miasma-supply-chain-worm-73-microsoft-repositories",
     "https://www.bleepingcomputer.com/news/microsoft/microsoft-patches-exchange-server-zero-day-exploited-in-attacks/",
     "https://www.cisa.gov/",
-    "https://thehackernews.com/2026/06/over-400-arch-linux-aur-packages.html"
+    "https://thehackernews.com/2026/06/over-400-arch-linux-aur-packages.html",
+    "https://github.com/cirosantilli/china-dictatorship"
   ],
-  "last_updated": "2026-06-13 06:38:33",
+  "last_updated": "2026-06-14 07:06:32",
   "posts": []
 }

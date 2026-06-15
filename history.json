@@ -1,6 +1,5 @@
 {
   "titles": [
-    "darksword ios exploit chain now in wild, targeting claude users for data theft.",
     "users are data thieves in google search results.",
     "1 hour until the deadline. pay the ransom, and you still risk getting nothing back in return.",
     "ransomware is being patched out of existence in 1 hour or less.",
@@ -49,10 +48,10 @@
     "**zero-day alert**",
     "**ransomware alert**",
     "**package hijacked**",
-    "**cyber war**"
+    "**cyber war**",
+    "**backdoored linux**"
   ],
   "links": [
-    "https://www.darkreading.com/threat-intelligence/darksword-iphone-exploit-spies-thieves",
     "https://www.darkreading.com/vulnerabilities-threats/claudy-day-trio-flaws-claude-users-data-theft",
     "",
     "",
@@ -101,8 +100,9 @@
     "https://www.bleepingcomputer.com/news/microsoft/microsoft-patches-exchange-server-zero-day-exploited-in-attacks/",
     "https://www.cisa.gov/",
     "https://thehackernews.com/2026/06/over-400-arch-linux-aur-packages.html",
-    "https://github.com/cirosantilli/china-dictatorship"
+    "https://github.com/cirosantilli/china-dictatorship",
+    "https://thehackernews.com/2026/06/china-linked-hackers-backdoored-linux.html"
   ],
-  "last_updated": "2026-06-14 07:06:32",
+  "last_updated": "2026-06-15 08:36:23",
   "posts": []
 }

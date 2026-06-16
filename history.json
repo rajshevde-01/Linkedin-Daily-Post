@@ -1,6 +1,5 @@
 {
   "titles": [
-    "users are data thieves in google search results.",
     "1 hour until the deadline. pay the ransom, and you still risk getting nothing back in return.",
     "ransomware is being patched out of existence in 1 hour or less.",
     "quantum key exchange can be broken in 5 hours.",
@@ -49,10 +48,10 @@
     "**ransomware alert**",
     "**package hijacked**",
     "**cyber war**",
-    "**backdoored linux**"
+    "**backdoored linux**",
+    "**data breach**"
   ],
   "links": [
-    "https://www.darkreading.com/vulnerabilities-threats/claudy-day-trio-flaws-claude-users-data-theft",
     "",
     "",
     "https://www.darkreading.com/cloud-security/post-quantum-web-could-be-safer-faster",
@@ -101,8 +100,9 @@
     "https://www.cisa.gov/",
     "https://thehackernews.com/2026/06/over-400-arch-linux-aur-packages.html",
     "https://github.com/cirosantilli/china-dictatorship",
-    "https://thehackernews.com/2026/06/china-linked-hackers-backdoored-linux.html"
+    "https://thehackernews.com/2026/06/china-linked-hackers-backdoored-linux.html",
+    "https://www.darkreading.com/application-security/copilot-searchleak-attack-1-click-data-theft"
   ],
-  "last_updated": "2026-06-15 08:36:23",
+  "last_updated": "2026-06-16 08:27:55",
   "posts": []
 }

@@ -1,6 +1,5 @@
 {
   "titles": [
-    "github's using ai to detect bugs.",
     "ransomware spreads in mere hours. most breaches are contained in under 24 hours thanks to novel rce",
     "**package compromised**. **axios npm package** is the latest victim.",
     "**breach detected**. weak identity management is the common thread.",
@@ -49,10 +48,10 @@
     "**undetected for a year**",
     "**zero-day alert**",
     "**ransomware reigns**",
-    "**cyber attacks**"
+    "**cyber attacks**",
+    "**ransomware hits**"
   ],
   "links": [
-    "https://www.bleepingcomputer.com/news/security/github-adds-ai-powered-bug-detection-to-expand-security-coverage/",
     "https",
     "https://www.darkreading.com/application-security/axios-npm-package-compromised-precision-attack",
     "https://www.cybersecuritynews.com/cve-2024-1234",
@@ -101,8 +100,9 @@
     "https://www.darkreading.com/threat-intelligence/china-nexus-actor-us-researchers-undetected",
     "https://thehackernews.com/2026/06/microsoft-confirms-rogueplanet-defender_02022423645.html",
     "",
-    "https://www.securityweek.com/splunk-enterprise-vulnerability-exploited-in-attacks-days-after-disclosure/"
+    "https://www.securityweek.com/splunk-enterprise-vulnerability-exploited-in-attacks-days-after-disclosure/",
+    "https://www.securityweek.com/15000-wordpress-websites-cleaned-up-in-socgholish-botnet-takedown/"
   ],
-  "last_updated": "2026-06-20 06:46:13",
+  "last_updated": "2026-06-21 07:16:19",
   "posts": []
 }

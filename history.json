@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**package compromised**. **axios npm package** is the latest victim.",
     "**breach detected**. weak identity management is the common thread.",
     "**ransomware strikes**. it's devastating. i've seen it.",
     "**over-privilege is a ticking bomb**.",
@@ -49,10 +48,10 @@
     "**ransomware reigns**",
     "**cyber attacks**",
     "**ransomware hits**",
-    "**vulnerable devices**"
+    "**vulnerable devices**",
+    "**squid proxy bug**"
   ],
   "links": [
-    "https://www.darkreading.com/application-security/axios-npm-package-compromised-precision-attack",
     "https://www.cybersecuritynews.com/cve-2024-1234",
     "https://www.example.com/cybersecurity-news",
     "https://www.darkreading.com/cyber-risk/googles-vertex-ai-over-privilege-problem",
@@ -101,8 +100,9 @@
     "",
     "https://www.securityweek.com/splunk-enterprise-vulnerability-exploited-in-attacks-days-after-disclosure/",
     "https://www.securityweek.com/15000-wordpress-websites-cleaned-up-in-socgholish-botnet-takedown/",
-    "https://thehackernews.com/2026/06/unpatchable-usbliter8-exploit-breaks.html"
+    "https://thehackernews.com/2026/06/unpatchable-usbliter8-exploit-breaks.html",
+    "https://thehackernews.com/2026/06/29-year-old-squid-proxy-bug-squidbleed.html"
   ],
-  "last_updated": "2026-06-22 08:39:05",
+  "last_updated": "2026-06-23 06:32:18",
   "posts": []
 }

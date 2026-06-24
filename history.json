@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**breach detected**. weak identity management is the common thread.",
     "**ransomware strikes**. it's devastating. i've seen it.",
     "**over-privilege is a ticking bomb**.",
     "**logs are lying**. we're in trouble. **shift-left** issue. not integrated from the start.",
@@ -49,10 +48,10 @@
     "**cyber attacks**",
     "**ransomware hits**",
     "**vulnerable devices**",
-    "**squid proxy bug**"
+    "**squid proxy bug**",
+    "**ransomware reigns**. 1.4 million breached."
   ],
   "links": [
-    "https://www.cybersecuritynews.com/cve-2024-1234",
     "https://www.example.com/cybersecurity-news",
     "https://www.darkreading.com/cyber-risk/googles-vertex-ai-over-privilege-problem",
     "https://www.example.com/latest-threat-intelligence",
@@ -101,8 +100,9 @@
     "https://www.securityweek.com/splunk-enterprise-vulnerability-exploited-in-attacks-days-after-disclosure/",
     "https://www.securityweek.com/15000-wordpress-websites-cleaned-up-in-socgholish-botnet-takedown/",
     "https://thehackernews.com/2026/06/unpatchable-usbliter8-exploit-breaks.html",
-    "https://thehackernews.com/2026/06/29-year-old-squid-proxy-bug-squidbleed.html"
+    "https://thehackernews.com/2026/06/29-year-old-squid-proxy-bug-squidbleed.html",
+    "https://www.bleepingcomputer.com/news/security/healthtech-firm-xolis-suffers-data-breach-impacting-14-million-people/"
   ],
-  "last_updated": "2026-06-23 06:32:18",
+  "last_updated": "2026-06-24 06:29:19",
   "posts": []
 }

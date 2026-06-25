@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**ransomware strikes**. it's devastating. i've seen it.",
     "**over-privilege is a ticking bomb**.",
     "**logs are lying**. we're in trouble. **shift-left** issue. not integrated from the start.",
     "**ransomware is back**. exploiting **cve-2024-1234**.",
@@ -49,10 +48,10 @@
     "**ransomware hits**",
     "**vulnerable devices**",
     "**squid proxy bug**",
-    "**ransomware reigns**. 1.4 million breached."
+    "**ransomware reigns**. 1.4 million breached.",
+    "**cyber war**"
   ],
   "links": [
-    "https://www.example.com/cybersecurity-news",
     "https://www.darkreading.com/cyber-risk/googles-vertex-ai-over-privilege-problem",
     "https://www.example.com/latest-threat-intelligence",
     "https://www.example.com/cybersecurity-news",
@@ -101,8 +100,9 @@
     "https://www.securityweek.com/15000-wordpress-websites-cleaned-up-in-socgholish-botnet-takedown/",
     "https://thehackernews.com/2026/06/unpatchable-usbliter8-exploit-breaks.html",
     "https://thehackernews.com/2026/06/29-year-old-squid-proxy-bug-squidbleed.html",
-    "https://www.bleepingcomputer.com/news/security/healthtech-firm-xolis-suffers-data-breach-impacting-14-million-people/"
+    "https://www.bleepingcomputer.com/news/security/healthtech-firm-xolis-suffers-data-breach-impacting-14-million-people/",
+    "https://thehackernews.com/2026/06/fortibleed-targeted-fortigate-firewalls.html"
   ],
-  "last_updated": "2026-06-24 06:29:19",
+  "last_updated": "2026-06-25 06:32:16",
   "posts": []
 }

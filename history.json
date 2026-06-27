@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**logs are lying**. we're in trouble. **shift-left** issue. not integrated from the start.",
     "**ransomware is back**. exploiting **cve-2024-1234**.",
     "**breach detected**. hardware security incidents are spiking. **supply chain integrity** is the prob",
     "**breach confirmed**. social engineering is working.",
@@ -49,10 +48,10 @@
     "**squid proxy bug**",
     "**ransomware reigns**. 1.4 million breached.",
     "**cyber war**",
-    "**zero-day chaos**"
+    "**zero-day chaos**",
+    "**breach alert**"
   ],
   "links": [
-    "https://www.example.com/latest-threat-intelligence",
     "https://www.example.com/cybersecurity-news",
     "https://www.cybersecurity.gov/",
     "https://www.csoonline.com/article/3650804/zero-trust-security-what-it-is-and-how-it-works.html",
@@ -101,8 +100,9 @@
     "https://thehackernews.com/2026/06/29-year-old-squid-proxy-bug-squidbleed.html",
     "https://www.bleepingcomputer.com/news/security/healthtech-firm-xolis-suffers-data-breach-impacting-14-million-people/",
     "https://thehackernews.com/2026/06/fortibleed-targeted-fortigate-firewalls.html",
-    "https://thehackernews.com/2026/06/cisco-catalyst-sd-wan-zero-day-cve-2026.html"
+    "https://thehackernews.com/2026/06/cisco-catalyst-sd-wan-zero-day-cve-2026.html",
+    "https://thehackernews.com/2026/06/fbi-warns-russian-intelligence-hackers.html"
   ],
-  "last_updated": "2026-06-26 06:35:32",
+  "last_updated": "2026-06-27 06:07:59",
   "posts": []
 }

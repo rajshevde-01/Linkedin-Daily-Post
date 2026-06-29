@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**breach detected**. hardware security incidents are spiking. **supply chain integrity** is the prob",
     "**breach confirmed**. social engineering is working.",
     "**breach detected**. **zero-trust** is mandatory now.",
     "**breach detected**. we're seeing a surge in **zero-trust** violations.",
@@ -49,10 +48,10 @@
     "**cyber war**",
     "**zero-day chaos**",
     "**breach alert**",
-    "**breach happens**"
+    "**breach happens**",
+    "**backdoors thrive**. 14.2 million email logins compromised."
   ],
   "links": [
-    "https://www.cybersecurity.gov/",
     "https://www.csoonline.com/article/3650804/zero-trust-security-what-it-is-and-how-it-works.html",
     "https://www.cve.mitre.org",
     "https://www.cybersecuritynews.com/cve-2024-1234",
@@ -101,8 +100,9 @@
     "https://thehackernews.com/2026/06/fortibleed-targeted-fortigate-firewalls.html",
     "https://thehackernews.com/2026/06/cisco-catalyst-sd-wan-zero-day-cve-2026.html",
     "https://thehackernews.com/2026/06/fbi-warns-russian-intelligence-hackers.html",
-    "https://github.com/Sfedfcv/redesigned-pancake"
+    "https://github.com/Sfedfcv/redesigned-pancake",
+    "https://thehackernews.com/2026/06/chinese-speaking-apt-deploys-new.html"
   ],
-  "last_updated": "2026-06-28 06:43:38",
+  "last_updated": "2026-06-29 07:12:42",
   "posts": []
 }

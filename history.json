@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**breach confirmed**. social engineering is working.",
     "**breach detected**. **zero-trust** is mandatory now.",
     "**breach detected**. we're seeing a surge in **zero-trust** violations.",
     "**breach detected**.",
@@ -49,10 +48,10 @@
     "**zero-day chaos**",
     "**breach alert**",
     "**breach happens**",
-    "**backdoors thrive**. 14.2 million email logins compromised."
+    "**backdoors thrive**. 14.2 million email logins compromised.",
+    "**data breach**"
   ],
   "links": [
-    "https://www.csoonline.com/article/3650804/zero-trust-security-what-it-is-and-how-it-works.html",
     "https://www.cve.mitre.org",
     "https://www.cybersecuritynews.com/cve-2024-1234",
     "https://www.csoonline.com/article/3651021/shift-left-security-what-it-means-and-why-it-matters.html",
@@ -101,8 +100,9 @@
     "https://thehackernews.com/2026/06/cisco-catalyst-sd-wan-zero-day-cve-2026.html",
     "https://thehackernews.com/2026/06/fbi-warns-russian-intelligence-hackers.html",
     "https://github.com/Sfedfcv/redesigned-pancake",
-    "https://thehackernews.com/2026/06/chinese-speaking-apt-deploys-new.html"
+    "https://thehackernews.com/2026/06/chinese-speaking-apt-deploys-new.html",
+    "https://www.bleepingcomputer.com/news/security/nissan-discloses-employee-data-breach-linked-to-oracle-zero-day-attacks/"
   ],
-  "last_updated": "2026-06-29 07:12:42",
+  "last_updated": "2026-06-30 06:38:30",
   "posts": []
 }

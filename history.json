@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**breach detected**. **zero-trust** is mandatory now.",
     "**breach detected**. we're seeing a surge in **zero-trust** violations.",
     "**breach detected**.",
     "**breach detected**. **cve-2024-1234** exploits are gaining **rce**.",
@@ -49,10 +48,10 @@
     "**breach alert**",
     "**breach happens**",
     "**backdoors thrive**. 14.2 million email logins compromised.",
-    "**data breach**"
+    "**data breach**",
+    "**data leaks**"
   ],
   "links": [
-    "https://www.cve.mitre.org",
     "https://www.cybersecuritynews.com/cve-2024-1234",
     "https://www.csoonline.com/article/3651021/shift-left-security-what-it-means-and-why-it-matters.html",
     "https://www.example.com/cybersecurity-news",
@@ -101,8 +100,9 @@
     "https://thehackernews.com/2026/06/fbi-warns-russian-intelligence-hackers.html",
     "https://github.com/Sfedfcv/redesigned-pancake",
     "https://thehackernews.com/2026/06/chinese-speaking-apt-deploys-new.html",
-    "https://www.bleepingcomputer.com/news/security/nissan-discloses-employee-data-breach-linked-to-oracle-zero-day-attacks/"
+    "https://www.bleepingcomputer.com/news/security/nissan-discloses-employee-data-breach-linked-to-oracle-zero-day-attacks/",
+    "https://thehackernews.com/2026/06/microsoft-warns-poisoned-mcp-tool.html"
   ],
-  "last_updated": "2026-06-30 06:38:30",
+  "last_updated": "2026-07-01 06:51:43",
   "posts": []
 }

@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**breach detected**. we're seeing a surge in **zero-trust** violations.",
     "**breach detected**.",
     "**breach detected**. **cve-2024-1234** exploits are gaining **rce**.",
     "**logs don't match**. discrepancies found. system logs and network traffic don't align. this is a pr",
@@ -49,10 +48,10 @@
     "**breach happens**",
     "**backdoors thrive**. 14.2 million email logins compromised.",
     "**data breach**",
-    "**data leaks**"
+    "**data leaks**",
+    "**cve alert**"
   ],
   "links": [
-    "https://www.cybersecuritynews.com/cve-2024-1234",
     "https://www.csoonline.com/article/3651021/shift-left-security-what-it-means-and-why-it-matters.html",
     "https://www.example.com/cybersecurity-news",
     "https://www.example.com/cybersecurity-news",
@@ -101,8 +100,9 @@
     "https://github.com/Sfedfcv/redesigned-pancake",
     "https://thehackernews.com/2026/06/chinese-speaking-apt-deploys-new.html",
     "https://www.bleepingcomputer.com/news/security/nissan-discloses-employee-data-breach-linked-to-oracle-zero-day-attacks/",
-    "https://thehackernews.com/2026/06/microsoft-warns-poisoned-mcp-tool.html"
+    "https://thehackernews.com/2026/06/microsoft-warns-poisoned-mcp-tool.html",
+    "https://securityaffairs.com/194599/security/oracle-e-business-suite-flaw-under-active-attack-950-systems-exposed.html"
   ],
-  "last_updated": "2026-07-01 06:51:43",
+  "last_updated": "2026-07-02 06:22:54",
   "posts": []
 }

@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**breach detected**.",
     "**breach detected**. **cve-2024-1234** exploits are gaining **rce**.",
     "**logs don't match**. discrepancies found. system logs and network traffic don't align. this is a pr",
     "**ransomware is winning**. nasty **zero-day** exploit. caught us off guard. logs showed **lateral mo",
@@ -49,10 +48,10 @@
     "**backdoors thrive**. 14.2 million email logins compromised.",
     "**data breach**",
     "**data leaks**",
-    "**cve alert**"
+    "**cve alert**",
+    "**breach imminent**"
   ],
   "links": [
-    "https://www.csoonline.com/article/3651021/shift-left-security-what-it-means-and-why-it-matters.html",
     "https://www.example.com/cybersecurity-news",
     "https://www.example.com/cybersecurity-news",
     "https://www.cybersecurity-news.com",
@@ -101,8 +100,9 @@
     "https://thehackernews.com/2026/06/chinese-speaking-apt-deploys-new.html",
     "https://www.bleepingcomputer.com/news/security/nissan-discloses-employee-data-breach-linked-to-oracle-zero-day-attacks/",
     "https://thehackernews.com/2026/06/microsoft-warns-poisoned-mcp-tool.html",
-    "https://securityaffairs.com/194599/security/oracle-e-business-suite-flaw-under-active-attack-950-systems-exposed.html"
+    "https://securityaffairs.com/194599/security/oracle-e-business-suite-flaw-under-active-attack-950-systems-exposed.html",
+    "https://www.securityweek.com/cisa-warns-of-actively-exploited-microsoft-sharepoint-vulnerability/"
   ],
-  "last_updated": "2026-07-02 06:22:54",
+  "last_updated": "2026-07-03 06:09:00",
   "posts": []
 }

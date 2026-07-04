@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**breach detected**. **cve-2024-1234** exploits are gaining **rce**.",
     "**logs don't match**. discrepancies found. system logs and network traffic don't align. this is a pr",
     "**ransomware is winning**. nasty **zero-day** exploit. caught us off guard. logs showed **lateral mo",
     "**cybersecurity is broken**. the **human element** is still the weakest link. i've seen it time and",
@@ -49,10 +48,10 @@
     "**data breach**",
     "**data leaks**",
     "**cve alert**",
-    "**breach imminent**"
+    "**breach imminent**",
+    "**cyber threat**"
   ],
   "links": [
-    "https://www.example.com/cybersecurity-news",
     "https://www.example.com/cybersecurity-news",
     "https://www.cybersecurity-news.com",
     "https://www.cybersecurity-news.com",
@@ -101,8 +100,9 @@
     "https://www.bleepingcomputer.com/news/security/nissan-discloses-employee-data-breach-linked-to-oracle-zero-day-attacks/",
     "https://thehackernews.com/2026/06/microsoft-warns-poisoned-mcp-tool.html",
     "https://securityaffairs.com/194599/security/oracle-e-business-suite-flaw-under-active-attack-950-systems-exposed.html",
-    "https://www.securityweek.com/cisa-warns-of-actively-exploited-microsoft-sharepoint-vulnerability/"
+    "https://www.securityweek.com/cisa-warns-of-actively-exploited-microsoft-sharepoint-vulnerability/",
+    "https://www.darkreading.com/threat-intelligence/fortibleed-actors-inc-lynx-ransomware-gangs"
   ],
-  "last_updated": "2026-07-03 06:09:00",
+  "last_updated": "2026-07-04 05:59:26",
   "posts": []
 }

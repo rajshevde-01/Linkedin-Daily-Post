@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**logs don't match**. discrepancies found. system logs and network traffic don't align. this is a pr",
     "**ransomware is winning**. nasty **zero-day** exploit. caught us off guard. logs showed **lateral mo",
     "**cybersecurity is broken**. the **human element** is still the weakest link. i've seen it time and",
     "**unpatched systems are a ticking time bomb**. i'm reviewing our **vapt** results. one thing stands",
@@ -49,10 +48,10 @@
     "**data leaks**",
     "**cve alert**",
     "**breach imminent**",
-    "**cyber threat**"
+    "**cyber threat**",
+    "**fast attack**"
   ],
   "links": [
-    "https://www.example.com/cybersecurity-news",
     "https://www.cybersecurity-news.com",
     "https://www.cybersecurity-news.com",
     "https://example.com/cybersecurity-news",
@@ -101,8 +100,9 @@
     "https://thehackernews.com/2026/06/microsoft-warns-poisoned-mcp-tool.html",
     "https://securityaffairs.com/194599/security/oracle-e-business-suite-flaw-under-active-attack-950-systems-exposed.html",
     "https://www.securityweek.com/cisa-warns-of-actively-exploited-microsoft-sharepoint-vulnerability/",
-    "https://www.darkreading.com/threat-intelligence/fortibleed-actors-inc-lynx-ransomware-gangs"
+    "https://www.darkreading.com/threat-intelligence/fortibleed-actors-inc-lynx-ransomware-gangs",
+    "https://www.bleepingcomputer.com/news/security/consentfix-and-clickfix-how-microsoft-365-accounts-are-hijacked-in-3-seconds/"
   ],
-  "last_updated": "2026-07-04 05:59:26",
+  "last_updated": "2026-07-05 06:24:07",
   "posts": []
 }

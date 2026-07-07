@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**cybersecurity is broken**. the **human element** is still the weakest link. i've seen it time and",
     "**unpatched systems are a ticking time bomb**. i'm reviewing our **vapt** results. one thing stands",
     "**logs compromised**. ransomware attacks are targeting **hardware security** vulnerabilities. we're",
     "**zero trust is broken**. **mikrotik** routers are under attack.",
@@ -49,10 +48,10 @@
     "**breach imminent**",
     "**cyber threat**",
     "**fast attack**",
-    "**kernel panic**"
+    "**kernel panic**",
+    "**vulnerability alert**"
   ],
   "links": [
-    "https://www.cybersecurity-news.com",
     "https://example.com/cybersecurity-news",
     "https://www.cisa.gov/uscert/ncas/alerts/2024",
     "",
@@ -101,8 +100,9 @@
     "https://www.securityweek.com/cisa-warns-of-actively-exploited-microsoft-sharepoint-vulnerability/",
     "https://www.darkreading.com/threat-intelligence/fortibleed-actors-inc-lynx-ransomware-gangs",
     "https://www.bleepingcomputer.com/news/security/consentfix-and-clickfix-how-microsoft-365-accounts-are-hijacked-in-3-seconds/",
-    ""
+    "",
+    "https://www.bleepingcomputer.com/news/security/max-severity-adobe-coldfusion-flaw-now-exploited-in-attacks/"
   ],
-  "last_updated": "2026-07-06 06:52:18",
+  "last_updated": "2026-07-07 06:29:14",
   "posts": []
 }

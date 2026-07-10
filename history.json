@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**logs compromised**. ransomware attacks are targeting **hardware security** vulnerabilities. we're",
     "**zero trust is broken**. **mikrotik** routers are under attack.",
     "**gpo abuse is rampant**.",
     "**ransomware surges**",
@@ -49,10 +48,10 @@
     "**fast attack**",
     "**kernel panic**",
     "**vulnerability alert**",
-    "**gitea down**"
+    "**gitea down**",
+    "**ransomware wins**"
   ],
   "links": [
-    "https://www.cisa.gov/uscert/ncas/alerts/2024",
     "",
     "",
     "",
@@ -101,8 +100,9 @@
     "https://www.bleepingcomputer.com/news/security/consentfix-and-clickfix-how-microsoft-365-accounts-are-hijacked-in-3-seconds/",
     "",
     "https://www.bleepingcomputer.com/news/security/max-severity-adobe-coldfusion-flaw-now-exploited-in-attacks/",
-    "https://www.securityweek.com/critical-gitea-flaw-under-active-exploitation-researchers-warn/"
+    "https://www.securityweek.com/critical-gitea-flaw-under-active-exploitation-researchers-warn/",
+    "https://thehackernews.com/2026/07/goddamn-ransomware-uses-poisonx-driver.html"
   ],
-  "last_updated": "2026-07-08 05:36:14",
+  "last_updated": "2026-07-10 06:25:58",
   "posts": []
 }

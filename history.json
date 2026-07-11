@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**zero trust is broken**. **mikrotik** routers are under attack.",
     "**gpo abuse is rampant**.",
     "**ransomware surges**",
     "**logs didn't match.**",
@@ -49,10 +48,10 @@
     "**kernel panic**",
     "**vulnerability alert**",
     "**gitea down**",
-    "**ransomware wins**"
+    "**ransomware wins**",
+    "**breach alert**"
   ],
   "links": [
-    "",
     "",
     "",
     "https://thehackernews.com/2026/05/cybercrime-groups-using-vishing-and-sso.html",
@@ -101,8 +100,9 @@
     "",
     "https://www.bleepingcomputer.com/news/security/max-severity-adobe-coldfusion-flaw-now-exploited-in-attacks/",
     "https://www.securityweek.com/critical-gitea-flaw-under-active-exploitation-researchers-warn/",
-    "https://thehackernews.com/2026/07/goddamn-ransomware-uses-poisonx-driver.html"
+    "https://thehackernews.com/2026/07/goddamn-ransomware-uses-poisonx-driver.html",
+    "https://thehackernews.com/2026/07/urgent-progress-tells-sharefile.html"
   ],
-  "last_updated": "2026-07-10 06:25:58",
+  "last_updated": "2026-07-11 05:26:21",
   "posts": []
 }

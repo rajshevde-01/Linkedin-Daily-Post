@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**gpo abuse is rampant**.",
     "**ransomware surges**",
     "**logs didn't match.**",
     "**time's up**. 12 minutes to exfiltration.",
@@ -49,10 +48,10 @@
     "**vulnerability alert**",
     "**gitea down**",
     "**ransomware wins**",
-    "**breach alert**"
+    "**breach alert**",
+    "**ransomware hits**"
   ],
   "links": [
-    "",
     "",
     "https://thehackernews.com/2026/05/cybercrime-groups-using-vishing-and-sso.html",
     "https://thehackernews.com/2026/05/cisa-adds-actively-exploited-linux-root.html",
@@ -101,8 +100,9 @@
     "https://www.bleepingcomputer.com/news/security/max-severity-adobe-coldfusion-flaw-now-exploited-in-attacks/",
     "https://www.securityweek.com/critical-gitea-flaw-under-active-exploitation-researchers-warn/",
     "https://thehackernews.com/2026/07/goddamn-ransomware-uses-poisonx-driver.html",
-    "https://thehackernews.com/2026/07/urgent-progress-tells-sharefile.html"
+    "https://thehackernews.com/2026/07/urgent-progress-tells-sharefile.html",
+    "https://github.com/projectdiscovery/cloudlist"
   ],
-  "last_updated": "2026-07-11 05:26:21",
+  "last_updated": "2026-07-12 05:42:15",
   "posts": []
 }

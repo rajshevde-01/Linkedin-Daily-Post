@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**ransomware surges**",
     "**logs didn't match.**",
     "**time's up**. 12 minutes to exfiltration.",
     "**time's up**. 12 minutes to exfiltration.",
@@ -49,10 +48,10 @@
     "**gitea down**",
     "**ransomware wins**",
     "**breach alert**",
-    "**ransomware hits**"
+    "**ransomware hits**",
+    "**breach happens**"
   ],
   "links": [
-    "",
     "https://thehackernews.com/2026/05/cybercrime-groups-using-vishing-and-sso.html",
     "https://thehackernews.com/2026/05/cisa-adds-actively-exploited-linux-root.html",
     "https://www.darkreading.com/threat-intelligence/exploit-cyber-frenzy-critical-cpanel-vulnerability",
@@ -101,8 +100,9 @@
     "https://www.securityweek.com/critical-gitea-flaw-under-active-exploitation-researchers-warn/",
     "https://thehackernews.com/2026/07/goddamn-ransomware-uses-poisonx-driver.html",
     "https://thehackernews.com/2026/07/urgent-progress-tells-sharefile.html",
+    "https://github.com/projectdiscovery/cloudlist",
     "https://github.com/projectdiscovery/cloudlist"
   ],
-  "last_updated": "2026-07-12 05:42:15",
+  "last_updated": "2026-07-13 05:52:30",
   "posts": []
 }

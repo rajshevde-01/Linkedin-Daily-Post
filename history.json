@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**logs didn't match.**",
     "**time's up**. 12 minutes to exfiltration.",
     "**time's up**. 12 minutes to exfiltration.",
     "**breach imminent**",
@@ -49,10 +48,10 @@
     "**ransomware wins**",
     "**breach alert**",
     "**ransomware hits**",
-    "**breach happens**"
+    "**breach happens**",
+    "**beware now**"
   ],
   "links": [
-    "https://thehackernews.com/2026/05/cybercrime-groups-using-vishing-and-sso.html",
     "https://thehackernews.com/2026/05/cisa-adds-actively-exploited-linux-root.html",
     "https://www.darkreading.com/threat-intelligence/exploit-cyber-frenzy-critical-cpanel-vulnerability",
     "https://www.darkreading.com/cyberattacks-data-breaches/trellix-source-code-breach-supply-chain-threats",
@@ -101,8 +100,9 @@
     "https://thehackernews.com/2026/07/goddamn-ransomware-uses-poisonx-driver.html",
     "https://thehackernews.com/2026/07/urgent-progress-tells-sharefile.html",
     "https://github.com/projectdiscovery/cloudlist",
-    "https://github.com/projectdiscovery/cloudlist"
+    "https://github.com/projectdiscovery/cloudlist",
+    "https://thehackernews.com/2026/07/google-and-microsoft-pull-modheader.html"
   ],
-  "last_updated": "2026-07-13 05:52:30",
+  "last_updated": "2026-07-14 05:14:21",
   "posts": []
 }

@@ -1,7 +1,6 @@
 {
   "titles": [
     "**time's up**. 12 minutes to exfiltration.",
-    "**time's up**. 12 minutes to exfiltration.",
     "**breach imminent**",
     "**cve alert issued.**",
     "**system breached.**",
@@ -49,10 +48,10 @@
     "**breach alert**",
     "**ransomware hits**",
     "**breach happens**",
-    "**beware now**"
+    "**beware now**",
+    "**zero-day alert**"
   ],
   "links": [
-    "https://thehackernews.com/2026/05/cisa-adds-actively-exploited-linux-root.html",
     "https://www.darkreading.com/threat-intelligence/exploit-cyber-frenzy-critical-cpanel-vulnerability",
     "https://www.darkreading.com/cyberattacks-data-breaches/trellix-source-code-breach-supply-chain-threats",
     "https://thehackernews.com/2026/05/ivanti-epmm-cve-2026-6973-rce-under.html",
@@ -101,8 +100,9 @@
     "https://thehackernews.com/2026/07/urgent-progress-tells-sharefile.html",
     "https://github.com/projectdiscovery/cloudlist",
     "https://github.com/projectdiscovery/cloudlist",
-    "https://thehackernews.com/2026/07/google-and-microsoft-pull-modheader.html"
+    "https://thehackernews.com/2026/07/google-and-microsoft-pull-modheader.html",
+    "https://thehackernews.com/2026/07/microsoft-patches-record-622-flaws.html"
   ],
-  "last_updated": "2026-07-14 05:14:21",
+  "last_updated": "2026-07-15 05:15:16",
   "posts": []
 }

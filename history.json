@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**breach imminent**",
     "**cve alert issued.**",
     "**system breached.**",
     "**logs lied**.",
@@ -49,10 +48,10 @@
     "**breach happens**",
     "**beware now**",
     "**zero-day alert**",
-    "**code breach**"
+    "**code breach**",
+    "**vulnerable bootloaders**"
   ],
   "links": [
-    "https://www.darkreading.com/cyberattacks-data-breaches/trellix-source-code-breach-supply-chain-threats",
     "https://thehackernews.com/2026/05/ivanti-epmm-cve-2026-6973-rce-under.html",
     "https://thehackernews.com/2026/05/linux-kernel-dirty-frag-lpe-exploit.html",
     "https://www.darkreading.com/cloud-security/teampcp-malware-pcpjack-steals-cloud-secrets",
@@ -101,8 +100,9 @@
     "https://github.com/projectdiscovery/cloudlist",
     "https://thehackernews.com/2026/07/google-and-microsoft-pull-modheader.html",
     "https://thehackernews.com/2026/07/microsoft-patches-record-622-flaws.html",
-    "https://thehackernews.com/2026/07/compromised-asyncapi-npm-packages.html"
+    "https://thehackernews.com/2026/07/compromised-asyncapi-npm-packages.html",
+    "https://www.darkreading.com/cyber-risk/forgotten-bootloaders-expose-secure-boot-blind-spot"
   ],
-  "last_updated": "2026-07-16 05:25:01",
+  "last_updated": "2026-07-17 05:26:40",
   "posts": []
 }

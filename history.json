@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**cve alert issued.**",
     "**system breached.**",
     "**logs lied**.",
     "**cybersecurity fails**. 12 minutes to exfiltration.",
@@ -49,10 +48,10 @@
     "**beware now**",
     "**zero-day alert**",
     "**code breach**",
-    "**vulnerable bootloaders**"
+    "**vulnerable bootloaders**",
+    "**ransomware hits**"
   ],
   "links": [
-    "https://thehackernews.com/2026/05/ivanti-epmm-cve-2026-6973-rce-under.html",
     "https://thehackernews.com/2026/05/linux-kernel-dirty-frag-lpe-exploit.html",
     "https://www.darkreading.com/cloud-security/teampcp-malware-pcpjack-steals-cloud-secrets",
     "https://thehackernews.com/2026/05/one-click-total-shutdown-patient-zero.html",
@@ -101,8 +100,9 @@
     "https://thehackernews.com/2026/07/google-and-microsoft-pull-modheader.html",
     "https://thehackernews.com/2026/07/microsoft-patches-record-622-flaws.html",
     "https://thehackernews.com/2026/07/compromised-asyncapi-npm-packages.html",
-    "https://www.darkreading.com/cyber-risk/forgotten-bootloaders-expose-secure-boot-blind-spot"
+    "https://www.darkreading.com/cyber-risk/forgotten-bootloaders-expose-secure-boot-blind-spot",
+    "https://www.securityweek.com/coca-cola-suspends-us-fairlife-production-due-to-ransomware-attack/"
   ],
-  "last_updated": "2026-07-17 05:26:40",
+  "last_updated": "2026-07-18 05:09:13",
   "posts": []
 }

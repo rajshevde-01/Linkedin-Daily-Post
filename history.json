@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**system breached.**",
     "**logs lied**.",
     "**cybersecurity fails**. 12 minutes to exfiltration.",
     "**zero-day hit**",
@@ -49,10 +48,10 @@
     "**zero-day alert**",
     "**code breach**",
     "**vulnerable bootloaders**",
-    "**ransomware hits**"
+    "**ransomware hits**",
+    "**cyber threat**"
   ],
   "links": [
-    "https://thehackernews.com/2026/05/linux-kernel-dirty-frag-lpe-exploit.html",
     "https://www.darkreading.com/cloud-security/teampcp-malware-pcpjack-steals-cloud-secrets",
     "https://thehackernews.com/2026/05/one-click-total-shutdown-patient-zero.html",
     "https://thehackernews.com/2026/05/hackers-used-ai-to-develop-first-known.html",
@@ -101,8 +100,9 @@
     "https://thehackernews.com/2026/07/microsoft-patches-record-622-flaws.html",
     "https://thehackernews.com/2026/07/compromised-asyncapi-npm-packages.html",
     "https://www.darkreading.com/cyber-risk/forgotten-bootloaders-expose-secure-boot-blind-spot",
-    "https://www.securityweek.com/coca-cola-suspends-us-fairlife-production-due-to-ransomware-attack/"
+    "https://www.securityweek.com/coca-cola-suspends-us-fairlife-production-due-to-ransomware-attack/",
+    "https://thehackernews.com/2026/07/openssl-hollowbyte-flaw-could-freeze.html"
   ],
-  "last_updated": "2026-07-18 05:09:13",
+  "last_updated": "2026-07-19 05:36:50",
   "posts": []
 }

@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**cybersecurity fails**. 12 minutes to exfiltration.",
     "**zero-day hit**",
     "**logs didn't match.**",
     "**logs are fake.**",
@@ -49,10 +48,10 @@
     "**vulnerable bootloaders**",
     "**ransomware hits**",
     "**cyber threat**",
-    "**breach imminent**"
+    "**breach imminent**",
+    "**breach happens**"
   ],
   "links": [
-    "https://thehackernews.com/2026/05/one-click-total-shutdown-patient-zero.html",
     "https://thehackernews.com/2026/05/hackers-used-ai-to-develop-first-known.html",
     "https://www.bleepingcomputer.com/news/microsoft/microsoft-may-2026-patch-tuesday-fixes-120-flaws-no-zero-days/",
     "https://www.darkreading.com/cloud-security/hugging-face-packages-weaponized-single-file-tweak",
@@ -101,8 +100,9 @@
     "https://www.darkreading.com/cyber-risk/forgotten-bootloaders-expose-secure-boot-blind-spot",
     "https://www.securityweek.com/coca-cola-suspends-us-fairlife-production-due-to-ransomware-attack/",
     "https://thehackernews.com/2026/07/openssl-hollowbyte-flaw-could-freeze.html",
-    "https://github.com/microsoft/agent-governance-toolkit"
+    "https://github.com/microsoft/agent-governance-toolkit",
+    "https://www.bleepingcomputer.com/news/security/hugging-face-breach-autonomous-ai-agent-system-internal-datasets-credentials/"
   ],
-  "last_updated": "2026-07-20 05:53:35",
+  "last_updated": "2026-07-21 05:35:41",
   "posts": []
 }

@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**zero-day hit**",
     "**logs didn't match.**",
     "**logs are fake.**",
     "**logs are fake.**",
@@ -49,10 +48,10 @@
     "**ransomware hits**",
     "**cyber threat**",
     "**breach imminent**",
-    "**breach happens**"
+    "**breach happens**",
+    "**vulnerability alert**"
   ],
   "links": [
-    "https://thehackernews.com/2026/05/hackers-used-ai-to-develop-first-known.html",
     "https://www.bleepingcomputer.com/news/microsoft/microsoft-may-2026-patch-tuesday-fixes-120-flaws-no-zero-days/",
     "https://www.darkreading.com/cloud-security/hugging-face-packages-weaponized-single-file-tweak",
     "https://thehackernews.com/2026/05/cisco-catalyst-sd-wan-controller-auth.html",
@@ -101,8 +100,9 @@
     "https://www.securityweek.com/coca-cola-suspends-us-fairlife-production-due-to-ransomware-attack/",
     "https://thehackernews.com/2026/07/openssl-hollowbyte-flaw-could-freeze.html",
     "https://github.com/microsoft/agent-governance-toolkit",
-    "https://www.bleepingcomputer.com/news/security/hugging-face-breach-autonomous-ai-agent-system-internal-datasets-credentials/"
+    "https://www.bleepingcomputer.com/news/security/hugging-face-breach-autonomous-ai-agent-system-internal-datasets-credentials/",
+    "https://thehackernews.com/2026/07/critical-sharepoint-rce-cve-2026-50522.html"
   ],
-  "last_updated": "2026-07-21 05:35:41",
+  "last_updated": "2026-07-22 05:34:13",
   "posts": []
 }

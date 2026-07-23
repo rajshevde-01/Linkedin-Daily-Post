@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**logs didn't match.**",
     "**logs are fake.**",
     "**logs are fake.**",
     "**root access lost**",
@@ -49,10 +48,10 @@
     "**cyber threat**",
     "**breach imminent**",
     "**breach happens**",
-    "**vulnerability alert**"
+    "**vulnerability alert**",
+    "**ai failed**"
   ],
   "links": [
-    "https://www.bleepingcomputer.com/news/microsoft/microsoft-may-2026-patch-tuesday-fixes-120-flaws-no-zero-days/",
     "https://www.darkreading.com/cloud-security/hugging-face-packages-weaponized-single-file-tweak",
     "https://thehackernews.com/2026/05/cisco-catalyst-sd-wan-controller-auth.html",
     "https://www.securityweek.com/new-linux-kernel-vulnerability-fragnesia-allows-root-privilege-escalation/",
@@ -101,8 +100,9 @@
     "https://thehackernews.com/2026/07/openssl-hollowbyte-flaw-could-freeze.html",
     "https://github.com/microsoft/agent-governance-toolkit",
     "https://www.bleepingcomputer.com/news/security/hugging-face-breach-autonomous-ai-agent-system-internal-datasets-credentials/",
-    "https://thehackernews.com/2026/07/critical-sharepoint-rce-cve-2026-50522.html"
+    "https://thehackernews.com/2026/07/critical-sharepoint-rce-cve-2026-50522.html",
+    "https://thehackernews.com/2026/07/openai-says-its-own-ai-models-escaped.html"
   ],
-  "last_updated": "2026-07-22 05:34:13",
+  "last_updated": "2026-07-23 05:39:09",
   "posts": []
 }

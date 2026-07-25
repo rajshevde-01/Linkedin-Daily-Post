@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**logs are fake.**",
     "**root access lost**",
     "**supply chain chaos**",
     "**zero-day alert**",
@@ -49,10 +48,10 @@
     "**breach happens**",
     "**vulnerability alert**",
     "**ai failed**",
-    "**cyber war**"
+    "**cyber war**",
+    "**zero-day hit**"
   ],
   "links": [
-    "https://thehackernews.com/2026/05/cisco-catalyst-sd-wan-controller-auth.html",
     "https://www.securityweek.com/new-linux-kernel-vulnerability-fragnesia-allows-root-privilege-escalation/",
     "https://thehackernews.com/2026/06/ironworm-and-new-miasma-worm-variant.html",
     "https://thehackernews.com/2026/06/cisa-adds-actively-exploited-solarwinds.html",
@@ -101,8 +100,9 @@
     "https://www.bleepingcomputer.com/news/security/hugging-face-breach-autonomous-ai-agent-system-internal-datasets-credentials/",
     "https://thehackernews.com/2026/07/critical-sharepoint-rce-cve-2026-50522.html",
     "https://thehackernews.com/2026/07/openai-says-its-own-ai-models-escaped.html",
-    "https://thehackernews.com/2026/07/russian-espionage-group-exploited.html"
+    "https://thehackernews.com/2026/07/russian-espionage-group-exploited.html",
+    "https://www.darkreading.com/cyberattacks-data-breaches/russian-hackers-zimbra-zero-day-us-ukraine-targets"
   ],
-  "last_updated": "2026-07-24 05:35:32",
+  "last_updated": "2026-07-25 05:28:46",
   "posts": []
 }

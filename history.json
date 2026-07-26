@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**root access lost**",
     "**supply chain chaos**",
     "**zero-day alert**",
     "**supply chain breach**",
@@ -49,10 +48,10 @@
     "**vulnerability alert**",
     "**ai failed**",
     "**cyber war**",
-    "**zero-day hit**"
+    "**zero-day hit**",
+    "**patching fails**. 20% of vulnerabilities are exploited within 24 hours."
   ],
   "links": [
-    "https://www.securityweek.com/new-linux-kernel-vulnerability-fragnesia-allows-root-privilege-escalation/",
     "https://thehackernews.com/2026/06/ironworm-and-new-miasma-worm-variant.html",
     "https://thehackernews.com/2026/06/cisa-adds-actively-exploited-solarwinds.html",
     "https://thehackernews.com/2026/06/miasma-worm-hits-73-microsoft-github.html",
@@ -101,8 +100,9 @@
     "https://thehackernews.com/2026/07/critical-sharepoint-rce-cve-2026-50522.html",
     "https://thehackernews.com/2026/07/openai-says-its-own-ai-models-escaped.html",
     "https://thehackernews.com/2026/07/russian-espionage-group-exploited.html",
-    "https://www.darkreading.com/cyberattacks-data-breaches/russian-hackers-zimbra-zero-day-us-ukraine-targets"
+    "https://www.darkreading.com/cyberattacks-data-breaches/russian-hackers-zimbra-zero-day-us-ukraine-targets",
+    "https://www.securityweek.com/is-patching-dead-vulnerability-management-in-the-post-mythos-era/"
   ],
-  "last_updated": "2026-07-25 05:28:46",
+  "last_updated": "2026-07-26 05:45:29",
   "posts": []
 }

@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**supply chain chaos**",
     "**zero-day alert**",
     "**supply chain breach**",
     "**vpn breach imminent**",
@@ -49,10 +48,10 @@
     "**ai failed**",
     "**cyber war**",
     "**zero-day hit**",
-    "**patching fails**. 20% of vulnerabilities are exploited within 24 hours."
+    "**patching fails**. 20% of vulnerabilities are exploited within 24 hours.",
+    "**cyber war**"
   ],
   "links": [
-    "https://thehackernews.com/2026/06/ironworm-and-new-miasma-worm-variant.html",
     "https://thehackernews.com/2026/06/cisa-adds-actively-exploited-solarwinds.html",
     "https://thehackernews.com/2026/06/miasma-worm-hits-73-microsoft-github.html",
     "https://thehackernews.com/2026/06/critical-check-point-vpn-flaw-exploited.html",
@@ -101,8 +100,9 @@
     "https://thehackernews.com/2026/07/openai-says-its-own-ai-models-escaped.html",
     "https://thehackernews.com/2026/07/russian-espionage-group-exploited.html",
     "https://www.darkreading.com/cyberattacks-data-breaches/russian-hackers-zimbra-zero-day-us-ukraine-targets",
-    "https://www.securityweek.com/is-patching-dead-vulnerability-management-in-the-post-mythos-era/"
+    "https://www.securityweek.com/is-patching-dead-vulnerability-management-in-the-post-mythos-era/",
+    "https://www.bleepingcomputer.com/news/security/hackers-hijack-hotel-wi-fi-dns-to-steal-microsoft-365-accounts/"
   ],
-  "last_updated": "2026-07-26 05:45:29",
+  "last_updated": "2026-07-27 06:04:22",
   "posts": []
 }

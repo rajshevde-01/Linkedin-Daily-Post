@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**vpn breach imminent**",
     "**breach happens**. miasma supply chain worm hits 73 microsoft repositories.",
     "**zero-day alert**",
     "**ransomware alert**",
@@ -49,10 +48,10 @@
     "**patching fails**. 20% of vulnerabilities are exploited within 24 hours.",
     "**cyber war**",
     "**malware alert**",
-    "**zero-day alert**"
+    "**zero-day alert**",
+    "**cyber war**"
   ],
   "links": [
-    "https://thehackernews.com/2026/06/critical-check-point-vpn-flaw-exploited.html",
     "https://www.darkreading.com/application-security/miasma-supply-chain-worm-73-microsoft-repositories",
     "https://www.bleepingcomputer.com/news/microsoft/microsoft-patches-exchange-server-zero-day-exploited-in-attacks/",
     "https://www.cisa.gov/",
@@ -101,8 +100,9 @@
     "https://www.securityweek.com/is-patching-dead-vulnerability-management-in-the-post-mythos-era/",
     "https://www.bleepingcomputer.com/news/security/hackers-hijack-hotel-wi-fi-dns-to-steal-microsoft-365-accounts/",
     "https://www.securityweek.com/medusahvnc-malware-uses-hidden-windows-desktops-to-evade-detection/",
-    "https://www.bleepingcomputer.com/news/security/hackers-target-us-firms-in-fastjson-rce-zero-day-attacks/"
+    "https://www.bleepingcomputer.com/news/security/hackers-target-us-firms-in-fastjson-rce-zero-day-attacks/",
+    "https://thehackernews.com/2026/07/coordinated-cyberattack-targets-30.html"
   ],
-  "last_updated": "2026-07-29 05:36:31",
+  "last_updated": "2026-07-30 05:23:56",
   "posts": []
 }

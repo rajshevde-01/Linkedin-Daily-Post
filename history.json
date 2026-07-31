@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**breach happens**. miasma supply chain worm hits 73 microsoft repositories.",
     "**zero-day alert**",
     "**ransomware alert**",
     "**package hijacked**",
@@ -49,10 +48,10 @@
     "**cyber war**",
     "**malware alert**",
     "**zero-day alert**",
-    "**cyber war**"
+    "**cyber war**",
+    "**north korea strikes**"
   ],
   "links": [
-    "https://www.darkreading.com/application-security/miasma-supply-chain-worm-73-microsoft-repositories",
     "https://www.bleepingcomputer.com/news/microsoft/microsoft-patches-exchange-server-zero-day-exploited-in-attacks/",
     "https://www.cisa.gov/",
     "https://thehackernews.com/2026/06/over-400-arch-linux-aur-packages.html",
@@ -101,8 +100,9 @@
     "https://www.bleepingcomputer.com/news/security/hackers-hijack-hotel-wi-fi-dns-to-steal-microsoft-365-accounts/",
     "https://www.securityweek.com/medusahvnc-malware-uses-hidden-windows-desktops-to-evade-detection/",
     "https://www.bleepingcomputer.com/news/security/hackers-target-us-firms-in-fastjson-rce-zero-day-attacks/",
-    "https://thehackernews.com/2026/07/coordinated-cyberattack-targets-30.html"
+    "https://thehackernews.com/2026/07/coordinated-cyberattack-targets-30.html",
+    "https://www.bleepingcomputer.com/news/security/amazon-links-debug-chalk-npm-supply-chain-attacks-to-north-korean-hackers/"
   ],
-  "last_updated": "2026-07-30 05:23:56",
+  "last_updated": "2026-07-31 05:50:14",
   "posts": []
 }

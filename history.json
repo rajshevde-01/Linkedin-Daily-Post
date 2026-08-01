@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**zero-day alert**",
     "**ransomware alert**",
     "**package hijacked**",
     "**cyber war**",
@@ -49,10 +48,10 @@
     "**malware alert**",
     "**zero-day alert**",
     "**cyber war**",
-    "**north korea strikes**"
+    "**north korea strikes**",
+    "**malware uploaded**"
   ],
   "links": [
-    "https://www.bleepingcomputer.com/news/microsoft/microsoft-patches-exchange-server-zero-day-exploited-in-attacks/",
     "https://www.cisa.gov/",
     "https://thehackernews.com/2026/06/over-400-arch-linux-aur-packages.html",
     "https://github.com/cirosantilli/china-dictatorship",
@@ -101,8 +100,9 @@
     "https://www.securityweek.com/medusahvnc-malware-uses-hidden-windows-desktops-to-evade-detection/",
     "https://www.bleepingcomputer.com/news/security/hackers-target-us-firms-in-fastjson-rce-zero-day-attacks/",
     "https://thehackernews.com/2026/07/coordinated-cyberattack-targets-30.html",
-    "https://www.bleepingcomputer.com/news/security/amazon-links-debug-chalk-npm-supply-chain-attacks-to-north-korean-hackers/"
+    "https://www.bleepingcomputer.com/news/security/amazon-links-debug-chalk-npm-supply-chain-attacks-to-north-korean-hackers/",
+    "https://www.bleepingcomputer.com/news/security/anthropics-claude-breached-3-orgs-uploaded-pypi-malware-during-tests/"
   ],
-  "last_updated": "2026-07-31 05:50:14",
+  "last_updated": "2026-08-01 05:40:45",
   "posts": []
 }

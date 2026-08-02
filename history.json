@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**ransomware alert**",
     "**package hijacked**",
     "**cyber war**",
     "**backdoored linux**",
@@ -49,10 +48,10 @@
     "**zero-day alert**",
     "**cyber war**",
     "**north korea strikes**",
-    "**malware uploaded**"
+    "**malware uploaded**",
+    "**code red**"
   ],
   "links": [
-    "https://www.cisa.gov/",
     "https://thehackernews.com/2026/06/over-400-arch-linux-aur-packages.html",
     "https://github.com/cirosantilli/china-dictatorship",
     "https://thehackernews.com/2026/06/china-linked-hackers-backdoored-linux.html",
@@ -101,8 +100,9 @@
     "https://www.bleepingcomputer.com/news/security/hackers-target-us-firms-in-fastjson-rce-zero-day-attacks/",
     "https://thehackernews.com/2026/07/coordinated-cyberattack-targets-30.html",
     "https://www.bleepingcomputer.com/news/security/amazon-links-debug-chalk-npm-supply-chain-attacks-to-north-korean-hackers/",
-    "https://www.bleepingcomputer.com/news/security/anthropics-claude-breached-3-orgs-uploaded-pypi-malware-during-tests/"
+    "https://www.bleepingcomputer.com/news/security/anthropics-claude-breached-3-orgs-uploaded-pypi-malware-during-tests/",
+    "https://www.securityweek.com/ruby-on-rails-patches-critical-vulnerability"
   ],
-  "last_updated": "2026-08-01 05:40:45",
+  "last_updated": "2026-08-02 05:41:23",
   "posts": []
 }

@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**package hijacked**",
     "**cyber war**",
     "**backdoored linux**",
     "**data breach**",
@@ -49,10 +48,10 @@
     "**cyber war**",
     "**north korea strikes**",
     "**malware uploaded**",
-    "**code red**"
+    "**code red**",
+    "**$70 million lost**"
   ],
   "links": [
-    "https://thehackernews.com/2026/06/over-400-arch-linux-aur-packages.html",
     "https://github.com/cirosantilli/china-dictatorship",
     "https://thehackernews.com/2026/06/china-linked-hackers-backdoored-linux.html",
     "https://www.darkreading.com/application-security/copilot-searchleak-attack-1-click-data-theft",
@@ -101,8 +100,9 @@
     "https://thehackernews.com/2026/07/coordinated-cyberattack-targets-30.html",
     "https://www.bleepingcomputer.com/news/security/amazon-links-debug-chalk-npm-supply-chain-attacks-to-north-korean-hackers/",
     "https://www.bleepingcomputer.com/news/security/anthropics-claude-breached-3-orgs-uploaded-pypi-malware-during-tests/",
-    "https://www.securityweek.com/ruby-on-rails-patches-critical-vulnerability"
+    "https://www.securityweek.com/ruby-on-rails-patches-critical-vulnerability",
+    "https://thehackernews.com/2026/08/coldcard-hardware-wallet-flaw-linked-to.html"
   ],
-  "last_updated": "2026-08-02 05:41:23",
+  "last_updated": "2026-08-03 05:57:10",
   "posts": []
 }

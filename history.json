@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**cyber war**",
     "**backdoored linux**",
     "**data breach**",
     "**undetected for a year**",
@@ -49,10 +48,10 @@
     "**north korea strikes**",
     "**malware uploaded**",
     "**code red**",
-    "**$70 million lost**"
+    "**$70 million lost**",
+    "**darksword unleashed**"
   ],
   "links": [
-    "https://github.com/cirosantilli/china-dictatorship",
     "https://thehackernews.com/2026/06/china-linked-hackers-backdoored-linux.html",
     "https://www.darkreading.com/application-security/copilot-searchleak-attack-1-click-data-theft",
     "https://www.darkreading.com/threat-intelligence/china-nexus-actor-us-researchers-undetected",
@@ -101,8 +100,9 @@
     "https://www.bleepingcomputer.com/news/security/amazon-links-debug-chalk-npm-supply-chain-attacks-to-north-korean-hackers/",
     "https://www.bleepingcomputer.com/news/security/anthropics-claude-breached-3-orgs-uploaded-pypi-malware-during-tests/",
     "https://www.securityweek.com/ruby-on-rails-patches-critical-vulnerability",
-    "https://thehackernews.com/2026/08/coldcard-hardware-wallet-flaw-linked-to.html"
+    "https://thehackernews.com/2026/08/coldcard-hardware-wallet-flaw-linked-to.html",
+    "https://thehackernews.com/2026/08/chinese-threat-actor-uses-leaked.html"
   ],
-  "last_updated": "2026-08-03 05:57:10",
+  "last_updated": "2026-08-04 05:31:26",
   "posts": []
 }

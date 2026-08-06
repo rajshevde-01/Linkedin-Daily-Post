@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**data breach**",
     "**undetected for a year**",
     "**zero-day alert**",
     "**ransomware reigns**",
@@ -49,10 +48,10 @@
     "**code red**",
     "**$70 million lost**",
     "**darksword unleashed**",
-    "**vulnerability alert**"
+    "**vulnerability alert**",
+    "**cyber fail**"
   ],
   "links": [
-    "https://www.darkreading.com/application-security/copilot-searchleak-attack-1-click-data-theft",
     "https://www.darkreading.com/threat-intelligence/china-nexus-actor-us-researchers-undetected",
     "https://thehackernews.com/2026/06/microsoft-confirms-rogueplanet-defender_02022423645.html",
     "",
@@ -101,8 +100,9 @@
     "https://www.securityweek.com/ruby-on-rails-patches-critical-vulnerability",
     "https://thehackernews.com/2026/08/coldcard-hardware-wallet-flaw-linked-to.html",
     "https://thehackernews.com/2026/08/chinese-threat-actor-uses-leaked.html",
-    "https://thehackernews.com/2026/08/cisa-adds-exploited-n-able-n-central.html"
+    "https://thehackernews.com/2026/08/cisa-adds-exploited-n-able-n-central.html",
+    "https://www.bleepingcomputer.com/news/security/openai-anthropic-ai-agents-targeted-real-people-and-systems-in-cyber-tests/"
   ],
-  "last_updated": "2026-08-05 05:30:47",
+  "last_updated": "2026-08-06 05:33:10",
   "posts": []
 }

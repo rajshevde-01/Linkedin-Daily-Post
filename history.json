@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**undetected for a year**",
     "**zero-day alert**",
     "**ransomware reigns**",
     "**cyber attacks**",
@@ -49,10 +48,10 @@
     "**$70 million lost**",
     "**darksword unleashed**",
     "**vulnerability alert**",
-    "**cyber fail**"
+    "**cyber fail**",
+    "**cpu compromised**"
   ],
   "links": [
-    "https://www.darkreading.com/threat-intelligence/china-nexus-actor-us-researchers-undetected",
     "https://thehackernews.com/2026/06/microsoft-confirms-rogueplanet-defender_02022423645.html",
     "",
     "https://www.securityweek.com/splunk-enterprise-vulnerability-exploited-in-attacks-days-after-disclosure/",
@@ -101,8 +100,9 @@
     "https://thehackernews.com/2026/08/coldcard-hardware-wallet-flaw-linked-to.html",
     "https://thehackernews.com/2026/08/chinese-threat-actor-uses-leaked.html",
     "https://thehackernews.com/2026/08/cisa-adds-exploited-n-able-n-central.html",
-    "https://www.bleepingcomputer.com/news/security/openai-anthropic-ai-agents-targeted-real-people-and-systems-in-cyber-tests/"
+    "https://www.bleepingcomputer.com/news/security/openai-anthropic-ai-agents-targeted-real-people-and-systems-in-cyber-tests/",
+    "https://thehackernews.com/2026/08/new-interrupt-injection-attack-can.html"
   ],
-  "last_updated": "2026-08-06 05:33:10",
+  "last_updated": "2026-08-07 04:36:19",
   "posts": []
 }

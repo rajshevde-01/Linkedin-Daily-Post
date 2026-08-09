@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**ransomware reigns**",
     "**cyber attacks**",
     "**ransomware hits**",
     "**vulnerable devices**",
@@ -49,10 +48,10 @@
     "**vulnerability alert**",
     "**cyber fail**",
     "**cpu compromised**",
-    "**ransomware hits**"
+    "**ransomware hits**",
+    "**zero-day alert**"
   ],
   "links": [
-    "",
     "https://www.securityweek.com/splunk-enterprise-vulnerability-exploited-in-attacks-days-after-disclosure/",
     "https://www.securityweek.com/15000-wordpress-websites-cleaned-up-in-socgholish-botnet-takedown/",
     "https://thehackernews.com/2026/06/unpatchable-usbliter8-exploit-breaks.html",
@@ -101,8 +100,9 @@
     "https://thehackernews.com/2026/08/cisa-adds-exploited-n-able-n-central.html",
     "https://www.bleepingcomputer.com/news/security/openai-anthropic-ai-agents-targeted-real-people-and-systems-in-cyber-tests/",
     "https://thehackernews.com/2026/08/new-interrupt-injection-attack-can.html",
-    "https://www.securityweek.com/snowflake-hacker-pleads-guilty-in-us-court/"
+    "https://www.securityweek.com/snowflake-hacker-pleads-guilty-in-us-court/",
+    "https://thehackernews.com/2026/08/metabase-zero-day-exploited-in-wild.html"
   ],
-  "last_updated": "2026-08-08 03:50:34",
+  "last_updated": "2026-08-09 03:58:43",
   "posts": []
 }

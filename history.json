@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**ransomware hits**",
     "**vulnerable devices**",
     "**squid proxy bug**",
     "**ransomware reigns**. 1.4 million breached.",
@@ -49,10 +48,10 @@
     "**cpu compromised**",
     "**ransomware hits**",
     "**zero-day alert**",
-    "**cloud assets exposed**"
+    "**cloud assets exposed**",
+    "**ransomware looms**"
   ],
   "links": [
-    "https://www.securityweek.com/15000-wordpress-websites-cleaned-up-in-socgholish-botnet-takedown/",
     "https://thehackernews.com/2026/06/unpatchable-usbliter8-exploit-breaks.html",
     "https://thehackernews.com/2026/06/29-year-old-squid-proxy-bug-squidbleed.html",
     "https://www.bleepingcomputer.com/news/security/healthtech-firm-xolis-suffers-data-breach-impacting-14-million-people/",
@@ -101,8 +100,9 @@
     "https://thehackernews.com/2026/08/new-interrupt-injection-attack-can.html",
     "https://www.securityweek.com/snowflake-hacker-pleads-guilty-in-us-court/",
     "https://thehackernews.com/2026/08/metabase-zero-day-exploited-in-wild.html",
-    "https://github.com/projectdiscovery/cloudlist"
+    "https://github.com/projectdiscovery/cloudlist",
+    "https://www.securityweek.com/openais-upcoming-astra-model-raises-autonomous-cyberattack-concerns/"
   ],
-  "last_updated": "2026-08-10 04:13:17",
+  "last_updated": "2026-08-11 04:00:40",
   "posts": []
 }

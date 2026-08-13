@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**squid proxy bug**",
     "**ransomware reigns**. 1.4 million breached.",
     "**cyber war**",
     "**zero-day chaos**",
@@ -49,10 +48,10 @@
     "**zero-day alert**",
     "**cloud assets exposed**",
     "**ransomware looms**",
-    "**zero-day hit**"
+    "**zero-day hit**",
+    "**lazarus strikes**"
   ],
   "links": [
-    "https://thehackernews.com/2026/06/29-year-old-squid-proxy-bug-squidbleed.html",
     "https://www.bleepingcomputer.com/news/security/healthtech-firm-xolis-suffers-data-breach-impacting-14-million-people/",
     "https://thehackernews.com/2026/06/fortibleed-targeted-fortigate-firewalls.html",
     "https://thehackernews.com/2026/06/cisco-catalyst-sd-wan-zero-day-cve-2026.html",
@@ -101,8 +100,9 @@
     "https://thehackernews.com/2026/08/metabase-zero-day-exploited-in-wild.html",
     "https://github.com/projectdiscovery/cloudlist",
     "https://www.securityweek.com/openais-upcoming-astra-model-raises-autonomous-cyberattack-concerns/",
-    "https://www.securityweek.com/august-2026-patch-tuesday-microsoft-fixes-421-cves-one-exploited-zero-day"
+    "https://www.securityweek.com/august-2026-patch-tuesday-microsoft-fixes-421-cves-one-exploited-zero-day",
+    "https://thehackernews.com/2026/08/lazarus-exploits-windows-zero-day-to.html"
   ],
-  "last_updated": "2026-08-12 04:21:57",
+  "last_updated": "2026-08-13 04:25:45",
   "posts": []
 }

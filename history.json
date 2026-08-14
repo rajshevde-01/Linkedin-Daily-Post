@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**ransomware reigns**. 1.4 million breached.",
     "**cyber war**",
     "**zero-day chaos**",
     "**breach alert**",
@@ -49,10 +48,10 @@
     "**cloud assets exposed**",
     "**ransomware looms**",
     "**zero-day hit**",
-    "**lazarus strikes**"
+    "**lazarus strikes**",
+    "**exploit alert**"
   ],
   "links": [
-    "https://www.bleepingcomputer.com/news/security/healthtech-firm-xolis-suffers-data-breach-impacting-14-million-people/",
     "https://thehackernews.com/2026/06/fortibleed-targeted-fortigate-firewalls.html",
     "https://thehackernews.com/2026/06/cisco-catalyst-sd-wan-zero-day-cve-2026.html",
     "https://thehackernews.com/2026/06/fbi-warns-russian-intelligence-hackers.html",
@@ -101,8 +100,9 @@
     "https://github.com/projectdiscovery/cloudlist",
     "https://www.securityweek.com/openais-upcoming-astra-model-raises-autonomous-cyberattack-concerns/",
     "https://www.securityweek.com/august-2026-patch-tuesday-microsoft-fixes-421-cves-one-exploited-zero-day",
-    "https://thehackernews.com/2026/08/lazarus-exploits-windows-zero-day-to.html"
+    "https://thehackernews.com/2026/08/lazarus-exploits-windows-zero-day-to.html",
+    "https://www.securityweek.com/nightmare-eclipse-drops-windows-zero-day-exploit-shieldbreak/"
   ],
-  "last_updated": "2026-08-13 04:25:45",
+  "last_updated": "2026-08-14 04:22:26",
   "posts": []
 }

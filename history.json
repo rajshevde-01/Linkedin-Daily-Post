@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**cyber war**",
     "**zero-day chaos**",
     "**breach alert**",
     "**breach happens**",
@@ -49,10 +48,10 @@
     "**ransomware looms**",
     "**zero-day hit**",
     "**lazarus strikes**",
-    "**exploit alert**"
+    "**exploit alert**",
+    "**breach happens**"
   ],
   "links": [
-    "https://thehackernews.com/2026/06/fortibleed-targeted-fortigate-firewalls.html",
     "https://thehackernews.com/2026/06/cisco-catalyst-sd-wan-zero-day-cve-2026.html",
     "https://thehackernews.com/2026/06/fbi-warns-russian-intelligence-hackers.html",
     "https://github.com/Sfedfcv/redesigned-pancake",
@@ -101,8 +100,9 @@
     "https://www.securityweek.com/openais-upcoming-astra-model-raises-autonomous-cyberattack-concerns/",
     "https://www.securityweek.com/august-2026-patch-tuesday-microsoft-fixes-421-cves-one-exploited-zero-day",
     "https://thehackernews.com/2026/08/lazarus-exploits-windows-zero-day-to.html",
-    "https://www.securityweek.com/nightmare-eclipse-drops-windows-zero-day-exploit-shieldbreak/"
+    "https://www.securityweek.com/nightmare-eclipse-drops-windows-zero-day-exploit-shieldbreak/",
+    "https://www.securityweek.com/1-6-million-likely-impacted-by-ringcentral-data-breach/"
   ],
-  "last_updated": "2026-08-14 04:22:26",
+  "last_updated": "2026-08-15 03:12:43",
   "posts": []
 }

@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**breach happens**",
     "**backdoors thrive**. 14.2 million email logins compromised.",
     "**data breach**",
     "**data leaks**",
@@ -49,10 +48,10 @@
     "**exploit alert**",
     "**breach happens**",
     "**vulnerability alert**",
-    "**macos exploited**"
+    "**macos exploited**",
+    "**data leak, 39,798 lives exposed**"
   ],
   "links": [
-    "https://github.com/Sfedfcv/redesigned-pancake",
     "https://thehackernews.com/2026/06/chinese-speaking-apt-deploys-new.html",
     "https://www.bleepingcomputer.com/news/security/nissan-discloses-employee-data-breach-linked-to-oracle-zero-day-attacks/",
     "https://thehackernews.com/2026/06/microsoft-warns-poisoned-mcp-tool.html",
@@ -101,8 +100,9 @@
     "https://www.securityweek.com/nightmare-eclipse-drops-windows-zero-day-exploit-shieldbreak/",
     "https://www.securityweek.com/1-6-million-likely-impacted-by-ringcentral-data-breach/",
     "https://thehackernews.com/2026/08/attackers-exploit-sharepoint.html",
-    "https://www.bleepingcomputer.com/news/security/hackers-exploit-macos-screen-sharing-flaw-to-deploy-monero-miner/"
+    "https://www.bleepingcomputer.com/news/security/hackers-exploit-macos-screen-sharing-flaw-to-deploy-monero-miner/",
+    ""
   ],
-  "last_updated": "2026-08-17 03:27:37",
+  "last_updated": "2026-08-18 10:27:47",
   "posts": []
 }

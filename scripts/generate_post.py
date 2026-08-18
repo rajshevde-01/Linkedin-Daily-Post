@@ -146,7 +146,7 @@ STRICT EDITING RULES:
 6. **NO CONCLUSION PARAGRAPHS**: Delete any concluding summary. The post must end on the CTA, a bold prediction, or a raw takeaway.
 7. **PRESERVE PREMIUM DESIGN**: Do NOT remove **bolded** headers, technical terms, the `━━━━━━━━━━━━━━` separator, or premium icons (▸, ⚡, 🛡️).
 8. **PRESERVE EXTRAS**: Keep hashtags and source links intact at the absolute bottom.
-9. **DEPTH & LENGTH**: Ensure the post stays within **200-400 words**. If it's too short, expand the technical 'why' or add a micro-story. If it's too long, trim the least impactful sentences.
+9. **DEPTH & LENGTH**: Ensure the post stays within **{POST_MIN_WORDS}-{POST_MAX_WORDS} words**. If it's too short, expand the technical 'why' or add a micro-story. If it's too long, trim the least impactful sentences.
 
 POST TO REVIEW:
 {post_text}

@@ -47,8 +47,8 @@ def _call_groq_with_retries(prompt: str, temperature: float = 0.7) -> str:
 
     import time
     max_retries = 3
-    # Upgraded models to avoid 404s on deprecated ones
-    models_to_try = ["llama-3.3-70b-versatile", "llama-3.1-8b-instant"]
+    # Updated Aug 2026: Llama models removed from Groq, using current models
+    models_to_try = ["openai/gpt-oss-120b", "qwen/qwen3.6-27b", "openai/gpt-oss-20b"]
     
     last_error = None
     
@@ -112,6 +112,24 @@ def generate_post(content: str, is_custom: bool = False, is_cve: bool = False,
     return post_text
 
 
+def _is_valid_post_output(text: str, original: str) -> bool:
+    """Check if model output looks like a real LinkedIn post vs a meta-response."""
+    if not text or len(text.split()) < 50:
+        return False
+    # Detect conversational meta-responses from the model
+    garbage_phrases = [
+        "it looks like", "could you please", "i'd be happy to",
+        "please provide", "i don't see", "post content is missing",
+        "here is the", "i need the", "can you share",
+        "i cannot", "i'm unable", "as an ai",
+    ]
+    text_lower = text.lower()
+    for phrase in garbage_phrases:
+        if phrase in text_lower:
+            return False
+    return True
+
+
 def verify_post(post_text: str) -> str:
     """Perform a second-pass 'Sense Check' to remove AI-isms and improve flow."""
     from groq import Groq
@@ -138,8 +156,12 @@ Output ONLY the improved, finalized post text."""
     print("[INFO] Performing Hardened Sense Check (Pass 2/3)...")
     try:
         verified_text = _call_groq_with_retries(sense_check_prompt, temperature=0.4)
-        print("[SUCCESS] Sense Check complete.")
-        return verified_text
+        if _is_valid_post_output(verified_text, post_text):
+            print("[SUCCESS] Sense Check complete.")
+            return verified_text
+        else:
+            print("[WARN] Sense Check returned invalid output (model meta-response). Using original post.")
+            return post_text
     except Exception as e:
         print(f"[WARN] Sense Check failed ({e}). Using original post.")
         return post_text
@@ -166,8 +188,12 @@ Output ONLY the polished post text."""
     print("[INFO] Performing Final Polish (Pass 3/3)...")
     try:
         polished = _call_groq_with_retries(polish_prompt, temperature=0.3)
-        print("[SUCCESS] Final Polish complete.")
-        return polished
+        if _is_valid_post_output(polished, post_text):
+            print("[SUCCESS] Final Polish complete.")
+            return polished
+        else:
+            print("[WARN] Final Polish returned invalid output (model meta-response). Using previous version.")
+            return post_text
     except Exception as e:
         print(f"[WARN] Final Polish failed ({e}). Using sense-checked post.")
         return post_text

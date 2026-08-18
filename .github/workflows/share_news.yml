@@ -1,0 +1,32 @@
+name: Share News on GitHub
+
+on:
+  schedule:
+    - cron: "0 9 * * *" # Runs daily at 9:00 AM UTC
+  workflow_dispatch: # Allows manual trigger from the GitHub Actions tab
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  share-news:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run Share News Script
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: python scripts/share_news_github.py --method both

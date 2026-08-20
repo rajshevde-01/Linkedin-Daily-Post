@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**backdoors thrive**. 14.2 million email logins compromised.",
     "**data breach**",
     "**data leaks**",
     "**cve alert**",
@@ -49,10 +48,10 @@
     "**breach happens**",
     "**vulnerability alert**",
     "**macos exploited**",
-    "**data leak, 39,798 lives exposed**"
+    "**data leak, 39,798 lives exposed**",
+    "**zero\u2011day frenzy hits the boardroom**"
   ],
   "links": [
-    "https://thehackernews.com/2026/06/chinese-speaking-apt-deploys-new.html",
     "https://www.bleepingcomputer.com/news/security/nissan-discloses-employee-data-breach-linked-to-oracle-zero-day-attacks/",
     "https://thehackernews.com/2026/06/microsoft-warns-poisoned-mcp-tool.html",
     "https://securityaffairs.com/194599/security/oracle-e-business-suite-flaw-under-active-attack-950-systems-exposed.html",
@@ -101,8 +100,9 @@
     "https://www.securityweek.com/1-6-million-likely-impacted-by-ringcentral-data-breach/",
     "https://thehackernews.com/2026/08/attackers-exploit-sharepoint.html",
     "https://www.bleepingcomputer.com/news/security/hackers-exploit-macos-screen-sharing-flaw-to-deploy-monero-miner/",
-    ""
+    "",
+    "https://thehackernews.com/2026/08/critical-macos-sharepoint-vcenter-and.html"
   ],
-  "last_updated": "2026-08-18 10:27:47",
+  "last_updated": "2026-08-20 03:25:31",
   "posts": []
 }

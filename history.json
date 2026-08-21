@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**data breach**",
     "**data leaks**",
     "**cve alert**",
     "**breach imminent**",
@@ -49,10 +48,10 @@
     "**vulnerability alert**",
     "**macos exploited**",
     "**data leak, 39,798 lives exposed**",
-    "**zero\u2011day frenzy hits the boardroom**"
+    "**zero\u2011day frenzy hits the boardroom**",
+    "**rust crates became trojan horses**"
   ],
   "links": [
-    "https://www.bleepingcomputer.com/news/security/nissan-discloses-employee-data-breach-linked-to-oracle-zero-day-attacks/",
     "https://thehackernews.com/2026/06/microsoft-warns-poisoned-mcp-tool.html",
     "https://securityaffairs.com/194599/security/oracle-e-business-suite-flaw-under-active-attack-950-systems-exposed.html",
     "https://www.securityweek.com/cisa-warns-of-actively-exploited-microsoft-sharepoint-vulnerability/",
@@ -101,8 +100,9 @@
     "https://thehackernews.com/2026/08/attackers-exploit-sharepoint.html",
     "https://www.bleepingcomputer.com/news/security/hackers-exploit-macos-screen-sharing-flaw-to-deploy-monero-miner/",
     "",
-    "https://thehackernews.com/2026/08/critical-macos-sharepoint-vcenter-and.html"
+    "https://thehackernews.com/2026/08/critical-macos-sharepoint-vcenter-and.html",
+    "https://thehackernews.com/2026/08/rust-supply-chain-attack-puts-build.html"
   ],
-  "last_updated": "2026-08-20 03:25:31",
+  "last_updated": "2026-08-21 03:30:12",
   "posts": []
 }

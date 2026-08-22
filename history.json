@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**data leaks**",
     "**cve alert**",
     "**breach imminent**",
     "**cyber threat**",
@@ -49,10 +48,10 @@
     "**macos exploited**",
     "**data leak, 39,798 lives exposed**",
     "**zero\u2011day frenzy hits the boardroom**",
-    "**rust crates became trojan horses**"
+    "**rust crates became trojan horses**",
+    "**entra id breach erupted overnight**"
   ],
   "links": [
-    "https://thehackernews.com/2026/06/microsoft-warns-poisoned-mcp-tool.html",
     "https://securityaffairs.com/194599/security/oracle-e-business-suite-flaw-under-active-attack-950-systems-exposed.html",
     "https://www.securityweek.com/cisa-warns-of-actively-exploited-microsoft-sharepoint-vulnerability/",
     "https://www.darkreading.com/threat-intelligence/fortibleed-actors-inc-lynx-ransomware-gangs",
@@ -101,8 +100,9 @@
     "https://www.bleepingcomputer.com/news/security/hackers-exploit-macos-screen-sharing-flaw-to-deploy-monero-miner/",
     "",
     "https://thehackernews.com/2026/08/critical-macos-sharepoint-vcenter-and.html",
-    "https://thehackernews.com/2026/08/rust-supply-chain-attack-puts-build.html"
+    "https://thehackernews.com/2026/08/rust-supply-chain-attack-puts-build.html",
+    ""
   ],
-  "last_updated": "2026-08-21 03:30:12",
+  "last_updated": "2026-08-22 03:22:24",
   "posts": []
 }

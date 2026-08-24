@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**breach imminent**",
     "**cyber threat**",
     "**fast attack**",
     "**kernel panic**",
@@ -49,10 +48,10 @@
     "**zero\u2011day frenzy hits the boardroom**",
     "**rust crates became trojan horses**",
     "**entra id breach erupted overnight**",
-    "**car head\u2011unit botnet, 0\u2011day unleashed**"
+    "**car head\u2011unit botnet, 0\u2011day unleashed**",
+    "**car head\u2011unit botnet, live.**"
   ],
   "links": [
-    "https://www.securityweek.com/cisa-warns-of-actively-exploited-microsoft-sharepoint-vulnerability/",
     "https://www.darkreading.com/threat-intelligence/fortibleed-actors-inc-lynx-ransomware-gangs",
     "https://www.bleepingcomputer.com/news/security/consentfix-and-clickfix-how-microsoft-365-accounts-are-hijacked-in-3-seconds/",
     "",
@@ -101,8 +100,9 @@
     "https://thehackernews.com/2026/08/critical-macos-sharepoint-vcenter-and.html",
     "https://thehackernews.com/2026/08/rust-supply-chain-attack-puts-build.html",
     "",
-    "https://securityaffairs.com/197640/security/six-maximum-severity-flaws-found-in-cisco-products.html"
+    "https://securityaffairs.com/197640/security/six-maximum-severity-flaws-found-in-cisco-products.html",
+    ""
   ],
-  "last_updated": "2026-08-23 03:32:17",
+  "last_updated": "2026-08-24 03:31:53",
   "posts": []
 }

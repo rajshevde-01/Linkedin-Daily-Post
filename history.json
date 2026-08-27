@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**kernel panic**",
     "**vulnerability alert**",
     "**gitea down**",
     "**ransomware wins**",
@@ -49,10 +48,10 @@
     "**car head\u2011unit botnet, 0\u2011day unleashed**",
     "**car head\u2011unit botnet, live.**",
     "**power plants aren't firewalls**",
-    "**npm mirrors became phishing hotbeds**"
+    "**npm mirrors became phishing hotbeds**",
+    "[needs data]"
   ],
   "links": [
-    "",
     "https://www.bleepingcomputer.com/news/security/max-severity-adobe-coldfusion-flaw-now-exploited-in-attacks/",
     "https://www.securityweek.com/critical-gitea-flaw-under-active-exploitation-researchers-warn/",
     "https://thehackernews.com/2026/07/goddamn-ransomware-uses-poisonx-driver.html",
@@ -101,8 +100,9 @@
     "https://securityaffairs.com/197640/security/six-maximum-severity-flaws-found-in-cisco-products.html",
     "",
     "https://www.securityweek.com/iran-linked-hackers-shut-down-uk-power-plant-for-four-days/",
-    ""
+    "",
+    "https://thehackernews.com/2026/08/gputhor-rowhammer-defeats-ecc-on-nvidia.html"
   ],
-  "last_updated": "2026-08-26 03:33:40",
+  "last_updated": "2026-08-27 13:02:15",
   "posts": []
 }

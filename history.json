@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**gitea down**",
     "**ransomware wins**",
     "**breach alert**",
     "**ransomware hits**",
@@ -49,10 +48,10 @@
     "**power plants aren't firewalls**",
     "**npm mirrors became phishing hotbeds**",
     "[needs data]",
-    "**print servers are bleeding data**"
+    "**print servers are bleeding data**",
+    "**agents swarmed hugging face**"
   ],
   "links": [
-    "https://www.securityweek.com/critical-gitea-flaw-under-active-exploitation-researchers-warn/",
     "https://thehackernews.com/2026/07/goddamn-ransomware-uses-poisonx-driver.html",
     "https://thehackernews.com/2026/07/urgent-progress-tells-sharefile.html",
     "https://github.com/projectdiscovery/cloudlist",
@@ -101,8 +100,9 @@
     "https://www.securityweek.com/iran-linked-hackers-shut-down-uk-power-plant-for-four-days/",
     "",
     "https://thehackernews.com/2026/08/gputhor-rowhammer-defeats-ecc-on-nvidia.html",
-    "https://thehackernews.com/2026/08/papercut-zero-day-exploited-in-attacks.html"
+    "https://thehackernews.com/2026/08/papercut-zero-day-exploited-in-attacks.html",
+    "https://www.darkreading.com/cyberattacks-data-breaches/hundreds-openai-agents-invaded-hugging-face-servers"
   ],
-  "last_updated": "2026-08-28 14:32:02",
+  "last_updated": "2026-08-29 09:19:03",
   "posts": []
 }

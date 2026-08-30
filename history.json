@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**ransomware wins**",
     "**breach alert**",
     "**ransomware hits**",
     "**breach happens**",
@@ -49,10 +48,10 @@
     "**npm mirrors became phishing hotbeds**",
     "[needs data]",
     "**print servers are bleeding data**",
-    "**agents swarmed hugging face**"
+    "**agents swarmed hugging face**",
+    "**encrypted logs vanished**"
   ],
   "links": [
-    "https://thehackernews.com/2026/07/goddamn-ransomware-uses-poisonx-driver.html",
     "https://thehackernews.com/2026/07/urgent-progress-tells-sharefile.html",
     "https://github.com/projectdiscovery/cloudlist",
     "https://github.com/projectdiscovery/cloudlist",
@@ -101,8 +100,9 @@
     "",
     "https://thehackernews.com/2026/08/gputhor-rowhammer-defeats-ecc-on-nvidia.html",
     "https://thehackernews.com/2026/08/papercut-zero-day-exploited-in-attacks.html",
-    "https://www.darkreading.com/cyberattacks-data-breaches/hundreds-openai-agents-invaded-hugging-face-servers"
+    "https://www.darkreading.com/cyberattacks-data-breaches/hundreds-openai-agents-invaded-hugging-face-servers",
+    "https://github.com/krzy"
   ],
-  "last_updated": "2026-08-29 09:19:03",
+  "last_updated": "2026-08-30 08:31:03",
   "posts": []
 }

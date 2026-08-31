@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**breach alert**",
     "**ransomware hits**",
     "**breach happens**",
     "**beware now**",
@@ -49,10 +48,10 @@
     "[needs data]",
     "**print servers are bleeding data**",
     "**agents swarmed hugging face**",
-    "**encrypted logs vanished**"
+    "**encrypted logs vanished**",
+    "**papercut's backdoor just opened**"
   ],
   "links": [
-    "https://thehackernews.com/2026/07/urgent-progress-tells-sharefile.html",
     "https://github.com/projectdiscovery/cloudlist",
     "https://github.com/projectdiscovery/cloudlist",
     "https://thehackernews.com/2026/07/google-and-microsoft-pull-modheader.html",
@@ -101,8 +100,9 @@
     "https://thehackernews.com/2026/08/gputhor-rowhammer-defeats-ecc-on-nvidia.html",
     "https://thehackernews.com/2026/08/papercut-zero-day-exploited-in-attacks.html",
     "https://www.darkreading.com/cyberattacks-data-breaches/hundreds-openai-agents-invaded-hugging-face-servers",
-    "https://github.com/krzy"
+    "https://github.com/krzy",
+    "https://thehackernews.com/2026/08/attackers-chain-two-papercut-flaws-to.html"
   ],
-  "last_updated": "2026-08-30 08:31:03",
+  "last_updated": "2026-08-31 08:50:53",
   "posts": []
 }

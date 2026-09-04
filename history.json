@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**breach happens**",
     "**beware now**",
     "**zero-day alert**",
     "**code breach**",
@@ -49,10 +48,10 @@
     "**agents swarmed hugging face**",
     "**encrypted logs vanished**",
     "**papercut's backdoor just opened**",
-    "**routers whisper secrets**"
+    "**routers whisper secrets**",
+    "**zero\u2011day rce in sonicwall**"
   ],
   "links": [
-    "https://github.com/projectdiscovery/cloudlist",
     "https://thehackernews.com/2026/07/google-and-microsoft-pull-modheader.html",
     "https://thehackernews.com/2026/07/microsoft-patches-record-622-flaws.html",
     "https://thehackernews.com/2026/07/compromised-asyncapi-npm-packages.html",
@@ -101,8 +100,9 @@
     "https://www.darkreading.com/cyberattacks-data-breaches/hundreds-openai-agents-invaded-hugging-face-servers",
     "https://github.com/krzy",
     "https://thehackernews.com/2026/08/attackers-chain-two-papercut-flaws-to.html",
-    ""
+    "",
+    "https://www.darkreading.com/vulnerabilities-threats/sonicwall-sma-1000-zero-days-unauthenticated-rce"
   ],
-  "last_updated": "2026-09-01 07:57:36",
+  "last_updated": "2026-09-04 07:22:56",
   "posts": []
 }

@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**beware now**",
     "**zero-day alert**",
     "**code breach**",
     "**vulnerable bootloaders**",
@@ -49,10 +48,10 @@
     "**encrypted logs vanished**",
     "**papercut's backdoor just opened**",
     "**routers whisper secrets**",
-    "**zero\u2011day rce in sonicwall**"
+    "**zero\u2011day rce in sonicwall**",
+    "**chrome's v8 is bleeding**"
   ],
   "links": [
-    "https://thehackernews.com/2026/07/google-and-microsoft-pull-modheader.html",
     "https://thehackernews.com/2026/07/microsoft-patches-record-622-flaws.html",
     "https://thehackernews.com/2026/07/compromised-asyncapi-npm-packages.html",
     "https://www.darkreading.com/cyber-risk/forgotten-bootloaders-expose-secure-boot-blind-spot",
@@ -101,8 +100,9 @@
     "https://github.com/krzy",
     "https://thehackernews.com/2026/08/attackers-chain-two-papercut-flaws-to.html",
     "",
-    "https://www.darkreading.com/vulnerabilities-threats/sonicwall-sma-1000-zero-days-unauthenticated-rce"
+    "https://www.darkreading.com/vulnerabilities-threats/sonicwall-sma-1000-zero-days-unauthenticated-rce",
+    ""
   ],
-  "last_updated": "2026-09-04 07:22:56",
+  "last_updated": "2026-09-05 07:05:52",
   "posts": []
 }

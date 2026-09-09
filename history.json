@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**vulnerable bootloaders**",
     "**ransomware hits**",
     "**cyber threat**",
     "**breach imminent**",
@@ -49,10 +48,10 @@
     "**zero\u2011day rce in sonicwall**",
     "**chrome's v8 is bleeding**",
     "**replication backdoors are silent assassins**",
-    "**replication turned into a backdoor**"
+    "**replication turned into a backdoor**",
+    "**974 bugs, 2 active zero\u2011days**"
   ],
   "links": [
-    "https://www.darkreading.com/cyber-risk/forgotten-bootloaders-expose-secure-boot-blind-spot",
     "https://www.securityweek.com/coca-cola-suspends-us-fairlife-production-due-to-ransomware-attack/",
     "https://thehackernews.com/2026/07/openssl-hollowbyte-flaw-could-freeze.html",
     "https://github.com/microsoft/agent-governance-toolkit",
@@ -101,8 +100,9 @@
     "https://www.darkreading.com/vulnerabilities-threats/sonicwall-sma-1000-zero-days-unauthenticated-rce",
     "",
     "",
-    ""
+    "",
+    "https://thehackernews.com/2026/09/microsoft-patches-record-974-flaws.html"
   ],
-  "last_updated": "2026-09-07 07:30:24",
+  "last_updated": "2026-09-09 07:32:02",
   "posts": []
 }

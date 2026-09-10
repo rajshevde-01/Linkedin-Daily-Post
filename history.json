@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**ransomware hits**",
     "**cyber threat**",
     "**breach imminent**",
     "**breach happens**",
@@ -49,10 +48,10 @@
     "**chrome's v8 is bleeding**",
     "**replication backdoors are silent assassins**",
     "**replication turned into a backdoor**",
-    "**974 bugs, 2 active zero\u2011days**"
+    "**974 bugs, 2 active zero\u2011days**",
+    "**shieldcrash shatters defenses**"
   ],
   "links": [
-    "https://www.securityweek.com/coca-cola-suspends-us-fairlife-production-due-to-ransomware-attack/",
     "https://thehackernews.com/2026/07/openssl-hollowbyte-flaw-could-freeze.html",
     "https://github.com/microsoft/agent-governance-toolkit",
     "https://www.bleepingcomputer.com/news/security/hugging-face-breach-autonomous-ai-agent-system-internal-datasets-credentials/",
@@ -101,8 +100,9 @@
     "",
     "",
     "",
-    "https://thehackernews.com/2026/09/microsoft-patches-record-974-flaws.html"
+    "https://thehackernews.com/2026/09/microsoft-patches-record-974-flaws.html",
+    "https://www.securityweek.com/new-sh"
   ],
-  "last_updated": "2026-09-09 07:32:02",
+  "last_updated": "2026-09-10 07:28:46",
   "posts": []
 }

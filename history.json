@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**cyber threat**",
     "**breach imminent**",
     "**breach happens**",
     "**vulnerability alert**",
@@ -49,10 +48,10 @@
     "**replication backdoors are silent assassins**",
     "**replication turned into a backdoor**",
     "**974 bugs, 2 active zero\u2011days**",
-    "**shieldcrash shatters defenses**"
+    "**shieldcrash shatters defenses**",
+    "**driver\u2011license breach shattered identity trust**"
   ],
   "links": [
-    "https://thehackernews.com/2026/07/openssl-hollowbyte-flaw-could-freeze.html",
     "https://github.com/microsoft/agent-governance-toolkit",
     "https://www.bleepingcomputer.com/news/security/hugging-face-breach-autonomous-ai-agent-system-internal-datasets-credentials/",
     "https://thehackernews.com/2026/07/critical-sharepoint-rce-cve-2026-50522.html",
@@ -101,8 +100,9 @@
     "",
     "",
     "https://thehackernews.com/2026/09/microsoft-patches-record-974-flaws.html",
-    "https://www.securityweek.com/new-sh"
+    "https://www.securityweek.com/new-sh",
+    "https://www.bleepingcomputer.com/news/security/idscan-confirms-breach-tied-to-153-million-stolen-drivers-licenses/"
   ],
-  "last_updated": "2026-09-10 07:28:46",
+  "last_updated": "2026-09-11 07:26:34",
   "posts": []
 }

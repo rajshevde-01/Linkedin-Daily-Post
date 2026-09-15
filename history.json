@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**ai failed**",
     "**cyber war**",
     "**zero-day hit**",
     "**patching fails**. 20% of vulnerabilities are exploited within 24 hours.",
@@ -49,10 +48,10 @@
     "**driver\u2011license breach shattered identity trust**",
     "**gitlab's zero\u2011day hit fast**",
     "**encrypted code, broken trust**",
-    "**conti coder lands four years**"
+    "**conti coder lands four years**",
+    "**email gateway turned into a launchpad**"
   ],
   "links": [
-    "https://thehackernews.com/2026/07/openai-says-its-own-ai-models-escaped.html",
     "https://thehackernews.com/2026/07/russian-espionage-group-exploited.html",
     "https://www.darkreading.com/cyberattacks-data-breaches/russian-hackers-zimbra-zero-day-us-ukraine-targets",
     "https://www.securityweek.com/is-patching-dead-vulnerability-management-in-the-post-mythos-era/",
@@ -101,8 +100,9 @@
     "https://www.bleepingcomputer.com/news/security/idscan-confirms-breach-tied-to-153-million-stolen-drivers-licenses/",
     "https://thehackernews.com/2026/09/gitlab-cvss-10-file-read-flaw-draws-in.html",
     "https://github.com/krzyzanowskim/ObjectivePGP",
-    "https://www.securityweek.com/ukrainian-conti-ransomware-developer-sentenced-to-4-years-in-us-prison/"
+    "https://www.securityweek.com/ukrainian-conti-ransomware-developer-sentenced-to-4-years-in-us-prison/",
+    "https://thehackernews.com/2026/09/cisco-secure-email-gateway-flaw.html"
   ],
-  "last_updated": "2026-09-14 08:04:59",
+  "last_updated": "2026-09-15 07:59:05",
   "posts": []
 }

@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**cyber war**",
     "**zero-day hit**",
     "**patching fails**. 20% of vulnerabilities are exploited within 24 hours.",
     "**cyber war**",
@@ -49,10 +48,10 @@
     "**gitlab's zero\u2011day hit fast**",
     "**encrypted code, broken trust**",
     "**conti coder lands four years**",
-    "**email gateway turned into a launchpad**"
+    "**email gateway turned into a launchpad**",
+    "**sandworm rewrote the playbook**"
   ],
   "links": [
-    "https://thehackernews.com/2026/07/russian-espionage-group-exploited.html",
     "https://www.darkreading.com/cyberattacks-data-breaches/russian-hackers-zimbra-zero-day-us-ukraine-targets",
     "https://www.securityweek.com/is-patching-dead-vulnerability-management-in-the-post-mythos-era/",
     "https://www.bleepingcomputer.com/news/security/hackers-hijack-hotel-wi-fi-dns-to-steal-microsoft-365-accounts/",
@@ -101,8 +100,9 @@
     "https://thehackernews.com/2026/09/gitlab-cvss-10-file-read-flaw-draws-in.html",
     "https://github.com/krzyzanowskim/ObjectivePGP",
     "https://www.securityweek.com/ukrainian-conti-ransomware-developer-sentenced-to-4-years-in-us-prison/",
-    "https://thehackernews.com/2026/09/cisco-secure-email-gateway-flaw.html"
+    "https://thehackernews.com/2026/09/cisco-secure-email-gateway-flaw.html",
+    "https://www.darkreading.com/cyberattacks-data-breaches/sandworm-chains-cisco-vulnerabilities-cyclops-blink"
   ],
-  "last_updated": "2026-09-15 07:59:05",
+  "last_updated": "2026-09-16 07:51:29",
   "posts": []
 }

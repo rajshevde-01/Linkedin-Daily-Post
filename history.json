@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**zero-day hit**",
     "**patching fails**. 20% of vulnerabilities are exploited within 24 hours.",
     "**cyber war**",
     "**malware alert**",
@@ -49,10 +48,10 @@
     "**encrypted code, broken trust**",
     "**conti coder lands four years**",
     "**email gateway turned into a launchpad**",
-    "**sandworm rewrote the playbook**"
+    "**sandworm rewrote the playbook**",
+    "**supply chain breach hit 100k sites**"
   ],
   "links": [
-    "https://www.darkreading.com/cyberattacks-data-breaches/russian-hackers-zimbra-zero-day-us-ukraine-targets",
     "https://www.securityweek.com/is-patching-dead-vulnerability-management-in-the-post-mythos-era/",
     "https://www.bleepingcomputer.com/news/security/hackers-hijack-hotel-wi-fi-dns-to-steal-microsoft-365-accounts/",
     "https://www.securityweek.com/medusahvnc-malware-uses-hidden-windows-desktops-to-evade-detection/",
@@ -101,8 +100,9 @@
     "https://github.com/krzyzanowskim/ObjectivePGP",
     "https://www.securityweek.com/ukrainian-conti-ransomware-developer-sentenced-to-4-years-in-us-prison/",
     "https://thehackernews.com/2026/09/cisco-secure-email-gateway-flaw.html",
-    "https://www.darkreading.com/cyberattacks-data-breaches/sandworm-chains-cisco-vulnerabilities-cyclops-blink"
+    "https://www.darkreading.com/cyberattacks-data-breaches/sandworm-chains-cisco-vulnerabilities-cyclops-blink",
+    "https://www.securityweek.com/brevo-supply-chain-attack-injects-malware-into-100000-websites/"
   ],
-  "last_updated": "2026-09-16 07:51:29",
+  "last_updated": "2026-09-19 07:30:04",
   "posts": []
 }

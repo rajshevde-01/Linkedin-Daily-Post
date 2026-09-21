@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**cyber war**",
     "**malware alert**",
     "**zero-day alert**",
     "**cyber war**",
@@ -49,10 +48,10 @@
     "**email gateway turned into a launchpad**",
     "**sandworm rewrote the playbook**",
     "**supply chain breach hit 100k sites**",
-    "**backdoor landed in a shipping manifest**"
+    "**backdoor landed in a shipping manifest**",
+    "**claude opus 5 broke our trust**"
   ],
   "links": [
-    "https://www.bleepingcomputer.com/news/security/hackers-hijack-hotel-wi-fi-dns-to-steal-microsoft-365-accounts/",
     "https://www.securityweek.com/medusahvnc-malware-uses-hidden-windows-desktops-to-evade-detection/",
     "https://www.bleepingcomputer.com/news/security/hackers-target-us-firms-in-fastjson-rce-zero-day-attacks/",
     "https://thehackernews.com/2026/07/coordinated-cyberattack-targets-30.html",
@@ -101,8 +100,9 @@
     "https://thehackernews.com/2026/09/cisco-secure-email-gateway-flaw.html",
     "https://www.darkreading.com/cyberattacks-data-breaches/sandworm-chains-cisco-vulnerabilities-cyclops-blink",
     "https://www.securityweek.com/brevo-supply-chain-attack-injects-malware-into-100000-websites/",
-    "https://thehackernews.com/2026/09/critical-pre-auth-rce-in-orkes.html"
+    "https://thehackernews.com/2026/09/critical-pre-auth-rce-in-orkes.html",
+    "https://thehackernews"
   ],
-  "last_updated": "2026-09-20 07:54:44",
+  "last_updated": "2026-09-21 08:09:50",
   "posts": []
 }

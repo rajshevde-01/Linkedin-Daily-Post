@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**malware alert**",
     "**zero-day alert**",
     "**cyber war**",
     "**north korea strikes**",
@@ -49,10 +48,10 @@
     "**sandworm rewrote the playbook**",
     "**supply chain breach hit 100k sites**",
     "**backdoor landed in a shipping manifest**",
-    "**claude opus 5 broke our trust**"
+    "**claude opus 5 broke our trust**",
+    "**kernel driver kills av**"
   ],
   "links": [
-    "https://www.securityweek.com/medusahvnc-malware-uses-hidden-windows-desktops-to-evade-detection/",
     "https://www.bleepingcomputer.com/news/security/hackers-target-us-firms-in-fastjson-rce-zero-day-attacks/",
     "https://thehackernews.com/2026/07/coordinated-cyberattack-targets-30.html",
     "https://www.bleepingcomputer.com/news/security/amazon-links-debug-chalk-npm-supply-chain-attacks-to-north-korean-hackers/",
@@ -101,8 +100,9 @@
     "https://www.darkreading.com/cyberattacks-data-breaches/sandworm-chains-cisco-vulnerabilities-cyclops-blink",
     "https://www.securityweek.com/brevo-supply-chain-attack-injects-malware-into-100000-websites/",
     "https://thehackernews.com/2026/09/critical-pre-auth-rce-in-orkes.html",
-    "https://thehackernews"
+    "https://thehackernews",
+    ""
   ],
-  "last_updated": "2026-09-21 08:09:50",
+  "last_updated": "2026-09-22 07:54:21",
   "posts": []
 }

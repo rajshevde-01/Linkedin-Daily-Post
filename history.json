@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**zero-day alert**",
     "**cyber war**",
     "**north korea strikes**",
     "**malware uploaded**",
@@ -49,10 +48,10 @@
     "**supply chain breach hit 100k sites**",
     "**backdoor landed in a shipping manifest**",
     "**claude opus 5 broke our trust**",
-    "**kernel driver kills av**"
+    "**kernel driver kills av**",
+    "**device\u2011code phishing exploded**"
   ],
   "links": [
-    "https://www.bleepingcomputer.com/news/security/hackers-target-us-firms-in-fastjson-rce-zero-day-attacks/",
     "https://thehackernews.com/2026/07/coordinated-cyberattack-targets-30.html",
     "https://www.bleepingcomputer.com/news/security/amazon-links-debug-chalk-npm-supply-chain-attacks-to-north-korean-hackers/",
     "https://www.bleepingcomputer.com/news/security/anthropics-claude-breached-3-orgs-uploaded-pypi-malware-during-tests/",
@@ -101,8 +100,9 @@
     "https://www.securityweek.com/brevo-supply-chain-attack-injects-malware-into-100000-websites/",
     "https://thehackernews.com/2026/09/critical-pre-auth-rce-in-orkes.html",
     "https://thehackernews",
-    ""
+    "",
+    "https://thehackernews.com/2026/09/microsoft-takes-down-eviltokens-device.html"
   ],
-  "last_updated": "2026-09-22 07:54:21",
+  "last_updated": "2026-09-23 07:56:52",
   "posts": []
 }

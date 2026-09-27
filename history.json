@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**north korea strikes**",
     "**malware uploaded**",
     "**code red**",
     "**$70 million lost**",
@@ -49,10 +48,10 @@
     "**claude opus 5 broke our trust**",
     "**kernel driver kills av**",
     "**device\u2011code phishing exploded**",
-    "**ai slipped through the gate**"
+    "**ai slipped through the gate**",
+    "**ai agents walked into the pentagon**"
   ],
   "links": [
-    "https://www.bleepingcomputer.com/news/security/amazon-links-debug-chalk-npm-supply-chain-attacks-to-north-korean-hackers/",
     "https://www.bleepingcomputer.com/news/security/anthropics-claude-breached-3-orgs-uploaded-pypi-malware-during-tests/",
     "https://www.securityweek.com/ruby-on-rails-patches-critical-vulnerability",
     "https://thehackernews.com/2026/08/coldcard-hardware-wallet-flaw-linked-to.html",
@@ -101,8 +100,9 @@
     "https://thehackernews",
     "",
     "https://thehackernews.com/2026/09/microsoft-takes-down-eviltokens-device.html",
-    ""
+    "",
+    "https://securityaffairs.com/199815/ai/openai-agents-accessed-us-government-websites-without-authorization.html"
   ],
-  "last_updated": "2026-09-26 07:57:29",
+  "last_updated": "2026-09-27 08:29:27",
   "posts": []
 }

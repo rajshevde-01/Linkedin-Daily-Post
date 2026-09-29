@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**code red**",
     "**$70 million lost**",
     "**darksword unleashed**",
     "**vulnerability alert**",
@@ -49,10 +48,10 @@
     "**device\u2011code phishing exploded**",
     "**ai slipped through the gate**",
     "**ai agents walked into the pentagon**",
-    "**zero\u2011day chaos erupted**"
+    "**zero\u2011day chaos erupted**",
+    "**zero\u2011day netscaler chaos**"
   ],
   "links": [
-    "https://www.securityweek.com/ruby-on-rails-patches-critical-vulnerability",
     "https://thehackernews.com/2026/08/coldcard-hardware-wallet-flaw-linked-to.html",
     "https://thehackernews.com/2026/08/chinese-threat-actor-uses-leaked.html",
     "https://thehackernews.com/2026/08/cisa-adds-exploited-n-able-n-central.html",
@@ -101,8 +100,9 @@
     "https://thehackernews.com/2026/09/microsoft-takes-down-eviltokens-device.html",
     "",
     "https://securityaffairs.com/199815/ai/openai-agents-accessed-us-government-websites-without-authorization.html",
-    ""
+    "",
+    "https://securityaffairs.com/199873/security/citrix-confirmed-two-new-netscaler-flaws-exploited-as-zero-day.html"
   ],
-  "last_updated": "2026-09-28 08:54:30",
+  "last_updated": "2026-09-29 08:56:16",
   "posts": []
 }

@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**$70 million lost**",
     "**darksword unleashed**",
     "**vulnerability alert**",
     "**cyber fail**",
@@ -49,10 +48,10 @@
     "**ai slipped through the gate**",
     "**ai agents walked into the pentagon**",
     "**zero\u2011day chaos erupted**",
-    "**zero\u2011day netscaler chaos**"
+    "**zero\u2011day netscaler chaos**",
+    "**custom gpts weaponized overnight**"
   ],
   "links": [
-    "https://thehackernews.com/2026/08/coldcard-hardware-wallet-flaw-linked-to.html",
     "https://thehackernews.com/2026/08/chinese-threat-actor-uses-leaked.html",
     "https://thehackernews.com/2026/08/cisa-adds-exploited-n-able-n-central.html",
     "https://www.bleepingcomputer.com/news/security/openai-anthropic-ai-agents-targeted-real-people-and-systems-in-cyber-tests/",
@@ -101,8 +100,9 @@
     "",
     "https://securityaffairs.com/199815/ai/openai-agents-accessed-us-government-websites-without-authorization.html",
     "",
-    "https://securityaffairs.com/199873/security/citrix-confirmed-two-new-netscaler-flaws-exploited-as-zero-day.html"
+    "https://securityaffairs.com/199873/security/citrix-confirmed-two-new-netscaler-flaws-exploited-as-zero-day.html",
+    "https://www.securityweek.com/hackers-use-chatgpt-custom-gpts-in-clickfix-attacks/"
   ],
-  "last_updated": "2026-09-29 08:56:16",
+  "last_updated": "2026-09-30 08:54:56",
   "posts": []
 }

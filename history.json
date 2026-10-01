@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**darksword unleashed**",
     "**vulnerability alert**",
     "**cyber fail**",
     "**cpu compromised**",
@@ -49,10 +48,10 @@
     "**ai agents walked into the pentagon**",
     "**zero\u2011day chaos erupted**",
     "**zero\u2011day netscaler chaos**",
-    "**custom gpts weaponized overnight**"
+    "**custom gpts weaponized overnight**",
+    "**sd\u2011wan breach just went live**"
   ],
   "links": [
-    "https://thehackernews.com/2026/08/chinese-threat-actor-uses-leaked.html",
     "https://thehackernews.com/2026/08/cisa-adds-exploited-n-able-n-central.html",
     "https://www.bleepingcomputer.com/news/security/openai-anthropic-ai-agents-targeted-real-people-and-systems-in-cyber-tests/",
     "https://thehackernews.com/2026/08/new-interrupt-injection-attack-can.html",
@@ -101,8 +100,9 @@
     "https://securityaffairs.com/199815/ai/openai-agents-accessed-us-government-websites-without-authorization.html",
     "",
     "https://securityaffairs.com/199873/security/citrix-confirmed-two-new-netscaler-flaws-exploited-as-zero-day.html",
-    "https://www.securityweek.com/hackers-use-chatgpt-custom-gpts-in-clickfix-attacks/"
+    "https://www.securityweek.com/hackers-use-chatgpt-custom-gpts-in-clickfix-attacks/",
+    ""
   ],
-  "last_updated": "2026-09-30 08:54:56",
+  "last_updated": "2026-10-01 09:19:49",
   "posts": []
 }

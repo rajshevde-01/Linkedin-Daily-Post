@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**cyber fail**",
     "**cpu compromised**",
     "**ransomware hits**",
     "**zero-day alert**",
@@ -49,10 +48,10 @@
     "**zero\u2011day netscaler chaos**",
     "**custom gpts weaponized overnight**",
     "**sd\u2011wan breach just went live**",
-    "**teen ransomware kingpin busted**"
+    "**teen ransomware kingpin busted**",
+    "**fortimail zero\u2011day just hit production**"
   ],
   "links": [
-    "https://www.bleepingcomputer.com/news/security/openai-anthropic-ai-agents-targeted-real-people-and-systems-in-cyber-tests/",
     "https://thehackernews.com/2026/08/new-interrupt-injection-attack-can.html",
     "https://www.securityweek.com/snowflake-hacker-pleads-guilty-in-us-court/",
     "https://thehackernews.com/2026/08/metabase-zero-day-exploited-in-wild.html",
@@ -101,8 +100,9 @@
     "https://securityaffairs.com/199873/security/citrix-confirmed-two-new-netscaler-flaws-exploited-as-zero-day.html",
     "https://www.securityweek.com/hackers-use-chatgpt-custom-gpts-in-clickfix-attacks/",
     "",
-    "https://github.com/OffcierCia/On-Chain-Investigations-Tools-List`"
+    "https://github.com/OffcierCia/On-Chain-Investigations-Tools-List`",
+    "https://thehackernews.com/2026/10/critical-fortimail-zero-day-flaw.html"
   ],
-  "last_updated": "2026-10-02 08:52:41",
+  "last_updated": "2026-10-03 08:29:36",
   "posts": []
 }

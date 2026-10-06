@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**ransomware hits**",
     "**zero-day alert**",
     "**cloud assets exposed**",
     "**ransomware looms**",
@@ -49,10 +48,10 @@
     "**sd\u2011wan breach just went live**",
     "**teen ransomware kingpin busted**",
     "**fortimail zero\u2011day just hit production**",
-    "**sharepoint ransomware hit the grid**"
+    "**sharepoint ransomware hit the grid**",
+    "**jungle sdk turned jungle gym**"
   ],
   "links": [
-    "https://www.securityweek.com/snowflake-hacker-pleads-guilty-in-us-court/",
     "https://thehackernews.com/2026/08/metabase-zero-day-exploited-in-wild.html",
     "https://github.com/projectdiscovery/cloudlist",
     "https://www.securityweek.com/openais-upcoming-astra-model-raises-autonomous-cyberattack-concerns/",
@@ -101,8 +100,9 @@
     "",
     "https://github.com/OffcierCia/On-Chain-Investigations-Tools-List`",
     "https://thehackernews.com/2026/10/critical-fortimail-zero-day-flaw.html",
-    ""
+    "",
+    "https://thehackernews.com/2026/10/realtek"
   ],
-  "last_updated": "2026-10-04 08:42:05",
+  "last_updated": "2026-10-06 09:17:42",
   "posts": []
 }

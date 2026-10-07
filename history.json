@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**zero-day alert**",
     "**cloud assets exposed**",
     "**ransomware looms**",
     "**zero-day hit**",
@@ -49,10 +48,10 @@
     "**teen ransomware kingpin busted**",
     "**fortimail zero\u2011day just hit production**",
     "**sharepoint ransomware hit the grid**",
-    "**jungle sdk turned jungle gym**"
+    "**jungle sdk turned jungle gym**",
+    "**phishing ads stole 12k mfa tokens**"
   ],
   "links": [
-    "https://thehackernews.com/2026/08/metabase-zero-day-exploited-in-wild.html",
     "https://github.com/projectdiscovery/cloudlist",
     "https://www.securityweek.com/openais-upcoming-astra-model-raises-autonomous-cyberattack-concerns/",
     "https://www.securityweek.com/august-2026-patch-tuesday-microsoft-fixes-421-cves-one-exploited-zero-day",
@@ -101,8 +100,9 @@
     "https://github.com/OffcierCia/On-Chain-Investigations-Tools-List`",
     "https://thehackernews.com/2026/10/critical-fortimail-zero-day-flaw.html",
     "",
-    "https://thehackernews.com/2026/10/realtek"
+    "https://thehackernews.com/2026/10/realtek",
+    "https://thehackernews.com/2026/10/fake-chatgpt-gemini-and-claude-ad.html"
   ],
-  "last_updated": "2026-10-06 09:17:42",
+  "last_updated": "2026-10-07 09:08:06",
   "posts": []
 }

@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**ransomware looms**",
     "**zero-day hit**",
     "**lazarus strikes**",
     "**exploit alert**",
@@ -49,10 +48,10 @@
     "**sharepoint ransomware hit the grid**",
     "**jungle sdk turned jungle gym**",
     "**phishing ads stole 12k mfa tokens**",
-    "**remote gateway turned into a blind spot**"
+    "**remote gateway turned into a blind spot**",
+    "**ai pen\u2011test weapon unleashed**"
   ],
   "links": [
-    "https://www.securityweek.com/openais-upcoming-astra-model-raises-autonomous-cyberattack-concerns/",
     "https://www.securityweek.com/august-2026-patch-tuesday-microsoft-fixes-421-cves-one-exploited-zero-day",
     "https://thehackernews.com/2026/08/lazarus-exploits-windows-zero-day-to.html",
     "https://www.securityweek.com/nightmare-eclipse-drops-windows-zero-day-exploit-shieldbreak/",
@@ -101,8 +100,9 @@
     "",
     "https://thehackernews.com/2026/10/realtek",
     "https://thehackernews.com/2026/10/fake-chatgpt-gemini-and-claude-ad.html",
-    "https://thehackernews.com/2026/10/sonicwall-patches-cvss-100-pre.html"
+    "https://thehackernews.com/2026/10/sonicwall-patches-cvss-100-pre.html",
+    "https://thehackernews.com/2026/10/artex-ai-pentesting-tool-used-in-data.html"
   ],
-  "last_updated": "2026-10-08 09:21:19",
+  "last_updated": "2026-10-09 09:30:16",
   "posts": []
 }

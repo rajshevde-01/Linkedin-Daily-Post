@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**zero-day hit**",
     "**lazarus strikes**",
     "**exploit alert**",
     "**breach happens**",
@@ -49,10 +48,10 @@
     "**jungle sdk turned jungle gym**",
     "**phishing ads stole 12k mfa tokens**",
     "**remote gateway turned into a blind spot**",
-    "**ai pen\u2011test weapon unleashed**"
+    "**ai pen\u2011test weapon unleashed**",
+    "**qilin's kingpin vanished overnight**"
   ],
   "links": [
-    "https://www.securityweek.com/august-2026-patch-tuesday-microsoft-fixes-421-cves-one-exploited-zero-day",
     "https://thehackernews.com/2026/08/lazarus-exploits-windows-zero-day-to.html",
     "https://www.securityweek.com/nightmare-eclipse-drops-windows-zero-day-exploit-shieldbreak/",
     "https://www.securityweek.com/1-6-million-likely-impacted-by-ringcentral-data-breach/",
@@ -101,8 +100,9 @@
     "https://thehackernews.com/2026/10/realtek",
     "https://thehackernews.com/2026/10/fake-chatgpt-gemini-and-claude-ad.html",
     "https://thehackernews.com/2026/10/sonicwall-patches-cvss-100-pre.html",
-    "https://thehackernews.com/2026/10/artex-ai-pentesting-tool-used-in-data.html"
+    "https://thehackernews.com/2026/10/artex-ai-pentesting-tool-used-in-data.html",
+    "https://www.bleepingcomputer.com/news/security/germany-arrests-alleged-core-qilin-ransomware-member-after-extradition/"
   ],
-  "last_updated": "2026-10-09 09:30:16",
+  "last_updated": "2026-10-10 08:51:08",
   "posts": []
 }

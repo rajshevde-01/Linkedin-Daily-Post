@@ -55,6 +55,7 @@ def _call_groq_with_retries(prompt: str, temperature: float = 0.7) -> str:
     for current_model in models_to_try:
         for key_idx, api_key in enumerate(GROQ_API_KEYS):
             client = Groq(api_key=api_key)
+            print(f"[INFO] Trying model={current_model}, key_index={key_idx}")
             for attempt in range(max_retries):
                 try:
                     response = client.chat.completions.create(
@@ -62,10 +63,25 @@ def _call_groq_with_retries(prompt: str, temperature: float = 0.7) -> str:
                         messages=[{"role": "user", "content": prompt}],
                         temperature=temperature
                     )
-                    return response.choices[0].message.content.strip()
+                    # Validate we got a real response
+                    content = None
+                    if response and response.choices and len(response.choices) > 0:
+                        msg = response.choices[0].message
+                        if msg and msg.content:
+                            content = msg.content.strip()
+                    
+                    if content and len(content) > 10:
+                        return content
+                    else:
+                        print(f"[WARN] Model {current_model} returned empty/null response (attempt {attempt+1}/{max_retries})")
+                        last_error = Exception(f"Empty response from {current_model} (key {key_idx})")
+                        if attempt < max_retries - 1:
+                            time.sleep(5)
+                        continue
                 except Exception as e:
                     err_msg = str(e).lower()
                     last_error = e
+                    print(f"[WARN] {current_model} key {key_idx} attempt {attempt+1}: {str(e)[:120]}")
                     if any(x in err_msg for x in ["429", "too many requests", "quota", "401", "invalid", "not found"]):
                         # Immediately fail this key/model combo 
                         break 
@@ -393,6 +409,12 @@ def main():
     raw_post_text = generate_post(content_to_use, is_custom=is_custom, is_cve=is_cve, 
                                  is_knowledge=is_knowledge, github_repo=github_repo, 
                                  past_posts=past_posts)
+    
+    # Guard: Abort if we have no usable post text
+    if not raw_post_text or len(raw_post_text.split()) < 50:
+        print(f"[ERROR] No post text provided or found (got {len(raw_post_text.split()) if raw_post_text else 0} words).")
+        print("[ERROR] This usually means the Groq API key is exhausted, rate-limited, or models returned empty.")
+        sys.exit(1)
     
     # Step 3.5: Sense Check & Image Prompt
     final_post_text = verify_post(raw_post_text)

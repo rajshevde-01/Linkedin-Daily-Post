@@ -42,24 +42,41 @@ def fetch_random_knowledge(knowledge_dir_path: Optional[str | Path] = None) -> O
         print("[WARN] No valid knowledge files found in the knowledge directory.")
         return None
 
-    # Pick a random file
-    selected_file = random.choice(valid_files)
-    print(f"[INFO] Selected personal knowledge file: {selected_file.name}")
-
-    try:
-        with open(selected_file, 'r', encoding='utf-8') as f:
-            content = f.read()
-            
-        # Truncate if massively long to save context window
-        if len(content) > MAX_KNOWLEDGE_CHARS:
-            print(f"[INFO] Truncating {selected_file.name} to first {MAX_KNOWLEDGE_CHARS} characters.")
-            content = content[:MAX_KNOWLEDGE_CHARS]
-            
-        return content, selected_file.name
+    # Shuffle and try files until one succeeds
+    random.shuffle(valid_files)
     
-    except Exception as e:
-        print(f"[ERROR] Failed to read knowledge file {selected_file.name}: {e}")
-        return None
+    for selected_file in valid_files:
+        print(f"[INFO] Trying personal knowledge file: {selected_file.name}")
+        content = _read_file_with_fallback(selected_file)
+        if content is not None:
+            # Truncate if massively long to save context window
+            if len(content) > MAX_KNOWLEDGE_CHARS:
+                print(f"[INFO] Truncating {selected_file.name} to first {MAX_KNOWLEDGE_CHARS} characters.")
+                content = content[:MAX_KNOWLEDGE_CHARS]
+            return content, selected_file.name
+    
+    print("[ERROR] All knowledge files failed to read.")
+    return None
+
+
+def _read_file_with_fallback(file_path: Path) -> Optional[str]:
+    """Try reading a file with multiple encodings: utf-8 → utf-16 → latin-1."""
+    encodings = ['utf-8', 'utf-16', 'latin-1']
+    for enc in encodings:
+        try:
+            with open(file_path, 'r', encoding=enc) as f:
+                content = f.read().strip()
+            if content:
+                if enc != 'utf-8':
+                    print(f"[INFO] Read {file_path.name} with fallback encoding: {enc}")
+                return content
+        except (UnicodeDecodeError, UnicodeError):
+            continue
+        except Exception as e:
+            print(f"[WARN] Unexpected error reading {file_path.name} ({enc}): {e}")
+            continue
+    print(f"[ERROR] Failed to read {file_path.name} with any encoding")
+    return None
 
 if __name__ == "__main__":
     result = fetch_random_knowledge()

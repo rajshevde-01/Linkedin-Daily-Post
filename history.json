@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**exploit alert**",
     "**breach happens**",
     "**vulnerability alert**",
     "**macos exploited**",
@@ -49,10 +48,10 @@
     "**remote gateway turned into a blind spot**",
     "**ai pen\u2011test weapon unleashed**",
     "**qilin's kingpin vanished overnight**",
-    "**shinyhunters cracked the fbi's hiring gate**"
+    "**shinyhunters cracked the fbi's hiring gate**",
+    "**shinyhunters cracked the fbi's inbox**"
   ],
   "links": [
-    "https://www.securityweek.com/nightmare-eclipse-drops-windows-zero-day-exploit-shieldbreak/",
     "https://www.securityweek.com/1-6-million-likely-impacted-by-ringcentral-data-breach/",
     "https://thehackernews.com/2026/08/attackers-exploit-sharepoint.html",
     "https://www.bleepingcomputer.com/news/security/hackers-exploit-macos-screen-sharing-flaw-to-deploy-monero-miner/",
@@ -101,8 +100,9 @@
     "https://thehackernews.com/2026/10/sonicwall-patches-cvss-100-pre.html",
     "https://thehackernews.com/2026/10/artex-ai-pentesting-tool-used-in-data.html",
     "https://www.bleepingcomputer.com/news/security/germany-arrests-alleged-core-qilin-ransomware-member-after-extradition/",
+    "",
     ""
   ],
-  "last_updated": "2026-10-11 10:49:31",
+  "last_updated": "2026-10-12 09:38:11",
   "posts": []
 }

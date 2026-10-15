@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**vulnerability alert**",
     "**macos exploited**",
     "**data leak, 39,798 lives exposed**",
     "**zero\u2011day frenzy hits the boardroom**",
@@ -49,10 +48,10 @@
     "**qilin's kingpin vanished overnight**",
     "**shinyhunters cracked the fbi's hiring gate**",
     "**shinyhunters cracked the fbi's inbox**",
-    "**cold chain chaos**"
+    "**cold chain chaos**",
+    "**email gateway writes malware**"
   ],
   "links": [
-    "https://thehackernews.com/2026/08/attackers-exploit-sharepoint.html",
     "https://www.bleepingcomputer.com/news/security/hackers-exploit-macos-screen-sharing-flaw-to-deploy-monero-miner/",
     "",
     "https://thehackernews.com/2026/08/critical-macos-sharepoint-vcenter-and.html",
@@ -101,8 +100,9 @@
     "https://www.bleepingcomputer.com/news/security/germany-arrests-alleged-core-qilin-ransomware-member-after-extradition/",
     "",
     "",
-    "https://www.bleepingcomputer.com/news/security/cyberattack-shuts-down-refrigerators-at-french-supermarkets/"
+    "https://www.bleepingcomputer.com/news/security/cyberattack-shuts-down-refrigerators-at-french-supermarkets/",
+    ""
   ],
-  "last_updated": "2026-10-13 09:42:57",
+  "last_updated": "2026-10-15 07:41:54",
   "posts": []
 }

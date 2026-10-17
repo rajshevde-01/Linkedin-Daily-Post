@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**data leak, 39,798 lives exposed**",
     "**zero\u2011day frenzy hits the boardroom**",
     "**rust crates became trojan horses**",
     "**entra id breach erupted overnight**",
@@ -49,10 +48,10 @@
     "**shinyhunters cracked the fbi's inbox**",
     "**cold chain chaos**",
     "**email gateway writes malware**",
-    "**credentials leaked in 27 seconds**"
+    "**credentials leaked in 27 seconds**",
+    "**remote support turned battlefield**"
   ],
   "links": [
-    "",
     "https://thehackernews.com/2026/08/critical-macos-sharepoint-vcenter-and.html",
     "https://thehackernews.com/2026/08/rust-supply-chain-attack-puts-build.html",
     "",
@@ -101,8 +100,9 @@
     "",
     "https://www.bleepingcomputer.com/news/security/cyberattack-shuts-down-refrigerators-at-french-supermarkets/",
     "",
+    "",
     ""
   ],
-  "last_updated": "2026-10-16 07:29:31",
+  "last_updated": "2026-10-17 07:09:34",
   "posts": []
 }

@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**zero\u2011day frenzy hits the boardroom**",
     "**rust crates became trojan horses**",
     "**entra id breach erupted overnight**",
     "**car head\u2011unit botnet, 0\u2011day unleashed**",
@@ -49,10 +48,10 @@
     "**cold chain chaos**",
     "**email gateway writes malware**",
     "**credentials leaked in 27 seconds**",
-    "**remote support turned battlefield**"
+    "**remote support turned battlefield**",
+    "**bankruptcy notices vanished**"
   ],
   "links": [
-    "https://thehackernews.com/2026/08/critical-macos-sharepoint-vcenter-and.html",
     "https://thehackernews.com/2026/08/rust-supply-chain-attack-puts-build.html",
     "",
     "https://securityaffairs.com/197640/security/six-maximum-severity-flaws-found-in-cisco-products.html",
@@ -101,8 +100,9 @@
     "https://www.bleepingcomputer.com/news/security/cyberattack-shuts-down-refrigerators-at-french-supermarkets/",
     "",
     "",
+    "",
     ""
   ],
-  "last_updated": "2026-10-17 07:09:34",
+  "last_updated": "2026-10-19 08:03:33",
   "posts": []
 }

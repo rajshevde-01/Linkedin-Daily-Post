@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**rust crates became trojan horses**",
     "**entra id breach erupted overnight**",
     "**car head\u2011unit botnet, 0\u2011day unleashed**",
     "**car head\u2011unit botnet, live.**",
@@ -49,10 +48,10 @@
     "**email gateway writes malware**",
     "**credentials leaked in 27 seconds**",
     "**remote support turned battlefield**",
-    "**bankruptcy notices vanished**"
+    "**bankruptcy notices vanished**",
+    "**backdoor slipped into seo updates**"
   ],
   "links": [
-    "https://thehackernews.com/2026/08/rust-supply-chain-attack-puts-build.html",
     "",
     "https://securityaffairs.com/197640/security/six-maximum-severity-flaws-found-in-cisco-products.html",
     "",
@@ -101,8 +100,9 @@
     "",
     "",
     "",
-    ""
+    "",
+    "https://thehackernews.com/2026/10/popular-wordpress-seo-plugin-rank-math.html"
   ],
-  "last_updated": "2026-10-19 08:03:33",
+  "last_updated": "2026-10-20 07:53:30",
   "posts": []
 }

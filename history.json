@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**car head\u2011unit botnet, 0\u2011day unleashed**",
     "**car head\u2011unit botnet, live.**",
     "**power plants aren't firewalls**",
     "**npm mirrors became phishing hotbeds**",
@@ -49,10 +48,10 @@
     "**remote support turned battlefield**",
     "**bankruptcy notices vanished**",
     "**backdoor slipped into seo updates**",
-    "**serverless turned our soc upside\u2011down**"
+    "**serverless turned our soc upside\u2011down**",
+    "**php\u2019s silent kill switch**"
   ],
   "links": [
-    "https://securityaffairs.com/197640/security/six-maximum-severity-flaws-found-in-cisco-products.html",
     "",
     "https://www.securityweek.com/iran-linked-hackers-shut-down-uk-power-plant-for-four-days/",
     "",
@@ -101,8 +100,9 @@
     "",
     "",
     "https://thehackernews.com/2026/10/popular-wordpress-seo-plugin-rank-math.html",
+    "",
     ""
   ],
-  "last_updated": "2026-10-21 07:55:56",
+  "last_updated": "2026-10-22 07:55:52",
   "posts": []
 }

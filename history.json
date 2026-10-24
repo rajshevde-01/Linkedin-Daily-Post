@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**power plants aren't firewalls**",
     "**npm mirrors became phishing hotbeds**",
     "[needs data]",
     "**print servers are bleeding data**",
@@ -49,10 +48,10 @@
     "**backdoor slipped into seo updates**",
     "**serverless turned our soc upside\u2011down**",
     "**php\u2019s silent kill switch**",
-    "**encryption hit the backup vault**"
+    "**encryption hit the backup vault**",
+    "**safepay's silent sweep**"
   ],
   "links": [
-    "https://www.securityweek.com/iran-linked-hackers-shut-down-uk-power-plant-for-four-days/",
     "",
     "https://thehackernews.com/2026/08/gputhor-rowhammer-defeats-ecc-on-nvidia.html",
     "https://thehackernews.com/2026/08/papercut-zero-day-exploited-in-attacks.html",
@@ -101,8 +100,9 @@
     "https://thehackernews.com/2026/10/popular-wordpress-seo-plugin-rank-math.html",
     "",
     "",
-    "https://www.cisa.gov/news-events/cybersecurity-advisories/2026/10/21/ransomware-attack-2026"
+    "https://www.cisa.gov/news-events/cybersecurity-advisories/2026/10/21/ransomware-attack-2026",
+    "https://securityaffairs.com/201464/cyber-crime/fbi-and-cisa-warn-of-safepay-ransomware-attacks-on-600-organizations.html"
   ],
-  "last_updated": "2026-10-23 07:52:52",
+  "last_updated": "2026-10-24 07:33:56",
   "posts": []
 }

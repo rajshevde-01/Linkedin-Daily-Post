@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**npm mirrors became phishing hotbeds**",
     "[needs data]",
     "**print servers are bleeding data**",
     "**agents swarmed hugging face**",
@@ -49,10 +48,10 @@
     "**serverless turned our soc upside\u2011down**",
     "**php\u2019s silent kill switch**",
     "**encryption hit the backup vault**",
-    "**safepay's silent sweep**"
+    "**safepay's silent sweep**",
+    "**lab orders went dark**"
   ],
   "links": [
-    "",
     "https://thehackernews.com/2026/08/gputhor-rowhammer-defeats-ecc-on-nvidia.html",
     "https://thehackernews.com/2026/08/papercut-zero-day-exploited-in-attacks.html",
     "https://www.darkreading.com/cyberattacks-data-breaches/hundreds-openai-agents-invaded-hugging-face-servers",
@@ -101,8 +100,9 @@
     "",
     "",
     "https://www.cisa.gov/news-events/cybersecurity-advisories/2026/10/21/ransomware-attack-2026",
-    "https://securityaffairs.com/201464/cyber-crime/fbi-and-cisa-warn-of-safepay-ransomware-attacks-on-600-organizations.html"
+    "https://securityaffairs.com/201464/cyber-crime/fbi-and-cisa-warn-of-safepay-ransomware-attacks-on-600-organizations.html",
+    ""
   ],
-  "last_updated": "2026-10-24 07:33:56",
+  "last_updated": "2026-10-26 08:04:45",
   "posts": []
 }

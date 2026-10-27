@@ -1,6 +1,5 @@
 {
   "titles": [
-    "[needs data]",
     "**print servers are bleeding data**",
     "**agents swarmed hugging face**",
     "**encrypted logs vanished**",
@@ -49,10 +48,10 @@
     "**php\u2019s silent kill switch**",
     "**encryption hit the backup vault**",
     "**safepay's silent sweep**",
-    "**lab orders went dark**"
+    "**lab orders went dark**",
+    "**malware hides in checkout pages**"
   ],
   "links": [
-    "https://thehackernews.com/2026/08/gputhor-rowhammer-defeats-ecc-on-nvidia.html",
     "https://thehackernews.com/2026/08/papercut-zero-day-exploited-in-attacks.html",
     "https://www.darkreading.com/cyberattacks-data-breaches/hundreds-openai-agents-invaded-hugging-face-servers",
     "https://github.com/krzy",
@@ -101,8 +100,9 @@
     "",
     "https://www.cisa.gov/news-events/cybersecurity-advisories/2026/10/21/ransomware-attack-2026",
     "https://securityaffairs.com/201464/cyber-crime/fbi-and-cisa-warn-of-safepay-ransomware-attacks-on-600-organizations.html",
-    ""
+    "",
+    "https://thehackernews.com/2026/10/hackers-infect-953-online-stores-with.html"
   ],
-  "last_updated": "2026-10-26 08:04:45",
+  "last_updated": "2026-10-27 08:16:41",
   "posts": []
 }

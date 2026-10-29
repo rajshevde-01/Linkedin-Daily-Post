@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**print servers are bleeding data**",
     "**agents swarmed hugging face**",
     "**encrypted logs vanished**",
     "**papercut's backdoor just opened**",
@@ -49,10 +48,10 @@
     "**encryption hit the backup vault**",
     "**safepay's silent sweep**",
     "**lab orders went dark**",
-    "**malware hides in checkout pages**"
+    "**malware hides in checkout pages**",
+    "**phishing lambda got us.**"
   ],
   "links": [
-    "https://thehackernews.com/2026/08/papercut-zero-day-exploited-in-attacks.html",
     "https://www.darkreading.com/cyberattacks-data-breaches/hundreds-openai-agents-invaded-hugging-face-servers",
     "https://github.com/krzy",
     "https://thehackernews.com/2026/08/attackers-chain-two-papercut-flaws-to.html",
@@ -101,8 +100,9 @@
     "https://www.cisa.gov/news-events/cybersecurity-advisories/2026/10/21/ransomware-attack-2026",
     "https://securityaffairs.com/201464/cyber-crime/fbi-and-cisa-warn-of-safepay-ransomware-attacks-on-600-organizations.html",
     "",
-    "https://thehackernews.com/2026/10/hackers-infect-953-online-stores-with.html"
+    "https://thehackernews.com/2026/10/hackers-infect-953-online-stores-with.html",
+    ""
   ],
-  "last_updated": "2026-10-27 08:16:41",
+  "last_updated": "2026-10-29 08:47:59",
   "posts": []
 }

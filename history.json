@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**routers whisper secrets**",
     "**zero\u2011day rce in sonicwall**",
     "**chrome's v8 is bleeding**",
     "**replication backdoors are silent assassins**",
@@ -49,10 +48,10 @@
     "**phishing lambda got us.**",
     "**lambda privilege chaos**",
     "**wallets whisper secrets**",
-    "**$6.43\u202fb vanished overnight**"
+    "**$6.43\u202fb vanished overnight**",
+    "**tv boxes became botnet launchpads**"
   ],
   "links": [
-    "",
     "https://www.darkreading.com/vulnerabilities-threats/sonicwall-sma-1000-zero-days-unauthenticated-rce",
     "",
     "",
@@ -101,8 +100,9 @@
     "",
     "",
     "",
-    "https://thehackernews.com/2026/11/fbi-links-north-koreas-tradertraitor-to.html"
+    "https://thehackernews.com/2026/11/fbi-links-north-koreas-tradertraitor-to.html",
+    ""
   ],
-  "last_updated": "2026-11-02 09:52:10",
+  "last_updated": "2026-11-03 09:55:34",
   "posts": []
 }

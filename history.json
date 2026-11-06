@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**chrome's v8 is bleeding**",
     "**replication backdoors are silent assassins**",
     "**replication turned into a backdoor**",
     "**974 bugs, 2 active zero\u2011days**",
@@ -49,10 +48,10 @@
     "**wallets whisper secrets**",
     "**$6.43\u202fb vanished overnight**",
     "**tv boxes became botnet launchpads**",
-    "**supercomputers turned crypto farms**"
+    "**supercomputers turned crypto farms**",
+    "**migration misstep opened a backdoor**"
   ],
   "links": [
-    "",
     "",
     "",
     "https://thehackernews.com/2026/09/microsoft-patches-record-974-flaws.html",
@@ -101,8 +100,9 @@
     "",
     "https://thehackernews.com/2026/11/fbi-links-north-koreas-tradertraitor-to.html",
     "",
-    ""
+    "",
+    "https://www.bleepingcomputer.com/news/security/digicert-data-breach-exposes-customer-information-identity-documents/"
   ],
-  "last_updated": "2026-11-05 09:48:20",
+  "last_updated": "2026-11-06 09:43:34",
   "posts": []
 }

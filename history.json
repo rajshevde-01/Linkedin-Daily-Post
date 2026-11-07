@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**replication backdoors are silent assassins**",
     "**replication turned into a backdoor**",
     "**974 bugs, 2 active zero\u2011days**",
     "**shieldcrash shatters defenses**",
@@ -49,10 +48,10 @@
     "**$6.43\u202fb vanished overnight**",
     "**tv boxes became botnet launchpads**",
     "**supercomputers turned crypto farms**",
-    "**migration misstep opened a backdoor**"
+    "**migration misstep opened a backdoor**",
+    "**gpt-6 just ripped open 1,029 bugs**"
   ],
   "links": [
-    "",
     "",
     "https://thehackernews.com/2026/09/microsoft-patches-record-974-flaws.html",
     "https://www.securityweek.com/new-sh",
@@ -101,8 +100,9 @@
     "https://thehackernews.com/2026/11/fbi-links-north-koreas-tradertraitor-to.html",
     "",
     "",
-    "https://www.bleepingcomputer.com/news/security/digicert-data-breach-exposes-customer-information-identity-documents/"
+    "https://www.bleepingcomputer.com/news/security/digicert-data-breach-exposes-customer-information-identity-documents/",
+    "https://thehackernews.com/2026/11/openai-launches-gpt-6-cyber-after-ai.html"
   ],
-  "last_updated": "2026-11-06 09:43:34",
+  "last_updated": "2026-11-07 09:05:04",
   "posts": []
 }

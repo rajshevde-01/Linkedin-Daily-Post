@@ -19,6 +19,20 @@ GROQ_API_KEYS = [k.strip() for k in GROQ_API_KEY_ENV.split(",") if k.strip()]
 LINKEDIN_ACCESS_TOKEN = os.environ.get("LINKEDIN_ACCESS_TOKEN", "")
 LINKEDIN_PERSON_URN = os.environ.get("LINKEDIN_PERSON_URN", "")  # e.g., "urn:li:person:XXXX"
 
+# Fallback: load from linkedin_credentials.json if running locally without env vars set
+if not LINKEDIN_ACCESS_TOKEN or not LINKEDIN_PERSON_URN:
+    try:
+        import json
+        from pathlib import Path
+        creds_path = Path(__file__).parent.parent / "linkedin_credentials.json"
+        if creds_path.exists():
+            with open(creds_path, "r", encoding="utf-8") as f:
+                creds = json.load(f)
+                LINKEDIN_ACCESS_TOKEN = LINKEDIN_ACCESS_TOKEN or creds.get("access_token", "")
+                LINKEDIN_PERSON_URN = LINKEDIN_PERSON_URN or creds.get("person_urn", "")
+    except Exception:
+        pass
+
 # --- Trusted RSS Feeds (tiered by reliability) ---
 # Tier 1: Top-tier cybersecurity news
 # Tier 2: Dedicated Threat Intel and Forensics

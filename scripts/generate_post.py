@@ -241,13 +241,15 @@ def save_post(post_text: str, image_prompt: str, date_str: str, image_path: str 
         index += 1
         filepath = posts_dir / f"{date_str}-{index}.md"
 
+    style_val = json.dumps(get_style_for_display())
+    img_val = json.dumps(image_path)
     content = f"""---
 date: {date_str}
 status: pending
-style: {get_style_for_display()}
+style: {style_val}
 word_count: {len(post_text.split())}
 generated_at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
-image_path: {image_path}
+image_path: {img_val}
 image_prompt: |
   {image_prompt}
 ---

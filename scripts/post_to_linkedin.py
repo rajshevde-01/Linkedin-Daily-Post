@@ -116,6 +116,8 @@ def upload_document(pdf_path: str) -> str:
         print("[ERROR] LINKEDIN_ACCESS_TOKEN not set")
         return ""
 
+    print(f"[INFO] Uploading document carousel to LinkedIn: {pdf_path}")
+
     # PDF uses the 'documents' namespace
     init_url = "https://api.linkedin.com/rest/documents?action=initializeUpload"
     headers = {
@@ -164,10 +166,10 @@ def upload_media(media_path: str) -> str:
         return ""
     if media_path.lower().endswith('.pdf'):
         return upload_document(media_path)
-    return upload_image(media_path)
+    return upload_image_to_linkedin(media_path)
 
 
-def post_to_linkedin(text: str, media_urn: str = "") -> dict:
+def post_to_linkedin(text: str, media_urn: str = "", media_title: str = "") -> dict:
     """Publish a post to LinkedIn using the REST Posts API, optionally with an image or document."""
     if not LINKEDIN_ACCESS_TOKEN:
         print("[ERROR] LINKEDIN_ACCESS_TOKEN not set")
@@ -204,12 +206,14 @@ def post_to_linkedin(text: str, media_urn: str = "") -> dict:
     
     # Attach media if available
     if media_urn:
+        media_obj = {"id": media_urn}
+        if media_urn.startswith("urn:li:document:"):
+            # LinkedIn Documents API requires a title for documents/carousels
+            media_obj["title"] = media_title or "Cybersecurity Architecture & Defense Brief"
         payload["content"] = {
-            "media": {
-                "id": media_urn,
-            }
+            "media": media_obj
         }
-        print(f"[INFO] Attaching media to post: {media_urn}")
+        print(f"[INFO] Attaching media to post: {media_urn} (title: {media_obj.get('title', 'N/A')})")
 
     response = requests.post(url, headers=headers, json=payload)
 
@@ -225,13 +229,29 @@ def post_to_linkedin(text: str, media_urn: str = "") -> dict:
 
 
 
+def _find_post_file(date_or_filename: str) -> Path | None:
+    """Find a post file by exact path, stem, date, or glob prefix."""
+    posts_dir = Path(__file__).parent.parent / "posts"
+    # Try exact stem match
+    candidate = posts_dir / f"{date_or_filename}.md"
+    if candidate.exists():
+        return candidate
+    candidate_direct = posts_dir / date_or_filename
+    if candidate_direct.exists() and candidate_direct.is_file():
+        return candidate_direct
+    # Try glob matching (e.g. 2026-11-07 matches 2026-11-07-1.md)
+    matches = sorted(list(posts_dir.glob(f"{date_or_filename}*.md")))
+    if matches:
+        return matches[-1]
+    return None
+
+
 def read_post_file(date_str: str) -> tuple[str, dict]:
     """Read the generated post file and return (text, metadata)."""
-    posts_dir = Path(__file__).parent.parent / "posts"
-    filepath = posts_dir / f"{date_str}.md"
-
-    if not filepath.exists():
-        print(f"[ERROR] Post file not found: {filepath}")
+    filepath = _find_post_file(date_str)
+    if not filepath:
+        posts_dir = Path(__file__).parent.parent / "posts"
+        print(f"[ERROR] Post file not found for: {date_str} in {posts_dir}")
         sys.exit(1)
 
     content = filepath.read_text(encoding="utf-8")
@@ -245,8 +265,16 @@ def read_post_file(date_str: str) -> tuple[str, dict]:
         import yaml
         try:
             metadata = yaml.safe_load(parts[1]) or {}
-        except Exception:
-            pass
+        except Exception as e:
+            print(f"[WARN] YAML safe_load failed ({e}). Falling back to line-by-line frontmatter parser.")
+            metadata = {}
+            for line in parts[1].splitlines():
+                if ":" in line:
+                    key, val = line.split(":", 1)
+                    key = key.strip()
+                    val = val.strip().strip('"').strip("'")
+                    if key in ("date", "status", "style", "image_path", "word_count", "generated_at"):
+                        metadata[key] = val
         post_text = "---".join(parts[2:]).strip()
 
     return post_text, metadata
@@ -254,10 +282,8 @@ def read_post_file(date_str: str) -> tuple[str, dict]:
 
 def update_post_status(date_str: str, new_status: str):
     """Update the status in the post's YAML frontmatter."""
-    posts_dir = Path(__file__).parent.parent / "posts"
-    filepath = posts_dir / f"{date_str}.md"
-
-    if not filepath.exists():
+    filepath = _find_post_file(date_str)
+    if not filepath:
         return
 
     content = filepath.read_text(encoding="utf-8")
@@ -265,7 +291,7 @@ def update_post_status(date_str: str, new_status: str):
     content = content.replace("status: pending", f"status: {new_status}")
     content = content.replace("status: confirmed", f"status: {new_status}")
     filepath.write_text(content, encoding="utf-8")
-    print(f"[INFO] Updated post status to: {new_status}")
+    print(f"[INFO] Updated post status to: {new_status} in {filepath.name}")
 
 
 def check_confirmation_status(date_str: str) -> str:
@@ -274,10 +300,8 @@ def check_confirmation_status(date_str: str) -> str:
     Checks the post file's status field.
     Returns: 'pending', 'confirmed', 'rejected', or 'not_found'
     """
-    posts_dir = Path(__file__).parent.parent / "posts"
-    filepath = posts_dir / f"{date_str}.md"
-
-    if not filepath.exists():
+    filepath = _find_post_file(date_str)
+    if not filepath:
         return "not_found"
 
     content = filepath.read_text(encoding="utf-8")
@@ -380,12 +404,32 @@ def main():
         # Upload media if available
         media_urn = ""
         media_path = metadata.get("image_path", "")
+        if media_path and not os.path.exists(media_path):
+            # Check relative to posts/images
+            candidate = Path(__file__).parent.parent / "posts" / "images" / Path(media_path).name
+            if candidate.exists():
+                media_path = str(candidate)
+            else:
+                candidate_repo = Path(__file__).parent.parent / media_path
+                if candidate_repo.exists():
+                    media_path = str(candidate_repo)
+                else:
+                    print(f"[WARN] Media file not found: {media_path}")
+                    media_path = ""
+
         if media_path and os.path.exists(media_path):
             media_urn = upload_media(media_path)
 
+        # Extract title for document attachment
+        title_match = re.search(r"\*\*(.*?)\*\*", post_text)
+        if not title_match:
+            title_match = re.search(r"## (.*?)\n", post_text)
+        doc_title = title_match.group(1).strip() if title_match else filename
+        doc_title = re.sub(r"[^\w\s\-\.\,\(\)]", "", doc_title)[:100]
+
         # Post to LinkedIn
         print(f"[INFO] Publishing post {filename} to LinkedIn...")
-        result = post_to_linkedin(post_text, media_urn=media_urn)
+        result = post_to_linkedin(post_text, media_urn=media_urn, media_title=doc_title)
 
         # Update status
         update_post_status(filename, "posted")

@@ -39,16 +39,24 @@ def clean_markdown_for_linkedin(text: str) -> str:
     if not text:
         return text
 
+    # Convert links [Title](URL) -> Title: URL first
+    text = re.sub(r'\[(.*?)\]\((.*?)\)', r'\1: \2', text)
+
+    # Protect URLs from formatting by temporarily masking them
+    url_pattern = r'(https?://\S+)'
+    urls = []
+    def mask_url(m):
+        urls.append(m.group(0))
+        return f"XXURLTOKEN{len(urls)-1}XX"
+    text = re.sub(url_pattern, mask_url, text)
+
     # Convert bold (**text** or __text__) to Unicode Bold
     text = re.sub(r'\*\*(.*?)\*\*', lambda m: text_to_unicode_bold(m.group(1)), text)
     text = re.sub(r'__(.*?)__', lambda m: text_to_unicode_bold(m.group(1)), text)
     
     # Convert italic (*text* or _text_) to Unicode Italic
     text = re.sub(r'\*(.*?)\*', lambda m: text_to_unicode_italic(m.group(1)), text)
-    text = re.sub(r'_(.*?)_', lambda m: text_to_unicode_italic(m.group(1)), text)
-    
-    # Convert links [Title](URL) -> Title: URL
-    text = re.sub(r'\[(.*?)\]\((.*?)\)', r'\1: \2', text)
+    text = re.sub(r'(?<!\w)_(.*?)_(?!\w)', lambda m: text_to_unicode_italic(m.group(1)), text)
     
     # Remove headers (### Text -> Text)
     # We should still bold the header text
@@ -56,7 +64,11 @@ def clean_markdown_for_linkedin(text: str) -> str:
     
     # Remove stray backticks
     text = text.replace('`', '')
-    
+
+    # Restore URLs
+    for idx, u in enumerate(urls):
+        text = text.replace(f"XXURLTOKEN{idx}XX", u)
+
     return text.strip()
 
 

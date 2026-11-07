@@ -3,6 +3,7 @@ Generate LinkedIn post using Google Gemini API.
 """
 import os
 import sys
+import json
 import argparse
 from datetime import datetime
 from pathlib import Path

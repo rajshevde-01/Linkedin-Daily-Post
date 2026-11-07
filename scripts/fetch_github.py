@@ -20,10 +20,12 @@ def fetch_top_github_repo(topic: str) -> Optional[Dict]:
             data = response.json()
             if data.get("total_count", 0) > 0:
                 item = data["items"][0]
+                raw_desc = item.get("description") or ""
+                desc_truncated = raw_desc[:160] + ("..." if len(raw_desc) > 160 else "")
                 return {
                     "name": item["full_name"],
                     "stars": item["stargazers_count"],
-                    "description": item["description"][:160] + ("..." if len(item["description"] or "") > 160 else ""),
+                    "description": desc_truncated,
                     "url": item["html_url"]
                 }
             else:

@@ -45,7 +45,7 @@ def add_to_memory(post_id: str, title: str, keywords: List[str]):
         "id": post_id,
         "title": title,
         "keywords": [k.lower() for k in keywords if k],
-        "created_at": os.environ.get("CURRENT_DATE", "") # Mocked or passed
+        "created_at": os.environ.get("CURRENT_DATE") or datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     }
     
     memory.append(entry)

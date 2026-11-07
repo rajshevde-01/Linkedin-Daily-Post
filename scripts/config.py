@@ -87,10 +87,10 @@ POST_ABSOLUTE_MIN = 250  # Hard floor — posts below this are auto-rejected
 
 
 def get_today_style():
-    """Return a random post style for this generation."""
+    """Return the style for today based on day-of-week rotation."""
     day = datetime.now().weekday()  # 0=Monday
-    day_name = DAY_NAMES[day]
-    style = random.choice(list(DAY_STYLES.values()))
+    day_name = DAY_NAMES.get(day, "Monday")
+    style = DAY_STYLES.get(day, DAY_STYLES[0])
     return style, day_name
 
 
@@ -311,7 +311,7 @@ SOURCE LINK REQUIREMENT:
 - Do NOT include any source links at the bottom.
 """
 
-    final_reminders = """
+    final_reminders = f"""
 🚨 ABSOLUTE CRITICAL REMINDERS (FAILING THESE = AUTOMATIC REJECTION):
 1. **WORD COUNT IS #1 PRIORITY**: You MUST write {POST_MIN_WORDS}-{POST_MAX_WORDS} words of SUBSTANTIVE content. Count carefully before submitting. Under {POST_ABSOLUTE_MIN} = DELETED. Under {POST_MIN_WORDS} = REJECTION. Over {POST_MAX_WORDS} = TRIM REQUIRED. A post with only 50-80 words is a CATASTROPHIC FAILURE. Write FULL paragraphs with technical depth.
 2. **MULTI-LAYER HOOK**: The FIRST 3 LINES must form a micro-narrative arc (bold statement → stakes → pull). Line 1 MUST be ≤8 words and wrapped in **bold**. BE ORIGINAL — never copy prompt examples.

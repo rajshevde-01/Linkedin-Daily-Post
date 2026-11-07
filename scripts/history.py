@@ -49,10 +49,15 @@ def is_in_history(title, link):
     if link in history["links"]:
         return True
     
-    # Check for similar title match
-    for h_title in history["titles"]:
-        if norm_title in h_title or h_title in norm_title:
-             return True
+    # Check for exact or normalized title match
+    for h_title in history.get("titles", []):
+        h_norm = h_title.lower().strip()
+        if norm_title == h_norm:
+            return True
+        # Match only if a substantial title (>15 chars) is a substring of the other
+        if len(norm_title) > 15 and len(h_norm) > 15:
+            if norm_title in h_norm or h_norm in norm_title:
+                return True
              
     return False
 

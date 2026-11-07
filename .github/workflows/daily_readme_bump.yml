@@ -8,7 +8,7 @@ name: Daily README Bump
 
 on:
   schedule:
-    - cron: "30 2 * * *"   # 08:00 AM IST daily
+    - cron: "0 2 * * *"   # 07:30 AM IST daily (runs before generate_post at 8:00 AM IST to avoid push conflict)
   workflow_dispatch:        # allow manual trigger
 
 permissions:

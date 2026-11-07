@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**replication turned into a backdoor**",
     "**974 bugs, 2 active zero\u2011days**",
     "**shieldcrash shatters defenses**",
     "**driver\u2011license breach shattered identity trust**",
@@ -49,10 +48,10 @@
     "**tv boxes became botnet launchpads**",
     "**supercomputers turned crypto farms**",
     "**migration misstep opened a backdoor**",
-    "**gpt-6 just ripped open 1,029 bugs**"
+    "**gpt-6 just ripped open 1,029 bugs**",
+    "2026-11-07-1"
   ],
   "links": [
-    "",
     "https://thehackernews.com/2026/09/microsoft-patches-record-974-flaws.html",
     "https://www.securityweek.com/new-sh",
     "https://www.bleepingcomputer.com/news/security/idscan-confirms-breach-tied-to-153-million-stolen-drivers-licenses/",
@@ -101,8 +100,21 @@
     "",
     "",
     "https://www.bleepingcomputer.com/news/security/digicert-data-breach-exposes-customer-information-identity-documents/",
+    "https://thehackernews.com/2026/11/openai-launches-gpt-6-cyber-after-ai.html",
     "https://thehackernews.com/2026/11/openai-launches-gpt-6-cyber-after-ai.html"
   ],
-  "last_updated": "2026-11-07 09:05:04",
-  "posts": []
+  "last_updated": "2026-11-07 09:37:53",
+  "posts": [
+    {
+      "id": "urn:li:ugcPost:7524767071063203840",
+      "title": "2026-11-07-1",
+      "link": "https://thehackernews.com/2026/11/openai-launches-gpt-6-cyber-after-ai.html",
+      "content_preview": "**GPT-6 just ripped open 1,029 bugs**  \nOpenAI\u2019s new model cataloged 81 Firefox flaws and 948 Linux exploits in a single sweep.  \nAre we ready to trust a model that can out\u2011hunt our own red teams?  \n\n",
+      "posted_at": "2026-11-07 09:37:53",
+      "metrics": {
+        "likes": 0,
+        "comments": 0
+      }
+    }
+  ]
 }

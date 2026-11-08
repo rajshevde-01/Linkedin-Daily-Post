@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**974 bugs, 2 active zero\u2011days**",
     "**shieldcrash shatters defenses**",
     "**driver\u2011license breach shattered identity trust**",
     "**gitlab's zero\u2011day hit fast**",
@@ -49,10 +48,10 @@
     "**supercomputers turned crypto farms**",
     "**migration misstep opened a backdoor**",
     "**gpt-6 just ripped open 1,029 bugs**",
-    "2026-11-07-1"
+    "2026-11-07-1",
+    "**cloud assets vanished overnight**"
   ],
   "links": [
-    "https://thehackernews.com/2026/09/microsoft-patches-record-974-flaws.html",
     "https://www.securityweek.com/new-sh",
     "https://www.bleepingcomputer.com/news/security/idscan-confirms-breach-tied-to-153-million-stolen-drivers-licenses/",
     "https://thehackernews.com/2026/09/gitlab-cvss-10-file-read-flaw-draws-in.html",
@@ -101,9 +100,10 @@
     "",
     "https://www.bleepingcomputer.com/news/security/digicert-data-breach-exposes-customer-information-identity-documents/",
     "https://thehackernews.com/2026/11/openai-launches-gpt-6-cyber-after-ai.html",
-    "https://thehackernews.com/2026/11/openai-launches-gpt-6-cyber-after-ai.html"
+    "https://thehackernews.com/2026/11/openai-launches-gpt-6-cyber-after-ai.html",
+    ""
   ],
-  "last_updated": "2026-11-07 09:37:53",
+  "last_updated": "2026-11-08 09:24:37",
   "posts": [
     {
       "id": "urn:li:ugcPost:7524767071063203840",

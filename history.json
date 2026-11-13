@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**gitlab's zero\u2011day hit fast**",
     "**encrypted code, broken trust**",
     "**conti coder lands four years**",
     "**email gateway turned into a launchpad**",
@@ -49,10 +48,10 @@
     "2026-11-07-1",
     "**cloud assets vanished overnight**",
     "**cold chain sabotage**",
-    "**shipping data vanished overnight**"
+    "**shipping data vanished overnight**",
+    "**phishing payload hit 4.2\u202fmillion**"
   ],
   "links": [
-    "https://thehackernews.com/2026/09/gitlab-cvss-10-file-read-flaw-draws-in.html",
     "https://github.com/krzyzanowskim/ObjectivePGP",
     "https://www.securityweek.com/ukrainian-conti-ransomware-developer-sentenced-to-4-years-in-us-prison/",
     "https://thehackernews.com/2026/09/cisco-secure-email-gateway-flaw.html",
@@ -101,9 +100,10 @@
     "https://thehackernews.com/2026/11/openai-launches-gpt-6-cyber-after-ai.html",
     "",
     "",
+    "",
     ""
   ],
-  "last_updated": "2026-11-12 10:06:29",
+  "last_updated": "2026-11-13 09:54:20",
   "posts": [
     {
       "id": "urn:li:ugcPost:7524767071063203840",

@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**encrypted code, broken trust**",
     "**conti coder lands four years**",
     "**email gateway turned into a launchpad**",
     "**sandworm rewrote the playbook**",
@@ -49,10 +48,10 @@
     "**cloud assets vanished overnight**",
     "**cold chain sabotage**",
     "**shipping data vanished overnight**",
-    "**phishing payload hit 4.2\u202fmillion**"
+    "**phishing payload hit 4.2\u202fmillion**",
+    "**wallets shipped with spying chips**"
   ],
   "links": [
-    "https://github.com/krzyzanowskim/ObjectivePGP",
     "https://www.securityweek.com/ukrainian-conti-ransomware-developer-sentenced-to-4-years-in-us-prison/",
     "https://thehackernews.com/2026/09/cisco-secure-email-gateway-flaw.html",
     "https://www.darkreading.com/cyberattacks-data-breaches/sandworm-chains-cisco-vulnerabilities-cyclops-blink",
@@ -101,9 +100,10 @@
     "",
     "",
     "",
-    ""
+    "",
+    "https://thehackernews.com/2026/11/trezor-confirms-hidden-hardware.html"
   ],
-  "last_updated": "2026-11-13 09:54:20",
+  "last_updated": "2026-11-14 09:17:08",
   "posts": [
     {
       "id": "urn:li:ugcPost:7524767071063203840",

@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**email gateway turned into a launchpad**",
     "**sandworm rewrote the playbook**",
     "**supply chain breach hit 100k sites**",
     "**backdoor landed in a shipping manifest**",
@@ -49,10 +48,10 @@
     "**shipping data vanished overnight**",
     "**phishing payload hit 4.2\u202fmillion**",
     "**wallets shipped with spying chips**",
-    "**autonomous ransomware bots are real**"
+    "**autonomous ransomware bots are real**",
+    "**ransomware talks cost us minutes**"
   ],
   "links": [
-    "https://thehackernews.com/2026/09/cisco-secure-email-gateway-flaw.html",
     "https://www.darkreading.com/cyberattacks-data-breaches/sandworm-chains-cisco-vulnerabilities-cyclops-blink",
     "https://www.securityweek.com/brevo-supply-chain-attack-injects-malware-into-100000-websites/",
     "https://thehackernews.com/2026/09/critical-pre-auth-rce-in-orkes.html",
@@ -101,9 +100,10 @@
     "",
     "",
     "https://thehackernews.com/2026/11/trezor-confirms-hidden-hardware.html",
-    "https://github.com/microsoft/agent"
+    "https://github.com/microsoft/agent",
+    ""
   ],
-  "last_updated": "2026-11-15 09:47:48",
+  "last_updated": "2026-11-16 10:03:27",
   "posts": [
     {
       "id": "urn:li:ugcPost:7524767071063203840",

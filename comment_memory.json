@@ -23,6 +23,10 @@
     {
       "comment": "Does this approach actually hold up against lateral movement in an AD environment?",
       "reply": "It raises the bar – by stripping unnecessary Tier 0 delegations you eliminate the most common pivot points. That said, an attacker who already has a foothold can still hop through privileged service accounts, so you still need tier‑ed admin workstations, constrained delegation, and continuous monitoring to catch lateral moves."
+    },
+    {
+      "comment": "Did you hear about the recent Fortinet SSL-VPN CVE-2024-21762 exploit?",
+      "reply": "Yes, that out‑of‑bounds write in FortiOS 6.x‑7.4.x (CVE‑2024‑21762) was weaponized within weeks; the Feb 2026 patches close the kernel write path, but many MSPs still run unpatched 7.2‑7.4 builds. I recommend immediate upgrade, enforce MFA on VPN, and start planning a migration away from SSL‑VPN to Zero‑Trust edge proxies."
     }
   ],
   "reply_history": [
@@ -30,6 +34,12 @@
       "comment": "Does this approach actually hold up against lateral movement in an AD environment?",
       "reply": "It raises the bar – by stripping unnecessary Tier 0 delegations you eliminate the most common pivot points. That said, an attacker who already has a foothold can still hop through privileged service accounts, so you still need tier‑ed admin workstations, constrained delegation, and continuous monitoring to catch lateral moves.",
       "timestamp": "2026-11-17 17:57:29",
+      "quality_score": 5
+    },
+    {
+      "comment": "Did you hear about the recent Fortinet SSL-VPN CVE-2024-21762 exploit?",
+      "reply": "Yes, that out‑of‑bounds write in FortiOS 6.x‑7.4.x (CVE‑2024‑21762) was weaponized within weeks; the Feb 2026 patches close the kernel write path, but many MSPs still run unpatched 7.2‑7.4 builds. I recommend immediate upgrade, enforce MFA on VPN, and start planning a migration away from SSL‑VPN to Zero‑Trust edge proxies.",
+      "timestamp": "2026-11-17 18:05:46",
       "quality_score": 5
     }
   ]

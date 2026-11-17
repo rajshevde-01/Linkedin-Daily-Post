@@ -11,6 +11,7 @@ import os
 import re
 import sys
 import json
+import random
 import argparse
 import requests
 import feedparser
@@ -249,18 +250,56 @@ def save_comment_memory(memory: Dict[str, Any]):
 
 
 # ============================================================
-# 4. HUMANIZED AI REPLY GENERATION
+# 4. DYNAMIC & HUMANIZED AI REPLY GENERATION
 # ============================================================
 
+PERSONA_ANGLES = [
+    {
+        "role": "Field Incident Responder",
+        "flavor": "Direct, operational, battle-tested. Focus on triage reality, late-night fixes, and practical edge-cases."
+    },
+    {
+        "role": "Pragmatic Security Architect",
+        "flavor": "Systemic yet realistic. Balances risk reduction vs developer friction and business velocity."
+    },
+    {
+        "role": "Threat Hunter / Red Teamer",
+        "flavor": "Curious, slightly skeptical, looks at attacker economics and what actually bypasses standard controls."
+    },
+    {
+        "role": "Peer Engineering Colleague",
+        "flavor": "Casual Slack-like technical discussion, validating genuine tradeoffs and asking sharp follow-ups."
+    }
+]
+
+REPLY_FORMAT_STYLES = [
+    "A direct observation followed by a counter-intuitive operational lesson (2 sentences).",
+    "A quick war-story snippet from past incidents, concluding with a conversational question (2-3 sentences).",
+    "Validating their specific constraint, then highlighting an attacker pivot point people usually miss (2 sentences).",
+    "A concise, punchy technical breakdown with zero filler (1-2 sentences)."
+]
+
+
 def generate_humanized_reply(post_context: str, comment_text: str, commenter_name: str = "") -> str:
-    """Generate a highly conversational, expert-level reply grounded in internet & database facts."""
+    """Generate a dynamically styled, highly conversational, non-robotic reply grounded in facts."""
     memory = load_comment_memory()
     exemplars = memory.get("exemplars", [])
 
-    exemplars_prompt = ""
+    # Pick a random persona angle and format style on every invocation for genuine variety
+    persona = random.choice(PERSONA_ANGLES)
+    format_style = random.choice(REPLY_FORMAT_STYLES)
+    dynamic_temperature = round(random.uniform(0.72, 0.88), 2)
+
+    # Sample dynamic exemplars instead of showing static identical list
+    sample_exemplars = []
     if exemplars:
+        sample_count = min(3, len(exemplars))
+        sample_exemplars = random.sample(exemplars, sample_count)
+
+    exemplars_prompt = ""
+    if sample_exemplars:
         exemplars_prompt = "\n".join(
-            [f"- Comment: \"{e['comment']}\"\n  Reply: \"{e['reply']}\"" for e in exemplars[-6:]]
+            [f"- Comment: \"{e['comment']}\"\n  Reply: \"{e['reply']}\"" for e in sample_exemplars]
         )
 
     # Gather live facts from internet and local knowledge database
@@ -270,44 +309,48 @@ def generate_humanized_reply(post_context: str, comment_text: str, commenter_nam
         grounding_prompt = f"""
 LIVE INTERNET NEWS & DATABASE GROUNDING FACTS:
 {grounding_data}
-(Use these verified facts to accurately answer or reference the news/CVE/incident mentioned, but weave it into natural peer conversation.)
+(Weave these concrete facts naturally into the response if answering news/CVE/incident questions. Avoid copy-pasting raw text.)
 """
 
-    prompt = f"""You are a veteran senior cybersecurity practitioner replying to a comment on your LinkedIn post.
+    prompt = f"""You are a senior cybersecurity engineer having a quick, natural conversation under a LinkedIn post.
 
-ORIGINAL POST TOPIC/SUMMARY:
-{post_context[:500]}
+YOUR MINDSET FOR THIS SPECIFIC REPLY:
+- Angle: {persona['role']} ({persona['flavor']})
+- Format Structure: {format_style}
+
+ORIGINAL POST CONTEXT:
+{post_context[:450]}
 
 COMMENT RECEIVED:
 {f'From: {commenter_name}' if commenter_name else ''}
 "{comment_text}"
 {grounding_prompt}
-PAST SUCCESSFUL CONVERSATION EXEMPLARS (Emulate this natural tone):
+REFERENCE NATURAL DIALOGUE EXAMPLES:
 {exemplars_prompt}
 
-HUMANIZATION & ACCURACY RULES:
-1. Speak peer-to-peer. You are chatting with another engineer or practitioner in the comments.
-2. If they are asking or talking about any news, incident, vulnerability (CVE), or tool, utilize the live grounding facts to reply accurately with real context.
-3. NO BOT-SPEAK: Banned words/phrases:
-   - "Thanks for sharing!"
-   - "Great comment!"
-   - "Couldn't agree more!"
-   - "Valuable insight"
-   - "In today's landscape"
-   - "As an AI"
-4. Keep it tight: 1 to 3 punchy sentences (maximum 60 words).
-5. Tone: Humble, sharp, practical, battle-tested.
+CRITICAL RULES TO AVOID LOOKING LIKE AN AI BOT:
+1. DYNAMIC & NATURAL: Write like an authentic human texting an engineering peer on Slack or LinkedIn.
+2. STRICT BANS (Instant Failures):
+   - NEVER start with: "Yes,", "I agree,", "Spot on,", "Great point,", "Thanks for sharing,", "Good question,", "In today's landscape,"
+   - NEVER sound like a customer support rep, advisory bot, or automated assistant.
+   - Do NOT regurgitate generic advice like "I recommend patching and using MFA".
+3. If referencing news or a CVE, drop the real-world operational insight (e.g. why the patch broke things, bypass mechanics, or where detection failed).
+4. Length: 1 to 3 punchy sentences (maximum 50 words). Be succinct and authentic.
 
-Output ONLY the reply text. No quotes, no prefix, no meta-commentary."""
+Output ONLY the raw reply text. No quotation marks, no preamble, no commentary."""
 
     try:
-        reply = _call_groq_with_retries(prompt, temperature=0.6).strip()
+        reply = _call_groq_with_retries(prompt, temperature=dynamic_temperature).strip()
         if reply.startswith('"') and reply.endswith('"'):
             reply = reply[1:-1].strip()
+        # Clean common prefix leaks
+        for bad_prefix in ["Here is", "Reply:", "Response:"]:
+            if reply.startswith(bad_prefix):
+                reply = reply.split(":", 1)[-1].strip()
         return reply
     except Exception as e:
         print(f"[ERROR] Failed to generate AI reply: {e}")
-        return "Fair point. Balancing operational reality with strict security controls is always the hardest trade-off here."
+        return "The hardest part in production is usually the downstream dependencies rather than applying the patch itself."
 
 
 def record_successful_interaction(comment_text: str, reply_text: str, quality_score: int = 5):

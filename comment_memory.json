@@ -41,6 +41,24 @@
       "reply": "Yes, that out‑of‑bounds write in FortiOS 6.x‑7.4.x (CVE‑2024‑21762) was weaponized within weeks; the Feb 2026 patches close the kernel write path, but many MSPs still run unpatched 7.2‑7.4 builds. I recommend immediate upgrade, enforce MFA on VPN, and start planning a migration away from SSL‑VPN to Zero‑Trust edge proxies.",
       "timestamp": "2026-11-17 18:05:46",
       "quality_score": 5
+    },
+    {
+      "comment": "Did you hear about the recent Fortinet SSL-VPN CVE-2024-21762 exploit?",
+      "reply": "FortiOS 7.4‑2’s out‑of‑bounds write in the SSL‑VPN is already being weaponized, and the emergency patch broke split‑tunnel routing across half our sites. We skipped a roll‑out, dropped a focused IPS rule on the malformed payload, and kept the old VPN disabled, buying time to test the new build without outage.",
+      "timestamp": "2026-11-17 18:07:04",
+      "quality_score": 5
+    },
+    {
+      "comment": "Did you hear about the recent Fortinet SSL-VPN CVE-2024-21762 exploit?",
+      "reply": "We saw a scanner exploit CVE‑2024‑21762 out‑of‑bounds write on a 7.4.2 FortiGate last night; IDS flagged it, the VPN tunnel dropped and our custom auth script blew up when we applied the hot‑fix. Any stable work‑around you’ve used before the next firmware?",
+      "timestamp": "2026-11-17 18:07:09",
+      "quality_score": 5
+    },
+    {
+      "comment": "Did you hear about the recent Fortinet SSL-VPN CVE-2024-21762 exploit?",
+      "reply": "The out‑of‑bounds write in FortiOS 6‑7.4 lets an unauthenticated client corrupt the VPN process and spawn a shell; attackers have been chaining it with default admin creds, selling cheap RCE kits to MSPs that still run unpatched 7.2‑7.4 builds. Our logs only saw normal TLS, so signature‑based detection missed it.",
+      "timestamp": "2026-11-17 18:07:13",
+      "quality_score": 5
     }
   ]
 }

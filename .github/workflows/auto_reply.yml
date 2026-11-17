@@ -1,0 +1,68 @@
+name: Humanized Comment Reply & Learning
+
+on:
+  workflow_dispatch:
+    inputs:
+      comment:
+        description: "The comment text to reply to"
+        required: true
+      author:
+        description: "Name of the person who commented"
+        required: false
+        default: "Colleague"
+      post:
+        description: "Post topic or summary (context)"
+        required: false
+        default: ""
+      target_urn:
+        description: "LinkedIn Comment URN (if attempting direct API reply)"
+        required: false
+        default: ""
+      auto_publish:
+        description: "Attempt direct API publish (requires Community API scopes)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+jobs:
+  reply-and-learn:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Generate Humanized Reply & Learn
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          LINKEDIN_ACCESS_TOKEN: ${{ secrets.LINKEDIN_ACCESS_TOKEN }}
+        run: |
+          ARGS=(--comment "${{ github.event.inputs.comment }}" --author "${{ github.event.inputs.author }}")
+          if [ -n "${{ github.event.inputs.post }}" ]; then
+            ARGS+=(--post "${{ github.event.inputs.post }}")
+          fi
+          if [ -n "${{ github.event.inputs.target_urn }}" ]; then
+            ARGS+=(--target-urn "${{ github.event.inputs.target_urn }}")
+          fi
+          if [ "${{ github.event.inputs.auto_publish }}" = "true" ]; then
+            ARGS+=(--auto-publish)
+          fi
+          python scripts/auto_reply_comments.py "${ARGS[@]}"
+
+      - name: Commit and Push Updated Comment Learning Memory
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add comment_memory.json
+          git commit -m "chore: update comment reply learning memory [skip ci]" || echo "No changes to memory"
+          git push

@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**sandworm rewrote the playbook**",
     "**supply chain breach hit 100k sites**",
     "**backdoor landed in a shipping manifest**",
     "**claude opus 5 broke our trust**",
@@ -49,10 +48,10 @@
     "**phishing payload hit 4.2\u202fmillion**",
     "**wallets shipped with spying chips**",
     "**autonomous ransomware bots are real**",
-    "**ransomware talks cost us minutes**"
+    "**ransomware talks cost us minutes**",
+    "**lambda functions became open doors**"
   ],
   "links": [
-    "https://www.darkreading.com/cyberattacks-data-breaches/sandworm-chains-cisco-vulnerabilities-cyclops-blink",
     "https://www.securityweek.com/brevo-supply-chain-attack-injects-malware-into-100000-websites/",
     "https://thehackernews.com/2026/09/critical-pre-auth-rce-in-orkes.html",
     "https://thehackernews",
@@ -101,9 +100,10 @@
     "",
     "https://thehackernews.com/2026/11/trezor-confirms-hidden-hardware.html",
     "https://github.com/microsoft/agent",
+    "",
     ""
   ],
-  "last_updated": "2026-11-16 10:03:27",
+  "last_updated": "2026-11-17 11:00:19",
   "posts": [
     {
       "id": "urn:li:ugcPost:7524767071063203840",

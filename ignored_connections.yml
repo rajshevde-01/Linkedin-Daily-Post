@@ -1,0 +1,12 @@
+# Whitelist of names, profile handles, or URNs of yourself and direct connections to NEVER auto-reply to.
+# Case-insensitive. You can list full names, first names, or specific usernames.
+IGNORE_AUTHORS:
+  - "Raj Shevde"
+  - "Raj"
+  - "rajshevde"
+  - "tOvY-cGlm1"
+  - "urn:li:person:tOvY-cGlm1"
+
+# Add names or handles of colleagues, teammates, close friends, or family here:
+# - "John Doe"
+# - "Jane Smith"

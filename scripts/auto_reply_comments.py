@@ -4,6 +4,10 @@ Humanized Comment Auto-Reply Engine with Live Internet & Database Grounding.
 - Fetches real-time facts from the internet (Google News RSS, DuckDuckGo, CISA KEV, MITRE CVE)
   and local database (past posts, knowledge files, history) whenever a comment asks or mentions news/CVEs.
 - Avoids AI clichés, corporate-speak, or hollow generic praise.
+- Anti-Abuse & Anti-Troll Filter: Drops toxic, vulgar, or baiting comments.
+- Anti-Double-Comment / Deduplication: Never replies twice to the same comment or target URN.
+- Connection / Self Whitelist: Never auto-replies to yourself, close team members, or listed connections.
+- Quality Gate: Rejects short, robotic, dry, or hollow one-word responses.
 - Continuously learns over time by recording accepted/high-performing response patterns into comment_memory.json.
 - Supports dry-run, manual review mode, and direct LinkedIn API reply.
 """
@@ -12,6 +16,7 @@ import re
 import sys
 import json
 import random
+import yaml
 import argparse
 import requests
 import feedparser
@@ -30,10 +35,94 @@ COMMENT_MEMORY_FILE = ROOT_DIR / "comment_memory.json"
 POSTS_DIR = ROOT_DIR / "posts"
 KNOWLEDGE_DIR = ROOT_DIR / "knowledge"
 HISTORY_FILE = ROOT_DIR / "history.json"
+IGNORED_CONNECTIONS_FILE = ROOT_DIR / "ignored_connections.yml"
 
 
 # ============================================================
-# 1. DATABASE & REPO SEARCH
+# 1. SAFETY, DEDUPLICATION & CONNECTION FILTERING
+# ============================================================
+
+def load_ignored_connections() -> List[str]:
+    """Load profile handles, URNs, and names of connections to never reply to."""
+    default_ignored = ["Raj Shevde", "Raj", "rajshevde", "tOvY-cGlm1", "urn:li:person:tOvY-cGlm1"]
+    if not IGNORED_CONNECTIONS_FILE.exists():
+        return default_ignored
+
+    try:
+        with open(IGNORED_CONNECTIONS_FILE, "r", encoding="utf-8") as f:
+            data = yaml.safe_load(f)
+            if isinstance(data, dict) and "IGNORE_AUTHORS" in data:
+                return [str(x).strip().lower() for x in data["IGNORE_AUTHORS"] if x]
+    except Exception:
+        pass
+    return [x.lower() for x in default_ignored]
+
+
+def is_ignored_author(author_name: str, target_urn: str = "") -> bool:
+    """Check if the comment author is the user or in the ignored connections list."""
+    if not author_name and not target_urn:
+        return False
+
+    ignored = load_ignored_connections()
+    author_lower = author_name.lower().strip()
+    urn_lower = target_urn.lower().strip()
+
+    for entry in ignored:
+        if entry in author_lower or (urn_lower and entry in urn_lower):
+            return True
+    return False
+
+
+def is_already_replied(comment_text: str, target_urn: str = "") -> bool:
+    """Check memory to prevent replying twice to the same comment or target URN."""
+    memory = load_comment_memory()
+    comment_clean = comment_text.strip().lower()
+    urn_clean = target_urn.strip().lower()
+
+    for item in memory.get("reply_history", []):
+        if target_urn and item.get("target_urn") and item.get("target_urn").lower() == urn_clean:
+            return True
+        if item.get("comment", "").strip().lower() == comment_clean:
+            return True
+    return False
+
+
+ABUSIVE_OR_TOXIC_TERMS = {
+    "idiot", "stupid", "moron", "scam", "scammer", "fraud", "clown", "trash", "bullshit",
+    "stfu", "shut up", "fuck", "bitch", "asshole", "retard", "fucking", "crap", "fake",
+    "bot garbage", "worthless", "loser"
+}
+
+def contains_abusive_content(text: str) -> bool:
+    """Detect toxic, abusive, or hostile language to ignore trolls."""
+    lowered = text.lower()
+    tokens = set(re.findall(r'\b\w+\b', lowered))
+    return bool(tokens & ABUSIVE_OR_TOXIC_TERMS)
+
+
+DRY_OR_HOLLOW_PHRASES = [
+    "i agree", "spot on", "great post", "nice post", "thanks for sharing",
+    "good insight", "well said", "interesting", "true that", "totally agree",
+    "couldn't agree more", "100%", "fair point", "agreed"
+]
+
+def is_dry_or_robotic_reply(reply: str) -> bool:
+    """Filter out dry, dismissive, or robotic one-liners."""
+    words = reply.strip().split()
+    if len(words) < 8:
+        return True
+
+    clean = re.sub(r'[^\w\s]', '', reply).strip().lower()
+    for dry in DRY_OR_HOLLOW_PHRASES:
+        if clean == dry or clean.startswith(f"{dry} "):
+            # If it's just a hollow phrase with little substance (< 12 words)
+            if len(words) < 14:
+                return True
+    return False
+
+
+# ============================================================
+# 2. DATABASE & REPO SEARCH
 # ============================================================
 
 def search_local_database(keywords: List[str]) -> List[str]:
@@ -79,7 +168,7 @@ def search_local_database(keywords: List[str]) -> List[str]:
 
 
 # ============================================================
-# 2. LIVE INTERNET SEARCH & CVE GROUNDING
+# 3. LIVE INTERNET SEARCH & CVE GROUNDING
 # ============================================================
 
 def fetch_cve_details(cve_id: str) -> Optional[str]:
@@ -104,7 +193,7 @@ def fetch_internet_news(query: str, max_results: int = 3) -> List[str]:
     results = []
     encoded_q = urllib.parse.quote(query)
 
-    # 1. Google News RSS search (fresh live news)
+    # 1. Google News RSS search
     try:
         news_url = f"https://news.google.com/rss/search?q={encoded_q}&hl=en-US&gl=US&ceid=US:en"
         feed = feedparser.parse(news_url)
@@ -134,17 +223,12 @@ def fetch_internet_news(query: str, max_results: int = 3) -> List[str]:
 
 
 def extract_search_intent(comment_text: str) -> Tuple[bool, str, Optional[str]]:
-    """
-    Detect if the comment is asking about or discussing news, current events, CVEs, or tools.
-    Returns: (needs_external_grounding, search_query, cve_id)
-    """
-    # 1. Check for CVE-YYYY-NNNN
+    """Detect if the comment is asking about or discussing news, current events, CVEs, or tools."""
     cve_match = re.search(r'\bCVE[-_ ](\d{4})[-_ ](\d{4,7})\b', comment_text, re.IGNORECASE)
     cve_id = None
     if cve_match:
         cve_id = f"CVE-{cve_match.group(1)}-{cve_match.group(2)}"
 
-    # 2. Trigger words indicating news, updates, breaches, or latest announcements
     news_triggers = [
         "news", "latest", "recent", "heard about", "did you see", "today", "yesterday",
         "breach", "outage", "patch", "zero day", "0-day", "exploit", "cve", "advisory",
@@ -155,7 +239,6 @@ def extract_search_intent(comment_text: str) -> Tuple[bool, str, Optional[str]]:
     text_lower = comment_text.lower()
     needs_search = bool(cve_id) or any(t in text_lower for t in news_triggers) or "?" in comment_text
 
-    # Build clean query
     cleaned = re.sub(r'[^\w\s-]', ' ', comment_text).strip()
     words = [w for w in cleaned.split() if len(w) > 3 and w.lower() not in {"what", "your", "this", "that", "about", "have", "with", "from"}]
     search_query = " ".join(words[:6]) if words else comment_text[:50]
@@ -197,7 +280,7 @@ def gather_grounding_context(comment_text: str, post_context: str = "") -> str:
 
 
 # ============================================================
-# 3. SELF-LEARNING COMMENT MEMORY
+# 4. SELF-LEARNING COMMENT MEMORY
 # ============================================================
 
 def load_comment_memory() -> Dict[str, Any]:
@@ -250,7 +333,7 @@ def save_comment_memory(memory: Dict[str, Any]):
 
 
 # ============================================================
-# 4. DYNAMIC & HUMANIZED AI REPLY GENERATION
+# 5. DYNAMIC & HUMANIZED AI REPLY GENERATION
 # ============================================================
 
 PERSONA_ANGLES = [
@@ -285,12 +368,11 @@ def generate_humanized_reply(post_context: str, comment_text: str, commenter_nam
     memory = load_comment_memory()
     exemplars = memory.get("exemplars", [])
 
-    # Pick a random persona angle and format style on every invocation for genuine variety
+    # Pick dynamic persona angle and format style
     persona = random.choice(PERSONA_ANGLES)
     format_style = random.choice(REPLY_FORMAT_STYLES)
     dynamic_temperature = round(random.uniform(0.72, 0.88), 2)
 
-    # Sample dynamic exemplars instead of showing static identical list
     sample_exemplars = []
     if exemplars:
         sample_count = min(3, len(exemplars))
@@ -328,43 +410,49 @@ COMMENT RECEIVED:
 REFERENCE NATURAL DIALOGUE EXAMPLES:
 {exemplars_prompt}
 
-CRITICAL RULES TO AVOID LOOKING LIKE AN AI BOT:
+CRITICAL RULES TO AVOID LOOKING LIKE AN AI BOT OR DRY ROBOT:
 1. DYNAMIC & NATURAL: Write like an authentic human texting an engineering peer on Slack or LinkedIn.
 2. STRICT BANS (Instant Failures):
    - NEVER start with: "Yes,", "I agree,", "Spot on,", "Great point,", "Thanks for sharing,", "Good question,", "In today's landscape,"
    - NEVER sound like a customer support rep, advisory bot, or automated assistant.
-   - Do NOT regurgitate generic advice like "I recommend patching and using MFA".
-3. If referencing news or a CVE, drop the real-world operational insight (e.g. why the patch broke things, bypass mechanics, or where detection failed).
-4. Length: 1 to 3 punchy sentences (maximum 50 words). Be succinct and authentic.
+   - NO DRY ONE-LINERS: Never return dry replies like "Agreed", "True", or generic fluff like "I recommend patching".
+3. Provide real-world technical insight or an operational edge-case.
+4. Length: 2 to 3 substantive sentences (30 to 65 words). Be punchy, vivid, and authentic.
 
 Output ONLY the raw reply text. No quotation marks, no preamble, no commentary."""
 
-    try:
-        reply = _call_groq_with_retries(prompt, temperature=dynamic_temperature).strip()
-        if reply.startswith('"') and reply.endswith('"'):
-            reply = reply[1:-1].strip()
-        # Clean common prefix leaks
-        for bad_prefix in ["Here is", "Reply:", "Response:"]:
-            if reply.startswith(bad_prefix):
-                reply = reply.split(":", 1)[-1].strip()
-        return reply
-    except Exception as e:
-        print(f"[ERROR] Failed to generate AI reply: {e}")
-        return "The hardest part in production is usually the downstream dependencies rather than applying the patch itself."
+    for attempt in range(2):
+        try:
+            reply = _call_groq_with_retries(prompt, temperature=dynamic_temperature).strip()
+            if reply.startswith('"') and reply.endswith('"'):
+                reply = reply[1:-1].strip()
+            for bad_prefix in ["Here is", "Reply:", "Response:"]:
+                if reply.startswith(bad_prefix):
+                    reply = reply.split(":", 1)[-1].strip()
+
+            # Ensure it is not a dry or hollow response
+            if not is_dry_or_robotic_reply(reply):
+                return reply
+            print("[WARN] Generated reply was too dry or short. Regenerating...")
+        except Exception as e:
+            print(f"[ERROR] Failed to generate AI reply attempt {attempt}: {e}")
+
+    return "From what we've seen in triage, the initial infection path is rarely where the major loss occurs—it is almost always the ungoverned service accounts with excessive domain permissions."
 
 
-def record_successful_interaction(comment_text: str, reply_text: str, quality_score: int = 5):
+def record_successful_interaction(comment_text: str, reply_text: str, target_urn: str = "", quality_score: int = 5):
     """Save the interaction to memory and learn high-quality pairs as new exemplars."""
     memory = load_comment_memory()
     entry = {
         "comment": comment_text,
         "reply": reply_text,
+        "target_urn": target_urn,
         "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         "quality_score": quality_score
     }
     memory["reply_history"].append(entry)
 
-    # If it's a high quality response, promote it to exemplars for future learning (capped at 15)
+    # Promote to exemplars if quality score is high
     if quality_score >= 4:
         if not any(e["comment"] == comment_text for e in memory.get("exemplars", [])):
             memory.setdefault("exemplars", []).append({
@@ -423,14 +511,35 @@ def main():
     parser.add_argument("--auto-publish", action="store_true", help="Attempt direct LinkedIn publication")
     args = parser.parse_args()
 
+    # Rule 1: Never reply to yourself or ignored connections
+    if is_ignored_author(args.author, args.target_urn):
+        print(f"[SKIP] Comment author '{args.author}' matches yourself or your connected profile list. Skipping auto-reply.")
+        return
+
+    # Rule 2: Never double comment / reply to the same interaction twice
+    if is_already_replied(args.comment, args.target_urn):
+        print("[SKIP] Already replied to this comment previously. Skipping duplicate reply.")
+        return
+
+    # Rule 3: Skip abusive, toxic, or troll comments
+    if contains_abusive_content(args.comment):
+        print("[SKIP] Comment contains abusive or hostile language. Skipping auto-reply.")
+        return
+
     print(f"[INFO] Analyzing incoming comment from '{args.author or 'Colleague'}':\n\"{args.comment}\"\n")
     reply = generate_humanized_reply(args.post, args.comment, args.author)
+
+    # Rule 4: Quality gate against dry replies
+    if is_dry_or_robotic_reply(reply):
+        print("[SKIP] Output was too dry or brief. Skipping auto-reply to preserve human quality.")
+        return
+
     print("=" * 60)
     print(f"🤖 HUMANIZED GENERATED REPLY:\n{reply}")
     print("=" * 60)
 
     # Self-learning loop
-    record_successful_interaction(args.comment, reply, quality_score=args.score)
+    record_successful_interaction(args.comment, reply, target_urn=args.target_urn, quality_score=args.score)
 
     if args.auto_publish and args.target_urn:
         print("[INFO] Attempting to publish reply to LinkedIn...")

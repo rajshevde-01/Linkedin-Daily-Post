@@ -114,12 +114,14 @@ def generate_post(content: str, is_custom: bool = False, is_cve: bool = False,
         word_count = len(post_text.split())
         print(f"[INFO] Attempt {attempt}/{max_attempts}: Generated {word_count} words")
         
-        if word_count >= POST_ABSOLUTE_MIN:
-            if word_count < POST_MIN_WORDS:
-                print(f"[WARN] Post is {word_count} words (target: {POST_MIN_WORDS}-{POST_MAX_WORDS}). Slightly short but acceptable.")
+        if word_count >= POST_MIN_WORDS:
             return post_text
         
-        print(f"[WARN] Post is only {word_count} words (minimum: {POST_ABSOLUTE_MIN}). {'Retrying...' if attempt < max_attempts else 'Using best attempt.'}")
+        if word_count >= POST_ABSOLUTE_MIN and attempt == max_attempts:
+            print(f"[WARN] Post reached absolute minimum ({word_count} words). Accepting.")
+            return post_text
+
+        print(f"[WARN] Post is only {word_count} words (minimum required: {POST_MIN_WORDS}). {'Retrying...' if attempt < max_attempts else 'Using best attempt.'}")
         
         if attempt == max_attempts:
             # On final attempt, if still too short, try to salvage
@@ -137,7 +139,7 @@ def _is_valid_post_output(text: str, original: str) -> bool:
     garbage_phrases = [
         "it looks like", "could you please", "i'd be happy to",
         "please provide", "i don't see", "post content is missing",
-        "here is the", "i need the", "can you share",
+        "i need the", "can you share",
         "i cannot", "i'm unable", "as an ai",
     ]
     text_lower = text.lower()
@@ -193,7 +195,7 @@ RULES (do NOT rewrite the post — only make surgical fixes):
 1. **DEDUPLICATION**: If two paragraphs express the same idea in different words, merge them or delete the weaker one.
 2. **HOOK VERIFY**: Confirm the first line is ≤8 words and **bolded**. If not, fix it.
 3. **CLOSING VERIFY**: The last line before hashtags must be a bold prediction OR a polarizing question. If it's generic ("Stay safe out there"), replace it with something sharp and specific.
-4. **WORD COUNT**: Count the words (excluding hashtags and source link). If under 200, add a 2-sentence practitioner anecdote. If over 400, trim the weakest paragraph.
+4. **WORD COUNT**: Count the words (excluding hashtags and source link). The post must stay substantive ({POST_MIN_WORDS}-{POST_MAX_WORDS} words). If under {POST_MIN_WORDS}, expand the technical details, impact, and remediation steps. Do NOT reduce word count below {POST_MIN_WORDS}. Only trim if over {POST_MAX_WORDS}.
 5. **DATA CHECK**: Verify at least one concrete number/statistic/CVE exists in the body. If not, flag it by adding "[NEEDS DATA]" at the top (this will alert the pipeline).
 6. **PRESERVE**: Do not change hashtags, source links, formatting markers, or separators.
 
@@ -333,6 +335,8 @@ def main():
                         help="Maximum number of posts to generate per day (0 for no limit)")
     parser.add_argument("--carousel", action="store_true",
                         help="Generate a multi-page PDF Carousel slider instead of a single image")
+    parser.add_argument("--no-image", action="store_true",
+                        help="Generate text-only post without any image or PDF attachment")
     args = parser.parse_args()
 
     # Step 0: Check daily limit
@@ -425,7 +429,9 @@ def main():
     # Step 3.6: Final Polish (Pass 3/3 — dedup, compliance, power-closing)
     final_post_text = final_polish(final_post_text)
     
-    image_prompt = generate_image_prompt(final_post_text)
+    image_prompt = ""
+    if not args.no_image:
+        image_prompt = generate_image_prompt(final_post_text)
 
     # Step 2.6: Log to history (extracting the main topic/link)
     try:
@@ -438,21 +444,24 @@ def main():
     except Exception as e:
         print(f"[WARN] Failed to log to history: {e}")
 
-    # Step 2.7: Generate Canva-style image or Carousel PDF
+    # Step 2.7: Generate Canva-style image or Carousel PDF (if not --no-image)
     image_path = ""
-    try:
-        if args.carousel:
-            print("[INFO] Creating PDF Carousel slider deck...")
-            # Use title from first line if possible
-            title_guess = final_post_text.split("\n")[0][:30].strip() or "Cyber Insight"
-            image_path = generate_carousel_pdf(final_post_text, title=title_guess)
-        else:
-            image_path = generate_post_image(final_post_text)
-            
-        if image_path:
-             print(f"[SUCCESS] Media deck generated: {image_path}")
-    except Exception as e:
-        print(f"[WARN] Media generation failed ({e}). Posting text-only.")
+    if not args.no_image:
+        try:
+            if args.carousel:
+                print("[INFO] Creating PDF Carousel slider deck...")
+                # Use title from first line if possible
+                title_guess = final_post_text.split("\n")[0][:30].strip() or "Cyber Insight"
+                image_path = generate_carousel_pdf(final_post_text, title=title_guess)
+            else:
+                image_path = generate_post_image(final_post_text)
+                
+            if image_path:
+                 print(f"[SUCCESS] Media deck generated: {image_path}")
+        except Exception as e:
+            print(f"[WARN] Media generation failed ({e}). Posting text-only.")
+    else:
+        print("[INFO] --no-image specified. Skipping image/carousel generation (text-only post).")
 
     if args.dry_run:
         print("\n=== GENERATED POST ===\n")

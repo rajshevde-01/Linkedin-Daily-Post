@@ -70,17 +70,17 @@ jobs:
           echo "Rolled a $CHANCE for Knowledge Base probability."
 
           if [ "${{ github.event.inputs.use_cve_tracker }}" == "true" ]; then
-            python generate_post.py --date ${{ steps.date.outputs.date }} --cve --limit 1 --carousel
+            python generate_post.py --date ${{ steps.date.outputs.date }} --cve --limit 1 --no-image
           elif [ "${{ github.event.inputs.use_knowledge_base }}" == "true" ]; then
-            python generate_post.py --date ${{ steps.date.outputs.date }} --knowledge --limit 1 --carousel
+            python generate_post.py --date ${{ steps.date.outputs.date }} --knowledge --limit 1 --no-image
           elif [ -n "${{ github.event.inputs.custom_topic }}" ]; then
-            python generate_post.py --date ${{ steps.date.outputs.date }} --topic "${{ github.event.inputs.custom_topic }}" --limit 1 --carousel
+            python generate_post.py --date ${{ steps.date.outputs.date }} --topic "${{ github.event.inputs.custom_topic }}" --limit 1 --no-image
           elif [ $CHANCE -le 30 ]; then
             echo "Knowledge Base triggered (<=30)!"
-            python generate_post.py --date ${{ steps.date.outputs.date }} --knowledge --limit 1 --carousel
+            python generate_post.py --date ${{ steps.date.outputs.date }} --knowledge --limit 1 --no-image
           else
             echo "Using Standard News Fetcher."
-            python generate_post.py --date ${{ steps.date.outputs.date }} --limit 1 --carousel
+            python generate_post.py --date ${{ steps.date.outputs.date }} --limit 1 --no-image
           fi
 
       - name: Send Webhook Notification

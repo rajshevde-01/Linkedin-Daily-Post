@@ -48,8 +48,8 @@ def _call_groq_with_retries(prompt: str, temperature: float = 0.7) -> str:
 
     import time
     max_retries = 3
-    # Updated Aug 2026: Llama models removed from Groq, using current models
-    models_to_try = ["openai/gpt-oss-120b", "qwen/qwen3.6-27b", "openai/gpt-oss-20b"]
+    # Current models available on Groq
+    models_to_try = ["openai/gpt-oss-120b", "qwen/qwen3.8-27b", "openai/gpt-oss-20b"]
     
     last_error = None
     

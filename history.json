@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**supply chain breach hit 100k sites**",
     "**backdoor landed in a shipping manifest**",
     "**claude opus 5 broke our trust**",
     "**kernel driver kills av**",
@@ -49,10 +48,10 @@
     "**wallets shipped with spying chips**",
     "**autonomous ransomware bots are real**",
     "**ransomware talks cost us minutes**",
-    "**lambda functions became open doors**"
+    "**lambda functions became open doors**",
+    "**firmware is your new perimeter.**"
   ],
   "links": [
-    "https://www.securityweek.com/brevo-supply-chain-attack-injects-malware-into-100000-websites/",
     "https://thehackernews.com/2026/09/critical-pre-auth-rce-in-orkes.html",
     "https://thehackernews",
     "",
@@ -101,9 +100,10 @@
     "https://thehackernews.com/2026/11/trezor-confirms-hidden-hardware.html",
     "https://github.com/microsoft/agent",
     "",
+    "",
     ""
   ],
-  "last_updated": "2026-11-17 11:00:19",
+  "last_updated": "2026-11-18 10:32:16",
   "posts": [
     {
       "id": "urn:li:ugcPost:7524767071063203840",

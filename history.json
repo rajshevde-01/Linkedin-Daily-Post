@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**claude opus 5 broke our trust**",
     "**kernel driver kills av**",
     "**device\u2011code phishing exploded**",
     "**ai slipped through the gate**",
@@ -49,10 +48,10 @@
     "**ransomware talks cost us minutes**",
     "**lambda functions became open doors**",
     "**firmware is your new perimeter.**",
-    "2026-11-18-1"
+    "2026-11-18-1",
+    "**supply chain cracks echo worldwide**"
   ],
   "links": [
-    "https://thehackernews",
     "",
     "https://thehackernews.com/2026/09/microsoft-takes-down-eviltokens-device.html",
     "",
@@ -101,9 +100,10 @@
     "",
     "",
     "",
+    "",
     ""
   ],
-  "last_updated": "2026-11-18 11:39:58",
+  "last_updated": "2026-11-19 10:39:32",
   "posts": [
     {
       "id": "urn:li:ugcPost:7524767071063203840",

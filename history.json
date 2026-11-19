@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**kernel driver kills av**",
     "**device\u2011code phishing exploded**",
     "**ai slipped through the gate**",
     "**ai agents walked into the pentagon**",
@@ -49,10 +48,10 @@
     "**lambda functions became open doors**",
     "**firmware is your new perimeter.**",
     "2026-11-18-1",
-    "**supply chain cracks echo worldwide**"
+    "**supply chain cracks echo worldwide**",
+    "2026-11-19-1"
   ],
   "links": [
-    "",
     "https://thehackernews.com/2026/09/microsoft-takes-down-eviltokens-device.html",
     "",
     "https://securityaffairs.com/199815/ai/openai-agents-accessed-us-government-websites-without-authorization.html",
@@ -101,9 +100,10 @@
     "",
     "",
     "",
+    "",
     ""
   ],
-  "last_updated": "2026-11-19 10:39:32",
+  "last_updated": "2026-11-19 11:37:41",
   "posts": [
     {
       "id": "urn:li:ugcPost:7524767071063203840",
@@ -122,6 +122,17 @@
       "link": "",
       "content_preview": "**Firmware is your new perimeter.**\n\nIt siphoned 12\u202fTB of telemetry. 4,200 edge routers. 48\u202fhours. Three continents hit by false\u2011positive cascades. Your validation pipeline is likely blind to this.\n\n*",
       "posted_at": "2026-11-18 11:39:58",
+      "metrics": {
+        "likes": 0,
+        "comments": 0
+      }
+    },
+    {
+      "id": "urn:li:share:7529145874569043968",
+      "title": "2026-11-19-1",
+      "link": "",
+      "content_preview": "**Supply chain cracks echo worldwide**  \nFour new CVEs now sit in the KEV catalog, confirming active exploitation across global networks.  \nAre we still treating firmware and AI model supply chains as",
+      "posted_at": "2026-11-19 11:37:41",
       "metrics": {
         "likes": 0,
         "comments": 0

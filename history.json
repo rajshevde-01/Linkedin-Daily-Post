@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**device\u2011code phishing exploded**",
     "**ai slipped through the gate**",
     "**ai agents walked into the pentagon**",
     "**zero\u2011day chaos erupted**",
@@ -49,10 +48,10 @@
     "**firmware is your new perimeter.**",
     "2026-11-18-1",
     "**supply chain cracks echo worldwide**",
-    "2026-11-19-1"
+    "2026-11-19-1",
+    "**zero day on the nas**"
   ],
   "links": [
-    "https://thehackernews.com/2026/09/microsoft-takes-down-eviltokens-device.html",
     "",
     "https://securityaffairs.com/199815/ai/openai-agents-accessed-us-government-websites-without-authorization.html",
     "",
@@ -101,9 +100,10 @@
     "",
     "",
     "",
-    ""
+    "",
+    "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
   ],
-  "last_updated": "2026-11-19 11:37:41",
+  "last_updated": "2026-11-20 10:20:58",
   "posts": [
     {
       "id": "urn:li:ugcPost:7524767071063203840",

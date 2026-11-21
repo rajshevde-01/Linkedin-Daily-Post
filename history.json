@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**ai agents walked into the pentagon**",
     "**zero\u2011day chaos erupted**",
     "**zero\u2011day netscaler chaos**",
     "**custom gpts weaponized overnight**",
@@ -49,10 +48,10 @@
     "**supply chain cracks echo worldwide**",
     "2026-11-19-1",
     "**zero day on the nas**",
-    "2026-11-20-1"
+    "2026-11-20-1",
+    "**third\u2011party breach lit the market**"
   ],
   "links": [
-    "https://securityaffairs.com/199815/ai/openai-agents-accessed-us-government-websites-without-authorization.html",
     "",
     "https://securityaffairs.com/199873/security/citrix-confirmed-two-new-netscaler-flaws-exploited-as-zero-day.html",
     "https://www.securityweek.com/hackers-use-chatgpt-custom-gpts-in-clickfix-attacks/",
@@ -101,9 +100,10 @@
     "",
     "",
     "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+    "",
     ""
   ],
-  "last_updated": "2026-11-20 11:37:13",
+  "last_updated": "2026-11-21 10:06:06",
   "posts": [
     {
       "id": "urn:li:ugcPost:7524767071063203840",

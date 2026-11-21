@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**zero\u2011day chaos erupted**",
     "**zero\u2011day netscaler chaos**",
     "**custom gpts weaponized overnight**",
     "**sd\u2011wan breach just went live**",
@@ -49,10 +48,10 @@
     "2026-11-19-1",
     "**zero day on the nas**",
     "2026-11-20-1",
-    "**third\u2011party breach lit the market**"
+    "**third\u2011party breach lit the market**",
+    "2026-11-21-1"
   ],
   "links": [
-    "",
     "https://securityaffairs.com/199873/security/citrix-confirmed-two-new-netscaler-flaws-exploited-as-zero-day.html",
     "https://www.securityweek.com/hackers-use-chatgpt-custom-gpts-in-clickfix-attacks/",
     "",
@@ -101,9 +100,10 @@
     "",
     "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
     "",
+    "",
     ""
   ],
-  "last_updated": "2026-11-21 10:06:06",
+  "last_updated": "2026-11-21 10:59:15",
   "posts": [
     {
       "id": "urn:li:ugcPost:7524767071063203840",
@@ -144,6 +144,17 @@
       "link": "",
       "content_preview": "**Zero day on the NAS**  \nCISA just flagged **CVE\u20112024\u201110441** in Synology DSM, a flaw that lets adversaries exfiltrate up to 2\u202fTB of data within minutes.  \nAre you still treating known\u2011exploited CVEs",
       "posted_at": "2026-11-20 11:37:13",
+      "metrics": {
+        "likes": 0,
+        "comments": 0
+      }
+    },
+    {
+      "id": "urn:li:share:7529860978826719232",
+      "title": "2026-11-21-1",
+      "link": "",
+      "content_preview": "**Third\u2011party breach lit the market**  \nThe leak forced **three** financial giants to publicly blame their vendors.  \n\n**\u2705 CAREER PATHWAY**  \nWhen **JPMorgan**, **Visa** and **Mastercard** point finge",
+      "posted_at": "2026-11-21 10:59:15",
       "metrics": {
         "likes": 0,
         "comments": 0

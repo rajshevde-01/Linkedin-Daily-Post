@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**zero\u2011day netscaler chaos**",
     "**custom gpts weaponized overnight**",
     "**sd\u2011wan breach just went live**",
     "**teen ransomware kingpin busted**",
@@ -49,10 +48,10 @@
     "**zero day on the nas**",
     "2026-11-20-1",
     "**third\u2011party breach lit the market**",
-    "2026-11-21-1"
+    "2026-11-21-1",
+    "**sap's net is leaking**"
   ],
   "links": [
-    "https://securityaffairs.com/199873/security/citrix-confirmed-two-new-netscaler-flaws-exploited-as-zero-day.html",
     "https://www.securityweek.com/hackers-use-chatgpt-custom-gpts-in-clickfix-attacks/",
     "",
     "https://github.com/OffcierCia/On-Chain-Investigations-Tools-List`",
@@ -101,9 +100,10 @@
     "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
     "",
     "",
+    "",
     ""
   ],
-  "last_updated": "2026-11-21 10:59:15",
+  "last_updated": "2026-11-22 10:08:48",
   "posts": [
     {
       "id": "urn:li:ugcPost:7524767071063203840",

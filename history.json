@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**custom gpts weaponized overnight**",
     "**sd\u2011wan breach just went live**",
     "**teen ransomware kingpin busted**",
     "**fortimail zero\u2011day just hit production**",
@@ -49,10 +48,10 @@
     "2026-11-20-1",
     "**third\u2011party breach lit the market**",
     "2026-11-21-1",
-    "**sap's net is leaking**"
+    "**sap's net is leaking**",
+    "2026-11-22-1"
   ],
   "links": [
-    "https://www.securityweek.com/hackers-use-chatgpt-custom-gpts-in-clickfix-attacks/",
     "",
     "https://github.com/OffcierCia/On-Chain-Investigations-Tools-List`",
     "https://thehackernews.com/2026/10/critical-fortimail-zero-day-flaw.html",
@@ -101,9 +100,10 @@
     "",
     "",
     "",
+    "",
     ""
   ],
-  "last_updated": "2026-11-22 10:08:48",
+  "last_updated": "2026-11-22 11:22:01",
   "posts": [
     {
       "id": "urn:li:ugcPost:7524767071063203840",
@@ -155,6 +155,17 @@
       "link": "",
       "content_preview": "**Third\u2011party breach lit the market**  \nThe leak forced **three** financial giants to publicly blame their vendors.  \n\n**\u2705 CAREER PATHWAY**  \nWhen **JPMorgan**, **Visa** and **Mastercard** point finge",
       "posted_at": "2026-11-21 10:59:15",
+      "metrics": {
+        "likes": 0,
+        "comments": 0
+      }
+    },
+    {
+      "id": "urn:li:share:7530229092328284161",
+      "title": "2026-11-22-1",
+      "link": "",
+      "content_preview": "**SAP's net is leaking**  \nCISA just logged **CVE\u20112025\u201142884** as actively exploited, and attackers are already weaponizing it against ERP workloads.  \nAre your open\u2011source defenses actually watching ",
+      "posted_at": "2026-11-22 11:22:01",
       "metrics": {
         "likes": 0,
         "comments": 0

@@ -128,5 +128,30 @@
       "vendors"
     ],
     "created_at": "2026-11-21 10:59:15"
+  },
+  {
+    "id": "urn:li:share:7530229092328284161",
+    "title": "2026-11-22-1",
+    "keywords": [
+      "attackers",
+      "watching",
+      "leaking",
+      "exploited",
+      "defenses",
+      "cve202542884",
+      "cisa",
+      "already",
+      "against",
+      "opensource",
+      "just",
+      "saps",
+      "actually",
+      "weaponizing",
+      "logged",
+      "workloads",
+      "actively",
+      "202611221"
+    ],
+    "created_at": "2026-11-22 11:22:01"
   }
 ]

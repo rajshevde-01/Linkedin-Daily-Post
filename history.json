@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**teen ransomware kingpin busted**",
     "**fortimail zero\u2011day just hit production**",
     "**sharepoint ransomware hit the grid**",
     "**jungle sdk turned jungle gym**",
@@ -49,10 +48,10 @@
     "2026-11-21-1",
     "**sap's net is leaking**",
     "2026-11-22-1",
-    "**1.3m fans. zero encryption.**"
+    "**1.3m fans. zero encryption.**",
+    "2026-11-24-1"
   ],
   "links": [
-    "https://github.com/OffcierCia/On-Chain-Investigations-Tools-List`",
     "https://thehackernews.com/2026/10/critical-fortimail-zero-day-flaw.html",
     "",
     "https://thehackernews.com/2026/10/realtek",
@@ -101,9 +100,10 @@
     "",
     "",
     "",
+    "https://www.bleepingcomputer.com/news/security/spanish-laliga-confirms-hackers-stole-soccer-fans-personal-data/",
     "https://www.bleepingcomputer.com/news/security/spanish-laliga-confirms-hackers-stole-soccer-fans-personal-data/"
   ],
-  "last_updated": "2026-11-24 12:51:45",
+  "last_updated": "2026-11-24 13:40:41",
   "posts": [
     {
       "id": "urn:li:ugcPost:7524767071063203840",
@@ -166,6 +166,17 @@
       "link": "",
       "content_preview": "**SAP's net is leaking**  \nCISA just logged **CVE\u20112025\u201142884** as actively exploited, and attackers are already weaponizing it against ERP workloads.  \nAre your open\u2011source defenses actually watching ",
       "posted_at": "2026-11-22 11:22:01",
+      "metrics": {
+        "likes": 0,
+        "comments": 0
+      }
+    },
+    {
+      "id": "urn:li:share:7530988766694363136",
+      "title": "2026-11-24-1",
+      "link": "https://www.bleepingcomputer.com/news/security/spanish-laliga-confirms-hackers-stole-soccer-fans-personal-data/",
+      "content_preview": "**1.3M fans. Zero encryption.**\n\nLaLiga\u2019s fan-portal API went dark for 48 hours. Why? A breach. 1.3 million supporters exposed. Personal details leaked. The league shut down.\n\nHow did a routine **VAPT",
+      "posted_at": "2026-11-24 13:40:41",
       "metrics": {
         "likes": 0,
         "comments": 0

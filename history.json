@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**fortimail zero\u2011day just hit production**",
     "**sharepoint ransomware hit the grid**",
     "**jungle sdk turned jungle gym**",
     "**phishing ads stole 12k mfa tokens**",
@@ -49,10 +48,10 @@
     "**sap's net is leaking**",
     "2026-11-22-1",
     "**1.3m fans. zero encryption.**",
-    "2026-11-24-1"
+    "2026-11-24-1",
+    "**firmware fell silent**"
   ],
   "links": [
-    "https://thehackernews.com/2026/10/critical-fortimail-zero-day-flaw.html",
     "",
     "https://thehackernews.com/2026/10/realtek",
     "https://thehackernews.com/2026/10/fake-chatgpt-gemini-and-claude-ad.html",
@@ -101,9 +100,10 @@
     "",
     "",
     "https://www.bleepingcomputer.com/news/security/spanish-laliga-confirms-hackers-stole-soccer-fans-personal-data/",
-    "https://www.bleepingcomputer.com/news/security/spanish-laliga-confirms-hackers-stole-soccer-fans-personal-data/"
+    "https://www.bleepingcomputer.com/news/security/spanish-laliga-confirms-hackers-stole-soccer-fans-personal-data/",
+    ""
   ],
-  "last_updated": "2026-11-24 13:40:41",
+  "last_updated": "2026-11-25 11:36:30",
   "posts": [
     {
       "id": "urn:li:ugcPost:7524767071063203840",

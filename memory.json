@@ -181,5 +181,29 @@
       "hours"
     ],
     "created_at": "2026-11-24 13:40:41"
+  },
+  {
+    "id": "urn:li:share:7531338981175668737",
+    "title": "2026-11-25-1",
+    "keywords": [
+      "fell",
+      "forensics",
+      "gateways",
+      "silicon",
+      "backdoor",
+      "rewrite",
+      "team",
+      "incident",
+      "response",
+      "firmware",
+      "batch",
+      "shipped",
+      "silent",
+      "traced",
+      "rogue",
+      "202611251",
+      "compromised"
+    ],
+    "created_at": "2026-11-25 12:52:19"
   }
 ]

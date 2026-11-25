@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**sharepoint ransomware hit the grid**",
     "**jungle sdk turned jungle gym**",
     "**phishing ads stole 12k mfa tokens**",
     "**remote gateway turned into a blind spot**",
@@ -49,10 +48,10 @@
     "2026-11-22-1",
     "**1.3m fans. zero encryption.**",
     "2026-11-24-1",
-    "**firmware fell silent**"
+    "**firmware fell silent**",
+    "2026-11-25-1"
   ],
   "links": [
-    "",
     "https://thehackernews.com/2026/10/realtek",
     "https://thehackernews.com/2026/10/fake-chatgpt-gemini-and-claude-ad.html",
     "https://thehackernews.com/2026/10/sonicwall-patches-cvss-100-pre.html",
@@ -101,9 +100,10 @@
     "",
     "https://www.bleepingcomputer.com/news/security/spanish-laliga-confirms-hackers-stole-soccer-fans-personal-data/",
     "https://www.bleepingcomputer.com/news/security/spanish-laliga-confirms-hackers-stole-soccer-fans-personal-data/",
+    "",
     ""
   ],
-  "last_updated": "2026-11-25 11:36:30",
+  "last_updated": "2026-11-25 12:52:19",
   "posts": [
     {
       "id": "urn:li:ugcPost:7524767071063203840",
@@ -177,6 +177,17 @@
       "link": "https://www.bleepingcomputer.com/news/security/spanish-laliga-confirms-hackers-stole-soccer-fans-personal-data/",
       "content_preview": "**1.3M fans. Zero encryption.**\n\nLaLiga\u2019s fan-portal API went dark for 48 hours. Why? A breach. 1.3 million supporters exposed. Personal details leaked. The league shut down.\n\nHow did a routine **VAPT",
       "posted_at": "2026-11-24 13:40:41",
+      "metrics": {
+        "likes": 0,
+        "comments": 0
+      }
+    },
+    {
+      "id": "urn:li:share:7531338981175668737",
+      "title": "2026-11-25-1",
+      "link": "",
+      "content_preview": "**Firmware fell silent**  \nOur forensics team traced a silent backdoor to a compromised batch of **12\u202f%** of new IoT gateways shipped in Q3.  \nCould a rogue silicon die rewrite the incident response p",
+      "posted_at": "2026-11-25 12:52:19",
       "metrics": {
         "likes": 0,
         "comments": 0

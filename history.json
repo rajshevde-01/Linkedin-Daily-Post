@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**phishing ads stole 12k mfa tokens**",
     "**remote gateway turned into a blind spot**",
     "**ai pen\u2011test weapon unleashed**",
     "**qilin's kingpin vanished overnight**",
@@ -49,10 +48,10 @@
     "2026-11-24-1",
     "**firmware fell silent**",
     "2026-11-25-1",
-    "**drupal is bleeding out.**"
+    "**drupal is bleeding out.**",
+    "2026-11-26-1"
   ],
   "links": [
-    "https://thehackernews.com/2026/10/fake-chatgpt-gemini-and-claude-ad.html",
     "https://thehackernews.com/2026/10/sonicwall-patches-cvss-100-pre.html",
     "https://thehackernews.com/2026/10/artex-ai-pentesting-tool-used-in-data.html",
     "https://www.bleepingcomputer.com/news/security/germany-arrests-alleged-core-qilin-ransomware-member-after-extradition/",
@@ -101,9 +100,10 @@
     "https://www.bleepingcomputer.com/news/security/spanish-laliga-confirms-hackers-stole-soccer-fans-personal-data/",
     "",
     "",
+    "https://thehackernews.com/2026/11/drupal-warns-of-new-highly-critical.html",
     "https://thehackernews.com/2026/11/drupal-warns-of-new-highly-critical.html"
   ],
-  "last_updated": "2026-11-26 11:22:23",
+  "last_updated": "2026-11-26 12:30:20",
   "posts": [
     {
       "id": "urn:li:ugcPost:7524767071063203840",
@@ -188,6 +188,17 @@
       "link": "",
       "content_preview": "**Firmware fell silent**  \nOur forensics team traced a silent backdoor to a compromised batch of **12\u202f%** of new IoT gateways shipped in Q3.  \nCould a rogue silicon die rewrite the incident response p",
       "posted_at": "2026-11-25 12:52:19",
+      "metrics": {
+        "likes": 0,
+        "comments": 0
+      }
+    },
+    {
+      "id": "urn:li:share:7531695836104335360",
+      "title": "2026-11-26-1",
+      "link": "https://thehackernews.com/2026/11/drupal-warns-of-new-highly-critical.html",
+      "content_preview": "**Drupal is bleeding out.**\n\nAttackers are weaponizing **CVE-2026-136716** right now. Unpatched sites face full takeover in hours. Your detection speed matters more than your patch cycle.\n\n**\u26a0\ufe0f TECHNI",
+      "posted_at": "2026-11-26 12:30:20",
       "metrics": {
         "likes": 0,
         "comments": 0

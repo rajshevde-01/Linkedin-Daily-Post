@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**jungle sdk turned jungle gym**",
     "**phishing ads stole 12k mfa tokens**",
     "**remote gateway turned into a blind spot**",
     "**ai pen\u2011test weapon unleashed**",
@@ -49,10 +48,10 @@
     "**1.3m fans. zero encryption.**",
     "2026-11-24-1",
     "**firmware fell silent**",
-    "2026-11-25-1"
+    "2026-11-25-1",
+    "**drupal is bleeding out.**"
   ],
   "links": [
-    "https://thehackernews.com/2026/10/realtek",
     "https://thehackernews.com/2026/10/fake-chatgpt-gemini-and-claude-ad.html",
     "https://thehackernews.com/2026/10/sonicwall-patches-cvss-100-pre.html",
     "https://thehackernews.com/2026/10/artex-ai-pentesting-tool-used-in-data.html",
@@ -101,9 +100,10 @@
     "https://www.bleepingcomputer.com/news/security/spanish-laliga-confirms-hackers-stole-soccer-fans-personal-data/",
     "https://www.bleepingcomputer.com/news/security/spanish-laliga-confirms-hackers-stole-soccer-fans-personal-data/",
     "",
-    ""
+    "",
+    "https://thehackernews.com/2026/11/drupal-warns-of-new-highly-critical.html"
   ],
-  "last_updated": "2026-11-25 12:52:19",
+  "last_updated": "2026-11-26 11:22:23",
   "posts": [
     {
       "id": "urn:li:ugcPost:7524767071063203840",

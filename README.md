@@ -259,7 +259,7 @@ knowledge/
 <!-- STATS_START -->
 | Metric | Value |
 |--------|-------|
-| 🗓️ Last Updated | 2026-11-26 |
+| 🗓️ Last Updated | 2026-11-27 |
 | 📝 Total Posts | 9 |
 | 👍 Total Likes | 0 |
 | 💬 Total Comments | 0 |

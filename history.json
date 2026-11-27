@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**remote gateway turned into a blind spot**",
     "**ai pen\u2011test weapon unleashed**",
     "**qilin's kingpin vanished overnight**",
     "**shinyhunters cracked the fbi's hiring gate**",
@@ -49,10 +48,10 @@
     "**firmware fell silent**",
     "2026-11-25-1",
     "**drupal is bleeding out.**",
-    "2026-11-26-1"
+    "2026-11-26-1",
+    "**juniper's backdoor just opened**"
   ],
   "links": [
-    "https://thehackernews.com/2026/10/sonicwall-patches-cvss-100-pre.html",
     "https://thehackernews.com/2026/10/artex-ai-pentesting-tool-used-in-data.html",
     "https://www.bleepingcomputer.com/news/security/germany-arrests-alleged-core-qilin-ransomware-member-after-extradition/",
     "",
@@ -101,9 +100,10 @@
     "",
     "",
     "https://thehackernews.com/2026/11/drupal-warns-of-new-highly-critical.html",
-    "https://thehackernews.com/2026/11/drupal-warns-of-new-highly-critical.html"
+    "https://thehackernews.com/2026/11/drupal-warns-of-new-highly-critical.html",
+    "https://www.securityweek.com/critical-juniper-session"
   ],
-  "last_updated": "2026-11-26 12:30:20",
+  "last_updated": "2026-11-27 11:16:33",
   "posts": [
     {
       "id": "urn:li:ugcPost:7524767071063203840",

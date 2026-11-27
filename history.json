@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**ai pen\u2011test weapon unleashed**",
     "**qilin's kingpin vanished overnight**",
     "**shinyhunters cracked the fbi's hiring gate**",
     "**shinyhunters cracked the fbi's inbox**",
@@ -49,10 +48,10 @@
     "2026-11-25-1",
     "**drupal is bleeding out.**",
     "2026-11-26-1",
-    "**juniper's backdoor just opened**"
+    "**juniper's backdoor just opened**",
+    "2026-11-27-1"
   ],
   "links": [
-    "https://thehackernews.com/2026/10/artex-ai-pentesting-tool-used-in-data.html",
     "https://www.bleepingcomputer.com/news/security/germany-arrests-alleged-core-qilin-ransomware-member-after-extradition/",
     "",
     "",
@@ -101,9 +100,10 @@
     "",
     "https://thehackernews.com/2026/11/drupal-warns-of-new-highly-critical.html",
     "https://thehackernews.com/2026/11/drupal-warns-of-new-highly-critical.html",
+    "https://www.securityweek.com/critical-juniper-session",
     "https://www.securityweek.com/critical-juniper-session"
   ],
-  "last_updated": "2026-11-27 11:16:33",
+  "last_updated": "2026-11-27 12:16:18",
   "posts": [
     {
       "id": "urn:li:ugcPost:7524767071063203840",
@@ -199,6 +199,17 @@
       "link": "https://thehackernews.com/2026/11/drupal-warns-of-new-highly-critical.html",
       "content_preview": "**Drupal is bleeding out.**\n\nAttackers are weaponizing **CVE-2026-136716** right now. Unpatched sites face full takeover in hours. Your detection speed matters more than your patch cycle.\n\n**\u26a0\ufe0f TECHNI",
       "posted_at": "2026-11-26 12:30:20",
+      "metrics": {
+        "likes": 0,
+        "comments": 0
+      }
+    },
+    {
+      "id": "urn:li:share:7532054695675215872",
+      "title": "2026-11-27-1",
+      "link": "https://www.securityweek.com/critical-juniper-session",
+      "content_preview": "**Juniper's backdoor just opened**  \nWithin a day of the advisory, threat actors were already executing arbitrary commands as **root** on exposed routers worldwide.  \nAre we still treating network fir",
+      "posted_at": "2026-11-27 12:16:18",
       "metrics": {
         "likes": 0,
         "comments": 0

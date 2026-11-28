@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**shinyhunters cracked the fbi's hiring gate**",
     "**shinyhunters cracked the fbi's inbox**",
     "**cold chain chaos**",
     "**email gateway writes malware**",
@@ -49,10 +48,10 @@
     "2026-11-26-1",
     "**juniper's backdoor just opened**",
     "2026-11-27-1",
-    "**juniper's backdoor just got public**"
+    "**juniper's backdoor just got public**",
+    "2026-11-28-1"
   ],
   "links": [
-    "",
     "",
     "https://www.bleepingcomputer.com/news/security/cyberattack-shuts-down-refrigerators-at-french-supermarkets/",
     "",
@@ -101,9 +100,10 @@
     "https://thehackernews.com/2026/11/drupal-warns-of-new-highly-critical.html",
     "https://www.securityweek.com/critical-juniper-session",
     "https://www.securityweek.com/critical-juniper-session",
+    "https://www.securityweek.com/critical-juniper-session-smart-conductor-flaw-exploited-in-attacks/",
     "https://www.securityweek.com/critical-juniper-session-smart-conductor-flaw-exploited-in-attacks/"
   ],
-  "last_updated": "2026-11-28 10:47:10",
+  "last_updated": "2026-11-28 11:42:50",
   "posts": [
     {
       "id": "urn:li:ugcPost:7524767071063203840",
@@ -210,6 +210,17 @@
       "link": "https://www.securityweek.com/critical-juniper-session",
       "content_preview": "**Juniper's backdoor just opened**  \nWithin a day of the advisory, threat actors were already executing arbitrary commands as **root** on exposed routers worldwide.  \nAre we still treating network fir",
       "posted_at": "2026-11-27 12:16:18",
+      "metrics": {
+        "likes": 0,
+        "comments": 0
+      }
+    },
+    {
+      "id": "urn:li:share:7532408661948841984",
+      "title": "2026-11-28-1",
+      "link": "https://www.securityweek.com/critical-juniper-session-smart-conductor-flaw-exploited-in-attacks/",
+      "content_preview": "**Juniper's backdoor just got public**  \nWithin 48\u202fhours, threat actors leveraged **CVE-2026-103406** to execute **root\u2011level commands** on dozens of ISP routers.  \nAre your network teams still treati",
+      "posted_at": "2026-11-28 11:42:50",
       "metrics": {
         "likes": 0,
         "comments": 0

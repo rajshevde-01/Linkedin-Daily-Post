@@ -1,6 +1,5 @@
 {
   "titles": [
-    "**qilin's kingpin vanished overnight**",
     "**shinyhunters cracked the fbi's hiring gate**",
     "**shinyhunters cracked the fbi's inbox**",
     "**cold chain chaos**",
@@ -49,10 +48,10 @@
     "**drupal is bleeding out.**",
     "2026-11-26-1",
     "**juniper's backdoor just opened**",
-    "2026-11-27-1"
+    "2026-11-27-1",
+    "**juniper's backdoor just got public**"
   ],
   "links": [
-    "https://www.bleepingcomputer.com/news/security/germany-arrests-alleged-core-qilin-ransomware-member-after-extradition/",
     "",
     "",
     "https://www.bleepingcomputer.com/news/security/cyberattack-shuts-down-refrigerators-at-french-supermarkets/",
@@ -101,9 +100,10 @@
     "https://thehackernews.com/2026/11/drupal-warns-of-new-highly-critical.html",
     "https://thehackernews.com/2026/11/drupal-warns-of-new-highly-critical.html",
     "https://www.securityweek.com/critical-juniper-session",
-    "https://www.securityweek.com/critical-juniper-session"
+    "https://www.securityweek.com/critical-juniper-session",
+    "https://www.securityweek.com/critical-juniper-session-smart-conductor-flaw-exploited-in-attacks/"
   ],
-  "last_updated": "2026-11-27 12:16:18",
+  "last_updated": "2026-11-28 10:47:10",
   "posts": [
     {
       "id": "urn:li:ugcPost:7524767071063203840",
